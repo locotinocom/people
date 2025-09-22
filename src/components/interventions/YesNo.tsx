@@ -1,31 +1,26 @@
-import { useGame } from "../../context/GameContext"
-import RewardTest from "../RewardTest"
+type Props = {
+  title: string
+  question: string
+  yesText: string
+  noText: string
+  xp?: number
+  onComplete: () => void
+}
 
-export default function YesNo() {
-  const { addXp, addDias } = useGame()
-
+export default function YesNo({ title, question, yesText, noText, xp, onComplete }: Props) {
   return (
-    <div className="flex flex-col items-center justify-center h-full gap-4 bg-green-200">
-      <p>Willst du das ausprobieren?</p>
-
-      <div className="flex gap-4">
-<RewardTest />
-
-
-        <button
-          onClick={() => addXp(20)}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition"
-        >
-          +20 XP
+    <div className="flex  flex-col items-center gap-4 text-center">
+      <h2 className="text-xl font-bold">{title}</h2>
+      <p>{question}</p>
+      <div className="flex gap-4 mt-2">
+        <button onClick={onComplete} className="px-6 py-3 bg-green-600 rounded-lg text-white font-bold">
+          {yesText}
         </button>
-
-        <button
-          onClick={() => addDias(1)}
-          className="px-4 py-2 bg-pink-500 text-white rounded-lg shadow-md hover:bg-pink-600 transition"
-        >
-          +1 Dia
+        <button onClick={onComplete} className="px-6 py-3 bg-red-600 rounded-lg text-white font-bold">
+          {noText}
         </button>
       </div>
+      {typeof xp === "number" && <p className="mt-2 text-sm text-gray-400">Erledigen bringt +{xp} XP</p>}
     </div>
   )
 }

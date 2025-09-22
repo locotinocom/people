@@ -6,12 +6,48 @@
     "type": "single",
     "level": 1,
     "order": 1,
+    "xp": 10,
     "props": {
       "question": "Dummy Frage Intervention 1",
       "yesText": "Ja",
       "noText": "Nein"
     }
   },
+    {
+  "id": 16,
+  "title": "Gefühle zulassen",
+  "template": "MultiStep",
+  "type": "multi",
+  "level": 1,
+  "order": 6,
+  "xp": 50,
+  "props": {
+    "slides": [
+      {
+        "template": "EmotionPicker",
+        "title": "Welches Gefühl ist gerade da?",
+        "emotions": ["😢 Traurig", "😡 Wütend", "😱 Ängstlich", "😊 Freude"]
+      },
+      {
+        "template": "BeforeAfterScale",
+        "title": "Wie stark spürst du dieses Gefühl?",
+        "scaleMin": 1,
+        "scaleMax": 10
+      },
+      {
+        "template": "SilenceCounter",
+        "title": "Bleib jetzt 15 Sekunden bei diesem Gefühl",
+        "duration": 1
+      },
+      {
+        "template": "BeforeAfterScale",
+        "title": "Wie stark spürst du es jetzt?",
+        "scaleMin": 1,
+        "scaleMax": 10
+      }
+    ]
+  }
+},
   {
     "id": 2,
     "title": "Intervention 2",
@@ -19,6 +55,7 @@
     "type": "single",
     "level": 1,
     "order": 2,
+    "xp": 15,
     "props": {
       "options": ["Option A", "Option B", "Option C"]
     }
@@ -30,9 +67,10 @@
     "type": "single",
     "level": 1,
     "order": 3,
+    "xp": 20,
     "props": {
-      "buttonText": "Gedrückt halten",
-      "holdDuration": 5
+      "buttonText": "Halte 3 Sek.",
+      "holdDuration": 3
     }
   },
   {
@@ -42,6 +80,7 @@
     "type": "single",
     "level": 1,
     "order": 4,
+    "xp": 25,
     "props": {
       "emotions": ["Traurig", "Wütend", "Glücklich"]
     }
@@ -53,142 +92,115 @@
     "type": "single",
     "level": 1,
     "order": 5,
+    "xp": 20,
     "props": {
       "scaleMin": 1,
       "scaleMax": 10
     }
   },
+
   {
     "id": 6,
-    "title": "Intervention 6 (Multi)",
-    "template": "MultiStep",
-    "type": "multi",
-    "pages_count": 3,
-    "level": 1,
-    "order": 6,
+    "title": "Intervention 6",
+    "template": "YesNo",
+    "type": "single",
+    "level": 2,
+    "order": 1,
+    "xp": 10,
     "props": {
-      "slides": [
-        {
-          "template": "HoldButton",
-          "buttonText": "Starte Intervention",
-          "holdDuration": 3
-        },
-        {
-          "template": "EmotionPicker",
-          "emotions": ["Angst", "Freude", "Wut", "Scham"]
-        },
-        {
-          "template": "SilenceCounter",
-          "duration": 20,
-          "instruction": "Fühle dein Gefühl für 20 Sekunden"
-        }
-      ]
+      "question": "Dummy Frage Intervention 6",
+      "yesText": "Ja",
+      "noText": "Nein"
     }
   },
   {
     "id": 7,
     "title": "Intervention 7",
-    "template": "BurningExpectation",
+    "template": "Choice",
     "type": "single",
-    "level": 1,
-    "order": 7,
+    "level": 2,
+    "order": 2,
+    "xp": 15,
     "props": {
-      "prompt": "Schreibe eine Erwartung auf",
-      "buttonText": "🔥 Verbrennen"
+      "options": ["Option 1", "Option 2", "Option 3"]
     }
   },
   {
     "id": 8,
     "title": "Intervention 8",
-    "template": "YesNo",
+    "template": "SilenceCounter",
     "type": "single",
-    "level": 1,
-    "order": 8,
+    "level": 2,
+    "order": 3,
+    "xp": 25,
     "props": {
-      "question": "Dummy Frage Intervention 8",
-      "yesText": "Ja",
-      "noText": "Nein"
+      "duration": 15,
+      "instruction": "Halte inne und spüre deinen Atem"
     }
   },
   {
     "id": 9,
     "title": "Intervention 9",
-    "template": "Choice",
+    "template": "HoldButton",
     "type": "single",
-    "level": 1,
-    "order": 9,
+    "level": 2,
+    "order": 4,
+    "xp": 20,
     "props": {
-      "options": ["Option A", "Option B"]
+      "buttonText": "Halte 5 Sek.",
+      "holdDuration": 5
     }
   },
   {
     "id": 10,
-    "title": "Intervention 10 (Multi)",
-    "template": "MultiStep",
-    "type": "multi",
-    "pages_count": 4,
-    "level": 1,
-    "order": 10,
+    "title": "Intervention 10",
+    "template": "EmotionPicker",
+    "type": "single",
+    "level": 2,
+    "order": 5,
+    "xp": 30,
     "props": {
-      "slides": [
-        {
-          "template": "HoldButton",
-          "buttonText": "Halte 5 Sek.",
-          "holdDuration": 5
-        },
-        {
-          "template": "YesNo",
-          "question": "Willst du weitermachen?",
-          "yesText": "Ja",
-          "noText": "Nein"
-        },
-        {
-          "template": "SilenceCounter",
-          "duration": 15,
-          "instruction": "Halte inne und spüre deinen Atem"
-        },
-        {
-          "template": "BeforeAfterScale",
-          "scaleMin": 1,
-          "scaleMax": 10
-        }
-      ]
+      "emotions": ["Freude", "Trauer", "Überraschung"]
     }
   },
+
   {
     "id": 11,
     "title": "Intervention 11",
-    "template": "EmotionPicker",
-    "type": "single",
-    "level": 1,
-    "order": 11,
-    "props": {
-      "emotions": ["Freude", "Traurigkeit", "Überraschung"]
-    }
-  },
-  {
-    "id": 12,
-    "title": "Intervention 12",
     "template": "YesNo",
     "type": "single",
-    "level": 1,
-    "order": 12,
+    "level": 3,
+    "order": 1,
+    "xp": 10,
     "props": {
-      "question": "Dummy Frage Intervention 12",
+      "question": "Dummy Frage Intervention 11",
       "yesText": "Ja",
       "noText": "Nein"
     }
   },
   {
+    "id": 12,
+    "title": "Intervention 12",
+    "template": "Choice",
+    "type": "single",
+    "level": 3,
+    "order": 2,
+    "xp": 15,
+    "props": {
+      "options": ["Option A", "Option B"]
+    }
+  },
+  {
     "id": 13,
     "title": "Intervention 13",
-    "template": "HoldButton",
+    "template": "BurningExpectation",
     "type": "single",
-    "level": 1,
-    "order": 13,
+    "level": 3,
+    "order": 3,
+    "xp": 40,
     "props": {
-      "buttonText": "Halte 4 Sek.",
-      "holdDuration": 4
+      "prompt": "Schreibe eine Erwartung auf",
+      "buttonText": "🔥 Verbrennen"
     }
   },
   {
@@ -196,10 +208,12 @@
     "title": "Intervention 14",
     "template": "SilenceCounter",
     "type": "single",
-    "level": 1,
-    "order": 14,
+    "level": 3,
+    "order": 4,
+    "xp": 30,
     "props": {
-      "duration": 25
+      "duration": 20,
+      "instruction": "Fühle dein Gefühl für 20 Sekunden"
     }
   },
   {
@@ -207,264 +221,15 @@
     "title": "Intervention 15",
     "template": "BeforeAfterScale",
     "type": "single",
-    "level": 1,
-    "order": 15,
+    "level": 3,
+    "order": 5,
+    "xp": 20,
     "props": {
       "scaleMin": 0,
       "scaleMax": 5
     }
-  },
-  {
-    "id": 16,
-    "title": "Intervention 16 (Multi)",
-    "template": "MultiStep",
-    "type": "multi",
-    "pages_count": 3,
-    "level": 1,
-    "order": 16,
-    "props": {
-      "slides": [
-        {
-          "template": "Choice",
-          "options": ["Ja", "Nein", "Vielleicht"]
-        },
-        {
-          "template": "EmotionPicker",
-          "emotions": ["Mut", "Angst", "Liebe"]
-        },
-        {
-          "template": "SilenceCounter",
-          "duration": 30,
-          "instruction": "Bleib still und spüre dein Herz"
-        }
-      ]
-    }
-  },
-  {
-    "id": 17,
-    "title": "Intervention 17",
-    "template": "BurningExpectation",
-    "type": "single",
-    "level": 1,
-    "order": 17,
-    "props": {
-      "prompt": "Schreibe etwas auf",
-      "buttonText": "🔥 Verbrennen"
-    }
-  },
-  {
-    "id": 18,
-    "title": "Intervention 18",
-    "template": "YesNo",
-    "type": "single",
-    "level": 1,
-    "order": 18,
-    "props": {
-      "question": "Dummy Frage Intervention 18",
-      "yesText": "Ja",
-      "noText": "Nein"
-    }
-  },
-  {
-    "id": 19,
-    "title": "Intervention 19",
-    "template": "Choice",
-    "type": "single",
-    "level": 1,
-    "order": 19,
-    "props": {
-      "options": ["Option 1", "Option 2", "Option 3"]
-    }
-  },
-  {
-    "id": 20,
-    "title": "Intervention 20 (Multi)",
-    "template": "MultiStep",
-    "type": "multi",
-    "pages_count": 5,
-    "level": 1,
-    "order": 20,
-    "props": {
-      "slides": [
-        {
-          "template": "HoldButton",
-          "buttonText": "Starte",
-          "holdDuration": 2
-        },
-        {
-          "template": "EmotionPicker",
-          "emotions": ["Wut", "Trauer", "Freude"]
-        },
-        {
-          "template": "SilenceCounter",
-          "duration": 10,
-          "instruction": "Fühle dein Gefühl für 10 Sekunden"
-        },
-        {
-          "template": "YesNo",
-          "question": "Willst du weitermachen?",
-          "yesText": "Ja",
-          "noText": "Nein"
-        },
-        {
-          "template": "BeforeAfterScale",
-          "scaleMin": 1,
-          "scaleMax": 5
-        }
-      ]
-    }
-  },
-  {
-    "id": 21,
-    "title": "Intervention 21",
-    "template": "EmotionPicker",
-    "type": "single",
-    "level": 1,
-    "order": 21,
-    "props": {
-      "emotions": ["Freude", "Traurigkeit", "Überraschung"]
-    }
-  },
-  {
-    "id": 22,
-    "title": "Intervention 22",
-    "template": "YesNo",
-    "type": "single",
-    "level": 1,
-    "order": 22,
-    "props": {
-      "question": "Dummy Frage Intervention 22",
-      "yesText": "Ja",
-      "noText": "Nein"
-    }
-  },
-  {
-    "id": 23,
-    "title": "Intervention 23",
-    "template": "HoldButton",
-    "type": "single",
-    "level": 1,
-    "order": 23,
-    "props": {
-      "buttonText": "Halte 6 Sek.",
-      "holdDuration": 6
-    }
-  },
-  {
-    "id": 24,
-    "title": "Intervention 24",
-    "template": "SilenceCounter",
-    "type": "single",
-    "level": 1,
-    "order": 24,
-    "props": {
-      "duration": 40
-    }
-  },
-  {
-    "id": 25,
-    "title": "Intervention 25",
-    "template": "BeforeAfterScale",
-    "type": "single",
-    "level": 1,
-    "order": 25,
-    "props": {
-      "scaleMin": 0,
-      "scaleMax": 10
-    }
-  },
-  {
-    "id": 26,
-    "title": "Intervention 26 (Multi)",
-    "template": "MultiStep",
-    "type": "multi",
-    "pages_count": 3,
-    "level": 1,
-    "order": 26,
-    "props": {
-      "slides": [
-        {
-          "template": "Choice",
-          "options": ["Option A", "Option B"]
-        },
-        {
-          "template": "EmotionPicker",
-          "emotions": ["Stolz", "Scham", "Liebe"]
-        },
-        {
-          "template": "SilenceCounter",
-          "duration": 20,
-          "instruction": "Sei still und beobachte"
-        }
-      ]
-    }
-  },
-  {
-    "id": 27,
-    "title": "Intervention 27",
-    "template": "BurningExpectation",
-    "type": "single",
-    "level": 1,
-    "order": 27,
-    "props": {
-      "prompt": "Schreibe etwas auf",
-      "buttonText": "🔥 Verbrennen"
-    }
-  },
-  {
-    "id": 28,
-    "title": "Intervention 28",
-    "template": "YesNo",
-    "type": "single",
-    "level": 1,
-    "order": 28,
-    "props": {
-      "question": "Dummy Frage Intervention 28",
-      "yesText": "Ja",
-      "noText": "Nein"
-    }
-  },
-  {
-    "id": 29,
-    "title": "Intervention 29",
-    "template": "Choice",
-    "type": "single",
-    "level": 1,
-    "order": 29,
-    "props": {
-      "options": ["Option 1", "Option 2", "Option 3"]
-    }
-  },
-  {
-    "id": 30,
-    "title": "Intervention 30 (Multi)",
-    "template": "MultiStep",
-    "type": "multi",
-    "pages_count": 4,
-    "level": 1,
-    "order": 30,
-    "props": {
-      "slides": [
-        {
-          "template": "HoldButton",
-          "buttonText": "Beginne",
-          "holdDuration": 3
-        },
-        {
-          "template": "EmotionPicker",
-          "emotions": ["Mut", "Angst", "Liebe"]
-        },
-        {
-          "template": "SilenceCounter",
-          "duration": 30,
-          "instruction": "Spüre 30 Sekunden in dich hinein"
-        },
-        {
-          "template": "BeforeAfterScale",
-          "scaleMin": 1,
-          "scaleMax": 10
-        }
-      ]
-    }
+    
   }
+
+
 ]

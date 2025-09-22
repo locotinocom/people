@@ -1,24 +1,24 @@
-import React from "react";
+import React from "react"
 
 export default function Footer() {
   return (
-    <div className="p-3 flex justify-around bg-black/40 backdrop-blur">
-      <button className="flex flex-col items-center text-xs">
+    <footer className="h-16 bg-black/50 backdrop-blur flex justify-around items-center">
+      <button className="flex flex-col items-center text-xs hover:text-blue-400 transition">
         🏠
         <span>Home</span>
       </button>
-      <button className="flex flex-col items-center text-xs">
+      <button className="flex flex-col items-center text-xs hover:text-blue-400 transition">
         🔍
         <span>Suchen</span>
       </button>
-      <button className="flex flex-col items-center text-xs">
+      <button className="flex flex-col items-center text-xs hover:text-blue-400 transition">
         ➕
         <span>Neu</span>
       </button>
-      <button className="flex flex-col items-center text-xs">
+      <button className="flex flex-col items-center text-xs hover:text-blue-400 transition">
         👤
         <span>Profil</span>
       </button>
-    </div>
-  );
+    </footer>
+  )
 }

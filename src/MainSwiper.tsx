@@ -1,42 +1,39 @@
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import Header from "./components/Header"
-import RewardTest from "./components/RewardTest"
+import InterventionSwiper from "./components/InterventionSwiper"
 import LevelUpOverlay from "./components/LevelUpOverlay"
+import { useGame } from "./context/GameContext"
+import Footer from "./components/Footer"
 
 export default function MainSwiper() {
-  const xpTargetRef = useRef<HTMLDivElement>(null)
-  const diaTargetRef = useRef<HTMLDivElement>(null)
+  const xpTargetRef = useRef<HTMLDivElement | null>(null)
+  const diaTargetRef = useRef<HTMLDivElement | null>(null)
 
-  // Overlay Test-State
-  const [showOverlay, setShowOverlay] = useState(false)
+  const { showLevelUp, pendingReward, claimReward, level } = useGame()
 
   return (
     <div className="flex items-center justify-center h-screen bg-black text-white">
-      <div className="grid h-full w-full max-w-[500px] 
-      bg-zinc-900 md:h-[800px] md:w-4/5 grid-rows-[auto,1fr,auto]">
+      <div
+        className="grid h-full w-full max-w-[500px] bg-zinc-900 md:h-[800px] md:w-4/5 grid-rows-[auto,1fr,auto] overflow-hidden shadow-lg"
+      >
+        {/* Header */}
         <Header xpTargetRef={xpTargetRef} diaTargetRef={diaTargetRef} />
-        <RewardTest xpTargetRef={xpTargetRef} diaTargetRef={diaTargetRef} />
 
-        {/* Overlay nur zeigen, wenn showOverlay true */}
-        {showOverlay && (
+        {/* Interventionen-Swiper */}
+        <InterventionSwiper xpTargetRef={xpTargetRef} diaTargetRef={diaTargetRef} />
+
+        {/* Overlay bei Level-Up */}
+        {showLevelUp && pendingReward && (
           <LevelUpOverlay
-            level={2}
-            reward={5}
-            onClaim={() => {
-              console.log("Dias gutgeschrieben! 💎")
-              setShowOverlay(false)
-            }}
+            level={level}
+            reward={pendingReward.amount}
+            onClaim={claimReward}
           />
         )}
-      </div>
 
-      {/* Test-Button nur zum Auslösen */}
-      <button
-        onClick={() => setShowOverlay(true)}
-        className="absolute bottom-5 right-5 px-4 py-2 bg-purple-600 text-white rounded-lg shadow"
-      >
-        Level-Up testen
-      </button>
+        {/* Footer */}
+        <Footer />
+      </div>
     </div>
   )
 }
