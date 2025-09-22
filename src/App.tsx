@@ -1,8 +1,11 @@
 import './App.css'
+import { GameProvider } from "./context/GameContext"
 import MainSwiper from "./MainSwiper"
 
-function App() {
-  return <MainSwiper />
+export default function App() {
+  return (
+    <GameProvider>
+      <MainSwiper />
+    </GameProvider>
+  )
 }
-
-export default App
