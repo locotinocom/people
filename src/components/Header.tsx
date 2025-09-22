@@ -1,7 +1,9 @@
 import { motion, useMotionValue, useTransform, animate } from "framer-motion"
 import { FaGem } from "react-icons/fa"
 import { useGame } from "../context/GameContext"
-import { useEffect, useState, RefObject } from "react"
+import { useEffect, useState } from "react"
+import type { RefObject } from "react"
+
 import DiamondCounter from "./DiamondsCounter"
 
 type HeaderProps = {
@@ -75,7 +77,7 @@ export default function Header({ xpTargetRef, diaTargetRef }: HeaderProps) {
         >
           <div className="flex items-center gap-1 px-2 py-1 bg-cyan-900 rounded-full shadow">
             <FaGem className="text-cyan-300 text-lg" />
-            <DiamondCounter value={dias} />
+            <DiamondCounter value={diasDisplay} />
           </div>
         </div>
       </div>
