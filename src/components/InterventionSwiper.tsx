@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 //import "swiper/css"
 import { useGame } from "../context/GameContext"
-
+import type { RefObject } from "react"
 import interventionsData from "../data/interventions.json"
 import type { Intervention } from "../types/intervention"
 import {
@@ -12,7 +12,12 @@ import {
 type Props = {
   // 🔑 spawnXp von oben reinreichen (Partikel-Schicht bleibt in App gemountet)
   spawnXp: (amount: number, durationOverride?: number) => Promise<void> | void
+  xpTargetRef: RefObject<HTMLDivElement | null>
+  diaTargetRef: RefObject<HTMLDivElement | null>
 }
+
+
+
 
 export default function InterventionSwiper({ spawnXp }: Props) {
   const { level, grantReward, markInterventionDone, completedInterventions } = useGame()

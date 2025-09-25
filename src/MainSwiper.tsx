@@ -20,7 +20,9 @@ export default function MainSwiper() {
         <Header xpTargetRef={xpTargetRef} diaTargetRef={diaTargetRef} />
 
         {/* Interventionen-Swiper */}
-        <InterventionSwiper xpTargetRef={xpTargetRef} diaTargetRef={diaTargetRef} />
+        <InterventionSwiper xpTargetRef={xpTargetRef} diaTargetRef={diaTargetRef} spawnXp={function (_amount: number, _durationOverride?: number): Promise<void> | void {
+          throw new Error("Function not implemented.")
+        } } />
 
         {/* Overlay bei Level-Up */}
         {showLevelUp && pendingReward && (

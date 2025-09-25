@@ -1,5 +1,5 @@
     // src/playground/GetAssets.tsx
-import React, { useEffect, useState } from "react"
+import  { useEffect, useState } from "react"
 
 type Asset = {
   id: string
@@ -11,7 +11,6 @@ type Asset = {
 }
 
 export default function GetAssets() {
-  const [token, setToken] = useState<string | null>(null)
   const [assets, setAssets] = useState<Asset[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -67,7 +66,7 @@ const fetchAllAssets = async (token: string) => {
       try {
         setLoading(true)
         const t = await createUser()
-        setToken(t)
+        
         const allAssets = await fetchAllAssets(t)
         setAssets(allAssets)
         console.log("Alle Assets geladen:", allAssets)
