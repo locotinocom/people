@@ -1,4 +1,6 @@
-import React, { useRef } from "react"
+import { useRef } from "react"
+import type { RefObject } from "react"
+
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import InterventionSwiper from "./components/InterventionSwiper"
@@ -6,13 +8,15 @@ import LevelUpOverlay from "./components/LevelUpOverlay"
 import { GameProvider, useGame } from "./context/GameContext"
 import { useReward } from "./hooks/useReward"
 
+
+
 function AppInner({
   xpTargetRef,
   diaTargetRef,
   spawnXp,
 }: {
-  xpTargetRef: React.RefObject<HTMLDivElement>
-  diaTargetRef: React.RefObject<HTMLDivElement>
+  xpTargetRef: RefObject<HTMLDivElement>
+  diaTargetRef: RefObject<HTMLDivElement>
   spawnXp: (amount: number, durationOverride?: number) => Promise<void> | void
 }) {
   const { showLevelUp, pendingReward, claimReward, level } = useGame()
@@ -52,8 +56,8 @@ function AppInner({
 }
 
 export default function App() {
-  const xpTargetRef = useRef<HTMLDivElement>(null)
-  const diaTargetRef = useRef<HTMLDivElement>(null)
+  const xpTargetRef = useRef<HTMLDivElement>(null) as RefObject<HTMLDivElement>
+  const diaTargetRef = useRef<HTMLDivElement>(null) as RefObject<HTMLDivElement>
 
   const { spawnXp, RewardParticles } = useReward(xpTargetRef, diaTargetRef)
 

@@ -1,22 +1,20 @@
 import { useRef, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/css"
+//import "swiper/css"
 import { useGame } from "../context/GameContext"
 
 import interventionsData from "../data/interventions.json"
-import { Intervention } from "../types/intervention"
+import type { Intervention } from "../types/intervention"
 import {
   YesNo, Choice, HoldButton, SilenceCounter, EmotionPicker, BeforeAfterScale, BurningExpectation, MultiStep
 } from "./interventions"
 
 type Props = {
-  xpTargetRef: React.RefObject<HTMLDivElement>
-  diaTargetRef: React.RefObject<HTMLDivElement>
   // 🔑 spawnXp von oben reinreichen (Partikel-Schicht bleibt in App gemountet)
   spawnXp: (amount: number, durationOverride?: number) => Promise<void> | void
 }
 
-export default function InterventionSwiper({ xpTargetRef, diaTargetRef, spawnXp }: Props) {
+export default function InterventionSwiper({ spawnXp }: Props) {
   const { level, grantReward, markInterventionDone, completedInterventions } = useGame()
 
   const interventions: Intervention[] = interventionsData as Intervention[]
@@ -95,7 +93,7 @@ export default function InterventionSwiper({ xpTargetRef, diaTargetRef, spawnXp 
         className="h-full w-full"
         onSlideChange={(s) => {
           if (pending && s.activeIndex !== pending.vIndex) {
-            markInterventionDone(pending.id)
+            markInterventionDone(Number(pending.id))
             setPending(null)
           }
         }}

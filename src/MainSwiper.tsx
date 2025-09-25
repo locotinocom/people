@@ -6,8 +6,8 @@ import { useGame } from "./context/GameContext"
 import Footer from "./components/Footer"
 
 export default function MainSwiper() {
-  const xpTargetRef = useRef<HTMLDivElement | null>(null)
-  const diaTargetRef = useRef<HTMLDivElement | null>(null)
+  const xpTargetRef = useRef<HTMLDivElement>(null)
+  const diaTargetRef = useRef<HTMLDivElement>(null)
 
   const { showLevelUp, pendingReward, claimReward, level } = useGame()
 

@@ -2,6 +2,17 @@ import React, { useEffect, useState } from "react"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, useGLTF } from "@react-three/drei"
 
+// Ensure TypeScript recognizes <primitive /> as a valid JSX element
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      primitive: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        object?: any
+      }
+    }
+  }
+}
+
 type Avatar = {
   id: string
   glb: string
@@ -77,7 +88,7 @@ export default function TopSelector() {
   // Tops laden – Beispiel: alle "top"-Assets für female
 const fetchSelectedTops = async (token: string) => {
   const res = await fetch(
-    `https://api.readyplayer.me/v1/assets?filter=usable-by-user-and-app&filterApplicationId=${import.meta.env.VITE_RPM_APP_ID}&filterUserId=${import.meta.env.VITE_RPM_USER_ID}&type=top&limit=10&page=1&order=name`,
+    `https://api.readyplayer.me/v1/assets?filter=usable-by-user-and-app&filterApplicationId=${import.meta.env.VITE_RPM_APP_ID}&filterUserId=${import.meta.env.VITE_RPM_USER_ID}&type=glasses&limit=10&page=1&order=name`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
