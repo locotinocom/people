@@ -38,7 +38,7 @@ const fetchAllAssets = async (token: string) => {
 
   while (hasNext) {
     const res = await fetch(
-      `https://api.readyplayer.me/v1/assets?gender=female&filter=usable-by-user-and-app&filterApplicationId=68ccff54ab3583906cbead0e&filterUserId=68d16790480c285f8e5d61b1&type=top&limit=100&page=${page}`,
+      `https://api.readyplayer.me/v1/assets?gender=neutral&filter=usable-by-user-and-app&filterApplicationId=68ccff54ab3583906cbead0e&filterUserId=68d16790480c285f8e5d61b1&type=top&limit=100&page=${page}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
