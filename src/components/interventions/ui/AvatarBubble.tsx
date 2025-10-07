@@ -1,6 +1,5 @@
 // src/components/interventions/ui/AvatarBubble.tsx
 import clsx from "clsx"
-import { getAvatarImage } from "@/helpers/getAvatarImage"
 
 
 type AvatarBubbleProps = {

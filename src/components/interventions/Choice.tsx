@@ -8,7 +8,7 @@ type Props = {
   options: ChoiceOption[]
 }
 
-export default function Choice({ title, xp, onComplete, options }: Props) {
+export default function Choice({ title, xp, options }: Props) {
   const [selected, setSelected] = useState<string | null>(null)
   const normalized = useMemo(
     () => options.map((o) => (typeof o === "string" ? { id: o, label: o } : o)),

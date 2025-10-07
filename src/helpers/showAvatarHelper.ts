@@ -10,11 +10,11 @@ type Emotion =
 type Camera = "portrait" | "fullbody" | "head"
 type Pose = "power-stance" | "relaxed" | "standing" | "thumbs-up"
 
-interface AvatarOptions {
-  size?: number
-  camera?: Camera
-  pose?: Pose
-}
+//interface AvatarOptions {
+  //size?: number
+  //camera?: Camera
+  //pose?: Pose
+//}
 
 /**
  * Erzeugt eine Ready Player Me URL für einen Avatar mit Emotion, Pose, Kamera etc.
