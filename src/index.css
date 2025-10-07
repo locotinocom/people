@@ -5,18 +5,51 @@
 @import "swiper/css/effect-coverflow";
 
 
+/* Entfernt standardmäßige Browser-Ränder und Abstände für alle Elemente. 
+   → sorgt für ein "clean slate" Layout ohne ungewollte Lücken. */
 * {
   margin: 0;
 }
 
-
+/* Basis-Setup für die gesamte Seite:
+   - html, body und #root (React-Einstiegspunkt) nehmen die volle Höhe des Fensters ein.
+   - overflow-x: hidden → verhindert horizontales Scrollen (z. B. durch negative Margins oder zu breite Elemente).
+   - overflow-y: auto → erlaubt vertikales Scrollen, wenn Inhalt höher ist als der Bildschirm.
+     (praktisch, wenn z. B. ein Footer unten außerhalb des Viewports sichtbar werden soll). */
 html, body, #root {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto; /* Footer kann wieder sichtbar werden */
 }
 
+/* Fix für mobile Browser (z. B. Safari auf iOS):
+   - 100dvh → moderne Einheit, entspricht der tatsächlichen Höhe des sichtbaren Viewports (inkl. dynamischer UI-Balken).
+   - 100vh → Fallback für Browser, die 100dvh noch nicht unterstützen.
+   → sorgt dafür, dass Komponenten, die .safe-h nutzen, immer volle Bildschirmhöhe einnehmen. */
 .safe-h {
   height: 100dvh;
   height: 100vh; /* fallback */
+}
+
+/* Swiper-spezifische Anpassung:
+   - touch-action: pan-y → erlaubt vertikales Scrollen mit dem Finger,
+     verhindert aber horizontale Swipe-Propagation an übergeordnete Container.
+   → wichtig, wenn Swiper in einem größeren Swiper oder Scrollbereich eingebettet ist (nested Swiper). */
+.swiper {
+  touch-action: pan-y !important;
+}
+
+/* Scrollbar-Entfernung für WebKit-Browser (Chrome, Safari, Edge):
+   → versteckt die sichtbare Scrollleiste, aber lässt weiterhin Scrollbewegung zu. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar-Entfernung für andere Browser:
+   -ms-overflow-style: none → entfernt Scrollbar in IE und älteren Edge-Versionen.
+   scrollbar-width: none → entfernt Scrollbar in Firefox.
+   → Kombination sorgt für komplett unsichtbare Scrollleisten über alle Browser hinweg. */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE + Edge (Legacy) */
+  scrollbar-width: none;    /* Firefox */
 }

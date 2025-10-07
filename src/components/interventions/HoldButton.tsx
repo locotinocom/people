@@ -1,12 +1,11 @@
-// components/interventions/HoldButton.tsx
 import { useRef, useState } from "react"
 
 type Props = {
   title: string
   xp?: number
   onComplete: () => void
-  holdDuration?: number   // Sekunden (alias zu deinem JSON: holdDuration)
-  buttonText?: string     // alias zu deinem JSON: buttonText
+  holdDuration?: number
+  buttonText?: string
 }
 
 export default function HoldButton({
@@ -19,15 +18,20 @@ export default function HoldButton({
   const [progress, setProgress] = useState(0)
   const timerRef = useRef<number | null>(null)
   const startRef = useRef<number | null>(null)
+  const completedRef = useRef(false) // 👈 Neu: verhindert doppeltes onComplete
 
   const tick = () => {
     if (startRef.current == null) return
     const elapsed = (performance.now() - startRef.current) / 1000
     const pct = Math.min(100, (elapsed / holdDuration) * 100)
     setProgress(pct)
+
     if (elapsed >= holdDuration) {
       stopHold()
-      onComplete()
+      if (!completedRef.current) {
+        completedRef.current = true
+        onComplete()
+      }
     } else {
       timerRef.current = window.requestAnimationFrame(tick)
     }
@@ -35,6 +39,7 @@ export default function HoldButton({
 
   const startHold = () => {
     if (timerRef.current) return
+    completedRef.current = false // reset bei neuem Hold
     startRef.current = performance.now()
     timerRef.current = window.requestAnimationFrame(tick)
   }

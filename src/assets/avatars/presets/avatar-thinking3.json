@@ -1,0 +1,21 @@
+{
+  "jawForward": 0.01,
+  "jawLeft": -1,
+  "jawRight": 0.46,
+  "mouthPucker": 0.48,
+  "mouthShrugLower": 0.02,
+  "mouthShrugUpper": -0.09,
+  "noseSneerLeft": -0.2,
+  "mouthLowerDownLeft": 0.03,
+  "mouthLeft": 0.31,
+  "mouthRight": 1,
+  "eyeLookUpLeft": 0.57,
+  "eyeLookUpRight": 0.45,
+  "eyeLookInLeft": -0.09,
+  "eyeLookInRight": 0.86,
+  "eyeLookOutLeft": 0.85,
+  "eyeLookOutRight": -0.07,
+  "mouthClose": 0.02,
+  "mouthFunnel": -0.12,
+  "mouthStretchLeft": 0.02
+}

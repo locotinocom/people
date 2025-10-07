@@ -5,7 +5,7 @@ import interventions from "../data/interventions.json"
 //
 // Types
 //
-type RewardType = "xp" | "dias" | "item"
+type RewardType = "xp" | "dias" | "item" | "levelup"
 
 export type Reward = {
   type: RewardType
@@ -14,7 +14,7 @@ export type Reward = {
   meta?: Record<string, any>
 }
 
-type GameState = {
+export type GameState = {
   level: number
   xp: number
   xpToNext: number
@@ -25,6 +25,14 @@ type GameState = {
   grantReward: (reward: Reward) => void
   claimReward: () => void
   markInterventionDone: (id: number) => void
+
+  // 🔥 Ergänzungen
+  avatarId: string | null
+  avatarName: string | null
+  answers: Record<number, string | number | boolean>
+  setAvatarId: (id: string | null) => void
+  setAvatarName: (name: string | null) => void
+  setAnswers: (answers: Record<number, string | number | boolean>) => void
 }
 
 //
@@ -32,11 +40,17 @@ type GameState = {
 //
 function xpNeededForLevel(lvl: number) {
   const arr = interventions.filter((i: any) => i.level === lvl)
-  return arr.reduce((sum: number, i: any) => sum + (typeof i.xp === "number" ? i.xp : 20), 0)
+  return arr.reduce(
+    (sum: number, i: any) => sum + (typeof i.xp === "number" ? i.xp : 20),
+    0
+  )
 }
 
-// Smooth XP Gain über 'duration' ms
-function animateXpGain(amount: number, duration: number, update: (delta: number) => void) {
+function animateXpGain(
+  amount: number,
+  duration: number,
+  update: (delta: number) => void
+) {
   const start = performance.now()
   let lastVal = 0
 
@@ -72,32 +86,37 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const [pendingReward, setPendingReward] = useState<Reward | null>(null)
   const [showLevelUp, setShowLevelUp] = useState(false)
 
+  // 🔥 Neue States
+  const [avatarId, setAvatarId] = useState<string | null>(null)
+  const [avatarName, setAvatarName] = useState<string | null>(null)
+  const [answers, setAnswers] = useState<Record<number, string | number | boolean>>({})
+
   //
-  // Zentrale Rewards-Funktion
+  // Rewards
   //
   const grantReward = (reward: Reward) => {
     switch (reward.type) {
-     case "xp": {
-  const duration = reward.meta?.duration ?? 1500
-  animateXpGain(reward.amount, duration, (delta) => {
-    setXp((prevXp) => {
-      const newXp = prevXp + delta
-      if (newXp >= xpToNext) {
-        const overflow = newXp - xpToNext
-        const nextLevel = level + 1
-        setLevel(nextLevel)
-        setXp(overflow)
-        setXpToNext(xpNeededForLevel(nextLevel))
-        setPendingReward({ type: "dias", amount: 5 })
-        setShowLevelUp(true)
-        return overflow
-      }
-      return newXp
-    })
-  })
-  break
-}
+      case "xp": {
+        const duration = reward.meta?.duration ?? 1500
+        animateXpGain(reward.amount, duration, (delta) => {
+          setXp((prevXp) => {
+            const newXp = prevXp + delta
+            if (newXp >= xpToNext) {
+              const overflow = newXp - xpToNext
+              const nextLevel = level + 1
 
+              // ❌ NICHT sofort Level ändern
+              // ✅ Stattdessen Reward setzen
+              setPendingReward({ type: "levelup", amount: nextLevel })
+              setShowLevelUp(true)
+
+              return overflow
+            }
+            return newXp
+          })
+        })
+        break
+      }
 
       case "dias": {
         if (reward.autoClaim) {
@@ -119,6 +138,13 @@ export function GameProvider({ children }: { children: ReactNode }) {
         }
         break
       }
+
+      case "levelup": {
+        // wird erst eingelöst → Level hoch
+        setLevel(reward.amount)
+        setXpToNext(xpNeededForLevel(reward.amount))
+        break
+      }
     }
   }
 
@@ -135,6 +161,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
       case "item":
         console.log("Item eingelöst:", pendingReward.meta)
         break
+      case "levelup":
+        // wurde bereits in grantReward umgesetzt
+        break
     }
 
     setPendingReward(null)
@@ -145,7 +174,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
   // Intervention als erledigt markieren
   //
   const markInterventionDone = (id: number) => {
-    setCompletedInterventions((prev) => (prev.includes(id) ? prev : [...prev, id]))
+    setCompletedInterventions((prev) =>
+      prev.includes(id) ? prev : [...prev, id]
+    )
   }
 
   return (
@@ -161,6 +192,13 @@ export function GameProvider({ children }: { children: ReactNode }) {
         grantReward,
         claimReward,
         markInterventionDone,
+
+        avatarId,
+        avatarName,
+        answers,
+        setAvatarId,
+        setAvatarName,
+        setAnswers,
       }}
     >
       {children}

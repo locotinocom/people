@@ -6,6 +6,7 @@ export type Intervention = {
   level: number
   order: number
   xp?: number
+  skippable?: boolean
   props?: {
     slides?: any[]
     [key: string]: any

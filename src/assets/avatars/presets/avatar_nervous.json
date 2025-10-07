@@ -1,0 +1,13 @@
+{
+  "browDownLeft": -1,
+  "browDownRight": -1,
+  "browInnerUp": 0.5,
+  "mouthShrugLower": -0.12,
+  "mouthShrugUpper": 0.61,
+  "noseSneerLeft": -0.39,
+  "noseSneerRight": -0.49,
+  "mouthLowerDownLeft": -0.9,
+  "mouthLowerDownRight": 0.14,
+  "mouthDimpleLeft": 0.3,
+  "mouthDimpleRight": 0.3
+}

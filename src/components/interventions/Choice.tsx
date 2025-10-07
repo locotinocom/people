@@ -18,12 +18,12 @@ export default function Choice({ title, xp, onComplete, options }: Props) {
   return (
     <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
       <h2 className="text-xl font-bold">{title}</h2>
-      <p className="text-lg text-gray-300">Wähle eine Option:</p>
+ 
       <div className="flex flex-wrap justify-center gap-3">
         {normalized.map((opt) => (
           <button
             key={opt.id}
-            onClick={() => { setSelected(opt.id); onComplete(); }}
+            onClick={() => { setSelected(opt.id); }}
             className={`px-4 py-2 rounded-lg border transition-all duration-300 ${
               selected === opt.id ? "bg-blue-500 text-white border-blue-500 scale-105"
                                   : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"

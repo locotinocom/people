@@ -1,0 +1,20 @@
+{
+  "browInnerUp": 0.7,
+  "eyeSquintLeft": 0.4,
+  "eyeSquintRight": 0.4,
+  "eyeWideLeft": 0.23,
+  "eyeWideRight": 0.12,
+  "mouthFrownLeft": 1,
+  "mouthFrownRight": 1,
+  "mouthPucker": -0.55,
+  "mouthShrugLower": 0.42,
+  "mouthShrugUpper": 0.33,
+  "mouthLowerDownLeft": -0.15,
+  "eyeLookDownRight": 0.45,
+  "eyeLookUpLeft": -0.36,
+  "eyeLookUpRight": -0.08,
+  "eyeLookOutLeft": 0.68,
+  "eyeLookOutRight": -0.08,
+  "mouthClose": 0.03,
+  "mouthFunnel": -0.2
+}

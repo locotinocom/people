@@ -1,235 +1,143 @@
 [
   {
     "id": 1,
-    "title": "Intervention 1",
-    "template": "YesNo",
+    "title": "Herzlich willkommen",
+    "template": "Info",
     "type": "single",
     "level": 1,
     "order": 1,
-    "xp": 10,
+    "xp": 0,
+    "skippable": true,
     "props": {
-      "question": "Dummy Frage Intervention 1",
-      "yesText": "Ja",
-      "noText": "Nein"
+      "title": "Herzlich willkommen",
+      "message": "Es freut mich, dass du People Pleasing überwinden und frei und unabhängig leben möchtest. Diese App begleitet dich auf deinem Weg zu mehr Selbstvertrauen, Klarheit und innerer Freiheit."
     }
   },
-    {
-  "id": 16,
-  "title": "Gefühle zulassen",
-  "template": "MultiStep",
-  "type": "multi",
-  "level": 1,
-  "order": 6,
-  "xp": 50,
-  "props": {
-    "slides": [
-      {
-        "template": "EmotionPicker",
-        "title": "Welches Gefühl ist gerade da?",
-        "emotions": ["😢 Traurig", "😡 Wütend", "😱 Ängstlich", "😊 Freude"]
-      },
-      {
-        "template": "BeforeAfterScale",
-        "title": "Wie stark spürst du dieses Gefühl?",
-        "scaleMin": 1,
-        "scaleMax": 10
-      },
-      {
-        "template": "SilenceCounter",
-        "title": "Bleib jetzt 15 Sekunden bei diesem Gefühl",
-        "duration": 1
-      },
-      {
-        "template": "BeforeAfterScale",
-        "title": "Wie stark spürst du es jetzt?",
-        "scaleMin": 1,
-        "scaleMax": 10
-      }
-    ]
-  }
-},
   {
     "id": 2,
-    "title": "Intervention 2",
-    "template": "Choice",
-    "type": "single",
+    "title": "Avatar auswählen",
+    "template": "ChooseAvatar",
     "level": 1,
     "order": 2,
-    "xp": 15,
-    "props": {
-      "options": ["Option A", "Option B", "Option C"]
-    }
+    "xp": 0,
+    "skippable": false,
+    "props": {}
   },
   {
     "id": 3,
-    "title": "Intervention 3",
-    "template": "HoldButton",
+    "title": "Gamification Erklärung",
+    "template": "Info",
     "type": "single",
     "level": 1,
     "order": 3,
-    "xp": 20,
+    "xp": 0,
+    "skippable": true,
     "props": {
-      "buttonText": "Halte 3 Sek.",
-      "holdDuration": 3
+      "title": "So funktioniert die App",
+      "message": "Du bekommst XP, steigst im Level auf, sammelst Diamanten und schaltest Belohnungen frei. {{avatarName}} wächst mit dir – gemeinsam meistert ihr jede Aufgabe. 💎"
     }
   },
   {
     "id": 4,
-    "title": "Intervention 4",
-    "template": "EmotionPicker",
+    "title": "Sag Hallo!",
+    "template": "SimpleAction",
     "type": "single",
     "level": 1,
     "order": 4,
-    "xp": 25,
+    "xp": 5,
+    "skippable": false,
     "props": {
-      "emotions": ["Traurig", "Wütend", "Glücklich"]
+      "title": "Hier deine erste einfache Aufgabe!",
+      "message": "Sag Hallo zu {{avatarName}} 👋",
+      "buttonText": "Hallo 👋",
+      "camera": "fullbody"
     }
   },
   {
     "id": 5,
-    "title": "Intervention 5",
-    "template": "BeforeAfterScale",
+    "title": "Erste Belohnung",
+    "template": "Info",
     "type": "single",
     "level": 1,
     "order": 5,
-    "xp": 20,
+    "xp": 0,
+    "skippable": true,
     "props": {
-      "scaleMin": 1,
-      "scaleMax": 10
+      "title": "Super gemacht!",
+      "message": "Du hast gerade 5 XP verdient! 🎉\nOben siehst du deinen Fortschrittsbalken – je mehr Aufgaben du löst, desto schneller steigst du auf. Und mit jedem Level warten tolle Belohnungen auf dich!"
     }
   },
-
   {
     "id": 6,
-    "title": "Intervention 6",
+    "title": "Reflexionsfrage 1",
     "template": "YesNo",
     "type": "single",
-    "level": 2,
-    "order": 1,
-    "xp": 10,
+    "level": 1,
+    "order": 6,
+    "xp": 5,
+    "skippable": true,
     "props": {
-      "question": "Dummy Frage Intervention 6",
-      "yesText": "Ja",
-      "noText": "Nein"
+      "title": "Kurze Reflexion",
+      "question": "Hast du schon einmal Ja gesagt, obwohl du Nein sagen wolltest – oder Nein gesagt, obwohl du Ja meintest?",
+      "yesText": "Ja, kenn ich gut!",
+      "noText": "Nein, kommt mir nicht bekannt vor."
     }
   },
   {
     "id": 7,
-    "title": "Intervention 7",
-    "template": "Choice",
+    "title": "Begleiter-Erklärung",
+    "template": "Info",
     "type": "single",
-    "level": 2,
-    "order": 2,
-    "xp": 15,
+    "level": 1,
+    "order": 7,
+    "xp": 0,
+    "skippable": true,
     "props": {
-      "options": ["Option 1", "Option 2", "Option 3"]
+      "title": "Cool!",
+      "message": "{{avatarName}} merkt sich deine Antworten, um dich optimal zu begleiten – aber keine Sorge, das bleibt alles zwischen euch beiden 😉"
     }
   },
   {
     "id": 8,
-    "title": "Intervention 8",
-    "template": "SilenceCounter",
+    "title": "Atemübung Einladung",
+    "template": "MeditationInvite",
     "type": "single",
-    "level": 2,
-    "order": 3,
-    "xp": 25,
+    "level": 1,
+    "order": 8,
+    "xp": 10,
+    "skippable": true,
     "props": {
-      "duration": 15,
-      "instruction": "Halte inne und spüre deinen Atem"
+      "title": "Eine kurze Pause",
+      "message": "Darf ich dich einladen, 1 Minute lang eine kleine Atemmeditation zu machen? Atme ruhig ein und aus – {{avatarName}} begleitet dich dabei.",
+      "buttonText": "Ja, gerne 🧘‍♀️"
     }
   },
   {
     "id": 9,
-    "title": "Intervention 9",
-    "template": "HoldButton",
+    "title": "Aufgaben-Erklärung",
+    "template": "Info",
     "type": "single",
-    "level": 2,
-    "order": 4,
-    "xp": 20,
+    "level": 1,
+    "order": 9,
+    "xp": 0,
+    "skippable": true,
     "props": {
-      "buttonText": "Halte 5 Sek.",
-      "holdDuration": 5
+      "title": "Kleine Info",
+      "message": "Du kannst Aufgaben überspringen, wenn du gerade keine Zeit oder Lust hast. Aber manche sind aufbauend – diese musst du erledigen, um weiterzukommen. 💪"
     }
   },
   {
     "id": 10,
-    "title": "Intervention 10",
-    "template": "EmotionPicker",
+    "title": "Level-Aufstieg",
+    "template": "Info",
     "type": "single",
-    "level": 2,
-    "order": 5,
-    "xp": 30,
+    "level": 1,
+    "order": 10,
+    "xp": 0,
+    "skippable": false,
     "props": {
-      "emotions": ["Freude", "Trauer", "Überraschung"]
+      "title": "🎉 Level 2 erreicht!",
+      "message": "Juhu! Du bist im Level 2 angekommen und hast neue Belohnungen freigeschaltet – zum Beispiel eine Sonnenbrille und Schuhe für deinen Avatar. 😎\nIm Belohnungs-Center kannst du sie ansehen und anprobieren!"
     }
-  },
-
-  {
-    "id": 11,
-    "title": "Intervention 11",
-    "template": "YesNo",
-    "type": "single",
-    "level": 3,
-    "order": 1,
-    "xp": 10,
-    "props": {
-      "question": "Dummy Frage Intervention 11",
-      "yesText": "Ja",
-      "noText": "Nein"
-    }
-  },
-  {
-    "id": 12,
-    "title": "Intervention 12",
-    "template": "Choice",
-    "type": "single",
-    "level": 3,
-    "order": 2,
-    "xp": 15,
-    "props": {
-      "options": ["Option A", "Option B"]
-    }
-  },
-  {
-    "id": 13,
-    "title": "Intervention 13",
-    "template": "BurningExpectation",
-    "type": "single",
-    "level": 3,
-    "order": 3,
-    "xp": 40,
-    "props": {
-      "prompt": "Schreibe eine Erwartung auf",
-      "buttonText": "🔥 Verbrennen"
-    }
-  },
-  {
-    "id": 14,
-    "title": "Intervention 14",
-    "template": "SilenceCounter",
-    "type": "single",
-    "level": 3,
-    "order": 4,
-    "xp": 30,
-    "props": {
-      "duration": 20,
-      "instruction": "Fühle dein Gefühl für 20 Sekunden"
-    }
-  },
-  {
-    "id": 15,
-    "title": "Intervention 15",
-    "template": "BeforeAfterScale",
-    "type": "single",
-    "level": 3,
-    "order": 5,
-    "xp": 20,
-    "props": {
-      "scaleMin": 0,
-      "scaleMax": 5
-    }
-    
   }
-
-
 ]

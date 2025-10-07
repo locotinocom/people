@@ -9,8 +9,9 @@ type Props = {
 
 export default function YesNo({ title, question, yesText, noText, xp, onComplete }: Props) {
   return (
-    <div className="flex  flex-col items-center gap-4 text-center">
+    <div className="flex overflow-hidden max-h-full  flex-col items-center gap-4 text-center">
       <h2 className="text-xl font-bold">{title}</h2>
+    
       <p>{question}</p>
       <div className="flex gap-4 mt-2">
         <button onClick={onComplete} className="px-6 py-3 bg-green-600 rounded-lg text-white font-bold">
