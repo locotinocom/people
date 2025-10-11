@@ -66,7 +66,7 @@ const interventionsByLevel = interventionsData as unknown as Record<string, Inte
 
   const slides = useMemo(
     () =>
-      verticalList.map((intervention, idx) => (
+      verticalList.map((intervention) => (
         <SwiperSlide
           key={intervention.id}
           className={`!h-full overflow-hidden ${

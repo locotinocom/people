@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, memo } from "react"
+import { useRef, useEffect, memo } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import * as Templates from "."
 import { useGame } from "../../context/GameContext"
@@ -9,10 +9,10 @@ type Props = {
   slides: Slide[]
   successXp?: number
   onAllDone: () => Promise<void> | void
-  onComplete?: () => void
+  onComplete?: () => void // behalten, falls später genutzt
 }
 
-function MultiStep({ slides, successXp = 20, onAllDone, onComplete }: Props) {
+function MultiStep({ slides, successXp = 20, onAllDone }: Props) {
   const swiperRef = useRef<any>(null)
   const doneOnce = useRef(false)
   const stepLockRef = useRef<Record<number, boolean>>({})
@@ -60,7 +60,7 @@ function MultiStep({ slides, successXp = 20, onAllDone, onComplete }: Props) {
       slidesPerView={1}
       nested
       className="w-full h-full"
-      noSwiping={true}
+      noSwiping
       noSwipingClass="swiper-no-swiping"
       observer
       observeParents
@@ -86,7 +86,6 @@ function MultiStep({ slides, successXp = 20, onAllDone, onComplete }: Props) {
           if (stepLockRef.current[i]) return
           stepLockRef.current[i] = true
 
-          // Abbruch → nur Swipen wieder erlauben
           if (cancelled) {
             if (import.meta.env.DEV)
               console.log("❌ MultiStep: abgebrochen, kein XP, kein Wechsel")
@@ -94,7 +93,6 @@ function MultiStep({ slides, successXp = 20, onAllDone, onComplete }: Props) {
             return
           }
 
-          // Zwischenschritt → nächster Slide
           if (!isLast) {
             if (import.meta.env.DEV)
               console.log(`➡️ MultiStep: Slide [${i}] abgeschlossen → weiter zu [${i + 1}]`)
@@ -102,10 +100,8 @@ function MultiStep({ slides, successXp = 20, onAllDone, onComplete }: Props) {
             return
           }
 
-          // Letzter Slide → XP abspielen + Unlock
           if (!doneOnce.current) {
             doneOnce.current = true
-
             const xpValue = Number(slide.xp ?? successXp ?? 0)
             if (xpValue > 0) {
               window.dispatchEvent(new CustomEvent("grant-xp", { detail: xpValue }))
@@ -114,7 +110,6 @@ function MultiStep({ slides, successXp = 20, onAllDone, onComplete }: Props) {
 
             unlockVerticalSwiper()
 
-            // kurze Pause, dann AllDone triggern (z. B. Levelabschluss)
             setTimeout(() => {
               if (import.meta.env.DEV)
                 console.log("🏁 MultiStep vollständig abgeschlossen → onAllDone()")

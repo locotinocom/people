@@ -23,8 +23,8 @@ function AppInner({
   const { showLevelUp, pendingReward, claimReward, level } = useGame()
   const swiperRef = useRef<any>(null)
 
-const [stepIndex, setStepIndex] = useState(0)
-const [initialSlide, setInitialSlide] = useState(0)
+const [, setStepIndex] = useState(0)
+const [, setInitialSlide] = useState(0)
 
 
   return (

@@ -72,8 +72,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const [avatarId, setAvatarId] = useState<string | null>(null)
   const [avatarName, setAvatarName] = useState<string | null>(null)
   const [answers, setAnswers] = useState<Record<number, string | number | boolean>>({})
-  const [user, setUser] = useState<User | null>(null)
-  const [justLeveledUp, setJustLeveledUp] = useState(false)
+// ungenutzte States behalten, aber neutral benennen
+const [_user, setUser] = useState<User | null>(null)
+const [_justLeveledUp, setJustLeveledUp] = useState(false)
+
 
   useEffect(() => {
     const load = async () => {

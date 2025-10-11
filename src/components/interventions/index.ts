@@ -1,5 +1,3 @@
-import SimpleAction from "./SimpleAction"
-
 export { default as YesNo } from "./YesNo"
 export { default as Choice } from "./Choice"
 export { default as HoldButton } from "./HoldButton"
