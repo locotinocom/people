@@ -9,7 +9,7 @@ type Props = {
 
 export default function YesNo({ title, question, yesText, noText, xp, onComplete }: Props) {
   return (
-    <div className="flex overflow-hidden max-h-full  flex-col items-center gap-4 text-center">
+      <div className="flex flex-col items-center justify-center h-full text-center text-white p-6">
       <h2 className="text-xl font-bold">{title}</h2>
     
       <p>{question}</p>

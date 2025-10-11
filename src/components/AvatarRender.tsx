@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-type Emotion =
+export type Emotion =
   | "neutral"
   | "happy"
   | "sad"
@@ -17,8 +17,8 @@ type Emotion =
     | "rage_default"
     | "lol_default"
 
-type Pose = "standing" | "relaxed" | "thumbs-up" | "power-stance"
-type Camera = "portrait" | "fullbody" | "head"
+export type Pose = "standing" | "relaxed" | "thumbs-up" | "power-stance"
+export type Camera = "portrait" | "fullbody" | "head"
 
 type Props = {
   name?: string
@@ -55,7 +55,7 @@ export default function AvatarRender({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-xl bg-zinc-900 flex items-center justify-center ${className}`}
+      className={`relative overflow-hidden rounded-xl flex items-center justify-center ${className}`}
       style={{
         width: size ? `${size}px` : "100%",
         height: "100%", // nimmt die Höhe des Eltern-Containers ein
@@ -64,8 +64,13 @@ export default function AvatarRender({
       <img
         src={src}
         alt={`${avatarName} ${emotion} ${pose} ${camera}`}
-        className="w-full h-full object-cover"
-        style={{ objectPosition: "center" }}
+        className={
+          camera==="head" 
+          ? "object-cover w-55 h-55 rounded-full"
+          :"object-cover w-full h-full"
+
+        }
+        style={{ objectPosition: camera  === "head" ? "50% 45px" : "center"  }}
         onError={(e) => {
           console.warn("⚠️ Avatar nicht gefunden:", src)
           e.currentTarget.style.opacity = "0.3"

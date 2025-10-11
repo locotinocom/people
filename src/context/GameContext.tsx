@@ -1,10 +1,12 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import type { ReactNode } from "react"
 import interventions from "../data/interventions.json"
+import { api } from "../api"
+import type { User } from "../api/types" // 👤 API-User-Typ
 
-//
-// Types
-//
+// --------------------
+// 🔹 Types
+// --------------------
 type RewardType = "xp" | "dias" | "item" | "levelup"
 
 export type Reward = {
@@ -26,7 +28,7 @@ export type GameState = {
   claimReward: () => void
   markInterventionDone: (id: number) => void
 
-  // 🔥 Ergänzungen
+  // 🔥 Erweiterungen
   avatarId: string | null
   avatarName: string | null
   answers: Record<number, string | number | boolean>
@@ -35,9 +37,9 @@ export type GameState = {
   setAnswers: (answers: Record<number, string | number | boolean>) => void
 }
 
-//
-// Helpers
-//
+// --------------------
+// 🔹 Helper Functions
+// --------------------
 function xpNeededForLevel(lvl: number) {
   const arr = interventions.filter((i: any) => i.level === lvl)
   return arr.reduce(
@@ -57,43 +59,124 @@ function animateXpGain(
   function tick(now: number) {
     const progress = Math.min((now - start) / duration, 1)
     const current = Math.floor(progress * amount)
-
     if (current !== lastVal) {
       update(current - lastVal)
       lastVal = current
     }
-
-    if (progress < 1) {
-      requestAnimationFrame(tick)
-    }
+    if (progress < 1) requestAnimationFrame(tick)
   }
 
   requestAnimationFrame(tick)
 }
 
-//
-// Context
-//
+// --------------------
+// 🔹 Context Setup
+// --------------------
 const GameContext = createContext<GameState | null>(null)
 
 export function GameProvider({ children }: { children: ReactNode }) {
+  // 🧠 Core Game States
   const [level, setLevel] = useState(1)
   const [xp, setXp] = useState(0)
   const [xpToNext, setXpToNext] = useState(() => xpNeededForLevel(1))
   const [dias, setDias] = useState(0)
-
   const [completedInterventions, setCompletedInterventions] = useState<number[]>([])
+
+  // 🎁 Rewards & Level-Up
   const [pendingReward, setPendingReward] = useState<Reward | null>(null)
   const [showLevelUp, setShowLevelUp] = useState(false)
 
-  // 🔥 Neue States
+  // 👤 User Data
   const [avatarId, setAvatarId] = useState<string | null>(null)
   const [avatarName, setAvatarName] = useState<string | null>(null)
   const [answers, setAnswers] = useState<Record<number, string | number | boolean>>({})
 
-  //
-  // Rewards
-  //
+  // 🧩 interner User-Cache
+  const [user, setUser] = useState<User | null>(null)
+
+  // --------------------
+  // 🔄 API INTEGRATION
+  // --------------------
+
+  // 🟢 1. User & GameState laden
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const [userData, gameData] = await Promise.all([
+          api.getUser(),
+          api.getGameState(),
+        ])
+
+        setUser(userData)
+        setAvatarId(userData.avatarId ?? null)
+        setAvatarName(userData.name ?? null)
+
+        if (gameData) {
+          setLevel(gameData.level ?? 1)
+          setXp(gameData.xp ?? 0)
+          setDias(gameData.dias ?? 0)
+          setCompletedInterventions(gameData.completedInterventions ?? [])
+          setAnswers(gameData.answers ?? {})
+          setXpToNext(xpNeededForLevel(gameData.level ?? 1))
+        }
+      } catch (err) {
+        console.warn("⚠️ Konnte Daten nicht laden:", err)
+      }
+    }
+    load()
+  }, [])
+
+  // 🟢 2. GameState automatisch speichern
+useEffect(() => {
+  let prevState = ""
+
+  const save = async () => {
+    try {
+      const current = JSON.stringify({
+        level,
+        xp,
+        dias,
+        completedInterventions,
+        avatarId,
+        avatarName,
+        answers,
+      })
+
+      // 🔒 Nur speichern, wenn sich wirklich was geändert hat
+      if (current === prevState) return
+      prevState = current
+
+      await api.saveGameState(JSON.parse(current))
+    } catch (err) {
+      console.warn("⚠️ Konnte GameState nicht speichern:", err)
+    }
+  }
+
+  save()
+}, [level, xp, dias, completedInterventions, avatarId, avatarName, answers])
+
+
+  // 🟢 3. Avataränderung sofort in API schreiben
+useEffect(() => {
+  let prevAvatar = ""
+  const updateAvatar = async () => {
+    if (!avatarName || !avatarId) return
+    const current = `${avatarName}:${avatarId}`
+    if (current === prevAvatar) return
+    prevAvatar = current
+
+    try {
+      await api.setAvatar(avatarName, avatarId)
+    } catch (err) {
+      console.warn("⚠️ Avatar konnte nicht gespeichert werden:", err)
+    }
+  }
+  updateAvatar()
+}, [avatarName, avatarId])
+
+  // --------------------
+  // 🧮 Game Logic
+  // --------------------
   const grantReward = (reward: Reward) => {
     switch (reward.type) {
       case "xp": {
@@ -104,12 +187,8 @@ export function GameProvider({ children }: { children: ReactNode }) {
             if (newXp >= xpToNext) {
               const overflow = newXp - xpToNext
               const nextLevel = level + 1
-
-              // ❌ NICHT sofort Level ändern
-              // ✅ Stattdessen Reward setzen
               setPendingReward({ type: "levelup", amount: nextLevel })
               setShowLevelUp(true)
-
               return overflow
             }
             return newXp
@@ -118,7 +197,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
         break
       }
 
-      case "dias": {
+      case "dias":
         if (reward.autoClaim) {
           setDias((prev) => prev + reward.amount)
         } else {
@@ -126,59 +205,43 @@ export function GameProvider({ children }: { children: ReactNode }) {
           setShowLevelUp(true)
         }
         break
-      }
 
-      case "item": {
+      case "item":
         console.log("Item reward:", reward.meta)
-        if (reward.autoClaim) {
-          // TODO: direkt ins Inventar
-        } else {
-          setPendingReward(reward)
-          setShowLevelUp(true)
-        }
+        if (!reward.autoClaim) setPendingReward(reward)
+        setShowLevelUp(true)
         break
-      }
 
-      case "levelup": {
-        // wird erst eingelöst → Level hoch
+      case "levelup":
         setLevel(reward.amount)
         setXpToNext(xpNeededForLevel(reward.amount))
         break
-      }
     }
   }
 
-  //
-  // Reward einlösen
-  //
   const claimReward = () => {
     if (!pendingReward) return
-
     switch (pendingReward.type) {
       case "dias":
         setDias((prev) => prev + pendingReward.amount)
         break
       case "item":
-        console.log("Item eingelöst:", pendingReward.meta)
-        break
-      case "levelup":
-        // wurde bereits in grantReward umgesetzt
+        console.log("🎁 Item eingelöst:", pendingReward.meta)
         break
     }
-
     setPendingReward(null)
     setShowLevelUp(false)
   }
 
-  //
-  // Intervention als erledigt markieren
-  //
   const markInterventionDone = (id: number) => {
     setCompletedInterventions((prev) =>
       prev.includes(id) ? prev : [...prev, id]
     )
   }
 
+  // --------------------
+  // 💾 Context Value
+  // --------------------
   return (
     <GameContext.Provider
       value={{
@@ -192,7 +255,6 @@ export function GameProvider({ children }: { children: ReactNode }) {
         grantReward,
         claimReward,
         markInterventionDone,
-
         avatarId,
         avatarName,
         answers,

@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import type { Swiper as SwiperType } from "swiper"
 import AvatarRender from "../AvatarRender"
+import { useGame } from "../../context/GameContext"
 
 const EVA_NAME = "eva"
 const TIM_NAME = "tim"
@@ -10,14 +11,37 @@ type Props = { onComplete: (avatarName: string) => void }
 
 export default function ChooseAvatar({ onComplete }: Props) {
   const [selected, setSelected] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
   const swiperRef = useRef<SwiperType | null>(null)
+  const { setAvatarName, setAvatarId } = useGame()
 
-  const handleChoose = (name: string) => {
-    setSelected(name)
-    localStorage.setItem("avatarName", name)
-    swiperRef.current?.slideNext()
+  // ------------------------
+  // Avatar speichern (API)
+  // ------------------------
+  const handleChoose = async (name: string) => {
+    try {
+      setLoading(true)
+      setSelected(name)
+
+      // Speichere Avatar in Context (triggert automatisch API-Aufruf)
+      setAvatarName(name)
+      setAvatarId(name)
+
+      // Simulierter kurzer Delay für UX
+      await new Promise((r) => setTimeout(r, 400))
+
+      // Weiter zur nächsten Slide
+      swiperRef.current?.slideNext()
+    } catch (err) {
+      console.warn("⚠️ Avatar konnte nicht gespeichert werden:", err)
+    } finally {
+      setLoading(false)
+    }
   }
 
+  // ------------------------
+  // Rendering
+  // ------------------------
   return (
     <Swiper
       allowTouchMove={false}
@@ -31,11 +55,11 @@ export default function ChooseAvatar({ onComplete }: Props) {
             Von wem möchtest du begleitet und beraten werden?
           </h2>
 
-          {/* Avatar-Auswahl – nebeneinander, dynamisch skalierend */}
           <div className="flex justify-center items-start gap-4 w-full max-w-[600px] mx-auto">
             {/* Eva */}
             <button
               onClick={() => handleChoose(EVA_NAME)}
+              disabled={loading}
               className={`flex flex-col items-center flex-1 min-w-[140px] max-w-[260px] p-3 rounded-xl transition ${
                 selected === EVA_NAME
                   ? "bg-green-700"
@@ -47,7 +71,7 @@ export default function ChooseAvatar({ onComplete }: Props) {
                   name={EVA_NAME}
                   emotion="happy"
                   pose="standing"
-                  camera="head"
+                  camera="portrait"
                   className="object-cover object-top w-full h-full"
                 />
               </div>
@@ -61,6 +85,7 @@ export default function ChooseAvatar({ onComplete }: Props) {
             {/* Tim */}
             <button
               onClick={() => handleChoose(TIM_NAME)}
+              disabled={loading}
               className={`flex flex-col items-center flex-1 min-w-[140px] max-w-[260px] p-3 rounded-xl transition ${
                 selected === TIM_NAME
                   ? "bg-green-700"
@@ -72,7 +97,7 @@ export default function ChooseAvatar({ onComplete }: Props) {
                   name={TIM_NAME}
                   emotion="happy"
                   pose="power-stance"
-                  camera="head"
+                  camera="portrait"
                   className="object-cover object-top w-full h-full"
                 />
               </div>
@@ -109,14 +134,15 @@ export default function ChooseAvatar({ onComplete }: Props) {
               <p className="text-gray-300 max-w-xs">
                 {selected === EVA_NAME
                   ? "Eva wird dich mit Klarheit, Herz und Humor begleiten – liebevoll, aber bestimmt. 🔥"
-                  : "Tim begleitet dich ruhig, geduldig und mitfühlend – ein echter Anker in stürmischen Zeiten. Er hilft dir auf eine ganz individuelle Art, People Pleasing zu überwinden! 🌊"}
+                  : "Tim begleitet dich ruhig, geduldig und mitfühlend – ein echter Anker in stürmischen Zeiten. 🌊"}
               </p>
 
               <button
                 onClick={() => onComplete(selected)}
+                disabled={loading}
                 className="mt-6 px-6 py-2 bg-green-600 rounded-lg hover:bg-green-500"
               >
-                Weiter
+                {loading ? "Speichere..." : "Weiter"}
               </button>
             </>
           ) : (

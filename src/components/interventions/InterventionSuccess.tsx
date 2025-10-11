@@ -2,25 +2,22 @@ import { useEffect, useState } from "react"
 
 type Props = {
   xp: number
-  /** Wird beim Mount der Success-Slide aufgerufen (für XP-Animation/Reward). */
   onReady?: () => void
+  // 👇 optional für Kompatibilität, falls irgendwo noch onComplete gereicht wird
+  onComplete?: () => void
 }
 
-const messages = [
-  "Cool, du hast es geschafft! 🎉",
-  "Stark, weiter so! 💪",
-  "Yes! Wieder ein Schritt weiter 🚀",
-  "Super gemacht, du bist auf Kurs 🌟",
-]
-
-export default function InterventionSuccess({ xp, onReady }: Props) {
-  // fixiere Nachricht einmalig beim Mount
-  const [msg] = useState(() => messages[Math.floor(Math.random() * messages.length)])
+export default function InterventionSuccess({ xp, onReady, onComplete }: Props) {
+  const [msg, setMsg] = useState("")
 
   useEffect(() => {
-    onReady?.()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    // … deine Message-Logik …
+
+    // Wichtig: Callback sicher auslösen (kleines Delay, damit der Slide-Wechsel stabil ist)
+    const cb = onReady ?? onComplete
+    const t = setTimeout(() => cb?.(), 200)
+    return () => clearTimeout(t)
+  }, [onReady, onComplete])
 
   return (
     <div className="flex flex-col items-center justify-center h-full text-center px-4">

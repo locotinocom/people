@@ -1,51 +1,96 @@
 [
   {
-    "id": 1,
+  "title": "Atemübung",
+  "template": "MultiStep",
+  "type": "multi",
+  "level": 1,
+  "xp": 40,
+  "skippable": false,
+  "props": {
+    "slides": [
+       
+  
+      {
+        "template": "Invitation",
+         "skippable":false,
+        "props": {
+         
+          "title": "Eine kurze Pause",
+          "message": "Darf ich dich einladen, 1 Minute lang eine kleine Atemmeditation zu machen? Atme ruhig ein und aus – ich begleite dich dabei.",
+          "yesText": "Ja, gerne 🧘‍♀️",
+          "noText": "Vielleicht später"
+        }
+      },
+      {
+        "template": "Meditation",
+         "skippable":false,
+        "props": {
+          "title": "Atmung wahrnehmen",
+          
+          "description": "Eine kurze Atemmeditation, um im Moment anzukommen.",
+          "audio": "level1_atmung.mp3",
+          "backgroundMusic": "",
+          "duration": 7
+        }
+      },{
+    "title": "Gut gemacht",
+    "template": "Info",
+    "type": "single",
+    "skippable":true,
+    "level": 1,
+    "xp": 40,
+  
+    "props": {
+      "autoComplete": true,
+      "title": "Gut gemacht",
+      "message": "Es freut mich, dass du People Pleasing überwinden und frei und unabhängig leben möchtest. Diese App begleitet dich auf deinem Weg zu mehr Selbstvertrauen, Klarheit und innerer Freiheit."
+    }
+  }
+
+    ]
+  }
+  
+},
+{
     "title": "Herzlich willkommen",
     "template": "Info",
     "type": "single",
     "level": 1,
-    "order": 1,
     "xp": 0,
-    "skippable": true,
+  
     "props": {
       "title": "Herzlich willkommen",
       "message": "Es freut mich, dass du People Pleasing überwinden und frei und unabhängig leben möchtest. Diese App begleitet dich auf deinem Weg zu mehr Selbstvertrauen, Klarheit und innerer Freiheit."
     }
   },
   {
-    "id": 2,
     "title": "Avatar auswählen",
     "template": "ChooseAvatar",
+    "type": "single",
     "level": 1,
-    "order": 2,
     "xp": 0,
     "skippable": false,
     "props": {}
   },
   {
-    "id": 3,
-    "title": "Gamification Erklärung",
+    "title": "Kurze Erklärung",
     "template": "Info",
     "type": "single",
     "level": 1,
-    "order": 3,
+    "skippable":true,
     "xp": 0,
-    "skippable": true,
     "props": {
       "title": "So funktioniert die App",
-      "message": "Du bekommst XP, steigst im Level auf, sammelst Diamanten und schaltest Belohnungen frei. {{avatarName}} wächst mit dir – gemeinsam meistert ihr jede Aufgabe. 💎"
+      "message": "Du bekommst XP, steigst im Level auf, sammelst Diamanten und schaltest Belohnungen frei. {{avatarName}} wächst mit dir – gemeinsam meistert ihr jede Aufgabe. 💎 Hier ein Beispiel..."
     }
   },
   {
-    "id": 4,
     "title": "Sag Hallo!",
     "template": "SimpleAction",
     "type": "single",
     "level": 1,
-    "order": 4,
     "xp": 5,
-    "skippable": false,
+    "skippable": true,
     "props": {
       "title": "Hier deine erste einfache Aufgabe!",
       "message": "Sag Hallo zu {{avatarName}} 👋",
@@ -54,90 +99,126 @@
     }
   },
   {
-    "id": 5,
     "title": "Erste Belohnung",
     "template": "Info",
     "type": "single",
     "level": 1,
-    "order": 5,
     "xp": 0,
     "skippable": true,
     "props": {
       "title": "Super gemacht!",
-      "message": "Du hast gerade 5 XP verdient! 🎉\nOben siehst du deinen Fortschrittsbalken – je mehr Aufgaben du löst, desto schneller steigst du auf. Und mit jedem Level warten tolle Belohnungen auf dich!"
+      "message": "Du hast gerade 5 XP verdient! 🎉\nOben siehst du deinen Fortschrittsbalken – je mehr Aufgaben du löst, desto schneller steigst du auf. Und mit jedem Level warten tolle Belohnungen auf dich!",
+      "bubble": true
     }
   },
   {
-    "id": 6,
-    "title": "Reflexionsfrage 1",
+    "title": "Deine Begleitung...",
+    "template": "Info",
+    "type": "single",
+    "level": 1,
+    "xp": 0,
+    "skippable": true,
+    "props": {
+      "title": "Mein Job...",
+      "message": "Ich bin bei dir, stelle dir angenehme oder unangenehme Fragen, meditiere gemeinsam und fühle mit dir mit und begleite dich durch die Übungen. Gemeinsam überwinden wir People Pleasing und etabilieren eine gesunde Selbstachtung! 💪 Hier deine erste Frage...",
+      "bubble": true,
+      "fullBodyAvatar": true,
+      "pose": "standing",
+      "camera": "portrait",
+      "emotion": "thinking"
+    }
+  },
+  {
+    "title": "Simple Frage...",
     "template": "YesNo",
     "type": "single",
     "level": 1,
-    "order": 6,
     "xp": 5,
-    "skippable": true,
+    "skippable": false,
     "props": {
-      "title": "Kurze Reflexion",
+      "title": "Simple Frage...",
       "question": "Hast du schon einmal Ja gesagt, obwohl du Nein sagen wolltest – oder Nein gesagt, obwohl du Ja meintest?",
       "yesText": "Ja, kenn ich gut!",
       "noText": "Nein, kommt mir nicht bekannt vor."
     }
   },
   {
-    "id": 7,
     "title": "Begleiter-Erklärung",
     "template": "Info",
     "type": "single",
     "level": 1,
-    "order": 7,
     "xp": 0,
     "skippable": true,
     "props": {
       "title": "Cool!",
-      "message": "{{avatarName}} merkt sich deine Antworten, um dich optimal zu begleiten – aber keine Sorge, das bleibt alles zwischen euch beiden 😉"
+      "bubble": true,
+      "emotion": "neutral",
+      "message": "Danke für deine Antwort, ich merke mir deine Antworten und passe unsere Reise deinen Bedürfnissen und Themen an! Aber keine Sorge, alles was wir besprechen bleibt zwischen uns 😉"
     }
   },
   {
-    "id": 8,
-    "title": "Atemübung Einladung",
-    "template": "MeditationInvite",
-    "type": "single",
-    "level": 1,
-    "order": 8,
-    "xp": 10,
-    "skippable": true,
-    "props": {
-      "title": "Eine kurze Pause",
-      "message": "Darf ich dich einladen, 1 Minute lang eine kleine Atemmeditation zu machen? Atme ruhig ein und aus – {{avatarName}} begleitet dich dabei.",
-      "buttonText": "Ja, gerne 🧘‍♀️"
-    }
-  },
-  {
-    "id": 9,
     "title": "Aufgaben-Erklärung",
     "template": "Info",
     "type": "single",
     "level": 1,
-    "order": 9,
     "xp": 0,
     "skippable": true,
     "props": {
       "title": "Kleine Info",
-      "message": "Du kannst Aufgaben überspringen, wenn du gerade keine Zeit oder Lust hast. Aber manche sind aufbauend – diese musst du erledigen, um weiterzukommen. 💪"
+      "bubble": true,
+      "fullBodyAvatar": true,
+      "pose": "relaxed",
+      "camera": "portrait",
+      "emotion": "neutral",
+      "message": "Du kannst Aufgaben überspringen, wenn du gerade keine Zeit oder Lust hast. Aber manche sind aufbauend – diese musst du erledigen, um weiterzukommen. Lass uns die Abschlussübung für das erste Level machen... 💪"
     }
   },
-  {
-    "id": 10,
+  
+  
+   {
+  "title": "Atemübung",
+  "template": "MultiStep",
+  "type": "multi",
+  "level": 1,
+  "xp": 40,
+  "skippable": false,
+  "props": {
+    "slides": [
+       
+  
+      {
+        "template": "Invitation",
+        "props": {
+          "skippable":true,
+          "title": "Eine kurze Pause",
+          "message": "Darf ich dich einladen, 1 Minute lang eine kleine Atemmeditation zu machen? Atme ruhig ein und aus – ich begleite dich dabei.",
+          "yesText": "Ja, gerne 🧘‍♀️",
+          "noText": "Vielleicht später"
+        }
+      },
+      {
+        "template": "Meditation",
+        "props": {
+          "title": "Atmung wahrnehmen",
+           "skippable": true,
+          "description": "Eine kurze Atemmeditation, um im Moment anzukommen.",
+          "audio": "level1_atmung.mp3",
+          "backgroundMusic": "",
+          "duration": 7
+        }
+      }
+    ]
+  }
+  
+},{
     "title": "Level-Aufstieg",
     "template": "Info",
     "type": "single",
     "level": 1,
-    "order": 10,
     "xp": 0,
     "skippable": false,
     "props": {
       "title": "🎉 Level 2 erreicht!",
       "message": "Juhu! Du bist im Level 2 angekommen und hast neue Belohnungen freigeschaltet – zum Beispiel eine Sonnenbrille und Schuhe für deinen Avatar. 😎\nIm Belohnungs-Center kannst du sie ansehen und anprobieren!"
     }
-  }
-]
+  }]
