@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react"
 import { useGame } from "../../context/GameContext"
-import { useCallback, useMemo, type RefObject } from "react"
+import { useCallback, useMemo, useEffect, type RefObject } from "react"
 import interventionsData from "../../data/interventions.json"
 import type { Intervention } from "../../types/intervention"
 import { useInterventionLogic } from "./useInterventionLogic"
@@ -28,29 +28,23 @@ export default function InterventionSwiper({
   const { initialSlide, setProgress, resetProgress } =
     useInterventionProgress(setStepIndex, setInitialSlide)
 
-  if (import.meta.env.DEV) {
-    console.group("🌀 InterventionSwiper render")
-    console.time("render-time")
-    console.log("Props:", { spawnXp, swiperRef, setStepIndex, setInitialSlide })
-  }
-
-  const interventions: Intervention[] = useMemo(
-    () =>
-      (interventionsData as Intervention[]).map((item, index) => ({
-        ...item,
-        id: index + 1,
-        order: index + 1,
-        skippable: item.skippable !== false,
-      })),
-    []
-  )
+const interventionsByLevel = interventionsData as unknown as Record<string, Intervention[]>
+ console.log("alle level" + interventionsByLevel)
+  const interventionsForLevel = useMemo(() => {
+    const list = interventionsByLevel[String(level)] ?? []
+    return list.map((item, index) => ({
+      ...item,
+      id: index + 1,
+      order: index + 1,
+      skippable: item.skippable !== false,
+      
+    }))
+  }, [level])
 
   const verticalList = useMemo(
     () =>
-      interventions
-        .filter((i) => i.level === level && !completedInterventions.includes(i.id!))
-        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0)),
-    [interventions, level, completedInterventions]
+      interventionsForLevel.filter((i) => !completedInterventions.includes(i.id!)),
+    [interventionsForLevel, completedInterventions]
   )
 
   const handleGrantMultiXp = useCallback(
@@ -63,78 +57,58 @@ export default function InterventionSwiper({
     [handleSingleComplete]
   )
 
+  useEffect(() => {
+    if (swiperRef?.current?.slideTo) {
+      swiperRef.current.slideTo(0, 0)
+    }
+    console.log(`🔁 Level ${level} geladen (${verticalList.length} Slides)`)
+  }, [level])
+
   const slides = useMemo(
     () =>
-      verticalList.map((intervention, idx) => {
-        const nonSwipeClass = intervention.skippable ? "" : "swiper-no-swiping"
-
-        if (import.meta.env.DEV) {
-          console.log(
-            `${intervention.skippable ? "➡️" : "🚫"} Slide "${intervention.title}" [#${idx}] ${
-              intervention.skippable ? "skippable" : "NOT skippable"
-            }`
-          )
-        }
-
-        return (
-          <SwiperSlide
-            key={intervention.id}
-            className={`!h-full overflow-hidden ${
-              intervention.skippable === false ? "outer-no-swipe" : ""
-            }`}
-          >
-            {intervention.template === "MultiStep" || intervention.type !== "single"
-              ? renderMultiStep(intervention, () => handleGrantMultiXp(intervention))
-              : renderSingle(intervention, () => handleSingle(intervention))}
-          </SwiperSlide>
-        )
-      }),
+      verticalList.map((intervention, idx) => (
+        <SwiperSlide
+          key={intervention.id}
+          className={`!h-full overflow-hidden ${
+            intervention.skippable === false ? "outer-no-swipe" : ""
+          }`}
+        >
+          {intervention.template === "MultiStep" || intervention.type !== "single"
+            ? renderMultiStep(intervention, () => handleGrantMultiXp(intervention))
+            : renderSingle(intervention, () => handleSingle(intervention))}
+        </SwiperSlide>
+      )),
     [verticalList, renderMultiStep, renderSingle, handleGrantMultiXp, handleSingle]
   )
+console.log("🧩 InterventionSwiper Render")
+console.log("slides:", slides)
+console.log("slides type:", Array.isArray(slides) ? "array" : typeof slides)
+console.log("slides count:", Array.isArray(slides) ? slides.length : "—")
 
-  if (import.meta.env.DEV) {
-    console.timeEnd("render-time")
-    console.groupEnd()
-  }
+console.log("initialSlide:", initialSlide)
 
   return (
     <>
       <Swiper
+      className="h-full w-full flex-1 bg-zinc-900"
+  style={{ minHeight: "100%", height: "100%" }}
         onSwiper={(swiper) => {
           if (swiperRef) (swiperRef as any).current = swiper
-          if (import.meta.env.DEV) {
-            const cur = verticalList[swiper.activeIndex]
-            console.log(
-              `${cur?.skippable !== false ? "➡️" : "🚫"} Initial slide "${cur?.title}" [${
-                swiper.activeIndex
-              }]`
-            )
-          }
         }}
         direction="vertical"
         slidesPerView={1}
-        className="h-full w-full overflow-hidden"
+       
         initialSlide={initialSlide}
-        onSlideChange={(s) => {
-          const current = verticalList[s.activeIndex]
-          if (import.meta.env.DEV) {
-            console.log(
-              `${current?.skippable !== false ? "➡️" : "🚫"} SlideChange "${
-                current?.title
-              }" [#${s.activeIndex}]`
-            )
-          }
-          setProgress(s.activeIndex)
-        }}
+        onSlideChange={(s) => setProgress(s.activeIndex)}
         noSwiping={true}
         noSwipingClass="outer-no-swipe"
         nested={true}
-        virtual={false}
         observer={true}
         observeParents={true}
         watchSlidesProgress={true}
         updateOnWindowResize={false}
       >
+
         {slides}
       </Swiper>
 

@@ -3,57 +3,80 @@ import { api } from "../../api"
 
 /**
  * Verwaltet den Fortschritt (aktuellen Slide-Index) einer Intervention.
- * ⚙️ Optimiert, um unnötige Re-Renders zu vermeiden.
+ * Speichert Fortschritt getrennt pro Level, damit beim Levelwechsel
+ * korrekt fortgesetzt oder neu gestartet wird.
  */
 export function useInterventionProgress(
   externalSetStepIndex?: (idx: number) => void,
   externalSetInitialSlide?: (idx: number) => void
 ) {
-  // interner State nur einmal initialisiert – keine Updates mehr pro Swipe
   const [stepIndex, setStepIndex] = useState(0)
   const [initialSlide, setInitialSlide] = useState(0)
 
+  // 🧠 Initial: Fortschritt pro Level laden
   useEffect(() => {
     if (import.meta.env.DEV) console.log("🧠 useInterventionProgress init")
 
-    // Beim ersten Laden aktuellen Fortschritt holen
-    api.getCurrentStep().then((res: any) => {
-      if (res?.stepIndex !== undefined) {
-        setStepIndex(res.stepIndex)
-        setInitialSlide(res.stepIndex)
-        externalSetStepIndex?.(res.stepIndex)
-        externalSetInitialSlide?.(res.stepIndex)
+    const currentLevel = Number(localStorage.getItem("currentLevel") || "1")
 
-        if (import.meta.env.DEV)
-          console.log("📍 Fortschritt geladen:", res.stepIndex)
+    // Fortschritt für das aktuelle Level abrufen
+    ;(async () => {
+      try {
+        const res = await api.getCurrentStep()
+        if (res?.stepIndex !== undefined) {
+          setStepIndex(res.stepIndex)
+          setInitialSlide(res.stepIndex)
+
+          externalSetStepIndex?.(res.stepIndex)
+          externalSetInitialSlide?.(res.stepIndex)
+
+          if (import.meta.env.DEV)
+            console.log(`📍 Fortschritt für Level ${currentLevel} geladen:`, res.stepIndex)
+        }
+      } catch (err) {
+        console.warn("⚠️ Fortschritt konnte nicht geladen werden:", err)
       }
-    })
-  }, [])
+    })()
+  }, [externalSetStepIndex, externalSetInitialSlide])
 
   /**
    * Fortschritt speichern (z. B. bei Slide-Wechsel)
    * 💡 Kein React-State-Update → kein Re-Render
    */
   const setProgress = async (idx: number) => {
-    await api.updateCurrentStep(idx)
-    if (import.meta.env.DEV) console.log("💾 Fortschritt gespeichert:", idx)
+    try {
+      const currentLevel = Number(localStorage.getItem("currentLevel") || "1")
+      await api.updateCurrentStep(idx)
+
+      if (import.meta.env.DEV)
+        console.log(`💾 Fortschritt gespeichert (Level ${currentLevel}):`, idx)
+    } catch (err) {
+      console.warn("⚠️ Fortschritt konnte nicht gespeichert werden:", err)
+    }
   }
 
   /**
-   * Fortschritt komplett zurücksetzen.
-   * Hier wird bewusst der State aktualisiert, da das ein echter Reset ist.
+   * Fortschritt komplett zurücksetzen (z. B. nach Levelwechsel)
    */
   const resetProgress = async (swiperRef?: React.RefObject<any>) => {
-    await api.resetProgress()
-    setStepIndex(0)
-    setInitialSlide(0)
-    externalSetStepIndex?.(0)
-    externalSetInitialSlide?.(0)
-    swiperRef?.current?.slideTo?.(0, 0)
+    try {
+      const currentLevel = Number(localStorage.getItem("currentLevel") || "1")
+      await api.resetProgress() 
 
-    if (import.meta.env.DEV) console.log("♻️ Fortschritt zurückgesetzt")
+      setStepIndex(0)
+      setInitialSlide(0)
+      externalSetStepIndex?.(0)
+      externalSetInitialSlide?.(0)
+      swiperRef?.current?.slideTo?.(0, 0)
+
+      if (import.meta.env.DEV)
+        console.log(`♻️ Fortschritt für Level ${currentLevel} zurückgesetzt`)
+    } catch (err) {
+      console.warn("⚠️ Fortschritt konnte nicht zurückgesetzt werden:", err)
+    }
   }
 
+  // Nur Debug-Ausgabe beim Mount
   useEffect(() => {
     if (import.meta.env.DEV)
       console.log("✅ useInterventionProgress bereit:", { stepIndex, initialSlide })

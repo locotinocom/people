@@ -53,13 +53,14 @@ const [initialSlide, setInitialSlide] = useState(0)
 )}
 
 
-        {showLevelUp && pendingReward && (
-          <LevelUpOverlay
-            level={level}
-            reward={pendingReward.amount}
-            onClaim={claimReward}
-          />
-        )}
+       {showLevelUp && pendingReward && (
+ <LevelUpOverlay
+  level={level} // der neue Level, nicht der alte
+  reward={pendingReward.amount}
+  onClaim={claimReward}
+/>
+
+)}
       </div>
     </div>
   )

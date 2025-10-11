@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useState, useRef } from "react"
 import { Howl } from "howler"
 import { motion, useAnimation } from "framer-motion"
 import { useGame } from "../../context/GameContext"
@@ -13,6 +13,10 @@ type Props = {
   onComplete?: () => void
 }
 
+/**
+ * 🔊 Meditation – endgültige, sichere Version
+ * Kein mehrfaches Laden, keine Poolfehler, kein Silent Fail.
+ */
 export default function Meditation({
   title,
   description,
@@ -22,75 +26,39 @@ export default function Meditation({
   duration,
   onComplete,
 }: Props) {
-  const { avatarId, avatarName } = useGame()
+  const { avatarId } = useGame()
   const avatar = avatarId || "tim"
 
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
-  const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [loaded, setLoaded] = useState(false)
   const controls = useAnimation()
 
   const meditationSound = useRef<Howl | null>(null)
   const ambientSound = useRef<Howl | null>(null)
   const startTime = useRef<number | null>(null)
-  const hasAnimated = useRef(false)
-  const initializedKey = useRef<string | null>(null)
-  const initRan = useRef(false) // 👈 blockiert StrictMode-Doppelaufruf
+  const cleanupDone = useRef(false)
 
-  // 🔒 Lazy Audio Init – 100 % sicher gegen Doppelstart
+  // 🧹 Vollständiger Cleanup bei Unmount
   useEffect(() => {
-    const key = `${avatar}-${audio}`
-    if (initRan.current) return
-    initRan.current = true // blockiert StrictMode-Doppelinit
-
-    // Wenn Avatar oder Audio nicht bereit → nicht laden
-    if (!audio || !avatar) return
-
-    // Falls gleicher Key schon initialisiert → nicht nochmal
-    if (initializedKey.current === key) return
-    initializedKey.current = key
-
-    console.log("🎶 Initialisiere Hauptaudio:", `/audio/${avatar}/${audio}`)
-
-    const main = new Howl({
-      src: [`/audio/${avatar}/${audio}`],
-      html5: true,
-      volume: 1.0,
-      onload: () => {
-        console.log("✅ Hauptaudio geladen:", key)
-        setLoaded(true)
-      },
-      onend: handleEnd,
-      onloaderror: (_, err) => setError(String(err)),
-      onplayerror: (_, err) => setError(String(err)),
-    })
-    meditationSound.current = main
-
-    if (hasBackgroundMusic && background) {
-      ambientSound.current = new Howl({
-        src: [`/audio/${background}`],
-        loop: true,
-        volume: 0.3,
-        html5: true,
-      })
-    }
-
     return () => {
-      console.log("🧹 Clean-up Meditation")
-      main.unload()
+      if (cleanupDone.current) return
+      cleanupDone.current = true
+
+      meditationSound.current?.unload()
       ambientSound.current?.unload()
       meditationSound.current = null
       ambientSound.current = null
-      initializedKey.current = null
-      initRan.current = false
-    }
-  }, [audio, avatar, background, hasBackgroundMusic])
+      startTime.current = null
 
-  // 🌀 Animation
+      if (import.meta.env.DEV) console.log("🧹 Meditation unmounted & cleaned")
+    }
+  }, [])
+
+  // 🌀 Hintergrundanimation
   useEffect(() => {
-    if (playing && !hasAnimated.current) {
-      hasAnimated.current = true
+    if (playing) {
       controls.start({
         background: [
           "linear-gradient(135deg,#74ABE2,#5563DE)",
@@ -100,8 +68,7 @@ export default function Meditation({
         ],
         transition: { duration: 20, repeat: Infinity, ease: "linear" },
       })
-    } else if (!playing) {
-      hasAnimated.current = false
+    } else {
       controls.stop()
     }
   }, [playing, controls])
@@ -121,18 +88,52 @@ export default function Meditation({
     return () => cancelAnimationFrame(frame)
   }, [playing, duration])
 
-  function startMeditation() {
-    if (playing || !loaded) return
-    const main = meditationSound.current
-    if (!main) return
+  // ▶️ Starte Meditation erst beim Klick
+  async function startMeditation() {
+    try {
+      if (playing) return
+      if (import.meta.env.DEV) console.log("▶️ Starte Meditation")
 
-    console.log("▶️ Starte Meditation:", audio)
-    startTime.current = Date.now()
-    setPlaying(true)
-    main.play()
-    ambientSound.current?.play()
+      // 🔊 Hauptaudio erst jetzt initialisieren
+      if (!meditationSound.current) {
+        meditationSound.current = new Howl({
+          src: [`/audio/${avatar}/${audio}`],
+          html5: true,
+          volume: 1.0,
+          preload: true,
+          onload: () => {
+            setLoaded(true)
+            meditationSound.current?.play()
+            ambientSound.current?.play()
+          },
+          onend: handleEnd,
+          onloaderror: (_, err) => setError(String(err)),
+          onplayerror: (_, err) => setError(String(err)),
+        })
+
+        if (hasBackgroundMusic && background) {
+          ambientSound.current = new Howl({
+            src: [`/audio/${background}`],
+            loop: true,
+            volume: 0.3,
+            html5: true,
+          })
+        }
+      } else {
+        meditationSound.current.play()
+        ambientSound.current?.play()
+      }
+
+      startTime.current = Date.now()
+      setPlaying(true)
+      setLoaded(true)
+    } catch (e) {
+      console.error("❌ Fehler beim Starten:", e)
+      setError("Audio konnte nicht gestartet werden.")
+    }
   }
 
+  // ⏹ Stop
   function stopAll() {
     meditationSound.current?.stop()
     ambientSound.current?.stop()
@@ -140,21 +141,25 @@ export default function Meditation({
     setProgress(0)
   }
 
+  // ✅ Abschluss
   function handleEnd() {
     stopAll()
+    if (import.meta.env.DEV) console.log("🏁 Meditation beendet")
     onComplete?.()
   }
 
   return (
     <motion.div
       animate={controls}
-      className="flex w-full flex-col items-center justify-center h-screen transition-all duration-1000 bg-zinc-800"
+      className="flex w-full flex-col items-center justify-center h-full bg-zinc-800 transition-all duration-1000"
     >
       <h2 className="text-2xl font-semibold text-white mb-2">{title}</h2>
       <p className="text-white/80 text-center mb-8 max-w-md">{description}</p>
 
       {error && <p className="text-red-400 mb-4">{error}</p>}
-      {!loaded && !error && <p className="text-white/50 mb-4">⏳ Lade Audio…</p>}
+      {!loaded && !error && !playing && (
+        <p className="text-white/50 mb-4">▶ Tippe zum Starten</p>
+      )}
 
       <div className="relative w-32 h-32">
         <svg
@@ -185,9 +190,9 @@ export default function Meditation({
 
         <button
           onClick={startMeditation}
-          disabled={!loaded || playing}
+          disabled={playing}
           className={`absolute inset-0 m-auto w-24 h-24 rounded-full ${
-            loaded ? "bg-white text-gray-900" : "bg-gray-400 text-gray-700"
+            loaded ? "bg-white text-gray-900" : "bg-gray-300 text-gray-700"
           } font-bold text-xl flex items-center justify-center shadow-lg active:scale-95 transition-transform`}
         >
           {playing ? "…" : "▶"}

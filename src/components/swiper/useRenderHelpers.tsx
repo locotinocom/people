@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo } from "react"
 import { useGame } from "../../context/GameContext"
-import MultiStep from "../interventions/MultiStep"
 
+// ✅ Dynamisch alle Intervention-Komponenten laden
 const modules = import.meta.glob("../interventions/*.tsx", { eager: true })
 const componentMap: Record<string, React.ComponentType<any>> = {}
 
@@ -21,9 +21,11 @@ export function useRenderHelpers(spawnXp: (amount: number, durationOverride?: nu
     }
   }, [])
 
+  // 👤 Avatarname ersetzen (z. B. {{avatarName}})
   const replaceAvatarName = useCallback((value: any): any => {
     const raw = localStorage.getItem("avatarName") || "dein Begleiter"
     const name = raw.charAt(0).toUpperCase() + raw.slice(1)
+
     if (typeof value === "string") return value.replace(/\{\{avatarName\}\}/g, name)
     if (typeof value === "object" && value !== null) {
       const result: Record<string, any> = {}
@@ -33,26 +35,39 @@ export function useRenderHelpers(spawnXp: (amount: number, durationOverride?: nu
     return value
   }, [])
 
+  // 🧩 Einzelne Intervention rendern
   const renderSingle = useCallback(
     (intervention: any, onComplete: () => void) => {
       if (import.meta.env.DEV) console.log("🧩 renderSingle:", intervention.title)
       const Component = componentMap[intervention.template]
-      if (!Component)
+
+      if (!Component) {
+        console.warn("❌ Template nicht gefunden:", intervention.template, Object.keys(componentMap))
         return <div className="text-gray-400">❌ Template: {intervention.template}</div>
+      }
 
       const props = replaceAvatarName({
         ...intervention.props,
         xp: intervention.xp,
         onComplete,
       })
+
       return <Component {...props} />
     },
     [replaceAvatarName]
   )
 
+  // 🪄 MultiStep-Intervention rendern
   const renderMultiStep = useCallback(
     (intervention: any, onDone: () => void) => {
       if (import.meta.env.DEV) console.log("🧩 renderMultiStep:", intervention.title)
+
+      const MultiStep = componentMap["MultiStep"]
+      if (!MultiStep) {
+        console.error("❌ MultiStep-Komponente fehlt in componentMap:", Object.keys(componentMap))
+        return <div className="text-red-400">❌ MultiStep-Komponente fehlt</div>
+      }
+
       const xp = typeof intervention.xp === "number" ? intervention.xp : 20
 
       return (
@@ -71,7 +86,9 @@ export function useRenderHelpers(spawnXp: (amount: number, durationOverride?: nu
   )
 
   useEffect(() => {
-    if (import.meta.env.DEV) console.log("✅ useRenderHelpers bereit")
+    if (import.meta.env.DEV) {
+      console.log("✅ useRenderHelpers bereit mit Templates:", Object.keys(componentMap))
+    }
   }, [])
 
   return useMemo(

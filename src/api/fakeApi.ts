@@ -24,7 +24,6 @@ export const fakeApi = {
     const prevName = localStorage.getItem("avatarName")
     const prevId = localStorage.getItem("avatarId")
 
-    // 🚫 Keine Änderung → kein Schreiben → kein Re-Render-Loop
     if (prevName === avatarName && prevId === avatarId) return { success: false }
 
     console.log("💾 fakeApi.setAvatar", { avatarName, avatarId })
@@ -51,10 +50,9 @@ export const fakeApi = {
     return JSON.parse(raw)
   },
 
-  // 💾 Spielzustand speichern (nur wenn sich Daten ändern)
+  // 💾 Spielzustand speichern
   async saveGameState(data: GameState) {
     await delay(100)
-
     const current = JSON.stringify(data)
     const prev = localStorage.getItem("gameState")
     if (prev === current) return { success: false }
@@ -63,12 +61,16 @@ export const fakeApi = {
     return { success: true }
   },
 
-  // 📘 Interventionen eines Levels laden
+  // 📘 Interventionen eines Levels laden (mehrstufige Struktur)
   async getInterventions(level: number) {
-    await delay(300)
-    return (interventionsData as any[])
-      .map((item, index) => ({ ...item, id: index + 1, order: index + 1 }))
-      .filter((i) => i.level === level)
+    await delay(200)
+    const data = (interventionsData as Record<string, any[]>)[String(level)] ?? []
+    return data.map((item, index) => ({
+      ...item,
+      id: index + 1,
+      order: index + 1,
+      level,
+    }))
   },
 
   // 👤 Avatar aktualisieren (redundant, aber konsistent)
@@ -103,6 +105,12 @@ export const fakeApi = {
     return JSON.parse(localStorage.getItem("rewards") || "[]")
   },
 
+  // 💎 Diamanten speichern (für spätere Persistenz)
+  async saveDiamonds(amount: number) {
+    localStorage.setItem("diamonds", String(amount))
+    return { success: true }
+  },
+
   // 💎 Diamanten vergeben
   async grantDiamonds(amount: number) {
     const state = JSON.parse(localStorage.getItem("gameState") || "{}") || {}
@@ -111,26 +119,39 @@ export const fakeApi = {
     return { success: true, dias: state.dias }
   },
 
-  // 📍 Aktuellen Fortschritt abrufen
-  async getCurrentStep(): Promise<StepProgress> {
-    const idx = Number(localStorage.getItem("currentStep") || "0")
+  // 📍 Aktuellen Fortschritt abrufen (mit oder ohne Level)
+  async getCurrentStep(level?: number): Promise<StepProgress> {
+    const key = level ? `currentStep_L${level}` : "currentStep"
+    const idx = Number(localStorage.getItem(key) || "0")
+    if (import.meta.env.DEV)
+      console.log(`📤 fakeApi.getCurrentStep(${key}):`, idx)
     return { stepIndex: idx }
   },
 
-  // 📍 Fortschritt speichern (nur wenn geändert)
-  async updateCurrentStep(stepIndex: number) {
-    const prev = Number(localStorage.getItem("currentStep") || "0")
+  // 📍 Fortschritt speichern (mit oder ohne Level)
+  async updateCurrentStep(stepIndex: number, level?: number) {
+    const key = level ? `currentStep_L${level}` : "currentStep"
+    const prev = Number(localStorage.getItem(key) || "0")
     if (prev === stepIndex) return { success: false }
 
     await delay(100)
-    localStorage.setItem("currentStep", String(stepIndex))
-    if (import.meta.env.DEV) console.log("🧪 fakeApi.updateCurrentStep", stepIndex)
+    localStorage.setItem(key, String(stepIndex))
+    if (import.meta.env.DEV)
+      console.log(`🧪 fakeApi.updateCurrentStep(${key}):`, stepIndex)
     return { success: true }
   },
 
-  // 🔄 Fortschritt komplett zurücksetzen
-  async resetProgress(): Promise<{ success: boolean }> {
-    localStorage.clear()
+  // 🔄 Fortschritt zurücksetzen (optional pro Level)
+  async resetProgress(level?: number): Promise<{ success: boolean }> {
+    if (level) {
+      localStorage.removeItem(`currentStep_L${level}`)
+      if (import.meta.env.DEV)
+        console.log(`♻️ fakeApi.resetProgress(L${level})`)
+    } else {
+      localStorage.removeItem("currentStep")
+      if (import.meta.env.DEV)
+        console.log("♻️ fakeApi.resetProgress(all)")
+    }
     return { success: true }
   },
 }

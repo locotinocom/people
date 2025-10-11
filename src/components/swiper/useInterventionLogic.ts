@@ -14,9 +14,12 @@ export function useInterventionLogic(spawnXp: (amount: number, durationOverride?
     if (xp > 0) {
       const count = Math.min(Math.max(1, Math.floor(xp)), 200)
       const totalMs = (count - 1) * 50 + 1200
+
+      // 🔹 XP-Animation + Belohnung
       spawnXp(xp, totalMs)
       grantReward({ type: "xp", amount: xp, meta: { duration: totalMs } })
 
+      // 🔹 Nach Abschluss Intervention als erledigt markieren
       setTimeout(() => {
         markInterventionDone(intervention.id!)
         awardingSingle.current.delete(intervention.id!)
@@ -28,14 +31,19 @@ export function useInterventionLogic(spawnXp: (amount: number, durationOverride?
   }
 
   const grantMultiXp = async (intervention: Intervention) => {
-    if (!intervention.xp) return
+    const xp = typeof intervention.xp === "number" ? intervention.xp : 0
+    if (xp <= 0) return
 
-    if (import.meta.env.DEV) console.log("🎯 grantMultiXp – starte XP-Vergabe", intervention.xp)
+    const totalMs = Math.min((xp - 1) * 50 + 1200, 4000)
+    if (import.meta.env.DEV) console.log("🎯 grantMultiXp – starte XP-Vergabe", xp)
 
-    // await spawnXp(intervention.xp)
-    // grantReward({ type: "xp", amount: intervention.xp })
+    spawnXp(xp, totalMs)
+    grantReward({ type: "xp", amount: xp, meta: { duration: totalMs } })
 
-    if (import.meta.env.DEV) console.log("✅ XP-Vergabe abgeschlossen")
+    setTimeout(() => {
+      markInterventionDone(intervention.id!)
+      if (import.meta.env.DEV) console.log("✅ MultiStep XP vergeben & abgeschlossen:", intervention.title)
+    }, totalMs)
   }
 
   return { handleSingleComplete, grantMultiXp }
