@@ -15,7 +15,7 @@ export default defineConfig({
       "@store": "/src/store",
       "@layouts": "/src/layouts",
       "@api": "/src/api",
-      "@game": "/src/components/game",
+      "@game": "/src/components/Game",
       "@hooks": "/src/hooks",
       "@utils": "/src/utils",
       "@ui": "/src/ui",
