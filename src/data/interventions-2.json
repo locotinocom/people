@@ -1,118 +1,19 @@
-{
-  "1": [
-    {
-      "title": "Herzlich willkommen",
-      "template": "Info",
-      "type": "single",
-      "xp": 0,
-      "skippable": true,
-      "props": {
-        "title": "Herzlich willkommen",
-        "message": "Es freut mich, dass du People Pleasing überwinden und frei und unabhängig leben möchtest. Diese App begleitet dich auf deinem Weg zu mehr Selbstvertrauen, Klarheit und innerer Freiheit."
-      }
-    },
-    {
-      "title": "Avatar auswählen",
-      "template": "ChooseAvatar",
-      "xp": 0,
-      "skippable": false,
-      "props": {}
-    },
-    {
-      "title": "Kurze Erklärung",
-      "template": "Info",
-      "xp": 0,
-      "skippable": true,
-      "props": {
-        "title": "So funktioniert die App",
-        "message": "Du bekommst XP, steigst im Level auf, sammelst Diamanten und schaltest Belohnungen frei. {{avatarName}} wächst mit dir – gemeinsam meistert ihr jede Aufgabe. 💎"
-      }
-    },
-    {
-      "title": "Sag Hallo!",
-      "template": "SimpleAction",
-      "xp": 5,
-      "skippable": true,
-      "props": {
-        "title": "Hier deine erste einfache Aufgabe!",
-        "message": "Sag Hallo zu {{avatarName}} 👋",
-        "buttonText": "Hallo 👋",
-        "camera": "fullbody"
-      }
-    },
-    {
-      "title": "Atemübung",
-      "template": "MultiStep",
-      "xp": 40,
-      "skippable": false,
-      "props": {
-        "slides": [
-          {
-            "template": "Invitation",
-            "skippable": false,
-            "props": {
-              "title": "Eine kurze Pause",
-              "message": "Darf ich dich einladen, 1 Minute lang eine kleine Atemmeditation zu machen? Atme ruhig ein und aus – ich begleite dich dabei.",
-              "yesText": "Ja, gerne 🧘‍♀️",
-              "noText": "Vielleicht später"
-            }
-          },
-          {
-            "template": "Meditation",
-            "skippable": false,
-            "props": {
-              "title": "Atmung wahrnehmen",
-              "description": "Eine kurze Atemmeditation, um im Moment anzukommen.",
-              "audio": "level1_atmung.mp3",
-              "backgroundMusic": "",
-              "duration": 7
-            }
-          },
-          {
-            "template": "Info",
-            "skippable": true,
-            "props": {
-              "autoComplete": true,
-              "title": "Gut gemacht",
-              "message": "Es freut mich, dass du People Pleasing überwindest. Diese App begleitet dich auf deinem Weg zu mehr Selbstvertrauen, Klarheit und innerer Freiheit."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "title": "Level-Aufstieg",
-      "template": "Info",
-      "xp": 0,
-      "skippable": false,
-      "props": {
-        "title": "🎉 Level 2 erreicht!",
-        "message": "Juhu! Du bist im Level 2 angekommen und hast neue Belohnungen freigeschaltet!"
-      }
+[
+  
+
+    
+  {
+    "title": "Sag Hallo!",
+    "template": "SimpleAction",
+    "type": "single",
+    "level": 1,
+    "xp": 5,
+    "skippable": true,
+    "props": {
+      "title": "Hier deine erste einfache Aufgabe!",
+      "message": "Sag Hallo zu {{avatarName}} 👋",
+      "buttonText": "Hallo 👋",
+      "camera": "fullbody"
     }
-  ],
-  "2": [
-    {
-      "title": "Willkommen in Level 2",
-      "template": "Info",
-      "xp": 0,
-      "skippable": true,
-      "props": {
-        "title": "Level 2",
-        "message": "Hier starten deine neuen Herausforderungen. Bist du bereit?"
-      }
-    },
-    {
-      "title": "Reflexion",
-      "template": "YesNo",
-      "xp": 10,
-      "skippable": false,
-      "props": {
-        "title": "Eine kleine Reflexion",
-        "question": "Hast du in letzter Zeit deine Grenzen klar kommuniziert?",
-        "yesText": "Ja, das gelingt mir immer besser!",
-        "noText": "Noch nicht ganz..."
-      }
-    }
+  }
   ]
-}

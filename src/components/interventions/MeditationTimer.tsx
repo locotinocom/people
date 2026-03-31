@@ -1,50 +1,99 @@
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
-import { usePlayerData } from "../../hooks/usePlayerData"
+
+// Redux
+import { useAppDispatch } from "@store/hooks"
+import { completeInterventionThunk } from "@store/slices/gameActionsSlice"
+
+// API
+import { useReduxApi } from "@api/reduxApi"
 
 type Subtitle = { time: number; text: string }
 
-const subtitles: Subtitle[] = [
-  { time: 0, text: "Schließe deine Augen und atme tief ein..." },
-  { time: 10, text: "Spüre, wie sich dein Brustkorb hebt und senkt..." },
-  { time: 25, text: "Lass den Atem ruhig fließen, ganz natürlich..." },
-  { time: 45, text: "Atme Frieden ein – und Anspannung aus." },
-]
+type MeditationTimerData = {
+  id: number
+  duration: number
+  xp?: number
+  subtitles?: Subtitle[]
+  audioUrl?: string
+}
 
-export default function MeditationTimer() {
-  const { addXP } = usePlayerData()
+export default function MeditationTimer({ data }: { data: MeditationTimerData }) {
+  const {
+    id,
+    duration = 60,
+    xp = 0,
+    subtitles = [],
+    audioUrl = "/audio/breathing.mp3",
+  } = data
+
+  const dispatch = useAppDispatch()
+  const api = useReduxApi()
+
   const [time, setTime] = useState(0)
   const [running, setRunning] = useState(false)
   const [subtitle, setSubtitle] = useState("")
-  const duration = 60
 
+  // -------------------------
+  // Timer & Audio
+  // -------------------------
   useEffect(() => {
     if (!running) return
-    const audio = new Audio("/audio/breathing.mp3")
+
+    const audio = new Audio(audioUrl)
     audio.play()
 
-    const timer = setInterval(() => {
-      setTime((t) => t + 1)
-    }, 1000)
+    const timer = setInterval(() => setTime((t) => t + 1), 1000)
 
     return () => {
       clearInterval(timer)
       audio.pause()
     }
-  }, [running])
+  }, [running, audioUrl])
 
+  // -------------------------
+  // Subtitles wechseln
+  // -------------------------
   useEffect(() => {
     const current = subtitles.findLast((s) => time >= s.time)
     if (current) setSubtitle(current.text)
-  }, [time])
+  }, [time, subtitles])
+
+  // -------------------------
+  // Auto Finish wenn Zeit abgelaufen
+  // -------------------------
+  useEffect(() => {
+    if (time >= duration && running) {
+      handleFinish()
+    }
+  }, [time, running])
+
+  const handleStart = () => {
+    setRunning(true)
+  }
+
+  const handleFinish = async () => {
+    if (!api) return
+
+    setRunning(false)
+
+    // 🎯 Korrektes Abschließen der Intervention
+    await dispatch(
+      completeInterventionThunk({
+        interventionId: id,
+        xp,
+        playAnimation: () => {},
+        api,
+      })
+    )
+
+    if (import.meta.env.DEV)
+      console.log("🎉 Meditation abgeschlossen", { id, xp })
+  }
 
   const progress = time / duration
   const circumference = 2 * Math.PI * 45
   const strokeDashoffset = circumference * (1 - progress)
-
-  if (time >= duration) {
-    addXP(40)
-  }
 
   return (
     <motion.div
@@ -52,14 +101,14 @@ export default function MeditationTimer() {
       transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       className="flex flex-col items-center justify-center h-full w-full text-center text-white"
     >
-      {!running ? (
+      {!running && time === 0 ? (
         <button
-          onClick={() => setRunning(true)}
+          onClick={handleStart}
           className="px-4 py-2 bg-blue-600 rounded-lg text-lg"
         >
           Starten
         </button>
-      ) : time < duration ? (
+      ) : running ? (
         <>
           <svg className="w-32 h-32 my-6" viewBox="0 0 100 100">
             <circle
@@ -84,19 +133,22 @@ export default function MeditationTimer() {
               strokeLinecap="round"
             />
           </svg>
-          <motion.p
-            key={subtitle}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-lg max-w-xs px-4"
-          >
-            {subtitle}
-          </motion.p>
+
+          {subtitle && (
+            <motion.p
+              key={subtitle}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-lg max-w-xs px-4"
+            >
+              {subtitle}
+            </motion.p>
+          )}
         </>
       ) : (
         <motion.button
-          onClick={() => addXP(40)}
+          onClick={handleFinish}
           className="mt-6 px-5 py-3 bg-green-600 rounded-lg"
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}

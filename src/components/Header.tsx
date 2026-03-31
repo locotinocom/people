@@ -1,10 +1,10 @@
 import { motion, useMotionValue, useTransform, animate } from "framer-motion"
 import { FaGem } from "react-icons/fa"
-import { useGame } from "../context/GameContext"
-import { useEffect, useState } from "react"
-import type { RefObject } from "react"
+import { useEffect, useState, type RefObject, useMemo } from "react"
 
 import DiamondCounter from "./DiamondsCounter"
+import { useAppSelector } from "@store/hooks"
+import { selectGame } from "@store/slices/gameSlice"
 
 type HeaderProps = {
   xpTargetRef?: RefObject<HTMLDivElement | null>
@@ -12,10 +12,44 @@ type HeaderProps = {
 }
 
 export default function Header({ xpTargetRef, diaTargetRef }: HeaderProps) {
-  const { level, xp, xpToNext, dias } = useGame()
-  const progress = Math.min((xp / xpToNext) * 100, 100)
+  const { levelStats, diamondBalance } = useAppSelector(selectGame)
 
-  // Dias Counter
+  // -----------------------------
+  // SAFE LEVEL + XP
+  // -----------------------------
+  const { level, xpNeeded, xpInLevel, progress } = useMemo(() => {
+    if (!levelStats) {
+      return {
+        level: 1,
+        xpNeeded: 100,
+        xpInLevel: 0,
+        progress: 0,
+      }
+    }
+
+    const lvl = levelStats.level
+    const needed = levelStats.xp_needed
+    const inLevel = levelStats.xp_in_level
+
+    let pct = Number(levelStats.progress_percent)
+    if (!Number.isFinite(pct)) {
+      pct = needed > 0 ? (inLevel / needed) * 100 : 0
+    }
+    pct = Math.max(0, Math.min(100, pct))
+
+    return {
+      level: lvl,
+      xpNeeded: needed,
+      xpInLevel: inLevel,
+      progress: pct,
+    }
+  }, [levelStats])
+
+  // -----------------------------
+  // DIAMONDS
+  // -----------------------------
+  const dias = diamondBalance ?? 0
+
   const motionDias = useMotionValue(dias)
   const roundedDias = useTransform(motionDias, Math.round)
   const [diasDisplay, setDiasDisplay] = useState(dias)
@@ -29,35 +63,40 @@ export default function Header({ xpTargetRef, diaTargetRef }: HeaderProps) {
     }
   }, [dias])
 
-  // XP Counter
-  const motionXp = useMotionValue(xp)
+  // -----------------------------
+  // XP Animation
+  // -----------------------------
+  const motionXp = useMotionValue(xpInLevel)
   const roundedXp = useTransform(motionXp, Math.round)
-  const [xpDisplay, setXpDisplay] = useState(xp)
+  const [xpDisplay, setXpDisplay] = useState(xpInLevel)
 
   useEffect(() => {
-    const controls = animate(motionXp, xp, { duration: 0.5 })
+    const controls = animate(motionXp, xpInLevel, { duration: 0.5 })
     const unsub = roundedXp.on("change", (v) => setXpDisplay(v))
     return () => {
       controls.stop()
       unsub()
     }
-  }, [xp])
+  }, [xpInLevel])
 
+  // -----------------------------
+  // UI
+  // -----------------------------
   return (
     <div className="flex flex-col h-20 px-3 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 shadow-lg text-white">
-      <div className="flex h-full w-full items-center">
-        {/* Linke Seite: Level + XP + Fortschrittsbalken */}
+      <div id="Loco_ProgressBar_XP" className="flex h-full w-full items-center">
+
+        {/* LEVEL + XP */}
         <div className="flex flex-col flex-1 items-center">
           <div className="text-center">
             <p className="font-bold text-base leading-tight">
-              Level {level}: Einführung
+              Level {level}
             </p>
             <p className="text-[10px] opacity-80">
-              {xpDisplay} / {xpToNext} XP
+              {xpDisplay} / {xpNeeded} XP
             </p>
           </div>
 
-          {/* Fortschrittsbalken */}
           <div
             ref={xpTargetRef}
             className="w-full mt-1 h-2 bg-zinc-800 rounded-full overflow-hidden shadow-inner"
@@ -70,8 +109,9 @@ export default function Header({ xpTargetRef, diaTargetRef }: HeaderProps) {
           </div>
         </div>
 
-        {/* Rechte Seite: Dias Anzeige */}
+        {/* DIAMONDS */}
         <div
+        id="loco_DiamondCounter"
           ref={diaTargetRef}
           className="flex items-center justify-center h-full px-3"
         >
@@ -80,6 +120,7 @@ export default function Header({ xpTargetRef, diaTargetRef }: HeaderProps) {
             <DiamondCounter value={diasDisplay} />
           </div>
         </div>
+
       </div>
     </div>
   )

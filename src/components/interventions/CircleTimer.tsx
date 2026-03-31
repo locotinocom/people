@@ -1,14 +1,25 @@
 import { useEffect, useState } from "react"
-import { usePlayerData } from "../../hooks/usePlayerData"
 
-type Props = {
-  questionId?: number
-  duration: number // in Sekunden
+// API
+import { useReduxApi } from "@api/reduxApi"
+
+// Redux
+import { useAppDispatch } from "@store/hooks"
+import { completeInterventionThunk } from "@store/slices/gameActionsSlice"
+
+type CircleTimerData = {
+  interventionId: number
   text: string
+  duration: number
+  xp?: number
 }
 
-export default function CircleTimer({ duration, text }: Props) {
-  const { addXP } = usePlayerData()
+export default function CircleTimer({ data }: { data: CircleTimerData }) {
+  const { interventionId, text, duration, xp = 0 } = data
+
+  const dispatch = useAppDispatch()
+  const api = useReduxApi()
+
   const [timeLeft, setTimeLeft] = useState(duration)
   const [running, setRunning] = useState(false)
   const [finished, setFinished] = useState(false)
@@ -34,8 +45,17 @@ export default function CircleTimer({ duration, text }: Props) {
     setRunning(true)
   }
 
-  const handleFinish = () => {
-    addXP(40) // XP vergeben
+  const handleFinish = async () => {
+    if (!api) return
+
+    await dispatch(
+      completeInterventionThunk({
+        interventionId,
+        xp,
+        playAnimation: () => {},
+        api,
+      })
+    )
   }
 
   const progress = 1 - timeLeft / duration
@@ -67,7 +87,7 @@ export default function CircleTimer({ duration, text }: Props) {
             cy="50"
           />
           <circle
-            className="text-blue-500"
+            className="text-blue-500 transition-all duration-300"
             stroke="currentColor"
             strokeWidth="6"
             fill="transparent"

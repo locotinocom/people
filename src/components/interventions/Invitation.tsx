@@ -1,93 +1,78 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
+import { useSlideManager } from "@context/SlideManagerContext"
+// API
+import { useReduxApi } from "@api/reduxApi"
 
-type Props = {
+// Redux
+import { useAppDispatch } from "@store/hooks"
+import { completeInterventionThunk, handleActionThunk } from "@store/slices/gameActionsSlice"
+
+type InvitationData = {
+  id: number
   title?: string
-  message: string
-  yesText?: string
-  noText?: string
+  message?: string
+  buttonText?: string
   xp?: number
-  onComplete: (cancelled?: boolean) => void
 }
 
-export default function Invitation({
-  title = "Einladung",
-  message,
-  yesText = "Ja, gerne 🧘‍♀️",
-  noText = "Vielleicht später",
-  xp,
-  onComplete,
-}: Props) {
-  const [declined, setDeclined] = useState(false)
+export default function Invitation({ data }: { data: InvitationData }) {
+  const { id, title = "Einladung", message = "", buttonText = "Weiter", xp = 0 } = data
+const slideManager = useSlideManager()
 
-  // Reset bei Mount (wenn man zurückswipet)
-  useEffect(() => {
-    setDeclined(false)
-    if (import.meta.env.DEV) console.log("♻️ Invitation reset bei Mount")
-  }, [])
+  const dispatch = useAppDispatch()
+  const api = useReduxApi()
 
   useEffect(() => {
-    if (!declined) return
-    if (import.meta.env.DEV) console.log("🙅 Nutzer hat Einladung abgelehnt")
+    if (import.meta.env.DEV) console.log("📩 Invitation geladen:", id)
+  }, [id])
 
-    // Sofort vertikales Swipen aktivieren
-    const outerSwiper = document.querySelector(".swiper-initialized.swiper-vertical") as any
-    const unlock = () => {
-      if (outerSwiper?.swiper && !outerSwiper.swiper.allowTouchMove) {
-        outerSwiper.swiper.allowTouchMove = true
-        if (import.meta.env.DEV) console.log("🔓 Swipe fix erneut gesetzt (Watcher aktiv)")
-      }
-    }
+ const handleContinue = async () => {
+  if (!api) return
 
-    unlock()
-    const watch = setInterval(unlock, 1000) // alle Sekunde checken (Remount fix)
+  // 1) Intervention speichern
+  await dispatch(
+    completeInterventionThunk({
+      interventionId: id,
+      xp,
+      playAnimation: () => {},
+      api,
+    })
+  )
 
-    const cleanup = setTimeout(() => {
-      onComplete(true)
-      if (import.meta.env.DEV) console.log("🏁 Invitation beendet → MultiStep abgebrochen")
-    }, 1200)
+  if (import.meta.env.DEV)
+    console.log("✅ Invitation abgeschlossen", { id, xp })
 
-    return () => {
-      clearTimeout(cleanup)
-      clearInterval(watch)
-    }
-  }, [declined, onComplete])
+  // 2) Weiter
+  await dispatch(
+    handleActionThunk({
+      action: {
+        type: "next",
+        goNext: () => slideManager.goNext(), // <-- KORREKT
+      },
+      playAnimation: () => {},
+      api,
+    })
+  )
+}
 
-  // Anzeige nach Ablehnung
-  if (declined) {
-    return (
-      <div className="flex flex-col items-center justify-center text-center h-full p-6 text-white">
-        <h2 className="text-2xl font-bold mb-4">Alles klar 👍</h2>
-        <p className="text-lg mb-4 max-w-sm">
-          Kein Problem – du kannst die Übung später jederzeit machen.
-        </p>
-        <p className="text-sm text-gray-400">(Du kannst jetzt weiterswipen)</p>
-      </div>
-    )
-  }
 
-  // Normale Anzeige
   return (
     <div className="flex flex-col items-center justify-center text-center h-full p-6 text-white">
-      <h2 className="text-2xl font-bold mb-4">{title}</h2>
-      <p className="text-lg mb-8 max-w-sm">{message}</p>
+      {title && <h2 className="text-2xl font-bold mb-4">{title}</h2>}
+      {message && (
+        <p className="text-lg mb-8 whitespace-pre-line max-w-sm">
+          {message}
+        </p>
+      )}
 
-      <div className="flex gap-4">
-        <button
-          onClick={() => onComplete(false)}
-          className="px-6 py-3 bg-green-600 rounded-lg text-white font-bold hover:bg-green-500"
-        >
-          {yesText}
-        </button>
+      <button
+        onClick={handleContinue}
+        className="px-6 py-3 bg-green-600 rounded-lg text-white font-bold hover:bg-green-500"
+      >
+        {buttonText}
+      </button>
 
-        <button
-          onClick={() => setDeclined(true)}
-          className="px-6 py-3 bg-gray-600 rounded-lg text-white font-bold hover:bg-gray-500"
-        >
-          {noText}
-        </button>
-      </div>
-
-      {typeof xp === "number" && xp > 0 && (
+      {xp > 0 && (
         <p className="mt-4 text-sm text-gray-400">Erledigen bringt +{xp} XP</p>
       )}
     </div>

@@ -1,7 +1,7 @@
 type Props = {
   title: string
   xp?: number
-  onComplete: () => void
+  onComplete?: () => void
   emotions?: string[]
 }
 
@@ -11,6 +11,10 @@ export default function EmotionPicker({
   onComplete,
   emotions = ["😊", "😡", "😢", "😱", "🤔", "❤️"],
 }: Props) {
+  const handleSelect = () => {
+    onComplete?.()
+  }
+
   return (
     <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
       <h2 className="text-xl font-bold">{title}</h2>
@@ -18,13 +22,14 @@ export default function EmotionPicker({
         {emotions.map((emo) => (
           <button
             key={emo}
-            onClick={onComplete}
+            onClick={handleSelect}
             className="text-3xl hover:scale-110 transition-transform"
           >
             {emo}
           </button>
         ))}
       </div>
+
       {typeof xp === "number" && (
         <p className="mt-2 text-sm text-gray-400">Erledigen bringt +{xp} XP</p>
       )}

@@ -1,0 +1,48 @@
+Auflistung der Ordnerpfade
+Volumeseriennummer : 9E31-3B87
+C:\USERS\UEMIT\DOCUMENTS\PROJECTS\PEOPLE-PLEASING\WEBAPP\PUBLIC\AVATARS
+¦   .DS_Store
+¦   eva.png
+¦   eva_waving.png
+¦   tim.png
+¦   tim_waving.png
+¦   
++---eva
+    +---accessory
+    ¦       default_accessory.svg
+    ¦       
+    +---base
+    ¦       default_base.svg
+    ¦       
+    +---bottom
+    ¦       default_bottom.svg
+    ¦       
+    +---emotions_fullbody
+    ¦       default_emotion.svg
+    ¦       
+    +---emotions_standalone
+    ¦       eva_emotion_base.svg
+    ¦       eva_emotion_default.svg
+    ¦       eva_emotion_lol.svg
+    ¦       eva_emotion_smile.svg
+    ¦       eva_emotion_top-01.svg
+    ¦       eva_emotion_top.svg
+    ¦       
+    +---hair_base
+    ¦       default_hair_base.svg
+    ¦       
+    +---hair_top
+    ¦       default_hair_top.svg
+    ¦       
+    +---head_accessory
+    ¦       default_head_accessory.svg
+    ¦       
+    +---head_base
+    ¦       eva_default_head_base.svg
+    ¦       
+    +---shoes
+    ¦       default_shoes.svg
+    ¦       
+    +---top
+            default_top.svg
+            

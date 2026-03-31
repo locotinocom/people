@@ -29,7 +29,17 @@
       "@helpers/*": ["helpers/*"],
       "@components/*": ["components/*"],
       "@data/*": ["data/*"],
-      "@context/*": ["context/*"]
+      "@context/*": ["context/*"],
+       "@layouts/*": ["layouts/*"],
+      "@api/*": ["api/*"],
+      "@hooks/*": ["hooks/*"],
+      "@store/*": ["store/*"],
+     "@/*": ["./src/*"],
+      "@utils/*": ["utils/*"] ,
+      "@ui/*": ["src/ui/*"],
+      "@game/*": ["components/Game/*"],
+      "@types/*": ["src/types/*"],
+      "@tools/*": ["tools/*"]
     }
   },
   "include": ["src", "src/global.d.ts"]

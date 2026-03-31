@@ -1,11 +1,10 @@
 export { default as YesNo } from "./YesNo"
 export { default as Choice } from "./Choice"
-export { default as HoldButton } from "./HoldButton"
+
 export { default as EmotionPicker } from "./EmotionPicker"
 export { default as SilenceCounter } from "./SilenceCounter"
-export { default as BeforeAfterScale } from "./BeforeAfterScale"
-export { default as BurningExpectation } from "./BurningExpectation"
-export { default as MultiStep } from "./MultiStep"
+
+
 export { default as Info } from "./Info"
 export { default as ChooseAvatar } from "./ChooseAvatar"
 export { default as Invitation } from "./Invitation"

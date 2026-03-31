@@ -1,0 +1,1767 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-01-30T11:19:08Z",
+  "i18n_strategy": {
+    "current": [
+      "de",
+      "en"
+    ],
+    "future": "Add more languages by extending labels.{lang} for each item. Keep 'key' and 'unicode_sequence' stable."
+  },
+  "asset_strategy": {
+    "recommended": "Store SVGs in /assets/emoji/animals/ and reference via filename_svg.",
+    "note": "Provider (OpenMoji/Twemoji/etc.) not hard-coded here; map to your chosen provider's filenames or generate during build."
+  },
+  "items": [
+    {
+      "key": "monkey_face",
+      "unicode_sequence": "1F435",
+      "labels": {
+        "de": "Affengesicht",
+        "en": "monkey face"
+      },
+      "filename_svg": "1F435.svg",
+      "filename_png": "1F435.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "monkey",
+      "unicode_sequence": "1F412",
+      "labels": {
+        "de": "Affe",
+        "en": "monkey"
+      },
+      "filename_svg": "1F412.svg",
+      "filename_png": "1F412.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "gorilla",
+      "unicode_sequence": "1F98D",
+      "labels": {
+        "de": "Gorilla",
+        "en": "gorilla"
+      },
+      "filename_svg": "1F98D.svg",
+      "filename_png": "1F98D.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "orangutan",
+      "unicode_sequence": "1F9A7",
+      "labels": {
+        "de": "Orang-Utan",
+        "en": "orangutan"
+      },
+      "filename_svg": "1F9A7.svg",
+      "filename_png": "1F9A7.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "dog_face",
+      "unicode_sequence": "1F436",
+      "labels": {
+        "de": "Hundegesicht",
+        "en": "dog face"
+      },
+      "filename_svg": "1F436.svg",
+      "filename_png": "1F436.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "dog",
+      "unicode_sequence": "1F415",
+      "labels": {
+        "de": "Hund",
+        "en": "dog"
+      },
+      "filename_svg": "1F415.svg",
+      "filename_png": "1F415.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "guide_dog",
+      "unicode_sequence": "1F9AE",
+      "labels": {
+        "de": "Blindenhund",
+        "en": "guide dog"
+      },
+      "filename_svg": "1F9AE.svg",
+      "filename_png": "1F9AE.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "service_dog",
+      "unicode_sequence": "1F415-200D-1F9BA",
+      "labels": {
+        "de": "Assistenzhund",
+        "en": "service dog"
+      },
+      "filename_svg": "1F415-200D-1F9BA.svg",
+      "filename_png": "1F415-200D-1F9BA.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "poodle",
+      "unicode_sequence": "1F429",
+      "labels": {
+        "de": "Pudel",
+        "en": "poodle"
+      },
+      "filename_svg": "1F429.svg",
+      "filename_png": "1F429.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "wolf",
+      "unicode_sequence": "1F43A",
+      "labels": {
+        "de": "Wolf",
+        "en": "wolf"
+      },
+      "filename_svg": "1F43A.svg",
+      "filename_png": "1F43A.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "fox",
+      "unicode_sequence": "1F98A",
+      "labels": {
+        "de": "Fuchs",
+        "en": "fox"
+      },
+      "filename_svg": "1F98A.svg",
+      "filename_png": "1F98A.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "raccoon",
+      "unicode_sequence": "1F99D",
+      "labels": {
+        "de": "Waschbär",
+        "en": "raccoon"
+      },
+      "filename_svg": "1F99D.svg",
+      "filename_png": "1F99D.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "cat_face",
+      "unicode_sequence": "1F431",
+      "labels": {
+        "de": "Katzengesicht",
+        "en": "cat face"
+      },
+      "filename_svg": "1F431.svg",
+      "filename_png": "1F431.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "cat",
+      "unicode_sequence": "1F408",
+      "labels": {
+        "de": "Katze",
+        "en": "cat"
+      },
+      "filename_svg": "1F408.svg",
+      "filename_png": "1F408.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "black_cat",
+      "unicode_sequence": "1F408-200D-2B1B",
+      "labels": {
+        "de": "Schwarze Katze",
+        "en": "black cat"
+      },
+      "filename_svg": "1F408-200D-2B1B.svg",
+      "filename_png": "1F408-200D-2B1B.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "lion",
+      "unicode_sequence": "1F981",
+      "labels": {
+        "de": "Löwe",
+        "en": "lion"
+      },
+      "filename_svg": "1F981.svg",
+      "filename_png": "1F981.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "tiger_face",
+      "unicode_sequence": "1F42F",
+      "labels": {
+        "de": "Tigergesicht",
+        "en": "tiger face"
+      },
+      "filename_svg": "1F42F.svg",
+      "filename_png": "1F42F.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "tiger",
+      "unicode_sequence": "1F405",
+      "labels": {
+        "de": "Tiger",
+        "en": "tiger"
+      },
+      "filename_svg": "1F405.svg",
+      "filename_png": "1F405.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "leopard",
+      "unicode_sequence": "1F406",
+      "labels": {
+        "de": "Leopard",
+        "en": "leopard"
+      },
+      "filename_svg": "1F406.svg",
+      "filename_png": "1F406.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "horse_face",
+      "unicode_sequence": "1F434",
+      "labels": {
+        "de": "Pferdegesicht",
+        "en": "horse face"
+      },
+      "filename_svg": "1F434.svg",
+      "filename_png": "1F434.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "horse",
+      "unicode_sequence": "1F40E",
+      "labels": {
+        "de": "Pferd",
+        "en": "horse"
+      },
+      "filename_svg": "1F40E.svg",
+      "filename_png": "1F40E.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "donkey",
+      "unicode_sequence": "1FACF",
+      "labels": {
+        "de": "Esel",
+        "en": "donkey"
+      },
+      "filename_svg": "1FACF.svg",
+      "filename_png": "1FACF.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "moose",
+      "unicode_sequence": "1FACE",
+      "labels": {
+        "de": "Elch",
+        "en": "moose"
+      },
+      "filename_svg": "1FACE.svg",
+      "filename_png": "1FACE.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "unicorn",
+      "unicode_sequence": "1F984",
+      "labels": {
+        "de": "Einhorn",
+        "en": "unicorn"
+      },
+      "filename_svg": "1F984.svg",
+      "filename_png": "1F984.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "zebra",
+      "unicode_sequence": "1F993",
+      "labels": {
+        "de": "Zebra",
+        "en": "zebra"
+      },
+      "filename_svg": "1F993.svg",
+      "filename_png": "1F993.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "deer",
+      "unicode_sequence": "1F98C",
+      "labels": {
+        "de": "Hirsch",
+        "en": "deer"
+      },
+      "filename_svg": "1F98C.svg",
+      "filename_png": "1F98C.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "bison",
+      "unicode_sequence": "1F9AC",
+      "labels": {
+        "de": "Bison",
+        "en": "bison"
+      },
+      "filename_svg": "1F9AC.svg",
+      "filename_png": "1F9AC.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "cow_face",
+      "unicode_sequence": "1F42E",
+      "labels": {
+        "de": "Kuhgesicht",
+        "en": "cow face"
+      },
+      "filename_svg": "1F42E.svg",
+      "filename_png": "1F42E.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "ox",
+      "unicode_sequence": "1F402",
+      "labels": {
+        "de": "Ochse",
+        "en": "ox"
+      },
+      "filename_svg": "1F402.svg",
+      "filename_png": "1F402.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "water_buffalo",
+      "unicode_sequence": "1F403",
+      "labels": {
+        "de": "Wasserbüffel",
+        "en": "water buffalo"
+      },
+      "filename_svg": "1F403.svg",
+      "filename_png": "1F403.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "cow",
+      "unicode_sequence": "1F404",
+      "labels": {
+        "de": "Kuh",
+        "en": "cow"
+      },
+      "filename_svg": "1F404.svg",
+      "filename_png": "1F404.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "pig_face",
+      "unicode_sequence": "1F437",
+      "labels": {
+        "de": "Schweinegesicht",
+        "en": "pig face"
+      },
+      "filename_svg": "1F437.svg",
+      "filename_png": "1F437.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "pig",
+      "unicode_sequence": "1F416",
+      "labels": {
+        "de": "Schwein",
+        "en": "pig"
+      },
+      "filename_svg": "1F416.svg",
+      "filename_png": "1F416.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "boar",
+      "unicode_sequence": "1F417",
+      "labels": {
+        "de": "Wildschwein",
+        "en": "boar"
+      },
+      "filename_svg": "1F417.svg",
+      "filename_png": "1F417.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "pig_nose",
+      "unicode_sequence": "1F43D",
+      "labels": {
+        "de": "Schweinenase",
+        "en": "pig nose"
+      },
+      "filename_svg": "1F43D.svg",
+      "filename_png": "1F43D.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "ram",
+      "unicode_sequence": "1F40F",
+      "labels": {
+        "de": "Widder",
+        "en": "ram"
+      },
+      "filename_svg": "1F40F.svg",
+      "filename_png": "1F40F.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "ewe",
+      "unicode_sequence": "1F411",
+      "labels": {
+        "de": "Mutterschaf",
+        "en": "ewe"
+      },
+      "filename_svg": "1F411.svg",
+      "filename_png": "1F411.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "goat",
+      "unicode_sequence": "1F410",
+      "labels": {
+        "de": "Ziege",
+        "en": "goat"
+      },
+      "filename_svg": "1F410.svg",
+      "filename_png": "1F410.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "camel",
+      "unicode_sequence": "1F42A",
+      "labels": {
+        "de": "Kamel",
+        "en": "camel"
+      },
+      "filename_svg": "1F42A.svg",
+      "filename_png": "1F42A.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "two_hump_camel",
+      "unicode_sequence": "1F42B",
+      "labels": {
+        "de": "Trampeltier",
+        "en": "two-hump camel"
+      },
+      "filename_svg": "1F42B.svg",
+      "filename_png": "1F42B.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "llama",
+      "unicode_sequence": "1F999",
+      "labels": {
+        "de": "Lama",
+        "en": "llama"
+      },
+      "filename_svg": "1F999.svg",
+      "filename_png": "1F999.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "giraffe",
+      "unicode_sequence": "1F992",
+      "labels": {
+        "de": "Giraffe",
+        "en": "giraffe"
+      },
+      "filename_svg": "1F992.svg",
+      "filename_png": "1F992.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "elephant",
+      "unicode_sequence": "1F418",
+      "labels": {
+        "de": "Elefant",
+        "en": "elephant"
+      },
+      "filename_svg": "1F418.svg",
+      "filename_png": "1F418.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "mammoth",
+      "unicode_sequence": "1F9A3",
+      "labels": {
+        "de": "Mammut",
+        "en": "mammoth"
+      },
+      "filename_svg": "1F9A3.svg",
+      "filename_png": "1F9A3.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "rhinoceros",
+      "unicode_sequence": "1F98F",
+      "labels": {
+        "de": "Nashorn",
+        "en": "rhinoceros"
+      },
+      "filename_svg": "1F98F.svg",
+      "filename_png": "1F98F.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "hippopotamus",
+      "unicode_sequence": "1F99B",
+      "labels": {
+        "de": "Nilpferd",
+        "en": "hippopotamus"
+      },
+      "filename_svg": "1F99B.svg",
+      "filename_png": "1F99B.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "mouse_face",
+      "unicode_sequence": "1F42D",
+      "labels": {
+        "de": "Mäusegesicht",
+        "en": "mouse face"
+      },
+      "filename_svg": "1F42D.svg",
+      "filename_png": "1F42D.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "mouse",
+      "unicode_sequence": "1F401",
+      "labels": {
+        "de": "Maus",
+        "en": "mouse"
+      },
+      "filename_svg": "1F401.svg",
+      "filename_png": "1F401.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "rat",
+      "unicode_sequence": "1F400",
+      "labels": {
+        "de": "Ratte",
+        "en": "rat"
+      },
+      "filename_svg": "1F400.svg",
+      "filename_png": "1F400.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "hamster",
+      "unicode_sequence": "1F439",
+      "labels": {
+        "de": "Hamster",
+        "en": "hamster"
+      },
+      "filename_svg": "1F439.svg",
+      "filename_png": "1F439.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "rabbit_face",
+      "unicode_sequence": "1F430",
+      "labels": {
+        "de": "Kaninchengesicht",
+        "en": "rabbit face"
+      },
+      "filename_svg": "1F430.svg",
+      "filename_png": "1F430.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "rabbit",
+      "unicode_sequence": "1F407",
+      "labels": {
+        "de": "Kaninchen",
+        "en": "rabbit"
+      },
+      "filename_svg": "1F407.svg",
+      "filename_png": "1F407.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "chipmunk",
+      "unicode_sequence": "1F43F",
+      "labels": {
+        "de": "Streifenhörnchen",
+        "en": "chipmunk"
+      },
+      "filename_svg": "1F43F.svg",
+      "filename_png": "1F43F.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "beaver",
+      "unicode_sequence": "1F9AB",
+      "labels": {
+        "de": "Biber",
+        "en": "beaver"
+      },
+      "filename_svg": "1F9AB.svg",
+      "filename_png": "1F9AB.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "hedgehog",
+      "unicode_sequence": "1F994",
+      "labels": {
+        "de": "Igel",
+        "en": "hedgehog"
+      },
+      "filename_svg": "1F994.svg",
+      "filename_png": "1F994.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "bat",
+      "unicode_sequence": "1F987",
+      "labels": {
+        "de": "Fledermaus",
+        "en": "bat"
+      },
+      "filename_svg": "1F987.svg",
+      "filename_png": "1F987.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "bear",
+      "unicode_sequence": "1F43B",
+      "labels": {
+        "de": "Bär",
+        "en": "bear"
+      },
+      "filename_svg": "1F43B.svg",
+      "filename_png": "1F43B.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "polar_bear",
+      "unicode_sequence": "1F43B-200D-2744-FE0F",
+      "labels": {
+        "de": "Eisbär",
+        "en": "polar bear"
+      },
+      "filename_svg": "1F43B-200D-2744-FE0F.svg",
+      "filename_png": "1F43B-200D-2744-FE0F.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "koala",
+      "unicode_sequence": "1F428",
+      "labels": {
+        "de": "Koala",
+        "en": "koala"
+      },
+      "filename_svg": "1F428.svg",
+      "filename_png": "1F428.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "panda",
+      "unicode_sequence": "1F43C",
+      "labels": {
+        "de": "Panda",
+        "en": "panda"
+      },
+      "filename_svg": "1F43C.svg",
+      "filename_png": "1F43C.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "sloth",
+      "unicode_sequence": "1F9A5",
+      "labels": {
+        "de": "Faultier",
+        "en": "sloth"
+      },
+      "filename_svg": "1F9A5.svg",
+      "filename_png": "1F9A5.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "otter",
+      "unicode_sequence": "1F9A6",
+      "labels": {
+        "de": "Otter",
+        "en": "otter"
+      },
+      "filename_svg": "1F9A6.svg",
+      "filename_png": "1F9A6.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "skunk",
+      "unicode_sequence": "1F9A8",
+      "labels": {
+        "de": "Stinktier",
+        "en": "skunk"
+      },
+      "filename_svg": "1F9A8.svg",
+      "filename_png": "1F9A8.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "kangaroo",
+      "unicode_sequence": "1F998",
+      "labels": {
+        "de": "Känguru",
+        "en": "kangaroo"
+      },
+      "filename_svg": "1F998.svg",
+      "filename_png": "1F998.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "badger",
+      "unicode_sequence": "1F9A1",
+      "labels": {
+        "de": "Dachs",
+        "en": "badger"
+      },
+      "filename_svg": "1F9A1.svg",
+      "filename_png": "1F9A1.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "turkey",
+      "unicode_sequence": "1F983",
+      "labels": {
+        "de": "Truthahn",
+        "en": "turkey"
+      },
+      "filename_svg": "1F983.svg",
+      "filename_png": "1F983.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "chicken",
+      "unicode_sequence": "1F414",
+      "labels": {
+        "de": "Huhn",
+        "en": "chicken"
+      },
+      "filename_svg": "1F414.svg",
+      "filename_png": "1F414.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "rooster",
+      "unicode_sequence": "1F413",
+      "labels": {
+        "de": "Hahn",
+        "en": "rooster"
+      },
+      "filename_svg": "1F413.svg",
+      "filename_png": "1F413.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "hatching_chick",
+      "unicode_sequence": "1F423",
+      "labels": {
+        "de": "Küken (schlüpfend)",
+        "en": "hatching chick"
+      },
+      "filename_svg": "1F423.svg",
+      "filename_png": "1F423.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "baby_chick",
+      "unicode_sequence": "1F424",
+      "labels": {
+        "de": "Küken",
+        "en": "baby chick"
+      },
+      "filename_svg": "1F424.svg",
+      "filename_png": "1F424.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "front_chick",
+      "unicode_sequence": "1F425",
+      "labels": {
+        "de": "Küken (von vorne)",
+        "en": "front-facing baby chick"
+      },
+      "filename_svg": "1F425.svg",
+      "filename_png": "1F425.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "bird",
+      "unicode_sequence": "1F426",
+      "labels": {
+        "de": "Vogel",
+        "en": "bird"
+      },
+      "filename_svg": "1F426.svg",
+      "filename_png": "1F426.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "penguin",
+      "unicode_sequence": "1F427",
+      "labels": {
+        "de": "Pinguin",
+        "en": "penguin"
+      },
+      "filename_svg": "1F427.svg",
+      "filename_png": "1F427.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "dove",
+      "unicode_sequence": "1F54A",
+      "labels": {
+        "de": "Taube",
+        "en": "dove"
+      },
+      "filename_svg": "1F54A.svg",
+      "filename_png": "1F54A.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "eagle",
+      "unicode_sequence": "1F985",
+      "labels": {
+        "de": "Adler",
+        "en": "eagle"
+      },
+      "filename_svg": "1F985.svg",
+      "filename_png": "1F985.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "duck",
+      "unicode_sequence": "1F986",
+      "labels": {
+        "de": "Ente",
+        "en": "duck"
+      },
+      "filename_svg": "1F986.svg",
+      "filename_png": "1F986.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "swan",
+      "unicode_sequence": "1F9A2",
+      "labels": {
+        "de": "Schwan",
+        "en": "swan"
+      },
+      "filename_svg": "1F9A2.svg",
+      "filename_png": "1F9A2.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "owl",
+      "unicode_sequence": "1F989",
+      "labels": {
+        "de": "Eule",
+        "en": "owl"
+      },
+      "filename_svg": "1F989.svg",
+      "filename_png": "1F989.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "dodo",
+      "unicode_sequence": "1F9A4",
+      "labels": {
+        "de": "Dodo",
+        "en": "dodo"
+      },
+      "filename_svg": "1F9A4.svg",
+      "filename_png": "1F9A4.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "flamingo",
+      "unicode_sequence": "1F9A9",
+      "labels": {
+        "de": "Flamingo",
+        "en": "flamingo"
+      },
+      "filename_svg": "1F9A9.svg",
+      "filename_png": "1F9A9.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "peacock",
+      "unicode_sequence": "1F99A",
+      "labels": {
+        "de": "Pfau",
+        "en": "peacock"
+      },
+      "filename_svg": "1F99A.svg",
+      "filename_png": "1F99A.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "parrot",
+      "unicode_sequence": "1F99C",
+      "labels": {
+        "de": "Papagei",
+        "en": "parrot"
+      },
+      "filename_svg": "1F99C.svg",
+      "filename_png": "1F99C.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "black_bird",
+      "unicode_sequence": "1F426-200D-2B1B",
+      "labels": {
+        "de": "Schwarzer Vogel",
+        "en": "black bird"
+      },
+      "filename_svg": "1F426-200D-2B1B.svg",
+      "filename_png": "1F426-200D-2B1B.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "goose",
+      "unicode_sequence": "1FABF",
+      "labels": {
+        "de": "Gans",
+        "en": "goose"
+      },
+      "filename_svg": "1FABF.svg",
+      "filename_png": "1FABF.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "phoenix",
+      "unicode_sequence": "1F426-200D-1F525",
+      "labels": {
+        "de": "Phönix",
+        "en": "phoenix"
+      },
+      "filename_svg": "1F426-200D-1F525.svg",
+      "filename_png": "1F426-200D-1F525.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "frog",
+      "unicode_sequence": "1F438",
+      "labels": {
+        "de": "Frosch",
+        "en": "frog"
+      },
+      "filename_svg": "1F438.svg",
+      "filename_png": "1F438.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "crocodile",
+      "unicode_sequence": "1F40A",
+      "labels": {
+        "de": "Krokodil",
+        "en": "crocodile"
+      },
+      "filename_svg": "1F40A.svg",
+      "filename_png": "1F40A.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "turtle",
+      "unicode_sequence": "1F422",
+      "labels": {
+        "de": "Schildkröte",
+        "en": "turtle"
+      },
+      "filename_svg": "1F422.svg",
+      "filename_png": "1F422.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "lizard",
+      "unicode_sequence": "1F98E",
+      "labels": {
+        "de": "Eidechse",
+        "en": "lizard"
+      },
+      "filename_svg": "1F98E.svg",
+      "filename_png": "1F98E.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "snake",
+      "unicode_sequence": "1F40D",
+      "labels": {
+        "de": "Schlange",
+        "en": "snake"
+      },
+      "filename_svg": "1F40D.svg",
+      "filename_png": "1F40D.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "dragon_face",
+      "unicode_sequence": "1F432",
+      "labels": {
+        "de": "Drachengesicht",
+        "en": "dragon face"
+      },
+      "filename_svg": "1F432.svg",
+      "filename_png": "1F432.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "dragon",
+      "unicode_sequence": "1F409",
+      "labels": {
+        "de": "Drache",
+        "en": "dragon"
+      },
+      "filename_svg": "1F409.svg",
+      "filename_png": "1F409.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "sauropod",
+      "unicode_sequence": "1F995",
+      "labels": {
+        "de": "Sauropode",
+        "en": "sauropod"
+      },
+      "filename_svg": "1F995.svg",
+      "filename_png": "1F995.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "t_rex",
+      "unicode_sequence": "1F996",
+      "labels": {
+        "de": "T-Rex",
+        "en": "T-Rex"
+      },
+      "filename_svg": "1F996.svg",
+      "filename_png": "1F996.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "spouting_whale",
+      "unicode_sequence": "1F433",
+      "labels": {
+        "de": "Wal (Fontäne)",
+        "en": "spouting whale"
+      },
+      "filename_svg": "1F433.svg",
+      "filename_png": "1F433.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "whale",
+      "unicode_sequence": "1F40B",
+      "labels": {
+        "de": "Wal",
+        "en": "whale"
+      },
+      "filename_svg": "1F40B.svg",
+      "filename_png": "1F40B.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "dolphin",
+      "unicode_sequence": "1F42C",
+      "labels": {
+        "de": "Delfin",
+        "en": "dolphin"
+      },
+      "filename_svg": "1F42C.svg",
+      "filename_png": "1F42C.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "seal",
+      "unicode_sequence": "1F9AD",
+      "labels": {
+        "de": "Robbe",
+        "en": "seal"
+      },
+      "filename_svg": "1F9AD.svg",
+      "filename_png": "1F9AD.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "fish",
+      "unicode_sequence": "1F41F",
+      "labels": {
+        "de": "Fisch",
+        "en": "fish"
+      },
+      "filename_svg": "1F41F.svg",
+      "filename_png": "1F41F.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "tropical_fish",
+      "unicode_sequence": "1F420",
+      "labels": {
+        "de": "Tropenfisch",
+        "en": "tropical fish"
+      },
+      "filename_svg": "1F420.svg",
+      "filename_png": "1F420.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "blowfish",
+      "unicode_sequence": "1F421",
+      "labels": {
+        "de": "Kugelfisch",
+        "en": "blowfish"
+      },
+      "filename_svg": "1F421.svg",
+      "filename_png": "1F421.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "shark",
+      "unicode_sequence": "1F988",
+      "labels": {
+        "de": "Hai",
+        "en": "shark"
+      },
+      "filename_svg": "1F988.svg",
+      "filename_png": "1F988.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "octopus",
+      "unicode_sequence": "1F419",
+      "labels": {
+        "de": "Oktopus",
+        "en": "octopus"
+      },
+      "filename_svg": "1F419.svg",
+      "filename_png": "1F419.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "jellyfish",
+      "unicode_sequence": "1FABC",
+      "labels": {
+        "de": "Qualle",
+        "en": "jellyfish"
+      },
+      "filename_svg": "1FABC.svg",
+      "filename_png": "1FABC.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "coral",
+      "unicode_sequence": "1FAB8",
+      "labels": {
+        "de": "Koralle",
+        "en": "coral"
+      },
+      "filename_svg": "1FAB8.svg",
+      "filename_png": "1FAB8.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "crab",
+      "unicode_sequence": "1F980",
+      "labels": {
+        "de": "Krabbe",
+        "en": "crab"
+      },
+      "filename_svg": "1F980.svg",
+      "filename_png": "1F980.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "lobster",
+      "unicode_sequence": "1F99E",
+      "labels": {
+        "de": "Hummer",
+        "en": "lobster"
+      },
+      "filename_svg": "1F99E.svg",
+      "filename_png": "1F99E.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "shrimp",
+      "unicode_sequence": "1F990",
+      "labels": {
+        "de": "Garnele",
+        "en": "shrimp"
+      },
+      "filename_svg": "1F990.svg",
+      "filename_png": "1F990.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "squid",
+      "unicode_sequence": "1F991",
+      "labels": {
+        "de": "Kalmar",
+        "en": "squid"
+      },
+      "filename_svg": "1F991.svg",
+      "filename_png": "1F991.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "oyster",
+      "unicode_sequence": "1F9AA",
+      "labels": {
+        "de": "Auster",
+        "en": "oyster"
+      },
+      "filename_svg": "1F9AA.svg",
+      "filename_png": "1F9AA.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "snail",
+      "unicode_sequence": "1F40C",
+      "labels": {
+        "de": "Schnecke",
+        "en": "snail"
+      },
+      "filename_svg": "1F40C.svg",
+      "filename_png": "1F40C.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "butterfly",
+      "unicode_sequence": "1F98B",
+      "labels": {
+        "de": "Schmetterling",
+        "en": "butterfly"
+      },
+      "filename_svg": "1F98B.svg",
+      "filename_png": "1F98B.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "bug",
+      "unicode_sequence": "1F41B",
+      "labels": {
+        "de": "Käfer",
+        "en": "bug"
+      },
+      "filename_svg": "1F41B.svg",
+      "filename_png": "1F41B.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "ant",
+      "unicode_sequence": "1F41C",
+      "labels": {
+        "de": "Ameise",
+        "en": "ant"
+      },
+      "filename_svg": "1F41C.svg",
+      "filename_png": "1F41C.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "honeybee",
+      "unicode_sequence": "1F41D",
+      "labels": {
+        "de": "Biene",
+        "en": "honeybee"
+      },
+      "filename_svg": "1F41D.svg",
+      "filename_png": "1F41D.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "beetle",
+      "unicode_sequence": "1FAB2",
+      "labels": {
+        "de": "Käfer (allgemein)",
+        "en": "beetle"
+      },
+      "filename_svg": "1FAB2.svg",
+      "filename_png": "1FAB2.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "lady_beetle",
+      "unicode_sequence": "1F41E",
+      "labels": {
+        "de": "Marienkäfer",
+        "en": "lady beetle"
+      },
+      "filename_svg": "1F41E.svg",
+      "filename_png": "1F41E.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "cricket",
+      "unicode_sequence": "1F997",
+      "labels": {
+        "de": "Grille",
+        "en": "cricket"
+      },
+      "filename_svg": "1F997.svg",
+      "filename_png": "1F997.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "cockroach",
+      "unicode_sequence": "1FAB3",
+      "labels": {
+        "de": "Kakerlake",
+        "en": "cockroach"
+      },
+      "filename_svg": "1FAB3.svg",
+      "filename_png": "1FAB3.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "spider",
+      "unicode_sequence": "1F577",
+      "labels": {
+        "de": "Spinne",
+        "en": "spider"
+      },
+      "filename_svg": "1F577.svg",
+      "filename_png": "1F577.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "spider_web",
+      "unicode_sequence": "1F578",
+      "labels": {
+        "de": "Spinnennetz",
+        "en": "spider web"
+      },
+      "filename_svg": "1F578.svg",
+      "filename_png": "1F578.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "scorpion",
+      "unicode_sequence": "1F982",
+      "labels": {
+        "de": "Skorpion",
+        "en": "scorpion"
+      },
+      "filename_svg": "1F982.svg",
+      "filename_png": "1F982.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "mosquito",
+      "unicode_sequence": "1F99F",
+      "labels": {
+        "de": "Mücke",
+        "en": "mosquito"
+      },
+      "filename_svg": "1F99F.svg",
+      "filename_png": "1F99F.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "fly",
+      "unicode_sequence": "1FAB0",
+      "labels": {
+        "de": "Fliege",
+        "en": "fly"
+      },
+      "filename_svg": "1FAB0.svg",
+      "filename_png": "1FAB0.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    },
+    {
+      "key": "worm",
+      "unicode_sequence": "1FAB1",
+      "labels": {
+        "de": "Wurm",
+        "en": "worm"
+      },
+      "filename_svg": "1FAB1.svg",
+      "filename_png": "1FAB1.png",
+      "tags": [
+        "animal"
+      ],
+      "notes": []
+    }
+  ]
+}

@@ -1,0 +1,848 @@
+{
+  "outfit": [
+    {
+      "id": "107519403",
+      "name": "outfit-angel-01-v2-f",
+      "type": "outfit",
+      "gender": "female",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/107519403/1644668100-outfit-angel-01-v2-f-1699880526734.png",
+      "selected": true
+    },
+    {
+      "id": "122513723",
+      "name": "outfit-archer-01-v2-f",
+      "type": "outfit",
+      "gender": "female",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/122513723/1656585408-outfit-archer-01-v2-f-1699880513204.png",
+      "selected": true
+    },
+    {
+      "id": "122450731",
+      "name": "outfit-archer-01-v2-m",
+      "type": "outfit",
+      "gender": "male",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/122450731/1656519071-outfit-archer-01-v2-m-1699880513173.png",
+      "selected": true
+    },
+    {
+      "id": "59895362",
+      "name": "outfit-autumn-02-v2-m",
+      "type": "outfit",
+      "gender": "male",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/59895362/1632415004-outfit-autumn-02-v2-m-1699880532354.png",
+      "selected": true
+    },
+    {
+      "id": "58096357",
+      "name": "outfit-basic-01-v2-m",
+      "type": "outfit",
+      "gender": "male",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/58096357/1631784910-outfit-basic-01-v2-m-1699880522425.png",
+      "selected": true
+    },
+    {
+      "id": "109373713",
+      "name": "outfit-basicrpm-02-v2-m",
+      "type": "outfit",
+      "gender": "male",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/109373713/1645186962-outfit-basicrpm-02-v2-m-1699880511755.png",
+      "selected": true
+    },
+    {
+      "id": "75464041",
+      "name": "outfit-classic-02-v2-m",
+      "type": "outfit",
+      "gender": "male",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/75464041/1637312789-outfit-classic-02-v2-m-1699880536928.png",
+      "selected": true
+    },
+    {
+      "id": "75463405",
+      "name": "outfit-classic-04-v2-m",
+      "type": "outfit",
+      "gender": "male",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/75463405/1637312497-outfit-classic-04-v2-m-1699880541785.png",
+      "selected": true
+    },
+    {
+      "id": "75228028",
+      "name": "outfit-classic-05-v2-f",
+      "type": "outfit",
+      "gender": "female",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/75228028/1637238344-outfit-classic-05-v2-f-1699880532317.png",
+      "selected": true
+    },
+    {
+      "id": "75463871",
+      "name": "outfit-classic-05-v2-m",
+      "type": "outfit",
+      "gender": "male",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/75463871/1637312702-outfit-classic-05-v2-m-1699880543891.png",
+      "selected": true
+    },
+    {
+      "id": "104990781",
+      "name": "outfit-costume-04-v2-f",
+      "type": "outfit",
+      "gender": "female",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/104990781/1644254436-outfit-costume-04-v2-f-1699880526744.png",
+      "selected": true
+    },
+    {
+      "id": "47431267",
+      "name": "outfit-f-casual-09-v2",
+      "type": "outfit",
+      "gender": "female",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/47431267/1625842862-outfit-f-casual-09-v2-1699880571044.png",
+      "selected": true
+    },
+    {
+      "id": "38134006",
+      "name": "outfit-f-medievalplumeria-02-v2",
+      "type": "outfit",
+      "gender": "female",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/38134006/1622444454-outfit-f-medievalplumeria-02-v2-1699880583370.png",
+      "selected": true
+    },
+    {
+      "id": "46269019",
+      "name": "outfit-f-racer-03-v2",
+      "type": "outfit",
+      "gender": "female",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/46269019/1625483832-outfit-f-racer-03-v2-1699880573762.png",
+      "selected": true
+    },
+    {
+      "id": "26549796",
+      "name": "outfit-m-cyberpunk-02-v2",
+      "type": "outfit",
+      "gender": "male",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/26549796/1630662869-outfit-cyberpunk-02-v2-m-1699880630689.png",
+      "selected": true
+    },
+    {
+      "id": "95782635",
+      "name": "outfit-m-medievaltaurus-01-v2",
+      "type": "outfit",
+      "gender": "male",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/95782635/1617054442-outfit-m-medievaltaurus-01-v2-1699880561320.png",
+      "selected": true
+    },
+    {
+      "id": "120843794",
+      "name": "outfit-rogue-01-v2-m",
+      "type": "outfit",
+      "gender": "male",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/120843794/1649151869-outfit-rogue-01-v2-m-1699880515101.png",
+      "selected": true
+    }
+  ],
+  "bottom": [
+    {
+      "id": "146120161",
+      "name": "pants-adventure-01",
+      "type": "bottom",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/146120161/1691682937-pants-adventure-01-color03-1699880477990.png",
+      "selected": true
+    },
+    {
+      "id": "x5cj70J1RXGeNupHA6-xlg",
+      "name": "pants-cargo-01-blackzipper",
+      "type": "bottom",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/x5cj70J1RXGeNupHA6-xlg/1698942405-pants-cargo-01-beige-1699440313902.png",
+      "selected": true
+    },
+    {
+      "id": "cXRIxF8WRJ6zcmj78yp3hA",
+      "name": "pants-cargo-01-blackzipper (duplicate)",
+      "type": "bottom",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/cXRIxF8WRJ6zcmj78yp3hA/1698942384-pants-cargo-01-blackzipper-1699440339562.png",
+      "selected": true
+    },
+    {
+      "id": "146120431",
+      "name": "pants-casual-01",
+      "type": "bottom",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/146120431/1674645936-pants-casual-01-black-1699880490112.png",
+      "selected": true
+    },
+    {
+      "id": "rbGTy_C0Rp-9HcOpwUQOQw",
+      "name": "pants-casual-01-italian",
+      "type": "bottom",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/rbGTy_C0Rp-9HcOpwUQOQw/1698942894-pants-casual-01-italian-1698942899934.png",
+      "selected": true
+    },
+    {
+      "id": "145064644",
+      "name": "pants-casual-02",
+      "type": "bottom",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/145064644/1673877306-pants-casual-02-1699880503919.png",
+      "selected": true
+    },
+    {
+      "id": "146120748",
+      "name": "pants-jeans-01",
+      "type": "bottom",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/146120748/1687340371-pants-jeans-01-color1-1699880494191.png",
+      "selected": true
+    },
+    {
+      "id": "ydvKd4ZGT9iBpY4CaW05wA",
+      "name": "pants-jeans-04-color1 (duplicate)",
+      "type": "bottom",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/ydvKd4ZGT9iBpY4CaW05wA/1699028038-pants-jeans-04-color2-1699028052713.png",
+      "selected": true
+    },
+    {
+      "id": "146142477",
+      "name": "pants-military-01",
+      "type": "bottom",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/146142477/1691672034-pants-military-01-scifi-1699880500241.png",
+      "selected": true
+    }
+  ],
+  "glasses": [
+    {
+      "id": "9247416",
+      "name": "glasses-01",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9247416/1623141469-glasses-01-1699880599688.png",
+      "selected": true
+    },
+    {
+      "id": "23393768",
+      "name": "glasses-05",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/23393768/1622793749-glasses-05-1699880599705.png",
+      "selected": true
+    },
+    {
+      "id": "9247568",
+      "name": "glasses-07",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9247568/1622793753-glasses-07-1699880600839.png",
+      "selected": true
+    },
+    {
+      "id": "9928956",
+      "name": "glasses-08",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9928956/1623141848-glasses-08-1699880533722.png",
+      "selected": true
+    },
+    {
+      "id": "9929037",
+      "name": "glasses-17",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9929037/1622793773-glasses-17-1699880600902.png",
+      "selected": true
+    },
+    {
+      "id": "9247558",
+      "name": "glasses-18",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9247558/1622793775-glasses-18-1699880522396.png",
+      "selected": true
+    },
+    {
+      "id": "9247564",
+      "name": "glasses-20",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9247564/1622793779-glasses-20-1699880600869.png",
+      "selected": true
+    },
+    {
+      "id": "9932563",
+      "name": "glasses-21",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9932563/1622793781-glasses-21-1699880600904.png",
+      "selected": true
+    },
+    {
+      "id": "10565929",
+      "name": "glasses-29",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/10565929/1622793797-glasses-29-1699880598395.png",
+      "selected": true
+    },
+    {
+      "id": "11800648",
+      "name": "glasses-33",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/11800648/1622793805-glasses-33-1699880599698.png",
+      "selected": true
+    },
+    {
+      "id": "18947981",
+      "name": "glasses-37",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/18947981/1623140458-glasses-37-1699880598419.png",
+      "selected": true
+    },
+    {
+      "id": "40606583",
+      "name": "glasses-38",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/40606583/1621948946-glasses-38-1699880596962.png",
+      "selected": true
+    },
+    {
+      "id": "42006568",
+      "name": "glasses-42",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/42006568/1623153559-glasses-42-1699880580032.png",
+      "selected": true
+    },
+    {
+      "id": "42012214",
+      "name": "glasses-43",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/42012214/1623153698-glasses-43-1699880580028.png",
+      "selected": true
+    },
+    {
+      "id": "42027493",
+      "name": "glasses-45",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/42027493/1623163376-glasses-45-1699880581427.png",
+      "selected": true
+    },
+    {
+      "id": "45320792",
+      "name": "glasses-47",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/45320792/1624967654-glasses-47-1699880574835.png",
+      "selected": true
+    },
+    {
+      "id": "45537981",
+      "name": "glasses-48",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/45537981/1625048242-glasses-48-1699880576518.png",
+      "selected": true
+    },
+    {
+      "id": "48055947",
+      "name": "glasses-66",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/48055947/1626360949-glasses-66-1699880571037.png",
+      "selected": true
+    },
+    {
+      "id": "77045896",
+      "name": "glasses-67",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/77045896/1637767650-glasses-67-1699880532330.png",
+      "selected": true
+    },
+    {
+      "id": "106638139",
+      "name": "glasses-68",
+      "type": "glasses",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/106638139/1644478767-glasses-68-1699880522429.png",
+      "selected": true
+    }
+  ],
+  "hair": [
+    {
+      "id": "9247420",
+      "name": "hair-01",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9247420/1622793819-hair-01-1699880607487.png",
+      "selected": true
+    },
+    {
+      "id": "9247430",
+      "name": "hair-09",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9247430/1622793835-hair-09-1699880608557.png",
+      "selected": true
+    },
+    {
+      "id": "50051765",
+      "name": "hair-112",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/50051765/1632818093-hair-112-1699880568198.png",
+      "selected": true
+    },
+    {
+      "id": "147536069",
+      "name": "hair-116",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/147536069/1680105201-hair-116-1699885505717.png",
+      "selected": true
+    },
+    {
+      "id": "9247475",
+      "name": "hair-20",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9247475/1622793857-hair-20-1699880589134.png",
+      "selected": true
+    },
+    {
+      "id": "9247539",
+      "name": "hair-30",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9247539/1622793877-hair-30-1699880609632.png",
+      "selected": true
+    },
+    {
+      "id": "9247554",
+      "name": "hair-44",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9247554/1632814261-hair-44-1699880558216.png",
+      "selected": true
+    },
+    {
+      "id": "9247574",
+      "name": "hair-51",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/9247574/1622793919-hair-51-1699880589010.png",
+      "selected": true
+    },
+    {
+      "id": "11804862",
+      "name": "hair-56",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/11804862/1622793930-hair-56-1699880625997.png",
+      "selected": true
+    },
+    {
+      "id": "19251134",
+      "name": "hair-59",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/19251134/1622793935-hair-59-1699880607523.png",
+      "selected": true
+    },
+    {
+      "id": "16845783",
+      "name": "hair-60",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/16845783/1622793937-hair-60-1699880606207.png",
+      "selected": true
+    },
+    {
+      "id": "22332634",
+      "name": "hair-61",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/22332634/1622793939-hair-61-1699880602976.png",
+      "selected": true
+    },
+    {
+      "id": "22341158",
+      "name": "hair-62",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/22341158/1622793941-hair-62-1699880602987.png",
+      "selected": true
+    },
+    {
+      "id": "22385401",
+      "name": "hair-64",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/22385401/1622793946-hair-64-1699880589214.png",
+      "selected": true
+    },
+    {
+      "id": "22396922",
+      "name": "hair-65",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/22396922/1622793948-hair-65-1699880602967.png",
+      "selected": true
+    },
+    {
+      "id": "39291588",
+      "name": "hair-70",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/39291588/1621957461-hair-70-1699880558239.png",
+      "selected": true
+    },
+    {
+      "id": "39292290",
+      "name": "hair-71",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/39292290/1620984305-hair-71-1699880586599.png",
+      "selected": true
+    },
+    {
+      "id": "39101102",
+      "name": "hair-72",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/39101102/1621957551-hair-72-1699880590296.png",
+      "selected": true
+    },
+    {
+      "id": "40465568",
+      "name": "hair-73",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/40465568/1621947684-hair-73-1699880590260.png",
+      "selected": true
+    },
+    {
+      "id": "38775805",
+      "name": "hair-74",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/38775805/1625645551-hair-74-1699880589012.png",
+      "selected": true
+    },
+    {
+      "id": "39574673",
+      "name": "hair-76",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/39574673/1621272001-hair-76-1699880586568.png",
+      "selected": true
+    },
+    {
+      "id": "39645096",
+      "name": "hair-79",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/39645096/1621957589-hair-79-1699880590292.png",
+      "selected": true
+    },
+    {
+      "id": "40466374",
+      "name": "hair-84",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/40466374/1621850838-hair-84-1699880586585.png",
+      "selected": true
+    },
+    {
+      "id": "40524678",
+      "name": "hair-85",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/40524678/1621957409-hair-85-1699880583385.png",
+      "selected": true
+    },
+    {
+      "id": "40597504",
+      "name": "hair-86",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/40597504/1621938483-hair-86-1699880586583.png",
+      "selected": true
+    },
+    {
+      "id": "49564519",
+      "name": "hair-94",
+      "type": "hair",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/49564519/1627382543-hair-94-1699880569815.png",
+      "selected": true
+    }
+  ],
+  "headwear": [
+    {
+      "id": "41887474",
+      "name": "headwear-baseball-01",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/41887474/1623079417-headwear-baseball-01-1699880556850.png",
+      "selected": true
+    },
+    {
+      "id": "42465569",
+      "name": "headwear-beanie-01",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/42465569/1623398832-headwear-beanie-01-1699880533696.png",
+      "selected": true
+    },
+    {
+      "id": "41436000",
+      "name": "headwear-cowboy-01",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/41436000/1622652683-headwear-cowboy-01-1699880581452.png",
+      "selected": true
+    },
+    {
+      "id": "10528601",
+      "name": "headwear-cyberpunk-01",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/10528601/1622794011-headwear-cyberpunk-01-1699880535384.png",
+      "selected": true
+    },
+    {
+      "id": "66887829",
+      "name": "headwear-halloween-07",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/66887829/1634751624-headwear-halloween-07-1699880552539.png",
+      "selected": true
+    },
+    {
+      "id": "41435964",
+      "name": "headwear-pride-01",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/41435964/1622652160-headwear-pride-01-1699880581456.png",
+      "selected": true
+    },
+    {
+      "id": "120727568",
+      "name": "headwear-racing-01",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/120727568/1648746656-headwear-racing-01-1699880519371.png",
+      "selected": true
+    },
+    {
+      "id": "120900701",
+      "name": "headwear-racing-02",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/120900701/1649264016-headwear-racing-02-1699880515247.png",
+      "selected": true
+    },
+    {
+      "id": "120969752",
+      "name": "headwear-racing-04",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/120969752/1649414251-headwear-racing-04-1699880516869.png",
+      "selected": true
+    },
+    {
+      "id": "109889247",
+      "name": "headwear-snowboard-02",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/109889247/1645461110-headwear-snowboard-02-1699880525075.png",
+      "selected": true
+    },
+    {
+      "id": "36393815",
+      "name": "headwear-starwars-02",
+      "type": "headwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/36393815/1642241258-headwear-starwars-02-1699880515087.png",
+      "selected": true
+    }
+  ],
+  "top": [
+    {
+      "id": "OFqZJpJgS4-fIxE-z-hiNA",
+      "name": "hoodie-02-eggnavy",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/OFqZJpJgS4-fIxE-z-hiNA/1699033530-hoodie-02-eggnavy-1699446692116.png",
+      "selected": true
+    },
+    {
+      "id": "RAMumX7mRJKdtzkYp7SOQw",
+      "name": "jacket-occassionwear-02-blackwhite",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/RAMumX7mRJKdtzkYp7SOQw/1698937832-jacket-occassionwear-02-blackwhite-1699447170953.png",
+      "selected": true
+    },
+    {
+      "id": "wnnHEejFQYOdVQd8UW5s3g",
+      "name": "jacket-puffed-01-olive",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/wnnHEejFQYOdVQd8UW5s3g/1698937331-jacket-puffed-01-olive-1699446890737.png",
+      "selected": true
+    },
+    {
+      "id": "146130138",
+      "name": "jacket-puffed-02",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/146130138/1691588496-jacket-puffed-02-gasoline-1699880505615.png",
+      "selected": true
+    },
+    {
+      "id": "zj3Y_TQJR4mNqPIJZJPkxg",
+      "name": "jacket-puffed-02-black",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/zj3Y_TQJR4mNqPIJZJPkxg/1697459594-jacket-puffed-02-black-1699446953965.png",
+      "selected": true
+    },
+    {
+      "id": "PNRGEG92SGOUUphSIcrqOg",
+      "name": "jacket-puffed-02-painted",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/PNRGEG92SGOUUphSIcrqOg/77ca81c7-83fc-431f-8942-2400a1f7b314-1706091090865.png",
+      "selected": true
+    },
+    {
+      "id": "pe32_IT1S2yshCFIcX0DQg",
+      "name": "jacket-sport-01-halfdenim",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/pe32_IT1S2yshCFIcX0DQg/1699030125-jacket-sport-01-halfdenim-1699446449296.png",
+      "selected": true
+    },
+    {
+      "id": "tjfdXbNjQAubq1R8TNc6iw",
+      "name": "sweater-01-longslv-roundcoll-darkgrey",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/tjfdXbNjQAubq1R8TNc6iw/1699362984-sweater-01-longslv-roundcoll-darkgrey-1699446041058.png",
+      "selected": true
+    },
+    {
+      "id": "145857239",
+      "name": "top-tshirt-01",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/145857239/1692361178-top-tshirt-01-white-1699880485438.png",
+      "selected": true
+    },
+    {
+      "id": "6_JvB8dVQdSSw5kLE3AycA",
+      "name": "top-tshirt-01-wine",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/6_JvB8dVQdSSw5kLE3AycA/c8553cda-fff2-44c2-8eac-1f80d8db8f66-1706108558374.png",
+      "selected": true
+    },
+    {
+      "id": "6B2WygSdQgSbSmPb67laBQ",
+      "name": "tshirt-oversized-01-darkgrey",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/6B2WygSdQgSbSmPb67laBQ/1698938007-tshirt-oversized-01-darkgrey-1699446345293.png",
+      "selected": true
+    },
+    {
+      "id": "8qUNgwRbQUOozQUNZ7-1fA",
+      "name": "tshirt-oversized-01-whiteprint",
+      "type": "top",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/8qUNgwRbQUOozQUNZ7-1fA/1698938078-tshirt-oversized-01-whiteprint-1699446370763.png",
+      "selected": true
+    }
+  ],
+  "footwear": [
+    {
+      "id": "146089198",
+      "name": "boots-combat-01",
+      "type": "footwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/146089198/1674548422-boots-combat-01-black-1699880481616.png",
+      "selected": true
+    },
+    {
+      "id": "3o24rmzlRcu_asveSKdnkQ",
+      "name": "boots-combat-01-yellow",
+      "type": "footwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/3o24rmzlRcu_asveSKdnkQ/1701690131-boots-combat-01-yellow-1701690143867.png",
+      "selected": true
+    },
+    {
+      "id": "mLfEvkz7RV2tmg6cbJKUnA",
+      "name": "boots-sport-01-blackwine (duplicate)",
+      "type": "footwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/mLfEvkz7RV2tmg6cbJKUnA/1698917518-boots-sport-03-blackwine-1699364929983.png",
+      "selected": true
+    },
+    {
+      "id": "yMjRbcxrTzWZdhv_zF0ftA",
+      "name": "shoes-casual-01-green (duplicate)",
+      "type": "footwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/yMjRbcxrTzWZdhv_zF0ftA/1699274956-tennis-casual-01-beige-1699274974529.png",
+      "selected": true
+    },
+    {
+      "id": "146120526",
+      "name": "tennis-casual-01",
+      "type": "footwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/146120526/1674646299-tennis-casual-01-beige-1699880507338.png",
+      "selected": true
+    },
+    {
+      "id": "145859028",
+      "name": "tennis-casual-02",
+      "type": "footwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/145859028/1674490674-tennis-casual-02-blue-1699880497795.png",
+      "selected": true
+    },
+    {
+      "id": "NZtK7woLS_S1OtKh32jJDg",
+      "name": "tennis-casual-02-black (duplicate)",
+      "type": "footwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/NZtK7woLS_S1OtKh32jJDg/1698918127-tennis-casual-02-white-1698918134996.png",
+      "selected": true
+    },
+    {
+      "id": "146120867",
+      "name": "tennis-sport-01",
+      "type": "footwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/146120867/1674647355-tennis-sport-01-mint-1699880497902.png",
+      "selected": true
+    },
+    {
+      "id": "hsenwXw5RWaUXS7eWXPE0Q",
+      "name": "tennis-sport-01-white (duplicate)",
+      "type": "footwear",
+      "gender": "neutral",
+      "iconUrl": "https://files.readyplayer.me/asset/iconUrl/hsenwXw5RWaUXS7eWXPE0Q/1699273655-tennis-sport-01-black-1699273663033.png",
+      "selected": true
+    }
+  ]
+}

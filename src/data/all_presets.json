@@ -1,0 +1,226 @@
+{
+  "neutral": {
+    "1": {
+      "eyeSquintLeft": 0,
+      "eyeSquintRight": 0,
+      "mouthSmileLeft": 0,
+      "mouthSmileRight": 0,
+      "browInnerUp": 0,
+      "jawOpen": 0
+    }
+  },
+  "happy": {
+    "1": {
+      "eyeSquintLeft": 0.5,
+      "eyeSquintRight": 0.5,
+      "eyeWideLeft": 0.31,
+      "eyeWideRight": 0.32,
+      "cheekPuff": 0.04,
+      "mouthSmileLeft": 0.46,
+      "mouthSmileRight": 0.39
+    }
+  },
+  "fear": {
+    "1": {
+      "browDownLeft": -0.89,
+      "browDownRight": -0.79,
+      "browInnerUp": 1,
+      "eyeSquintLeft": 0.02,
+      "eyeSquintRight": -0.19,
+      "eyeWideLeft": 1,
+      "eyeWideRight": 1,
+      "eyeLookUpLeft": 0.06,
+      "eyeLookUpRight": 0.01,
+      "jawOpen": 0.22,
+      "mouthClose": 0.05,
+      "mouthRollUpper": -0.23,
+      "mouthPressLeft": -1,
+      "mouthPressRight": -1,
+      "tongueOut": 0.08,
+      "eyeBlinkLeft": 0.11,
+      "eyeBlinkRight": 0.03
+    },
+    "2": {
+      "browDownLeft": -1,
+      "browDownRight": -1,
+      "browInnerUp": 0.5,
+      "mouthShrugLower": -0.12,
+      "mouthShrugUpper": 0.61,
+      "noseSneerLeft": -0.39,
+      "noseSneerRight": -0.49,
+      "mouthLowerDownLeft": -0.9,
+      "mouthLowerDownRight": 0.14,
+      "mouthDimpleLeft": 0.3,
+      "mouthDimpleRight": 0.3
+    }
+  },
+  "anger": {
+    "1": {
+      "browDownLeft": 1,
+      "browDownRight": 1,
+      "mouthFrownLeft": 1,
+      "mouthFrownRight": 1,
+      "jawOpen": -0.15
+    }
+  },
+  "guilt": {
+    "1": {
+      "browInnerUp": 1,
+      "eyeSquintLeft": 0.3,
+      "eyeSquintRight": 0.3,
+      "eyeWideLeft": 1,
+      "eyeWideRight": 0.93,
+      "mouthFrownLeft": 0.76,
+      "mouthFrownRight": 0.83,
+      "eyeLookInRight": 0.37,
+      "eyeLookOutLeft": 0.78,
+      "jawOpen": 0.15
+    }
+  },
+  "shame": {
+    "1": {
+      "browInnerUp": 1,
+      "eyeSquintLeft": 0.74,
+      "eyeSquintRight": 0.6,
+      "eyeWideLeft": 0.07,
+      "jawForward": -0.05,
+      "jawLeft": -0.05,
+      "jawRight": -0.09,
+      "mouthFrownLeft": 1,
+      "mouthFrownRight": 1,
+      "mouthPucker": -0.68,
+      "mouthShrugUpper": -0.07,
+      "noseSneerLeft": -1,
+      "noseSneerRight": -0.98,
+      "mouthLowerDownLeft": 0.44,
+      "mouthLowerDownRight": -0.1,
+      "mouthLeft": -0.04,
+      "eyeLookDownLeft": 1,
+      "eyeLookDownRight": 1,
+      "cheekPuff": 0.05,
+      "mouthClose": 0.05,
+      "mouthStretchLeft": -0.05,
+      "mouthStretchRight": -0.1,
+      "mouthRollLower": 0.12
+    }
+  },
+  "surprise": {
+    "1": {
+      "browDownLeft": -0.89,
+      "browDownRight": -0.96,
+      "browOuterUpLeft": 0.21,
+      "browOuterUpRight": 0.45,
+      "eyeWideLeft": 1,
+      "eyeWideRight": 1,
+      "jawOpen": 0.68
+    }
+  },
+  "thinking": {
+    "1": {
+      "jawForward": 0.01,
+      "jawLeft": -1,
+      "jawRight": 0.46,
+      "mouthPucker": 0.48,
+      "mouthShrugLower": 0.02,
+      "mouthShrugUpper": -0.09,
+      "noseSneerLeft": -0.2,
+      "mouthLowerDownLeft": 0.03,
+      "mouthLeft": 0.31,
+      "mouthRight": 1,
+      "eyeLookUpLeft": 0.57,
+      "eyeLookUpRight": 0.45,
+      "eyeLookInLeft": -0.09,
+      "eyeLookInRight": 0.86,
+      "eyeLookOutLeft": 0.85,
+      "eyeLookOutRight": -0.07,
+      "mouthClose": 0.02,
+      "mouthFunnel": -0.12,
+      "mouthStretchLeft": 0.02
+    },
+    "2": {
+      "eyeSquintLeft": 0.94,
+      "eyeSquintRight": 1,
+      "eyeWideLeft": -0.16,
+      "eyeWideRight": -0.22,
+      "mouthLeft": 0.91,
+      "mouthRight": 0.01,
+      "eyeLookDownLeft": -0.05,
+      "eyeLookInLeft": 0.01,
+      "eyeLookInRight": 0.74,
+      "eyeLookOutLeft": 0.78
+    },
+    "3": {
+      "jawForward": 0.01,
+      "jawLeft": -1,
+      "jawRight": 0.46,
+      "mouthPucker": 0.48,
+      "mouthShrugLower": 0.02,
+      "mouthShrugUpper": -0.09,
+      "noseSneerLeft": -0.2,
+      "mouthLowerDownLeft": 0.03,
+      "mouthLeft": 0.31,
+      "mouthRight": 1,
+      "eyeLookUpLeft": 0.57,
+      "eyeLookUpRight": 0.45,
+      "eyeLookInLeft": -0.09,
+      "eyeLookInRight": 0.86,
+      "eyeLookOutLeft": 0.85,
+      "eyeLookOutRight": -0.07,
+      "mouthClose": 0.02,
+      "mouthFunnel": -0.12,
+      "mouthStretchLeft": 0.02
+    }
+  },"sad": {
+  "1": {
+    "browInnerUp": 0.7,
+    "eyeSquintLeft": 0.4,
+    "eyeSquintRight": 0.4,
+    "eyeWideLeft": 0.23,
+    "eyeWideRight": 0.12,
+    "mouthFrownLeft": 1,
+    "mouthFrownRight": 1,
+    "mouthPucker": -0.55,
+    "mouthShrugLower": 0.42,
+    "mouthShrugUpper": 0.33,
+    "mouthLowerDownLeft": -0.15,
+    "eyeLookDownRight": 0.45,
+    "eyeLookUpLeft": -0.36,
+    "eyeLookUpRight": -0.08,
+    "eyeLookOutLeft": 0.68,
+    "eyeLookOutRight": -0.08,
+    "mouthClose": 0.03,
+    "mouthFunnel": -0.2
+  }
+},
+"disgust": {
+  "1": {
+    "browDownLeft": -1,
+    "browDownRight": -1,
+    "browInnerUp": 1,
+    "eyeSquintRight": 0.05,
+    "eyeWideLeft": 1,
+    "eyeWideRight": 1,
+    "mouthPucker": 1,
+    "noseSneerLeft": -1,
+    "noseSneerRight": -1,
+    "mouthLeft": 0.01,
+    "cheekPuff": 1,
+    "jawOpen": -0.01,
+    "mouthClose": -0.03,
+    "mouthFunnel": -0.09,
+    "mouthDimpleLeft": -1,
+    "mouthDimpleRight": -1,
+    "mouthStretchLeft": 1,
+    "mouthStretchRight": 1,
+    "mouthRollLower": 0.28,
+    "mouthRollUpper": 0.31,
+    "mouthPressLeft": -0.09,
+    "mouthPressRight": -0.04,
+    "mouthUpperUpRight": -0.04,
+    "mouthSmileLeft": -0.13,
+    "mouthSmileRight": -0.14
+  }
+}
+
+
+}

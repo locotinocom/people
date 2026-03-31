@@ -1,0 +1,2276 @@
+[
+  {
+    "title": "Baum",
+    "gives_you": "Ein Baum spendet Sauerstoff für jeden Atemzug, kühlt dich, schenkt Schatten und hält dich buchstäblich am Leben.",
+    "gratitude_line": "Danke, dass du mir Luft, Ruhe und Stabilität gibst.",
+    "category": "Nature"
+  },
+  {
+    "title": "Sonne",
+    "gives_you": "Die Sonne wärmt deinen Körper, gibt dir Licht, reguliert deinen inneren Rhythmus und schenkt dir Energie.",
+    "gratitude_line": "Danke für dein Licht und deine Wärme.",
+    "category": "Nature"
+  },
+  {
+    "title": "Frisches Wasser",
+    "gives_you": "Wasser erfrischt dich, nährt jede Zelle, reinigt deinen Körper und hält dein gesamtes System stabil.",
+    "gratitude_line": "Danke, dass du mich nährst und klar hältst.",
+    "category": "Food"
+  },
+  {
+    "title": "Stille",
+    "gives_you": "Stille nimmt Druck aus deinem System, schenkt dir Raum zum Atmen und beruhigt dein Nervensystem.",
+    "gratitude_line": "Danke für die Ruhe, die mich sammelt.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein warmes Getränk",
+    "gives_you": "Ein warmes Getränk entspannt deinen Körper, beruhigt deinen Vagusnerv und schenkt dir Geborgenheit.",
+    "gratitude_line": "Danke für die Wärme, die mich beruhigt.",
+    "category": "Other"
+  },
+  {
+    "title": "Auto",
+    "gives_you": "Ein Auto bringt dich verlässlich von A nach B, spart Zeit und schenkt dir Freiheit und Beweglichkeit.",
+    "gratitude_line": "Danke, dass du mir Mobilität gibst.",
+    "category": "Tools"
+  },
+  {
+    "title": "Ein guter Lehrer",
+    "gives_you": "Ein Lehrer erweitert deinen Horizont, schenkt dir Fähigkeiten und öffnet Türen für dein Leben.",
+    "gratitude_line": "Danke für das Wissen, das mich geprägt hat.",
+    "category": "People"
+  },
+  {
+    "title": "Ein inspirierender Film",
+    "gives_you": "Ein Film schenkt dir Emotion, Motivation und neue Perspektiven in nur wenigen Minuten.",
+    "gratitude_line": "Danke für die Inspiration, die du mir gibst.",
+    "category": "Other"
+  },
+  {
+    "title": "Telefon",
+    "gives_you": "Dein Telefon verbindet dich mit Menschen, gibt dir Wissen, Orientierung und Werkzeuge für den Alltag.",
+    "gratitude_line": "Danke, dass du mich verbindest.",
+    "category": "Tools"
+  },
+  {
+    "title": "Ein Berg",
+    "gives_you": "Ein Berg schenkt dir Weitblick, Ruhe, Stabilität und das Gefühl getragen zu sein.",
+    "gratitude_line": "Danke für deine Stärke und Klarheit.",
+    "category": "Nature"
+  },
+  {
+    "title": "Der Mond",
+    "gives_you": "Der Mond spendet Licht in der Dunkelheit, schenkt dir Ruhe und erinnert dich an natürliche Rhythmen.",
+    "gratitude_line": "Danke für dein sanftes Licht.",
+    "category": "Nature"
+  },
+  {
+    "title": "Eltern",
+    "gives_you": "Deine Eltern haben dir Leben geschenkt, dich geprägt und dir einen Start ins Leben ermöglicht.",
+    "gratitude_line": "Danke, dass ihr mir das Leben gegeben habt.",
+    "category": "People"
+  },
+  {
+    "title": "Geschwister",
+    "gives_you": "Geschwister schenken dir Nähe, gemeinsame Erinnerungen und jemanden, der deine Geschichte kennt.",
+    "gratitude_line": "Danke für die Verbindung, die uns trägt.",
+    "category": "People"
+  },
+  {
+    "title": "Warme Dusche",
+    "gives_you": "Eine warme Dusche reinigt dich, entspannt deine Muskeln und schenkt dir einen Neustart.",
+    "gratitude_line": "Danke für die Wärme und Erneuerung.",
+    "category": "Other"
+  },
+  {
+    "title": "Musik",
+    "gives_you": "Musik verändert deine Stimmung, schenkt dir Emotion und verbindet dich mit Erinnerungen.",
+    "gratitude_line": "Danke für das Gefühl, das du bringst.",
+    "category": "Other"
+  },
+  {
+    "title": "Dein Bett",
+    "gives_you": "Dein Bett schenkt dir Ruhe, Sicherheit, Erholung und einen Ort, an dem du loslassen kannst.",
+    "gratitude_line": "Danke, dass du mich jede Nacht trägst.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein Lächeln",
+    "gives_you": "Ein Lächeln gibt dir Wärme, Kontakt und einen kleinen Moment echter Verbindung.",
+    "gratitude_line": "Danke für diesen kurzen Moment Freude.",
+    "category": "Moments"
+  },
+  {
+    "title": "Frische Luft",
+    "gives_you": "Frische Luft füllt dich mit Sauerstoff, weckt deinen Körper und klärt deinen Geist.",
+    "gratitude_line": "Danke, dass du mich belebst.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Haustier",
+    "gives_you": "Ein Haustier schenkt dir Nähe, Wärme, Freude und bedingungslose Präsenz.",
+    "gratitude_line": "Danke für deine Liebe und Ruhe.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein gutes Buch",
+    "gives_you": "Ein Buch schenkt dir Wissen, Welten, Geschichten und neue Blickwinkel.",
+    "gratitude_line": "Danke für die Gedanken, die du mir gibst.",
+    "category": "Other"
+  },
+  {
+    "title": "Regen",
+    "gives_you": "Regen reinigt die Luft, nährt die Natur und schenkt dir ein beruhigendes Geräusch.",
+    "gratitude_line": "Danke für deine Klarheit und Frische.",
+    "category": "Nature"
+  },
+  {
+    "title": "Wind",
+    "gives_you": "Wind kühlt dich, trägt Gerüche, bewegt die Natur und belebt deine Haut.",
+    "gratitude_line": "Danke für deine Bewegung und Frische.",
+    "category": "Other"
+  },
+  {
+    "title": "Schnee",
+    "gives_you": "Schnee bringt Stille, Reinheit, ein helles Licht und ein Gefühl von Ruhe.",
+    "gratitude_line": "Danke für deine Klarheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Der Himmel",
+    "gives_you": "Der Himmel gibt dir Weite, Perspektive, Licht und das Gefühl, dass alles größer ist als du.",
+    "gratitude_line": "Danke für deine Weite.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein Freund",
+    "gives_you": "Ein Freund schenkt dir Vertrauen, Humor, Zuhören und Unterstützung.",
+    "gratitude_line": "Danke, dass du an meiner Seite bist.",
+    "category": "People"
+  },
+  {
+    "title": "Deine Wohnung",
+    "gives_you": "Deine Wohnung schenkt dir Schutz, Wärme, Ruhe und einen sicheren Ort.",
+    "gratitude_line": "Danke, dass du mich beherbergst.",
+    "category": "Home"
+  },
+  {
+    "title": "Schokolade",
+    "gives_you": "Schokolade schenkt dir Genuss, Energie und einen kleinen Moment Freude.",
+    "gratitude_line": "Danke für diesen süßen Moment.",
+    "category": "Food"
+  },
+  {
+    "title": "Zeit",
+    "gives_you": "Zeit schenkt dir Raum zum Denken, Fühlen und Wachsen.",
+    "gratitude_line": "Danke für diesen Moment.",
+    "category": "Other"
+  },
+  {
+    "title": "Gesundheit",
+    "gives_you": "Gesundheit schenkt dir Freiheit, Kraft und die Fähigkeit, dein Leben zu leben.",
+    "gratitude_line": "Danke, dass ich mich bewegen kann.",
+    "category": "Body"
+  },
+  {
+    "title": "Atmen",
+    "gives_you": "Atmen nährt deinen Körper, beruhigt dein Nervensystem und hält dich am Leben.",
+    "gratitude_line": "Danke für jeden Atemzug.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Stift",
+    "gives_you": "Ein Stift schenkt dir die Fähigkeit zu schreiben, auszudrücken, festzuhalten und zu erschaffen.",
+    "gratitude_line": "Danke, dass ich mich ausdrücken kann.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein guter Filmabend",
+    "gives_you": "Ein Filmabend schenkt dir Entspannung, Freude und gemeinsame Zeit.",
+    "gratitude_line": "Danke für diesen Moment.",
+    "category": "Moments"
+  },
+  {
+    "title": "Eine heiße Suppe",
+    "gives_you": "Eine heiße Suppe wärmt dich, stärkt dich und schenkt dir Geborgenheit.",
+    "gratitude_line": "Danke für deine Wärme.",
+    "category": "Food"
+  },
+  {
+    "title": "Kerzenlicht",
+    "gives_you": "Kerzenlicht schenkt dir Ruhe, Atmosphäre und ein Gefühl von Frieden.",
+    "gratitude_line": "Danke für dein warmes Licht.",
+    "category": "Other"
+  },
+  {
+    "title": "Natur allgemein",
+    "gives_you": "Die Natur schenkt dir Ruhe, Luft, Schönheit und das Gefühl verbunden zu sein.",
+    "gratitude_line": "Danke für deine Präsenz.",
+    "category": "Nature"
+  },
+  {
+    "title": "Sternenhimmel",
+    "gives_you": "Der Sternenhimmel schenkt dir Staunen, Weite und das Gefühl, Teil von etwas Größerem zu sein.",
+    "gratitude_line": "Danke für diese Perspektive.",
+    "category": "Nature"
+  },
+  {
+    "title": "Deine Hände",
+    "gives_you": "Deine Hände ermöglichen dir zu greifen, zu arbeiten, zu berühren und zu gestalten.",
+    "gratitude_line": "Danke, dass ich erschaffen kann.",
+    "category": "Body"
+  },
+  {
+    "title": "Deine Beine",
+    "gives_you": "Deine Beine tragen dich, bewegen dich und schenken dir Freiheit.",
+    "gratitude_line": "Danke, dass du mich durchs Leben trägst.",
+    "category": "Body"
+  },
+  {
+    "title": "Dein Herz",
+    "gives_you": "Dein Herz hält dich am Leben, reguliert deinen Zustand und trägt deine Gefühle.",
+    "gratitude_line": "Danke, dass du schlägst.",
+    "category": "Body"
+  },
+  {
+    "title": "Ein Spaziergang",
+    "gives_you": "Ein Spaziergang erdet dich, bewegt dich und klärt deinen Kopf.",
+    "gratitude_line": "Danke für die Ruhe in der Bewegung.",
+    "category": "Other"
+  },
+  {
+    "title": "Dein Lieblingslied",
+    "gives_you": "Ein Lieblingslied hebt deine Stimmung, berührt dich und motiviert dich.",
+    "gratitude_line": "Danke für diese Emotion.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Kissen",
+    "gives_you": "Ein Kissen stützt deinen Kopf, schenkt dir Komfort und hilft dir zu entspannen.",
+    "gratitude_line": "Danke für den Halt.",
+    "category": "Other"
+  },
+  {
+    "title": "Warme Kleidung",
+    "gives_you": "Warme Kleidung schützt dich, wärmt dich und schenkt dir Sicherheit.",
+    "gratitude_line": "Danke für deine Wärme.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein schöner Duft",
+    "gives_you": "Ein Duft schenkt dir Emotion, Erinnerung und einen kleinen Moment Freude.",
+    "gratitude_line": "Danke für diese Note.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein sauberer Raum",
+    "gives_you": "Ein sauberer Raum schenkt dir Klarheit, Ruhe und mentale Ordnung.",
+    "gratitude_line": "Danke für die Struktur.",
+    "category": "Other"
+  },
+  {
+    "title": "Dein Zuhause",
+    "gives_you": "Dein Zuhause schenkt dir Schutz, Ruhe, Wärme und Identität.",
+    "gratitude_line": "Danke, dass du mich hältst.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein gutes Gespräch",
+    "gives_you": "Ein gutes Gespräch schenkt dir Kontakt, Verständnis und das Gefühl, nicht allein zu sein.",
+    "gratitude_line": "Danke für diese Verbindung.",
+    "category": "Other"
+  },
+  {
+    "title": "Deine Stimme",
+    "gives_you": "Deine Stimme ermöglicht dir zu sprechen, dich auszudrücken und gehört zu werden.",
+    "gratitude_line": "Danke, dass ich mich ausdrücken kann.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein ruhiger Morgen",
+    "gives_you": "Ein ruhiger Morgen schenkt dir Klarheit, Fokus und einen sanften Start in den Tag.",
+    "gratitude_line": "Danke für die Ruhe zum Beginnen.",
+    "category": "Moments"
+  },
+  {
+    "title": "Ein Sonnenaufgang",
+    "gives_you": "Ein Sonnenaufgang schenkt dir Hoffnung, Licht und den Moment eines stillen Neubeginns.",
+    "gratitude_line": "Danke für diesen neuen Anfang.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein Sonnenuntergang",
+    "gives_you": "Ein Sonnenuntergang schenkt dir Wärme, Farben und einen natürlichen Abschluss des Tages.",
+    "gratitude_line": "Danke für diesen friedlichen Abschluss.",
+    "category": "Nature"
+  },
+  {
+    "title": "Warme Socken",
+    "gives_you": "Warme Socken schenken dir Komfort, Wärme und ein sicheres Körpergefühl.",
+    "gratitude_line": "Danke für deine Wärme.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein heißes Bad",
+    "gives_you": "Ein heißes Bad löst Spannung, beruhigt dein Nervensystem und schenkt dir tiefe Entspannung.",
+    "gratitude_line": "Danke für die Erholung.",
+    "category": "Other"
+  },
+  {
+    "title": "Deine Augen",
+    "gives_you": "Deine Augen schenken dir Farbe, Licht, Orientierung und Zugang zur Welt.",
+    "gratitude_line": "Danke, dass ich sehen darf.",
+    "category": "Body"
+  },
+  {
+    "title": "Dein Gehör",
+    "gives_you": "Dein Gehör schenkt dir Musik, Stimmen, Geräusche und Sicherheit in deiner Umgebung.",
+    "gratitude_line": "Danke, dass ich hören kann.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine bequeme Hose",
+    "gives_you": "Eine bequeme Hose schenkt dir Beweglichkeit, Komfort und Freiheit.",
+    "gratitude_line": "Danke für diese Leichtigkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Tiefschlaf",
+    "gives_you": "Tiefschlaf regeneriert dich, stärkt dein Immunsystem und lädt deine Energie auf.",
+    "gratitude_line": "Danke für die Erholung.",
+    "category": "Body"
+  },
+  {
+    "title": "Eine Pause",
+    "gives_you": "Eine Pause schenkt dir Raum zum Atmen, Denken und Neuordnen.",
+    "gratitude_line": "Danke für diesen Moment.",
+    "category": "Moments"
+  },
+  {
+    "title": "Der Ozean",
+    "gives_you": "Der Ozean schenkt dir Weite, Kraft, Rhythmus und das Gefühl, klein und ruhig zu sein.",
+    "gratitude_line": "Danke für diese Tiefe.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein Lagerfeuer",
+    "gives_you": "Ein Lagerfeuer wärmt dich, beruhigt dich mit seinem Klang und verbindet Menschen miteinander.",
+    "gratitude_line": "Danke für deine Wärme und Ruhe.",
+    "category": "Other"
+  },
+  {
+    "title": "Deine Großeltern",
+    "gives_you": "Großeltern schenken dir Geschichten, Erfahrung, Liebe und Herkunft.",
+    "gratitude_line": "Danke für eure Weisheit.",
+    "category": "People"
+  },
+  {
+    "title": "Deine Kinder",
+    "gives_you": "Kinder schenken dir Liebe, Lebendigkeit, Wachstum und tiefe Verbindung.",
+    "gratitude_line": "Danke für eure Präsenz.",
+    "category": "People"
+  },
+  {
+    "title": "Ein erfolgreicher Moment",
+    "gives_you": "Ein erfolgreicher Moment schenkt dir Stolz, Motivation und das Gefühl von Kompetenz.",
+    "gratitude_line": "Danke für dieses Gefühl.",
+    "category": "Moments"
+  },
+  {
+    "title": "Ein Fehler, aus dem du gelernt hast",
+    "gives_you": "Ein Fehler schenkt dir Erkenntnis, Wachstum und neue Stabilität.",
+    "gratitude_line": "Danke für die Lektion.",
+    "category": "Moments"
+  },
+  {
+    "title": "Deine Vergangenheit",
+    "gives_you": "Deine Vergangenheit hat dir Erfahrungen, Stärke und Tiefe gegeben.",
+    "gratitude_line": "Danke für alles, was mich geformt hat.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein gutes Essen",
+    "gives_you": "Ein gutes Essen gibt dir Energie, Genuss und ein Gefühl von Versorgung.",
+    "gratitude_line": "Danke für diesen Genuss.",
+    "category": "Food"
+  },
+  {
+    "title": "Eine erfolgreiche Entscheidung",
+    "gives_you": "Eine gute Entscheidung schenkt dir Klarheit, Richtung und Sicherheit.",
+    "gratitude_line": "Danke für die Orientierung.",
+    "category": "Mind"
+  },
+  {
+    "title": "Tanzen",
+    "gives_you": "Tanzen schenkt dir Energie, Freude und Verbindung zu deinem Körper.",
+    "gratitude_line": "Danke für diese Lebendigkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Fotoalbum",
+    "gives_you": "Ein Fotoalbum gibt dir Erinnerungen, Wärme und Verbindung zu deiner Geschichte.",
+    "gratitude_line": "Danke für diese Momente.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein ruhiger Park",
+    "gives_you": "Ein Park schenkt dir Natur, Ruhe, Bewegung und Weite.",
+    "gratitude_line": "Danke für diesen Ort.",
+    "category": "Places"
+  },
+  {
+    "title": "Eine weiche Decke",
+    "gives_you": "Eine weiche Decke schenkt dir Geborgenheit, Wärme und Sicherheit.",
+    "gratitude_line": "Danke für diesen Schutz.",
+    "category": "Home"
+  },
+  {
+    "title": "Eine stabile Internetverbindung",
+    "gives_you": "Internetverbindung schenkt dir Informationen, Kontakt, Zugang und Möglichkeiten.",
+    "gratitude_line": "Danke für diese Verbindung.",
+    "category": "Tools"
+  },
+  {
+    "title": "Ein Kompliment",
+    "gives_you": "Ein Kompliment schenkt dir Wertschätzung, Kontakt und ein gutes Gefühl.",
+    "gratitude_line": "Danke für diesen Moment.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein ruhiger Arbeitsplatz",
+    "gives_you": "Ein ruhiger Arbeitsplatz gibt dir Fokus, Struktur und Produktivität.",
+    "gratitude_line": "Danke für die Klarheit.",
+    "category": "Places"
+  },
+  {
+    "title": "Deine Erinnerungen",
+    "gives_you": "Erinnerungen schenken dir Geschichte, Bedeutung und Orientierung.",
+    "gratitude_line": "Danke für diese Spuren.",
+    "category": "Moments"
+  },
+  {
+    "title": "Deine Ziele",
+    "gives_you": "Ziele schenken dir Richtung, Motivation und Fokus.",
+    "gratitude_line": "Danke, dass du mich antreibst.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein helles Fenster",
+    "gives_you": "Ein Fenster schenkt dir Licht, Luft und einen Blick nach draußen.",
+    "gratitude_line": "Danke für diese Öffnung.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein ruhiger Abend",
+    "gives_you": "Ein ruhiger Abend schenkt dir Entspannung, Verarbeitung und Frieden.",
+    "gratitude_line": "Danke für diesen Abschluss.",
+    "category": "Moments"
+  },
+  {
+    "title": "Ein Erfolgserlebnis",
+    "gives_you": "Ein Erfolgserlebnis schenkt dir Stolz, Kraft und Selbstvertrauen.",
+    "gratitude_line": "Danke für dieses Gefühl.",
+    "category": "Moments"
+  },
+  {
+    "title": "Ein gutes Messer",
+    "gives_you": "Ein gutes Messer schenkt dir Präzision, Kraft und Sicherheit beim Kochen.",
+    "gratitude_line": "Danke für deine Schärfe.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein zuverlässiger Computer",
+    "gives_you": "Ein Computer schenkt dir Zugang, Produktivität, Kreativität und Möglichkeiten.",
+    "gratitude_line": "Danke für deine Unterstützung.",
+    "category": "Tools"
+  },
+  {
+    "title": "Deine Schuhe",
+    "gives_you": "Schuhe schenken dir Schutz, Komfort und die Fähigkeit zu gehen, wohin du willst.",
+    "gratitude_line": "Danke für jeden Schritt.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein guter Rucksack",
+    "gives_you": "Ein Rucksack trägt deine Dinge, erleichtert Wege und macht dich beweglicher.",
+    "gratitude_line": "Danke, dass du mir Last abnimmst.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Stern",
+    "gives_you": "Ein Stern schenkt dir Orientierung, Weite und Staunen.",
+    "gratitude_line": "Danke für dieses Licht.",
+    "category": "Nature"
+  },
+  {
+    "title": "Dein Lachen",
+    "gives_you": "Lachen schenkt dir Freude, Entspannung und Verbindung zu dir selbst.",
+    "gratitude_line": "Danke für dieses Gefühl.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine Begegnung",
+    "gives_you": "Eine Begegnung schenkt dir Kontakt, Inspiration und neue Wege.",
+    "gratitude_line": "Danke für diesen Moment.",
+    "category": "Moments"
+  },
+  {
+    "title": "Ein Bergsee",
+    "gives_you": "Ein Bergsee schenkt dir Klarheit, Ruhe und einen Ort zum Durchatmen.",
+    "gratitude_line": "Danke für diese Stille.",
+    "category": "Nature"
+  },
+  {
+    "title": "Eine Jacke",
+    "gives_you": "Eine Jacke schützt dich vor Kälte, Wetter und schenkt dir Sicherheit.",
+    "gratitude_line": "Danke für deinen Schutz.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein gutes Werkzeug",
+    "gives_you": "Werkzeug schenkt dir Kraft, Präzision und die Möglichkeit etwas zu reparieren oder zu erschaffen.",
+    "gratitude_line": "Danke für deine Zuverlässigkeit.",
+    "category": "Tools"
+  },
+  {
+    "title": "Eine Pflanze",
+    "gives_you": "Eine Pflanze schenkt dir Sauerstoff, Grün, Leben und ein Gefühl von Pflege.",
+    "gratitude_line": "Danke für dein Wachstum.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein schöner Gedanke",
+    "gives_you": "Ein schöner Gedanke schenkt dir Hoffnung, Ruhe und Motivation.",
+    "gratitude_line": "Danke für dieses Gefühl.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine Kerze",
+    "gives_you": "Eine Kerze schenkt dir warmes Licht, Atmosphäre und Ruhe.",
+    "gratitude_line": "Danke für dein Licht.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Spiegel",
+    "gives_you": "Ein Spiegel schenkt dir Klarheit, Orientierung und einen Blick auf dich selbst.",
+    "gratitude_line": "Danke für die Sicht auf mich.",
+    "category": "Home"
+  },
+  {
+    "title": "Eine Wolke",
+    "gives_you": "Eine Wolke schenkt dir Schatten, Form, Bewegung und ein beruhigendes Spiel am Himmel.",
+    "gratitude_line": "Danke für deine Leichtigkeit.",
+    "category": "Nature"
+  },
+  {
+    "title": "Eine Tasse Kaffee",
+    "gives_you": "Kaffee schenkt dir Wärme, Klarheit, Energie und einen kleinen Moment nur für dich.",
+    "gratitude_line": "Danke für diesen Start.",
+    "category": "Food"
+  },
+  {
+    "title": "Ein Glas Tee",
+    "gives_you": "Tee schenkt dir Ruhe, Wärme und einen aromatischen Moment der Entspannung.",
+    "gratitude_line": "Danke für deine Sanftheit.",
+    "category": "Food"
+  },
+  {
+    "title": "Ein guter Stuhl",
+    "gives_you": "Ein guter Stuhl schenkt dir Halt, Stabilität und eine entspannte Sitzposition.",
+    "gratitude_line": "Danke für deinen Komfort.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein weiches Handtuch",
+    "gives_you": "Ein weiches Handtuch trocknet dich, wärmt dich und schenkt dir Komfort nach dem Waschen.",
+    "gratitude_line": "Danke für deine Weichheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine ruhige Straße",
+    "gives_you": "Eine ruhige Straße schenkt dir Sicherheit, Klarheit und ein entspanntes Vorankommen.",
+    "gratitude_line": "Danke für diesen Weg.",
+    "category": "Places"
+  },
+  {
+    "title": "Eine sichere Brücke",
+    "gives_you": "Eine Brücke verbindet Wege, ermöglicht Übergänge und schenkt dir Zugang zu neuen Orten.",
+    "gratitude_line": "Danke für diesen Übergang.",
+    "category": "Places"
+  },
+  {
+    "title": "Eine Lampe",
+    "gives_you": "Eine Lampe schenkt dir Licht, Sichtbarkeit und Orientierung im Dunkeln.",
+    "gratitude_line": "Danke für dein Licht.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein Dach über dem Kopf",
+    "gives_you": "Ein Dach schützt dich vor Wetter, gibt dir Sicherheit und hält dein Leben trocken.",
+    "gratitude_line": "Danke für diesen Schutz.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Kühlschrank",
+    "gives_you": "Ein Kühlschrank hält dein Essen frisch, bewahrt Vorräte und gibt dir Versorgungssicherheit.",
+    "gratitude_line": "Danke, dass du mich versorgst.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein gemütliches Wohnzimmer",
+    "gives_you": "Ein Wohnzimmer schenkt dir Entspannung, Wärme und einen Ort zum Zusammensein.",
+    "gratitude_line": "Danke für diesen Raum.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein Stromanschluss",
+    "gives_you": "Strom schenkt dir Licht, Wärme, Technologie und die Möglichkeit zu arbeiten und zu leben.",
+    "gratitude_line": "Danke für diese Energie.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein guter Nachbar",
+    "gives_you": "Ein guter Nachbar schenkt dir Sicherheit, Unterstützung und ein angenehmes Wohngefühl.",
+    "gratitude_line": "Danke für deine Nähe.",
+    "category": "People"
+  },
+  {
+    "title": "Ein Therapeut",
+    "gives_you": "Ein Therapeut schenkt dir Verständnis, Führung, Perspektive und emotionale Sicherheit.",
+    "gratitude_line": "Danke für den Halt.",
+    "category": "People"
+  },
+  {
+    "title": "Deine Partnerin / dein Partner",
+    "gives_you": "Ein Partner schenkt dir Liebe, Nähe, Teamgefühl und emotionale Unterstützung.",
+    "gratitude_line": "Danke, dass du mit mir gehst.",
+    "category": "People"
+  },
+  {
+    "title": "Ein schönes Kleidungsstück",
+    "gives_you": "Ein Lieblingskleidungsstück schenkt dir Wohlgefühl, Stil und Selbstvertrauen.",
+    "gratitude_line": "Danke für dein gutes Gefühl.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine Bibliothek",
+    "gives_you": "Eine Bibliothek schenkt dir Wissen, Ruhe und Zugang zu unendlich vielen Welten.",
+    "gratitude_line": "Danke für deine Fülle.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Spielplatz",
+    "gives_you": "Ein Spielplatz schenkt dir Freude, Bewegung, Lebensgefühl und Kindheitserinnerungen.",
+    "gratitude_line": "Danke für diese Leichtigkeit.",
+    "category": "Places"
+  },
+  {
+    "title": "Eine Wasserflasche",
+    "gives_you": "Eine Wasserflasche versorgt dich unterwegs, hält dich frisch und gibt dir Sicherheit.",
+    "gratitude_line": "Danke für deine Verlässlichkeit.",
+    "category": "Food"
+  },
+  {
+    "title": "Eine Wolldecke",
+    "gives_you": "Eine Wolldecke schenkt dir Wärme, Geborgenheit und ein schützendes Gefühl.",
+    "gratitude_line": "Danke für deine Wärme.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein Notizbuch",
+    "gives_you": "Ein Notizbuch schenkt dir Klarheit, Ausdruck und einen Ort für deine Gedanken.",
+    "gratitude_line": "Danke für diesen Raum.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine Tastatur",
+    "gives_you": "Eine Tastatur ermöglicht dir Arbeit, Kreativität und präzises Schreiben.",
+    "gratitude_line": "Danke für deine Funktion.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Parkplatz",
+    "gives_you": "Ein Parkplatz schenkt dir Ruhe, Zeitersparnis und ein stressfreies Ankommen.",
+    "gratitude_line": "Danke für diesen Platz.",
+    "category": "Places"
+  },
+  {
+    "title": "Straßenbeleuchtung",
+    "gives_you": "Straßenbeleuchtung schenkt dir Sicherheit, Sichtbarkeit und Orientierung in der Nacht.",
+    "gratitude_line": "Danke für dein Licht.",
+    "category": "Places"
+  },
+  {
+    "title": "Ein Arzt",
+    "gives_you": "Ein Arzt schenkt dir Wissen, Heilung, Betreuung und Sicherheit.",
+    "gratitude_line": "Danke für deine Hilfe.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine Apotheke",
+    "gives_you": "Eine Apotheke schenkt dir Versorgung, Heilmittel und Sicherheit im Notfall.",
+    "gratitude_line": "Danke für diese Möglichkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Spazierweg",
+    "gives_you": "Ein Spazierweg schenkt dir Orientierung, Ruhe und eine sichere Route.",
+    "gratitude_line": "Danke für diesen Weg.",
+    "category": "Places"
+  },
+  {
+    "title": "Eine Bank zum Sitzen",
+    "gives_you": "Eine Bank schenkt dir Halt, Pause und einen Moment der Entspannung.",
+    "gratitude_line": "Danke für diese Ruhe.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Regenschirm",
+    "gives_you": "Ein Regenschirm schützt dich vor Regen, hält dich trocken und ermöglicht dir Weitergehen.",
+    "gratitude_line": "Danke für deinen Schutz.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein Kalender",
+    "gives_you": "Ein Kalender schenkt dir Struktur, Orientierung und Planungssicherheit.",
+    "gratitude_line": "Danke für deine Übersicht.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein sauberer Boden",
+    "gives_you": "Ein sauberer Boden schenkt dir Komfort, Ruhe und ein Gefühl von Ordnung.",
+    "gratitude_line": "Danke für diese Klarheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Zahnbürste",
+    "gives_you": "Eine Zahnbürste schenkt dir Sauberkeit, Gesundheit und ein frisches Gefühl.",
+    "gratitude_line": "Danke für diese Pflege.",
+    "category": "Other"
+  },
+  {
+    "title": "Seife",
+    "gives_you": "Seife reinigt dich, schützt dich und schenkt dir ein Gefühl von Frische.",
+    "gratitude_line": "Danke für diese Reinheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein gutes Gespräch mit dir selbst",
+    "gives_you": "Ein inneres Gespräch schenkt dir Klarheit, Ordnung und Zugang zu dir selbst.",
+    "gratitude_line": "Danke für diese Verbindung.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Küchentisch",
+    "gives_you": "Ein Tisch schenkt dir Fläche, Struktur, Essen und gemeinsame Zeit.",
+    "gratitude_line": "Danke für diesen Platz.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein Fernseher",
+    "gives_you": "Ein Fernseher schenkt dir Unterhaltung, Information und Entspannung.",
+    "gratitude_line": "Danke für deine Bilder.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine Waschmaschine",
+    "gives_you": "Eine Waschmaschine schenkt dir Hygiene, Zeitersparnis und ein gutes Gefühl.",
+    "gratitude_line": "Danke für deine Arbeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Föhn",
+    "gives_you": "Ein Föhn trocknet und wärmt dich und macht dich schneller bereit für den Tag.",
+    "gratitude_line": "Danke für deine Wärme.",
+    "category": "Tools"
+  },
+  {
+    "title": "Ein Gebirge",
+    "gives_you": "Berge schenken dir Weite, Stabilität, Kraft und das Gefühl der Naturverbundenheit.",
+    "gratitude_line": "Danke für deine Stärke.",
+    "category": "Places"
+  },
+  {
+    "title": "Ein Fluss",
+    "gives_you": "Ein Fluss schenkt dir Bewegung, Klarheit, Kühlung und das Gefühl von Lebendigkeit.",
+    "gratitude_line": "Danke für deinen Fluss.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Wald",
+    "gives_you": "Ein Wald schenkt dir Ruhe, Sauerstoff, Schatten und Naturverbundenheit.",
+    "gratitude_line": "Danke für deine Tiefe.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein Garten",
+    "gives_you": "Ein Garten schenkt dir Natur, Wachstum, Farbe und frische Luft.",
+    "gratitude_line": "Danke für deine Lebendigkeit.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein gutes Kissen",
+    "gives_you": "Ein gutes Kissen stützt dich, entspannt dich und schenkt dir erholsamen Schlaf.",
+    "gratitude_line": "Danke für deinen Halt.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Teppich",
+    "gives_you": "Ein Teppich schenkt dir Wärme, Komfort und ein gemütliches Gefühl.",
+    "gratitude_line": "Danke für deine Weichheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Glas Wasser",
+    "gives_you": "Ein Glas Wasser erfrischt dich, belebt dich und versorgt dich sofort.",
+    "gratitude_line": "Danke für deine Klarheit.",
+    "category": "Food"
+  },
+  {
+    "title": "Ein Kissenstuhl",
+    "gives_you": "Ein gepolsterter Stuhl schenkt dir Komfort, Halt und langes entspanntes Sitzen.",
+    "gratitude_line": "Danke für deine Bequemlichkeit.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein Freundschaftsmoment",
+    "gives_you": "Ein Moment mit Freunden schenkt dir Zugehörigkeit, Freude und Verbindung.",
+    "gratitude_line": "Danke für dieses Gefühl.",
+    "category": "People"
+  },
+  {
+    "title": "Eine ruhige Nacht",
+    "gives_you": "Eine ruhige Nacht schenkt dir Erholung, Klarheit und ein Gefühl von Sicherheit.",
+    "gratitude_line": "Danke für diese Ruhe.",
+    "category": "Moments"
+  },
+  {
+    "title": "Eine klare Entscheidung",
+    "gives_you": "Eine klare Entscheidung schenkt dir Richtung, Stabilität und innere Ordnung.",
+    "gratitude_line": "Danke für deine Klarheit.",
+    "category": "Mind"
+  },
+  {
+    "title": "Ein warmes Lager",
+    "gives_you": "Ein warmes Lager schenkt dir Schutz, Geborgenheit und Sicherheit.",
+    "gratitude_line": "Danke für diese Wärme.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein gutes Frühstück",
+    "gives_you": "Ein gutes Frühstück versorgt dich, gibt dir Energie und einen positiven Tagesstart.",
+    "gratitude_line": "Danke für deine Kraft.",
+    "category": "Food"
+  },
+  {
+    "title": "Eine stabile Treppe",
+    "gives_you": "Eine Treppe trägt dich sicher nach oben und unten, schenkt dir Orientierung und Halt.",
+    "gratitude_line": "Danke für deine Sicherheit.",
+    "category": "Places"
+  },
+  {
+    "title": "Ein Pfad im Wald",
+    "gives_you": "Ein Waldpfad schenkt dir Ruhe, Richtung und das Gefühl getragen zu sein.",
+    "gratitude_line": "Danke für diesen Weg.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein gutes Mikrofon",
+    "gives_you": "Ein Mikrofon schenkt dir Klarheit, Präsenz und sauberen Ausdruck deiner Stimme.",
+    "gratitude_line": "Danke für deine Klarheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Ladegerät",
+    "gives_you": "Ein Ladegerät hält deine Geräte am Leben, schenkt dir Zugang und Sicherheit.",
+    "gratitude_line": "Danke für deine Energie.",
+    "category": "Tools"
+  },
+  {
+    "title": "Ein Auto-Navi",
+    "gives_you": "Ein Navigationssystem schenkt dir Orientierung, Sicherheit und stressfreies Fahren.",
+    "gratitude_line": "Danke für die Richtung.",
+    "category": "Tools"
+  },
+  {
+    "title": "Ein sicherer Zebrastreifen",
+    "gives_you": "Ein Zebrastreifen schenkt dir Sicherheit, Ordnung und die Möglichkeit, geschützt zu überqueren.",
+    "gratitude_line": "Danke für diesen Schutz.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Wasserkocher",
+    "gives_you": "Ein Wasserkocher erwärmt Wasser schnell, schenkt dir Effizienz und Komfort.",
+    "gratitude_line": "Danke für deine Geschwindigkeit.",
+    "category": "Food"
+  },
+  {
+    "title": "Ein Kochtopf",
+    "gives_you": "Ein Kochtopf ermöglicht dir zu kochen, zu nähren und dich zu versorgen.",
+    "gratitude_line": "Danke für deine Funktion.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Herd",
+    "gives_you": "Ein Herd schenkt dir Wärme, Versorgung und die Möglichkeit, echte Mahlzeiten zuzubereiten.",
+    "gratitude_line": "Danke für deine Wärme.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Messerblock",
+    "gives_you": "Ein Messerblock schenkt dir Ordnung, Sicherheit und ständig griffbereite Werkzeuge.",
+    "gratitude_line": "Danke für deine Struktur.",
+    "category": "Other"
+  },
+  {
+    "title": "Kopfhörer",
+    "gives_you": "Kopfhörer schenken dir Fokus, Ruhe und Klangqualität in deiner eigenen Welt.",
+    "gratitude_line": "Danke für die Klarheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Mikrofonständer",
+    "gives_you": "Ein Ständer hält das Mikrofon stabil, schenkt dir Flexibilität und saubere Aufnahmen.",
+    "gratitude_line": "Danke für deinen Halt.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Monitor",
+    "gives_you": "Ein Monitor schenkt dir Sichtbarkeit, Klarheit und Zugang zu deiner Arbeit.",
+    "gratitude_line": "Danke für deine Darstellung.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine Tastaturbeleuchtung",
+    "gives_you": "Beleuchtung schenkt dir Sichtbarkeit, Ästhetik und Komfort im Dunkeln.",
+    "gratitude_line": "Danke für dein Licht.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Router",
+    "gives_you": "Ein Router schenkt dir Zugang, Verbindung und Kommunikation.",
+    "gratitude_line": "Danke für die Verbindung.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein heißer Sommertag",
+    "gives_you": "Ein heißer Sommertag schenkt dir Wärme, Energie und das Gefühl von Freiheit.",
+    "gratitude_line": "Danke für diese Wärme.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein kalter Wintertag",
+    "gives_you": "Ein kalter Wintertag schenkt dir Klarheit, Frische und ein Gefühl von Lebendigkeit.",
+    "gratitude_line": "Danke für diese Frische.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Sternschnuppenmoment",
+    "gives_you": "Eine Sternschnuppe schenkt dir Staunen, Hoffnung und einen kurzen Moment Magie.",
+    "gratitude_line": "Danke für diesen Augenblick.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein Waldweg",
+    "gives_you": "Ein Waldweg schenkt dir Orientierung, Ruhe und Verbindung zur Natur.",
+    "gratitude_line": "Danke für diesen Pfad.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein Boot",
+    "gives_you": "Ein Boot trägt dich über Wasser, schenkt dir neue Perspektive und Ruhe.",
+    "gratitude_line": "Danke für deine Tragkraft.",
+    "category": "Places"
+  },
+  {
+    "title": "Eine Hütte",
+    "gives_you": "Eine Hütte schenkt dir Schutz, Wärme und einen Ort zum Abschalten.",
+    "gratitude_line": "Danke für deinen Schutz.",
+    "category": "Places"
+  },
+  {
+    "title": "Ein Kamin",
+    "gives_you": "Ein Kamin schenkt dir Wärme, Licht und ein beruhigendes Knistern.",
+    "gratitude_line": "Danke für dein Feuer.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine bequeme Couch",
+    "gives_you": "Eine Couch schenkt dir Halt, Entspannung und Komfort.",
+    "gratitude_line": "Danke für deine Bequemlichkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein warmer Pullover",
+    "gives_you": "Ein Pullover schenkt dir Wärme, Schutz und ein gemütliches Körpergefühl.",
+    "gratitude_line": "Danke für deine Wärme.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Fußball",
+    "gives_you": "Ein Fußball schenkt dir Bewegung, Teamgefühl und Freude am Spiel.",
+    "gratitude_line": "Danke für deine Energie.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Fitnessgerät",
+    "gives_you": "Ein Fitnessgerät schenkt dir Kraft, Bewegung und die Möglichkeit dich zu stärken.",
+    "gratitude_line": "Danke für deine Unterstützung.",
+    "category": "Tools"
+  },
+  {
+    "title": "Ein Spiegelmoment",
+    "gives_you": "Ein Spiegel schenkt dir Selbstreflexion, Ehrlichkeit und Klarheit.",
+    "gratitude_line": "Danke für deine Wahrheit.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein schönes Foto",
+    "gives_you": "Ein Foto schenkt dir Erinnerung, Emotion und einen festgehaltenen Moment.",
+    "gratitude_line": "Danke für diese Erinnerung.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Flugzeug",
+    "gives_you": "Ein Flugzeug bringt dich über große Distanzen, schenkt dir Reisen und neue Perspektiven.",
+    "gratitude_line": "Danke für deine Tragkraft.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Zug",
+    "gives_you": "Ein Zug trägt dich zuverlässig, schenkt dir Komfort und bringt dich weiter.",
+    "gratitude_line": "Danke für deine Fahrt.",
+    "category": "Other"
+  },
+  {
+    "title": "Eine Uhr",
+    "gives_you": "Eine Uhr schenkt dir Struktur, Orientierung und Klarheit über deine Zeit.",
+    "gratitude_line": "Danke für deine Genauigkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein warmes Licht",
+    "gives_you": "Ein warmes Licht schenkt dir Atmosphäre, Ruhe und Geborgenheit.",
+    "gratitude_line": "Danke für deine Wärme.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Wolkenbruch",
+    "gives_you": "Ein Wolkenbruch reinigt die Luft, kühlt dich ab und schenkt dir kraftvolle Natur.",
+    "gratitude_line": "Danke für deine Kraft.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein Vogel",
+    "gives_you": "Ein Vogel schenkt dir Klang, Leichtigkeit, Bewegung und Naturverbundenheit.",
+    "gratitude_line": "Danke für deinen Gesang.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein gutes Messer in der Küche",
+    "gives_you": "Ein scharfes Messer schenkt dir Präzision, Effizienz und Freude am Kochen.",
+    "gratitude_line": "Danke für deine Schärfe.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein Notnagel in schwierigen Zeiten",
+    "gives_you": "Ein Notnagel schenkt dir Stabilität, Halt und die Möglichkeit, weiterzugehen.",
+    "gratitude_line": "Danke für deinen Support.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein Sonnenstrahl durch ein Fenster",
+    "gives_you": "Ein Sonnenstrahl schenkt dir Wärme, Licht und einen kleinen Moment Hoffnung.",
+    "gratitude_line": "Danke für diese Wärme.",
+    "category": "Nature"
+  },
+  {
+    "title": "Ein Kinderlachen",
+    "gives_you": "Kinderlachen schenkt dir Freude, Leichtigkeit und die Erinnerung an echte Unbeschwertheit.",
+    "gratitude_line": "Danke für diesen Klang.",
+    "category": "People"
+  },
+  {
+    "title": "Ein Haustierblick",
+    "gives_you": "Der Blick eines Haustiers schenkt dir Liebe, Nähe und tiefe Bindung.",
+    "gratitude_line": "Danke für diese Verbindung.",
+    "category": "Home"
+  },
+  {
+    "title": "Ein sicherer Weg nach Hause",
+    "gives_you": "Ein sicherer Weg schenkt dir Ruhe, Orientierung und das Gefühl von Geborgenheit.",
+    "gratitude_line": "Danke für deine Sicherheit.",
+    "category": "Home"
+  },
+  {
+    "title": "Eine warme Mahlzeit",
+    "gives_you": "Eine warme Mahlzeit schenkt dir Energie, Versorgung und ein Gefühl von Fürsorge.",
+    "gratitude_line": "Danke für deine Wärme.",
+    "category": "Food"
+  },
+  {
+    "title": "Dein Lieblingsplatz",
+    "gives_you": "Ein Lieblingsplatz schenkt dir Ruhe, Identität und das Gefühl von Ankommen.",
+    "gratitude_line": "Danke für diesen Ort.",
+    "category": "Places"
+  },
+  {
+    "title": "Mein Körper",
+    "gives_you": "Dein Körper trägt dich, bewegt dich, schützt dich und ermöglicht dir jeden Schritt in deinem Leben.",
+    "gratitude_line": "Danke, dass du mich jeden Tag trägst.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Gesundheit",
+    "gives_you": "Gesundheit schenkt dir Kraft, Beweglichkeit, Energie und Freiheit im Alltag.",
+    "gratitude_line": "Danke für diesen Zustand.",
+    "category": "Body"
+  },
+  {
+    "title": "Mein Gehirn",
+    "gives_you": "Dein Gehirn schenkt dir Denken, Kreativität, Erinnerungen und Orientierung.",
+    "gratitude_line": "Danke für deine Klarheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Immunsystem",
+    "gives_you": "Dein Immunsystem schützt dich täglich, ohne dass du es merkst.",
+    "gratitude_line": "Danke für deine unsichtbare Arbeit.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Freiheit",
+    "gives_you": "Freiheit schenkt dir Wahlmöglichkeiten, Selbstbestimmung und Raum du selbst zu sein.",
+    "gratitude_line": "Danke für diese Möglichkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Bildung",
+    "gives_you": "Bildung schenkt dir Wissen, Perspektive und Fähigkeiten, die dein Leben formen.",
+    "gratitude_line": "Danke, dass ich lernen darf.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu lieben",
+    "gives_you": "Liebe schenkt dir Nähe, Verbindung und Tiefe.",
+    "gratitude_line": "Danke, dass ich lieben kann.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu fühlen",
+    "gives_you": "Gefühle schenken dir Lebendigkeit, Richtung und Echtheit.",
+    "gratitude_line": "Danke, dass ich fühlen darf.",
+    "category": "Other"
+  },
+  {
+    "title": "Gute Menschen in meinem Leben",
+    "gives_you": "Gute Menschen geben dir Halt, Vertrauen, Wertschätzung und Verbindung.",
+    "gratitude_line": "Danke, dass ihr da seid.",
+    "category": "People"
+  },
+  {
+    "title": "Meine Freunde",
+    "gives_you": "Freunde schenken dir Nähe, Humor, Loyalität und Unterstützung.",
+    "gratitude_line": "Danke, dass ihr mich begleitet.",
+    "category": "People"
+  },
+  {
+    "title": "Mein Partner / meine Partnerin",
+    "gives_you": "Partnerschaft schenkt dir Nähe, Intimität, Teamgefühl und Unterstützung.",
+    "gratitude_line": "Danke, dass du bei mir bist.",
+    "category": "People"
+  },
+  {
+    "title": "Meine Kinder",
+    "gives_you": "Kinder schenken dir Sinn, Liebe, Wachstum und tiefe Verbindung.",
+    "gratitude_line": "Danke für euer Licht.",
+    "category": "People"
+  },
+  {
+    "title": "Meine Familie",
+    "gives_you": "Familie schenkt dir Herkunft, Geschichte, Halt und Identität.",
+    "gratitude_line": "Danke für euren Einfluss.",
+    "category": "People"
+  },
+  {
+    "title": "Mein Zuhause",
+    "gives_you": "Zuhause schenkt dir Schutz, Sicherheit, Wärme und Identität.",
+    "gratitude_line": "Danke für diesen Ort.",
+    "category": "Home"
+  },
+  {
+    "title": "Eine sichere Umgebung",
+    "gives_you": "Sicherheit schenkt dir Ruhe, Freiheit und die Möglichkeit zu leben, ohne Angst.",
+    "gratitude_line": "Danke für diesen Schutz.",
+    "category": "Other"
+  },
+  {
+    "title": "Lebensmittel",
+    "gives_you": "Lebensmittel schenken dir Energie, Versorgung und Genuss.",
+    "gratitude_line": "Danke für diese Fülle.",
+    "category": "Other"
+  },
+  {
+    "title": "Sauberes Wasser",
+    "gives_you": "Sauberes Wasser schenkt dir Gesundheit, Klarheit und Sicherheit.",
+    "gratitude_line": "Danke für diese Ressource.",
+    "category": "Food"
+  },
+  {
+    "title": "Meine Fähigkeit zu denken",
+    "gives_you": "Denken schenkt dir Entscheidungen, Lösungen und Kreativität.",
+    "gratitude_line": "Danke für diese Fähigkeit.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Fähigkeit zu lernen",
+    "gives_you": "Lernen schenkt dir Wachstum, Anpassung, Entwicklung und Stärke.",
+    "gratitude_line": "Danke für diese Entwicklung.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Ruhephasen",
+    "gives_you": "Ruhe schenkt dir Regeneration, Klarheit und Stabilität.",
+    "gratitude_line": "Danke für diese Erholung.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Fähigkeit zu vergeben",
+    "gives_you": "Vergebung schenkt dir Freiheit, Frieden und inneren Raum.",
+    "gratitude_line": "Danke für diese Befreiung.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Selbstkontrolle",
+    "gives_you": "Selbstkontrolle schenkt dir Stabilität, Fokus und Stärke.",
+    "gratitude_line": "Danke für diese innere Kraft.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Kreativität",
+    "gives_you": "Kreativität schenkt dir Ausdruck, Lösungen und Freude am Gestalten.",
+    "gratitude_line": "Danke für diese Schaffenskraft.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Motivation",
+    "gives_you": "Motivation schenkt dir Antrieb, Richtung und Energie.",
+    "gratitude_line": "Danke für diesen Drive.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Träume",
+    "gives_you": "Träume schenken dir Hoffnung, Ziele und Zukunft.",
+    "gratitude_line": "Danke für diese Visionen.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Vergangenheit",
+    "gives_you": "Vergangenheit schenkt dir Erfahrung, Tiefe und Lektionen.",
+    "gratitude_line": "Danke für diese Geschichten.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Zukunft",
+    "gives_you": "Zukunft schenkt dir Perspektive, Hoffnung und Möglichkeit.",
+    "gratitude_line": "Danke für diese Aussicht.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein sicherer Schlafplatz",
+    "gives_you": "Ein sicherer Schlafplatz schenkt dir Ruhe, Schutz und Erholung.",
+    "gratitude_line": "Danke für diesen Ort.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Fähigkeit zu kommunizieren",
+    "gives_you": "Kommunikation schenkt dir Verbindung, Verständnis und Klarheit.",
+    "gratitude_line": "Danke für diese Möglichkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Arbeit",
+    "gives_you": "Arbeit schenkt dir Struktur, Versorgung, Sinn und Stabilität.",
+    "gratitude_line": "Danke für deine Rolle in meinem Leben.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Unabhängigkeit",
+    "gives_you": "Unabhängigkeit schenkt dir Freiheit, Selbstbestimmung und Stärke.",
+    "gratitude_line": "Danke für diese Freiheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Entscheidungen",
+    "gives_you": "Entscheidungen schenken dir Richtung, Kontrolle und Verantwortung.",
+    "gratitude_line": "Danke für diese Macht.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Chancen",
+    "gives_you": "Chancen schenken dir Möglichkeiten, Wege und Wachstum.",
+    "gratitude_line": "Danke für diese Gelegenheiten.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fehler",
+    "gives_you": "Fehler schenken dir Erkenntnis, Tiefe und Reife.",
+    "gratitude_line": "Danke für diese Lektionen.",
+    "category": "Moments"
+  },
+  {
+    "title": "Meine Stärken",
+    "gives_you": "Stärken schenken dir Erfolg, Stabilität und Selbstvertrauen.",
+    "gratitude_line": "Danke, dass du mich trägst.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Schwächen",
+    "gives_you": "Schwächen schenken dir Menschlichkeit, Tiefe und Wachstum.",
+    "gratitude_line": "Danke für diese Wahrheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Energie",
+    "gives_you": "Energie schenkt dir Bewegung, Leistung und Lebensgefühl.",
+    "gratitude_line": "Danke für diesen Antrieb.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Fähigkeit zu lachen",
+    "gives_you": "Lachen schenkt dir Freude, Entspannung und Verbindung.",
+    "gratitude_line": "Danke für diese Leichtigkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu weinen",
+    "gives_you": "Weinen schenkt dir Entlastung, Verarbeitung und innere Reinigung.",
+    "gratitude_line": "Danke für diese Befreiung.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit Fehler zu überstehen",
+    "gives_you": "Resilienz schenkt dir Stärke, Anpassung und Überlebensfähigkeit.",
+    "gratitude_line": "Danke für deine Widerstandskraft.",
+    "category": "Moments"
+  },
+  {
+    "title": "Meine Intuition",
+    "gives_you": "Intuition schenkt dir Orientierung, Schutz und ein Gefühl von Wahrheit.",
+    "gratitude_line": "Danke für deine Führung.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Geduld",
+    "gives_you": "Geduld schenkt dir Ruhe, Stabilität und bessere Entscheidungen.",
+    "gratitude_line": "Danke für diese Stärke.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Willenskraft",
+    "gives_you": "Willenskraft schenkt dir Fokus, Erfolg und Durchhaltevermögen.",
+    "gratitude_line": "Danke für deine Kraft.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Erfolge",
+    "gives_you": "Erfolge schenken dir Stolz, Beweise deiner Stärke und Motivation.",
+    "gratitude_line": "Danke für diese Momente.",
+    "category": "Moments"
+  },
+  {
+    "title": "Meine Rückschläge",
+    "gives_you": "Rückschläge schenken dir Tiefe, Demut und Erfahrung.",
+    "gratitude_line": "Danke für diese Lehren.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Vergangenheitssiege",
+    "gives_you": "Vergangene Siege schenken dir Selbstvertrauen, Mut und Stabilität.",
+    "gratitude_line": "Danke für diese Beweise.",
+    "category": "Moments"
+  },
+  {
+    "title": "Meine innere Stimme",
+    "gives_you": "Deine innere Stimme schenkt dir Wahrheit, Orientierung und Authentizität.",
+    "gratitude_line": "Danke, dass du mich führst.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Bewusstsein",
+    "gives_you": "Bewusstsein schenkt dir Erkenntnis, Präsenz und Freiheit zu wählen.",
+    "gratitude_line": "Danke für diese Klarheit.",
+    "category": "Mind"
+  },
+  {
+    "title": "Mein Körper",
+    "gives_you": "Dein Körper trägt dich, bewegt dich, schützt dich und ermöglicht dir jeden Schritt in deinem Leben.",
+    "gratitude_line": "Danke, dass du mich jeden Tag trägst.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Gesundheit",
+    "gives_you": "Gesundheit schenkt dir Kraft, Beweglichkeit, Energie und Freiheit im Alltag.",
+    "gratitude_line": "Danke für diesen Zustand.",
+    "category": "Body"
+  },
+  {
+    "title": "Mein Gehirn",
+    "gives_you": "Dein Gehirn schenkt dir Denken, Kreativität, Erinnerungen und Orientierung.",
+    "gratitude_line": "Danke für deine Klarheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Immunsystem",
+    "gives_you": "Dein Immunsystem schützt dich täglich, ohne dass du es merkst.",
+    "gratitude_line": "Danke für deine unsichtbare Arbeit.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Freiheit",
+    "gives_you": "Freiheit schenkt dir Wahlmöglichkeiten, Selbstbestimmung und Raum du selbst zu sein.",
+    "gratitude_line": "Danke für diese Möglichkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Bildung",
+    "gives_you": "Bildung schenkt dir Wissen, Perspektive und Fähigkeiten, die dein Leben formen.",
+    "gratitude_line": "Danke, dass ich lernen darf.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu lieben",
+    "gives_you": "Liebe schenkt dir Nähe, Verbindung und Tiefe.",
+    "gratitude_line": "Danke, dass ich lieben kann.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu fühlen",
+    "gives_you": "Gefühle schenken dir Lebendigkeit, Richtung und Echtheit.",
+    "gratitude_line": "Danke, dass ich fühlen darf.",
+    "category": "Other"
+  },
+  {
+    "title": "Gute Menschen in meinem Leben",
+    "gives_you": "Gute Menschen geben dir Halt, Vertrauen, Wertschätzung und Verbindung.",
+    "gratitude_line": "Danke, dass ihr da seid.",
+    "category": "People"
+  },
+  {
+    "title": "Meine Freunde",
+    "gives_you": "Freunde schenken dir Nähe, Humor, Loyalität und Unterstützung.",
+    "gratitude_line": "Danke, dass ihr mich begleitet.",
+    "category": "People"
+  },
+  {
+    "title": "Mein Partner / meine Partnerin",
+    "gives_you": "Partnerschaft schenkt dir Nähe, Intimität, Teamgefühl und Unterstützung.",
+    "gratitude_line": "Danke, dass du bei mir bist.",
+    "category": "People"
+  },
+  {
+    "title": "Meine Kinder",
+    "gives_you": "Kinder schenken dir Sinn, Liebe, Wachstum und tiefe Verbindung.",
+    "gratitude_line": "Danke für euer Licht.",
+    "category": "People"
+  },
+  {
+    "title": "Meine Familie",
+    "gives_you": "Familie schenkt dir Herkunft, Geschichte, Halt und Identität.",
+    "gratitude_line": "Danke für euren Einfluss.",
+    "category": "People"
+  },
+  {
+    "title": "Mein Zuhause",
+    "gives_you": "Zuhause schenkt dir Schutz, Sicherheit, Wärme und Identität.",
+    "gratitude_line": "Danke für diesen Ort.",
+    "category": "Home"
+  },
+  {
+    "title": "Eine sichere Umgebung",
+    "gives_you": "Sicherheit schenkt dir Ruhe, Freiheit und die Möglichkeit zu leben, ohne Angst.",
+    "gratitude_line": "Danke für diesen Schutz.",
+    "category": "Other"
+  },
+  {
+    "title": "Lebensmittel",
+    "gives_you": "Lebensmittel schenken dir Energie, Versorgung und Genuss.",
+    "gratitude_line": "Danke für diese Fülle.",
+    "category": "Other"
+  },
+  {
+    "title": "Sauberes Wasser",
+    "gives_you": "Sauberes Wasser schenkt dir Gesundheit, Klarheit und Sicherheit.",
+    "gratitude_line": "Danke für diese Ressource.",
+    "category": "Food"
+  },
+  {
+    "title": "Meine Fähigkeit zu denken",
+    "gives_you": "Denken schenkt dir Entscheidungen, Lösungen und Kreativität.",
+    "gratitude_line": "Danke für diese Fähigkeit.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Fähigkeit zu lernen",
+    "gives_you": "Lernen schenkt dir Wachstum, Anpassung, Entwicklung und Stärke.",
+    "gratitude_line": "Danke für diese Entwicklung.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Ruhephasen",
+    "gives_you": "Ruhe schenkt dir Regeneration, Klarheit und Stabilität.",
+    "gratitude_line": "Danke für diese Erholung.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Fähigkeit zu vergeben",
+    "gives_you": "Vergebung schenkt dir Freiheit, Frieden und inneren Raum.",
+    "gratitude_line": "Danke für diese Befreiung.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Selbstkontrolle",
+    "gives_you": "Selbstkontrolle schenkt dir Stabilität, Fokus und Stärke.",
+    "gratitude_line": "Danke für diese innere Kraft.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Kreativität",
+    "gives_you": "Kreativität schenkt dir Ausdruck, Lösungen und Freude am Gestalten.",
+    "gratitude_line": "Danke für diese Schaffenskraft.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Motivation",
+    "gives_you": "Motivation schenkt dir Antrieb, Richtung und Energie.",
+    "gratitude_line": "Danke für diesen Drive.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Träume",
+    "gives_you": "Träume schenken dir Hoffnung, Ziele und Zukunft.",
+    "gratitude_line": "Danke für diese Visionen.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Vergangenheit",
+    "gives_you": "Vergangenheit schenkt dir Erfahrung, Tiefe und Lektionen.",
+    "gratitude_line": "Danke für diese Geschichten.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Zukunft",
+    "gives_you": "Zukunft schenkt dir Perspektive, Hoffnung und Möglichkeit.",
+    "gratitude_line": "Danke für diese Aussicht.",
+    "category": "Other"
+  },
+  {
+    "title": "Ein sicherer Schlafplatz",
+    "gives_you": "Ein sicherer Schlafplatz schenkt dir Ruhe, Schutz und Erholung.",
+    "gratitude_line": "Danke für diesen Ort.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Fähigkeit zu kommunizieren",
+    "gives_you": "Kommunikation schenkt dir Verbindung, Verständnis und Klarheit.",
+    "gratitude_line": "Danke für diese Möglichkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Arbeit",
+    "gives_you": "Arbeit schenkt dir Struktur, Versorgung, Sinn und Stabilität.",
+    "gratitude_line": "Danke für deine Rolle in meinem Leben.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Unabhängigkeit",
+    "gives_you": "Unabhängigkeit schenkt dir Freiheit, Selbstbestimmung und Stärke.",
+    "gratitude_line": "Danke für diese Freiheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Entscheidungen",
+    "gives_you": "Entscheidungen schenken dir Richtung, Kontrolle und Verantwortung.",
+    "gratitude_line": "Danke für diese Macht.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Chancen",
+    "gives_you": "Chancen schenken dir Möglichkeiten, Wege und Wachstum.",
+    "gratitude_line": "Danke für diese Gelegenheiten.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fehler",
+    "gives_you": "Fehler schenken dir Erkenntnis, Tiefe und Reife.",
+    "gratitude_line": "Danke für diese Lektionen.",
+    "category": "Moments"
+  },
+  {
+    "title": "Meine Stärken",
+    "gives_you": "Stärken schenken dir Erfolg, Stabilität und Selbstvertrauen.",
+    "gratitude_line": "Danke, dass du mich trägst.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Schwächen",
+    "gives_you": "Schwächen schenken dir Menschlichkeit, Tiefe und Wachstum.",
+    "gratitude_line": "Danke für diese Wahrheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Energie",
+    "gives_you": "Energie schenkt dir Bewegung, Leistung und Lebensgefühl.",
+    "gratitude_line": "Danke für diesen Antrieb.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Fähigkeit zu lachen",
+    "gives_you": "Lachen schenkt dir Freude, Entspannung und Verbindung.",
+    "gratitude_line": "Danke für diese Leichtigkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu weinen",
+    "gives_you": "Weinen schenkt dir Entlastung, Verarbeitung und innere Reinigung.",
+    "gratitude_line": "Danke für diese Befreiung.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit Fehler zu überstehen",
+    "gives_you": "Resilienz schenkt dir Stärke, Anpassung und Überlebensfähigkeit.",
+    "gratitude_line": "Danke für deine Widerstandskraft.",
+    "category": "Moments"
+  },
+  {
+    "title": "Meine Intuition",
+    "gives_you": "Intuition schenkt dir Orientierung, Schutz und ein Gefühl von Wahrheit.",
+    "gratitude_line": "Danke für deine Führung.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Geduld",
+    "gives_you": "Geduld schenkt dir Ruhe, Stabilität und bessere Entscheidungen.",
+    "gratitude_line": "Danke für diese Stärke.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Willenskraft",
+    "gives_you": "Willenskraft schenkt dir Fokus, Erfolg und Durchhaltevermögen.",
+    "gratitude_line": "Danke für deine Kraft.",
+    "category": "Body"
+  },
+  {
+    "title": "Meine Erfolge",
+    "gives_you": "Erfolge schenken dir Stolz, Beweise deiner Stärke und Motivation.",
+    "gratitude_line": "Danke für diese Momente.",
+    "category": "Moments"
+  },
+  {
+    "title": "Meine Rückschläge",
+    "gives_you": "Rückschläge schenken dir Tiefe, Demut und Erfahrung.",
+    "gratitude_line": "Danke für diese Lehren.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Vergangenheitssiege",
+    "gives_you": "Vergangene Siege schenken dir Selbstvertrauen, Mut und Stabilität.",
+    "gratitude_line": "Danke für diese Beweise.",
+    "category": "Moments"
+  },
+  {
+    "title": "Meine innere Stimme",
+    "gives_you": "Deine innere Stimme schenkt dir Wahrheit, Orientierung und Authentizität.",
+    "gratitude_line": "Danke, dass du mich führst.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Bewusstsein",
+    "gives_you": "Bewusstsein schenkt dir Erkenntnis, Präsenz und Freiheit zu wählen.",
+    "gratitude_line": "Danke für diese Klarheit.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Fähigkeit zu gehen",
+    "gives_you": "Gehen schenkt dir Freiheit, Bewegung und Unabhängigkeit im Alltag.",
+    "gratitude_line": "Danke, dass du mich bewegst.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu sprechen",
+    "gives_you": "Sprechen schenkt dir Ausdruck, Verbindung und Verständigung.",
+    "gratitude_line": "Danke, dass ich mich mitteilen kann.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zuzuhören",
+    "gives_you": "Zuhören schenkt dir Verständnis, Nähe und tiefere Beziehungen.",
+    "gratitude_line": "Danke für diese Fähigkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Humor",
+    "gives_you": "Humor schenkt dir Leichtigkeit, Entspannung und Verbindung zu anderen.",
+    "gratitude_line": "Danke für dieses Licht.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu trauern",
+    "gives_you": "Trauer schenkt dir Verarbeitung, Tiefe und Authentizität.",
+    "gratitude_line": "Danke, dass ich fühlen darf.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu hoffen",
+    "gives_you": "Hoffnung schenkt dir Richtung, Perspektive und Kraft in schweren Zeiten.",
+    "gratitude_line": "Danke für diese Aussicht.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit Nein zu sagen",
+    "gives_you": "Nein sagen schenkt dir Grenzen, Selbstschutz und Freiheit.",
+    "gratitude_line": "Danke für diese Stärke.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Selbstwert",
+    "gives_you": "Selbstwert schenkt dir Stabilität, Respekt und ein gesundes Gefühl für dich selbst.",
+    "gratitude_line": "Danke, dass du mich trägst.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Belastbarkeit",
+    "gives_you": "Belastbarkeit schenkt dir Durchhaltevermögen, Mut und Widerstandskraft.",
+    "gratitude_line": "Danke für diese Stärke.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit mich zu verändern",
+    "gives_you": "Veränderungsfähigkeit schenkt dir Entwicklung, Anpassung und neue Wege.",
+    "gratitude_line": "Danke für diese Beweglichkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit verzeihen zu können",
+    "gives_you": "Verzeihen schenkt dir Frieden, Freiheit und emotionale Reinigung.",
+    "gratitude_line": "Danke für diesen Frieden.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu vertrauen",
+    "gives_you": "Vertrauen schenkt dir Nähe, Sicherheit und Verbundenheit.",
+    "gratitude_line": "Danke, dass ich vertrauen kann.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit Entscheidungen zu treffen",
+    "gives_you": "Entscheidungen schenken dir Richtung, Kontrolle und Klarheit.",
+    "gratitude_line": "Danke für diese Macht.",
+    "category": "Mind"
+  },
+  {
+    "title": "Mein Mut",
+    "gives_you": "Mut schenkt dir Handlung, Risiko, Wachstum und Lebendigkeit.",
+    "gratitude_line": "Danke für deine Kraft.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Selbstachtung",
+    "gives_you": "Selbstachtung schenkt dir Würde, Stärke und gesunde Grenzen.",
+    "gratitude_line": "Danke, dass du mich schützt.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fehler der Vergangenheit",
+    "gives_you": "Vergangene Fehler schenken dir Tiefe, Reife und bessere Entscheidungen.",
+    "gratitude_line": "Danke für diese Lehre.",
+    "category": "Moments"
+  },
+  {
+    "title": "Meine Fähigkeit zu reflektieren",
+    "gives_you": "Reflexion schenkt dir Klarheit, Bewusstsein und innere Ordnung.",
+    "gratitude_line": "Danke für diese Erkenntnis.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein innerer Frieden",
+    "gives_you": "Innerer Frieden schenkt dir Ruhe, Stabilität und ein Gefühl von Heimat.",
+    "gratitude_line": "Danke für diese Stille.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit mich zu beruhigen",
+    "gives_you": "Beruhigung schenkt dir Sicherheit, Balance und Selbstführung.",
+    "gratitude_line": "Danke für diese Fähigkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit Struktur zu schaffen",
+    "gives_you": "Struktur schenkt dir Klarheit, Ordnung und Übersicht.",
+    "gratitude_line": "Danke für diese Ordnung.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Gerechtigkeitssinn",
+    "gives_you": "Gerechtigkeitssinn schenkt dir Werte, Wahrheit und Stabilität.",
+    "gratitude_line": "Danke für diese Klarheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit mich anzupassen",
+    "gives_you": "Anpassung schenkt dir Überleben, Flexibilität und Stärke.",
+    "gratitude_line": "Danke für diese Fähigkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu genießen",
+    "gives_you": "Genuss schenkt dir Freude, Sinnlichkeit und Wohlbefinden.",
+    "gratitude_line": "Danke für diese Momente.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit Ziele zu setzen",
+    "gives_you": "Ziele schenken dir Orientierung, Motivation und Fokus.",
+    "gratitude_line": "Danke für diese Richtung.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Sinn für Humor",
+    "gives_you": "Humor schenkt dir Leichtigkeit, Verbindung und das Durchstehen schwieriger Zeiten.",
+    "gratitude_line": "Danke für diese Wärme.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Erinnerungsfähigkeit",
+    "gives_you": "Erinnerungen schenken dir Identität, Geschichte und Verbindung.",
+    "gratitude_line": "Danke für diese Bilder.",
+    "category": "Moments"
+  },
+  {
+    "title": "Meine Fähigkeit loszulassen",
+    "gives_you": "Loslassen schenkt dir Freiheit, Frieden und innere Leichtigkeit.",
+    "gratitude_line": "Danke für diese Befreiung.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Selbstbewusstsein",
+    "gives_you": "Selbstbewusstsein schenkt dir Mut, Klarheit und Standfestigkeit.",
+    "gratitude_line": "Danke für diese Stärke.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Fähigkeit zu denken bevor ich handle",
+    "gives_you": "Überlegung schenkt dir Sicherheit, Weisheit und bessere Entscheidungen.",
+    "gratitude_line": "Danke für diese Klarheit.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Fähigkeit Freude zu empfinden",
+    "gives_you": "Freude schenkt dir Energie, Verbindung und Lebendigkeit.",
+    "gratitude_line": "Danke für dieses Gefühl.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit aus Rückschlägen aufzustehen",
+    "gives_you": "Wiederaufstehen schenkt dir Resilienz, Mut und Kraft.",
+    "gratitude_line": "Danke für dieses Comeback.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit mich auszudrücken",
+    "gives_you": "Ausdruck schenkt dir Klarheit, Echtheit und Verbindung.",
+    "gratitude_line": "Danke, dass ich mich zeigen kann.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit zu planen",
+    "gives_you": "Planen schenkt dir Struktur, Orientierung und Richtung.",
+    "gratitude_line": "Danke für deine Übersicht.",
+    "category": "Mind"
+  },
+  {
+    "title": "Mein innerer Kompass",
+    "gives_you": "Dein innerer Kompass schenkt dir Orientierung, Wahrheit und Richtung.",
+    "gratitude_line": "Danke, dass du mich führst.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Neugier",
+    "gives_you": "Neugier schenkt dir Wachstum, Lernen und Lebendigkeit.",
+    "gratitude_line": "Danke für diesen Antrieb.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Sinn für Schönheit",
+    "gives_you": "Schönheit schenkt dir Freude, Inspiration und Staunen.",
+    "gratitude_line": "Danke für dieses Erleben.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit Nähe zuzulassen",
+    "gives_you": "Nähe schenkt dir Bindung, Wärme und Verbindung.",
+    "gratitude_line": "Danke für diese Offenheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Vertrauen in das Leben",
+    "gives_you": "Lebensvertrauen schenkt dir Ruhe, Stabilität und Hoffnung.",
+    "gratitude_line": "Danke für dieses Vertrauen.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit mich zu schützen",
+    "gives_you": "Selbstschutz schenkt dir Sicherheit, Grenzen und Stabilität.",
+    "gratitude_line": "Danke für diesen Schutz.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit Hilfe anzunehmen",
+    "gives_you": "Hilfe anzunehmen schenkt dir Unterstützung, Verbindung und Entlastung.",
+    "gratitude_line": "Danke für diese Offenheit.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Art zu denken",
+    "gives_you": "Deine Denkweise schenkt dir Struktur, Lösungen, Ideen und Orientierung.",
+    "gratitude_line": "Danke für diese Klarheit.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Dankbarkeit selbst",
+    "gives_you": "Dankbarkeit schenkt dir Ruhe, Zufriedenheit, Verbundenheit und innere Weite.",
+    "gratitude_line": "Danke für dieses Gefühl.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Bewusstsein für das Gute",
+    "gives_you": "Wahrnehmung des Guten schenkt dir Hoffnung, Vertrauen und Stabilität.",
+    "gratitude_line": "Danke für diesen Blick.",
+    "category": "Mind"
+  },
+  {
+    "title": "Meine Fähigkeit Krisen zu überstehen",
+    "gives_you": "Krisenbewältigung schenkt dir Stärke, Mut und Reife.",
+    "gratitude_line": "Danke für diese Kraft.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Sinn für Verantwortung",
+    "gives_you": "Verantwortung schenkt dir Richtung, Kontrolle und Reife.",
+    "gratitude_line": "Danke für diese Haltung.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Sinn für Wahrheit",
+    "gives_you": "Wahrheit schenkt dir Orientierung, Klarheit und Stärke.",
+    "gratitude_line": "Danke für deine Ehrlichkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Sinn für Moral",
+    "gives_you": "Moral schenkt dir Werte, Grenzen und Integrität.",
+    "gratitude_line": "Danke für diese Führung.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Fähigkeit gutes zu erkennen",
+    "gives_you": "Gutes zu erkennen schenkt dir Hoffnung, Freude und Perspektive.",
+    "gratitude_line": "Danke für diese Sicht.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Bewusstsein für meinen eigenen Wert",
+    "gives_you": "Selbstwertbewusstsein schenkt dir Stabilität, Stärke und gesunde Grenzen.",
+    "gratitude_line": "Danke, dass du mich schützt.",
+    "category": "Mind"
+  },
+  {
+    "title": "Mein Haus",
+    "gives_you": "Ein Haus schenkt dir Schutz, Stabilität, Wärme und einen Ort, der dich trägt.",
+    "gratitude_line": "Danke, dass du mich beherbergst.",
+    "category": "Home"
+  },
+  {
+    "title": "Meine Wohnung",
+    "gives_you": "Eine Wohnung schenkt dir Sicherheit, Ruhe und einen privaten Raum zum Leben.",
+    "gratitude_line": "Danke für diesen Ort.",
+    "category": "Home"
+  },
+  {
+    "title": "Mein Auto",
+    "gives_you": "Ein Auto schenkt dir Freiheit, Mobilität und die Möglichkeit jeden Ort zu erreichen.",
+    "gratitude_line": "Danke, dass du mich trägst.",
+    "category": "Tools"
+  },
+  {
+    "title": "Mein Handy",
+    "gives_you": "Ein Handy schenkt dir Verbindung, Wissen, Orientierung und Zugang zu Menschen.",
+    "gratitude_line": "Danke, dass du mich verbindest.",
+    "category": "Tools"
+  },
+  {
+    "title": "Meine PlayStation",
+    "gives_you": "Eine PlayStation schenkt dir Unterhaltung, Entspannung und Spielmomente.",
+    "gratitude_line": "Danke für deine Freude.",
+    "category": "Tools"
+  },
+  {
+    "title": "Mein Gaming-PC",
+    "gives_you": "Ein Gaming-PC schenkt dir Power, Kreativität, Spielspaß und Technik, die funktioniert.",
+    "gratitude_line": "Danke für deine Leistung.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Kleidung",
+    "gives_you": "Kleidung schenkt dir Wärme, Schutz und die Möglichkeit zu zeigen, wer du bist.",
+    "gratitude_line": "Danke für deinen Komfort.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Lieblingsjacke",
+    "gives_you": "Eine Lieblingsjacke schenkt dir Wärme, Sicherheit und ein vertrautes Gefühl.",
+    "gratitude_line": "Danke für deinen Schutz.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Schuhe",
+    "gives_you": "Schuhe tragen dich, schützen dich und ermöglichen dir jeden Schritt.",
+    "gratitude_line": "Danke für deine Stabilität.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Kleiderschrank",
+    "gives_you": "Ein Kleiderschrank schenkt dir Ordnung, Auswahl und Komfort.",
+    "gratitude_line": "Danke für deine Übersicht.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Garten",
+    "gives_you": "Ein Garten schenkt dir Ruhe, Natur, Wachstum und einen Ort für Erholung.",
+    "gratitude_line": "Danke für diese Oase.",
+    "category": "Nature"
+  },
+  {
+    "title": "Mein Balkon",
+    "gives_you": "Ein Balkon schenkt dir frische Luft, Sonne und einen kleinen offenen Raum.",
+    "gratitude_line": "Danke für diesen Außenplatz.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Arbeitszimmer",
+    "gives_you": "Ein Arbeitszimmer schenkt dir Fokus, Ruhe und Produktivität.",
+    "gratitude_line": "Danke für deinen Raum.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Werkzeug",
+    "gives_you": "Werkzeug schenkt dir die Möglichkeit zu reparieren, zu bauen und selbstständig zu sein.",
+    "gratitude_line": "Danke für deine Kraft.",
+    "category": "Tools"
+  },
+  {
+    "title": "Mein Fernseher",
+    "gives_you": "Ein Fernseher schenkt dir Unterhaltung, Entspannung und gemeinsame Momente.",
+    "gratitude_line": "Danke für deine Bilder.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Bücher",
+    "gives_you": "Bücher schenken dir Wissen, Geschichten, Tiefe und Inspiration.",
+    "gratitude_line": "Danke für diese Welten.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Bücherregal",
+    "gives_you": "Ein Regal schenkt dir Ordnung, Zugang und einen Ort für Ideen.",
+    "gratitude_line": "Danke für deine Struktur.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Kühlschrank",
+    "gives_you": "Ein Kühlschrank schenkt dir Versorgung, frische Lebensmittel und Sicherheit.",
+    "gratitude_line": "Danke, dass du alles frisch hältst.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Waschmaschine",
+    "gives_you": "Eine Waschmaschine schenkt dir Hygiene, Zeit und Komfort im Alltag.",
+    "gratitude_line": "Danke für deine Arbeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Geschirrspüler",
+    "gives_you": "Ein Geschirrspüler schenkt dir Sauberkeit, Zeitersparnis und Ordnung.",
+    "gratitude_line": "Danke für deine Effizienz.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Bett",
+    "gives_you": "Ein Bett schenkt dir Erholung, Sicherheit und tiefe Regeneration.",
+    "gratitude_line": "Danke für deinen Halt.",
+    "category": "Home"
+  },
+  {
+    "title": "Meine Matratze",
+    "gives_you": "Eine Matratze stützt dich, entlastet dich und schenkt dir gesunden Schlaf.",
+    "gratitude_line": "Danke für deinen Komfort.",
+    "category": "Home"
+  },
+  {
+    "title": "Mein Kopfpolster",
+    "gives_you": "Ein Kopfpolster schenkt dir Halt, Weichheit und Entspannung.",
+    "gratitude_line": "Danke für deine Stütze.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Decke",
+    "gives_you": "Eine Decke schenkt dir Wärme, Geborgenheit und Sicherheit.",
+    "gratitude_line": "Danke für deine Wärme.",
+    "category": "Home"
+  },
+  {
+    "title": "Mein Wohnzimmer",
+    "gives_you": "Ein Wohnzimmer schenkt dir Entspannung, Familie und Ruhe.",
+    "gratitude_line": "Danke für diesen Raum.",
+    "category": "Home"
+  },
+  {
+    "title": "Meine Küche",
+    "gives_you": "Eine Küche schenkt dir Versorgung, Lebensmittel, Kochen und Gemeinschaft.",
+    "gratitude_line": "Danke für deine Fülle.",
+    "category": "Home"
+  },
+  {
+    "title": "Mein Badezimmer",
+    "gives_you": "Ein Badezimmer schenkt dir Hygiene, Komfort und Privatsphäre.",
+    "gratitude_line": "Danke für deine Reinheit.",
+    "category": "Home"
+  },
+  {
+    "title": "Mein Spiegel",
+    "gives_you": "Ein Spiegel schenkt dir Selbstsicht, Orientierung und Klarheit.",
+    "gratitude_line": "Danke für deine Perspektive.",
+    "category": "Home"
+  },
+  {
+    "title": "Mein Laptop",
+    "gives_you": "Ein Laptop schenkt dir Arbeit, Kreativität, Freiheit und Mobilität.",
+    "gratitude_line": "Danke für deine Flexibilität.",
+    "category": "Tools"
+  },
+  {
+    "title": "Mein Headset",
+    "gives_you": "Ein Headset schenkt dir Klang, Konzentration und klare Kommunikation.",
+    "gratitude_line": "Danke für deine Klarheit.",
+    "category": "Tools"
+  },
+  {
+    "title": "Mein Internetzugang",
+    "gives_you": "Internet schenkt dir Wissen, Verbindung und Möglichkeiten.",
+    "gratitude_line": "Danke für diese Verbindung.",
+    "category": "Tools"
+  },
+  {
+    "title": "Mein Gaming-Setup",
+    "gives_you": "Ein Gaming-Setup schenkt dir Spass, Fokus und ein immersives Erlebnis.",
+    "gratitude_line": "Danke für diese Welt.",
+    "category": "Tools"
+  },
+  {
+    "title": "Meine Urlaube",
+    "gives_you": "Urlaube schenken dir Erholung, neue Eindrücke und Auszeit vom Alltag.",
+    "gratitude_line": "Danke für diese Pausen.",
+    "category": "Places"
+  },
+  {
+    "title": "Mein Reisepass",
+    "gives_you": "Ein Reisepass schenkt dir Freiheit, Bewegung und internationale Möglichkeiten.",
+    "gratitude_line": "Danke für diese Freiheit.",
+    "category": "Places"
+  },
+  {
+    "title": "Meine Couch",
+    "gives_you": "Eine Couch schenkt dir Komfort, Entspannung und gemütliche Abende.",
+    "gratitude_line": "Danke für deine Bequemlichkeit.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Esstisch",
+    "gives_you": "Ein Esstisch schenkt dir Mahlzeiten, Familie, Gespräche und Verbindung.",
+    "gratitude_line": "Danke für diesen Platz.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Kaffeemaschine",
+    "gives_you": "Eine Kaffeemaschine schenkt dir Energie, Aroma und ein Morgenritual.",
+    "gratitude_line": "Danke für diesen Start.",
+    "category": "Food"
+  },
+  {
+    "title": "Meine Pflanzen",
+    "gives_you": "Pflanzen schenken dir Natur, Sauerstoff, Wachstum und Ruhe.",
+    "gratitude_line": "Danke für deine Lebendigkeit.",
+    "category": "Nature"
+  },
+  {
+    "title": "Mein Schreibtisch",
+    "gives_you": "Ein Schreibtisch schenkt dir Fokus, Ordnung und einen Raum zum Denken.",
+    "gratitude_line": "Danke für diesen Platz.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Lampen",
+    "gives_you": "Lampen schenken dir Licht, Stimmung und Orientierung.",
+    "gratitude_line": "Danke für deine Helligkeit.",
+    "category": "Home"
+  },
+  {
+    "title": "Mein Auto-Navi",
+    "gives_you": "Ein Navi schenkt dir Orientierung, Sicherheit und stressfreies Ankommen.",
+    "gratitude_line": "Danke für die Richtung.",
+    "category": "Tools"
+  },
+  {
+    "title": "Mein Werkzeugkasten",
+    "gives_you": "Ein Werkzeugkasten schenkt dir Fähigkeiten, Lösungen und Unabhängigkeit.",
+    "gratitude_line": "Danke für deine Tools.",
+    "category": "Tools"
+  },
+  {
+    "title": "Meine Sportgeräte",
+    "gives_you": "Sportgeräte schenken dir Kraft, Fitness und Gesundheit.",
+    "gratitude_line": "Danke für deine Energie.",
+    "category": "Tools"
+  },
+  {
+    "title": "Meine Yogamatte",
+    "gives_you": "Eine Yogamatte schenkt dir Ruhe, Stretching und einen Raum für Körperarbeit.",
+    "gratitude_line": "Danke für deine Stabilität.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Urlaubsort",
+    "gives_you": "Ein Urlaubsort schenkt dir Erholung, Eindrücke und ein Gefühl von Freiheit.",
+    "gratitude_line": "Danke für diese Auszeit.",
+    "category": "Places"
+  },
+  {
+    "title": "Meine Kamera",
+    "gives_you": "Eine Kamera schenkt dir Erinnerungen, Momente und Kreativität.",
+    "gratitude_line": "Danke für diese Augenblicke.",
+    "category": "Other"
+  },
+  {
+    "title": "Mein Fahrrad",
+    "gives_you": "Ein Fahrrad schenkt dir Bewegung, Freiheit und Umweltfreundlichkeit.",
+    "gratitude_line": "Danke fürs Tragen.",
+    "category": "Other"
+  },
+  {
+    "title": "Meine Kopfhörer",
+    "gives_you": "Kopfhörer schenken dir Fokus, Musik und Ruhe.",
+    "gratitude_line": "Danke für deinen Klang.",
+    "category": "Other"
+  }
+]

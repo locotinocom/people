@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 287.2 811.4">
+  <!-- Generator: Adobe Illustrator 29.8.4, SVG Export Plug-In . SVG Version: 2.1.1 Build 6)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        fill: #2b2430;
+      }
+
+      .st2 {
+        fill: #47312a;
+      }
+
+      .st3 {
+        fill: #d65656;
+      }
+
+      .st4 {
+        fill: #ffa378;
+      }
+    </style>
+  </defs>
+  <g id="happy_standard">
+    <path class="st2" d="M162.8,128.5c-4.8-4.6-9.4-.2-9.6,0l-2.6-2.6c2.5-2.4,8.8-5.6,14.7,0l-2.5,2.7Z"/>
+    <path class="st2" d="M130.9,128.5c-4.8-4.6-9.4-.2-9.6,0l-2.6-2.6c2.5-2.4,8.8-5.6,14.7,0l-2.5,2.7Z"/>
+    <path class="st1" d="M148.2,113.5l1,3.9s9.3-1.6,18.5.3l-4.4-3.9s-3.3-2.3-15.1-.3Z"/>
+    <path class="st1" d="M118,114.3l-3.9,3.8c9.2-2,18.8-.6,18.8-.6l.6-4c-12.3-1.8-15.5.7-15.5.7Z"/>
+    <path class="st3" d="M134.9,150.6c7.2,3.3,13.8-.2,14-.4l1.5,2.9c-2.8,2.5-9.8,5.9-16.6.5l1.1-3.1Z"/>
+    <path class="st4" d="M141.7,133.2c-1.5.1-5.9,6-5.9,7.8,0,1.8,4.9,5.2,5.6,5.1.7,0,5.9-3.8,5.9-4.7,0-.9-4.8-8.3-5.6-8.3Z"/>
+    <rect class="st2" x="123.7" y="125.6" width="4.9" height="4.2"/>
+    <rect class="st2" x="155.5" y="125.6" width="4.9" height="4.2"/>
+  </g>
+  <rect class="st0" x="-90.9" y="-45" width="450" height="891"/>
+</svg>

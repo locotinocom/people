@@ -1,4 +1,4 @@
-import { useGame } from "../context/GameContext"
+/* //import { useGame } from "../context/GameContext"
 
 export function usePlayerData() {
   const {
@@ -44,3 +44,4 @@ export function usePlayerData() {
     addXP,
   }
 }
+ */
