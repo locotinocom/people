@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "beschreibung": "Zentrale Text-Pools für zufällig ausgewählte Formulierungen. Wird über useContentPool(poolId, fallback) in beliebigen Templates verwendet (aktuell: Form.tsx via contentPoolId-Prop).",
+    "funktionsweise": "Beim ersten Render einer Komponente wird EINMALIG ein zufälliger Eintrag aus dem passenden Pool gezogen (kein Re-Roll bei Re-Renders). Existiert die poolId nicht oder ist der Pool leer, greift der fallback-Text aus dem Level-JSON.",
+    "neuen_pool_anlegen": "Einfach neuen Key mit Array von Strings hinzufügen, z.B. 'greetings': [...]. Kein Code-Change nötig, nur Frontend neu deployen.",
+    "verwendung_im_level_json": "Bei einer Form-Karte props.contentPoolId auf den gewünschten Pool-Namen setzen, z.B. \"contentPoolId\": \"reflection_questions\". props.title bleibt als Fallback stehen.",
+    "wichtig": "Dieses Feld (_meta) ist reine Dokumentation und wird von useContentPool() ignoriert, da es kein regulärer Pool-Key ist.",
+    "stand": "2026-07"
+  },
+
+  "reflection_questions": [
+    "Wie fühlst du dich gerade? Schreib einfach los.",
+    "Was denkst du gerade?",
+    "Wie ist es dir bei dieser Übung ergangen?",
+    "Was ist dir aufgefallen?",
+    "Was nimmst du aus dieser Übung mit?",
+    "Gibt es etwas, das sich gerade verändert hat?"
+  ],
+
+  "good_job_texts": [
+    "Das war nicht klein. 🙏",
+    "Stark, dass du dranbleibst.",
+    "Du hast gerade etwas Ehrliches getan."
+  ],"relaxation_checkin_questions": [
+  {
+    "text": "Fühlst du dich gerade halbwegs entspannt?",
+    "yesLabel": "Ja, passt",
+    "noLabel": "Eigentlich nicht",
+    "yesMeansSkip": true
+  },
+  {
+    "text": "Wie ist deine Anspannung gerade – eher niedrig?",
+    "yesLabel": "Ja, eher niedrig",
+    "noLabel": "Eher hoch",
+    "yesMeansSkip": true
+  },
+  {
+    "text": "Brauchst du gerade einen Moment zum Runterkommen?",
+    "yesLabel": "Ja, gern",
+    "noLabel": "Eigentlich nicht",
+    "yesMeansSkip": false
+  },
+  {
+    "text": "Ist dein Körper gerade eher ruhig als angespannt?",
+    "yesLabel": "Ja, ruhig",
+    "noLabel": "Eher angespannt",
+    "yesMeansSkip": true
+  }
+],
+"relaxation_transition_texts": [
+  "Dann kann etwas Entspannung nicht schaden.",
+  "Dann lass uns kurz was für dein Nervensystem tun.",
+  "Dann gönn dir einen kleinen Moment.",
+  "Dann lass uns einen Moment für dich nehmen, bevor's weitergeht."
+]
+}

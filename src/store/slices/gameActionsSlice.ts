@@ -11,6 +11,8 @@ import {
   saveLevelUpToStorage,
 } from "./gameSlice"
 
+import { fetchSessionState } from "./sessionSlice"
+
 import type { AnimationType, FlyConfig } from "@context/AnimationContext"
 import type { ApiInterface } from "@api/types"
 import { invalidateCacheFor } from "@api/request"
@@ -19,7 +21,7 @@ import { invalidateCacheFor } from "@api/request"
 // Types
 // ---------------------------------------------------------------------------
 
-export type ActionType = "next" | "answer" | "meditation" | "prev"
+export type ActionType = "next" | "answer" | "meditation" | "prev" | "reload_level"
 
 export type Action = {
   type: ActionType
@@ -76,6 +78,15 @@ export const handleActionThunk = createAsyncThunk(
           )
         }
         action.goNext?.()
+        break
+      
+      case "reload_level":
+        // Level-Daten neu laden um Conditions neu zu evaluieren
+        await dispatch(fetchProgress(api))
+        await dispatch(fetchLevelStats(api))
+        
+        // Session-State neu laden um userProfile zu aktualisieren
+        await dispatch(fetchSessionState(api))
         break
     }
 

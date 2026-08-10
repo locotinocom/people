@@ -336,8 +336,19 @@ export interface UserProfile {
   /**
    * Dynamische JSON-Daten (z.B. trigger_person_role, client_text, ...).
    * Kommt vom Backend IMMER als decodiertes Objekt, niemals als JSON-String.
+   *
+   * Bekannte, aber optionale Felder für den SubTypeFinderAI-Interventionstyp:
+   * - subtype_answered_ids: IDs aller bereits beantworteten SUBTYPE_STATEMENTS
+   *   (über alle Level hinweg), damit die Frage-Engine keine Frage doppelt zieht.
+   * - subtype_all_answers: Alle bisher gesammelten Rohantworten (0/1 statt
+   *   boolean, damit JSON-stabil), Key = statementId. Wird verwendet, um das
+   *   Primär-/Sekundärprofil kumulativ über alle Level hinweg neu zu berechnen.
    */
-  meta?: Record<string, unknown> | null
+  meta?: (Record<string, unknown> & {
+    subtype_answered_ids?: string[]
+    subtype_all_answers?: Record<string, number>
+  }) | null
+
 
   // optional (DB hat's, Backend-PATCH evtl. noch nicht freigeschaltet)
   age?: number | null

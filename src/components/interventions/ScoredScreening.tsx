@@ -122,60 +122,63 @@ const QuestionCard = memo(function QuestionCard({
   totalQuestions: number
   ctx: any // TemplateContext Typ
 }) {
-  return (
-    <motion.div
-      key={question.id}
-      initial={{ opacity: 0, x: 40 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -40 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="flex flex-col gap-4 h-full"
-    >
-      {/* Fortschrittsanzeige */}
-      <div className="flex items-center gap-2 mb-1">
-        <div className="flex gap-1">
-          {Array.from({ length: totalQuestions }).map((_, i) => (
-            <div
-              key={i}
-              className={clsx(
-                "h-1 rounded-full transition-all duration-300",
-                i < questionIndex
-                  ? "bg-green-500 w-4"
-                  : i === questionIndex
-                  ? "bg-green-400 w-6"
-                  : "bg-gray-700 w-4"
-              )}
-            />
-          ))}
-        </div>
-        <span className="text-xs text-gray-500 ml-1">
-          {questionIndex + 1} / {totalQuestions}
-        </span>
-      </div>
-
-      {/* ✅ Avatar spricht mit Template-Support */}
-      <AvatarBubble title={applyTemplate(question.text, ctx)} />
-
-      {/* Antwortoptionen */}
-      <div className="flex flex-col gap-2 mt-2">
-        {question.options.map((option) => (
-          <motion.button
-            key={option.id}
-            onClick={() => onSelect(option.id)}
-            whileTap={{ scale: 0.98 }}
+return (
+  <motion.div
+    key={question.id}
+    initial={{ opacity: 0, x: 40 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -40 }}
+    transition={{ duration: 0.3, ease: "easeInOut" }}
+    className="flex flex-col gap-4 h-full min-h-0"
+  >
+    {/* Fortschrittsanzeige */}
+    <div className="flex items-center gap-2 mb-1 shrink-0">
+      <div className="flex gap-1">
+        {Array.from({ length: totalQuestions }).map((_, i) => (
+          <div
+            key={i}
             className={clsx(
-              "px-4 py-3 rounded-lg border text-left transition-all duration-200",
-              selectedOptionId === option.id
-                ? "bg-green-600 border-green-500 text-white"
-                : "border-gray-600 text-gray-300 hover:border-gray-400"
+              "h-1 rounded-full transition-all duration-300",
+              i < questionIndex
+                ? "bg-green-500 w-4"
+                : i === questionIndex
+                ? "bg-green-400 w-6"
+                : "bg-gray-700 w-4"
             )}
-          >
-            {option.label}
-          </motion.button>
+          />
         ))}
       </div>
-    </motion.div>
-  )
+      <span className="text-xs text-gray-500 ml-1">
+        {questionIndex + 1} / {totalQuestions}
+      </span>
+    </div>
+
+    {/* Scrollbarer Inhaltsbereich */}
+    <div className="flex-1 min-h-0 overflow-y-auto no-scrollbar pr-1">
+      <div className="flex flex-col gap-4">
+        <AvatarBubble title={applyTemplate(question.text, ctx)} />
+
+        <div className="flex flex-col gap-2 mt-2 pb-2">
+          {question.options.map((option) => (
+            <motion.button
+              key={option.id}
+              onClick={() => onSelect(option.id)}
+              whileTap={{ scale: 0.98 }}
+              className={clsx(
+                "px-4 py-3 rounded-lg border text-left transition-all duration-200",
+                selectedOptionId === option.id
+                  ? "bg-green-600 border-green-500 text-white"
+                  : "border-gray-600 text-gray-300 hover:border-gray-400"
+              )}
+            >
+              {option.label}
+            </motion.button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </motion.div>
+)
 })
 
 /* =======================
@@ -229,9 +232,22 @@ function ScoredScreening({ data }: { data: ScoredScreeningData }) {
 
     const { winner, scores } = computeResult(answers, questions, scoring.types)
 
+    // Label-Mapping für primary_reason
+    const PRIMARY_REASON_LABELS: Record<string, string> = {
+      fear_reaction: "du Angst vor der Reaktion hast",
+      need_love: "du gesehen und geliebt werden möchtest",
+      avoid_conflict: "du Konflikte vermeiden möchtest"
+    }
+
     const profilePatch: Record<string, unknown> = {}
     assignPatchValue(profilePatch, scoring.saveTo, winner)
     assignPatchValue(profilePatch, scoring.scoresSaveTo, scores)
+    
+    // Wenn saveTo "meta.primary_reason" ist, speichere auch das Label
+    if (scoring.saveTo === "meta.primary_reason") {
+      const label = PRIMARY_REASON_LABELS[winner] || winner
+      assignPatchValue(profilePatch, "meta.primary_reason_label", label)
+    }
 
     try {
       await dispatch(

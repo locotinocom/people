@@ -128,7 +128,11 @@ export default function ToolCard({ tool }: Props) {
                 : "bg-purple-900/70 hover:bg-purple-800/80 text-purple-200"
               }`}
           >
-            {buying ? "..." : `Kaufen – ${tool.price_dias} 💎`}
+            {buying
+              ? "..."
+              : tool.price_dias === 0
+              ? "Freischalten"
+              : `Kaufen – ${tool.price_dias} 💎`}
           </button>
         )}
 

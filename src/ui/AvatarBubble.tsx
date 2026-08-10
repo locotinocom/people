@@ -3,12 +3,14 @@ import AvatarRender from "@components/AvatarRender"
 
 type Props = {
   title: React.ReactNode
+  subtitle?: React.ReactNode
   size?: number
   className?: string
 }
 
 export default function AvatarBubble({
   title,
+  subtitle,
   size = 72,
   className,
 }: Props) {
@@ -41,7 +43,10 @@ export default function AvatarBubble({
           "
           aria-hidden="true"
         />
-        {title}
+        <div className="font-semibold">{title}</div>
+        {subtitle && (
+          <div className="mt-1 text-xs text-gray-600">{subtitle}</div>
+        )}
       </div>
     </div>
   )

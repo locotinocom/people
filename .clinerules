@@ -1,0 +1,287 @@
+# CLINERULES — PEOPLE PLEASING APP
+
+
+System-Briefing für Cline: Der Agentenmodus & AI-Template-Roadmap
+1. Was ist der Agentenmodus?
+Der "Agentenmodus" ist die Architektur für die fortgeschrittenen, tiefenpsychologischen Level unserer Anwendung (Level 14 bis 50).
+
+Wichtig: Das Suffix AI im Dateinamen (z. B. BeliefSystemCrackerAI.tsx) dient nur als interne Kennzeichnung dafür, dass dieses Template dynamisch von einer KI generiert und angepasst werden kann.
+
+Kein Live-Streaming/Chat: Es gibt keine asynchronen API-Anfragen oder Live-Chats während der User die Übung durchläuft. Das verhindert Latenzen, unvorhersehbare Halluzinationen und UI-Spinnen in sensiblen therapeutischen Momenten.
+
+2. Wie ist der Workflow aufgebaut? (Das Ziel)
+Das System arbeitet als deterministischer, geschlossener Regelkreis (Feedback-Loop):
+
+Im Hintergrund (Vor Levelstart): Das Backend schickt den bisherigen psychologischen Verlauf des Users (AgentModeContext, z. B. Name, Core Belief aus Level 3, letzte Emotionen) an die KI.
+
+Das KI-Paket: Die KI wählt ein passendes Template aus, befüllt es mit maßgeschneiderten, personalisierten Texten (Prompts, Triggern, Szenarien) und gibt ein einziges, valides JSON-Objekt zurück.
+
+Lokales Rendering: Das Frontend nimmt dieses JSON und rendert die UI-Komponente komplett lokal und statisch. Der User sieht eine perfekt personalisierte Übung, die technisch absolut stabil läuft.
+
+Daten-Rückkanal: Sobald der User die Übung beendet, sammelt die Komponente alle Eingaben (Texte, getippte Sätze, ausgewählte IDs, Scores) und übergibt dieses Ergebnis-Paket über den Event-Handler onNext(payload) an das Backend, wo es über den im JSON definierten Pfad (saveTo) in der Datenbank gespeichert wird.
+
+3. Technische Konventionen für die Implementierung
+Wenn du eine Komponente aus der Roadmap implementierst, halte dich strikt an folgende Vorgaben:
+
+Props-Struktur: Jede Komponente empfängt ihre Daten über ein standardisiertes Interface:
+
+TypeScript
+interface InterventionProps<T> {
+  data: T;                     // Das spezifische JSON-Objekt (props aus dem Level-JSON)
+  onNext: (payload: any) => void; // Übergibt die User-Eingaben ans Backend & triggert nächsten Schritt
+}
+UI & Design-Stil: * Volle Anpassung an das bestehende Dark-Mode-Design (Tailwind CSS, Schriften, Abstände).
+
+Verwendung von sanften Übergängen (z. B. Slide- oder Fade-Effekte beim Wechseln von Schritten innerhalb einer Komponente).
+
+Eingabefelder (textarea, input) müssen reaktiv sein und Validierung besitzen (z. B. Weiter-Button erst aktiv, wenn Text eingegeben wurde).
+
+Kein Zurück-Weg bei Impuls-Übungen: Bei Übungen wie dem BeliefSystemCrackerAI, die auf intuitive Erst-Impulse setzen, wird nach dem Absenden eines Schrittes der vorherige Schritt gesperrt.
+
+Du MUSST dich bei JEDEM Task strikt an die Vorgaben, die Architektur und die 5 Goldenen Regeln aus der Datei "ARCHITECTURE.md" im Hauptverzeichnis halten. 
+Bevor du Code im Backend (CakePHP) oder Frontend (React) änderst oder neue Features/Levels/Templates hinzufügst, lies diese Datei, um die bestehende Logik und das Master-Copy-Prinzip nicht zu brechen.
+
+## 1. CORE
+
+Produkt: Gamifizierte Self-Help App gegen People Pleasing
+Mechanik: XP, Level, Avatar, Diamanten, Interventionen
+Ziel: Erlebbare Transformation (kein Fragebogen)
+Sprache: In-App-Texte Deutsch, Code und Kommentare Englisch
+
+---
+
+## 2. BUSINESS
+
+- Lvl 1–11: kostenlos (kein KI-API-Call)
+- Lvl 12+: Abo (~9€/Monat) → erst hier beginnen Anthropic API-Calls
+- Ziel: ~30.000 zahlende Abonnenten
+
+Regel:
+→ Jedes Feature muss den Weg zu Level 12 unterstützen oder den Agentenmodus vorbereiten
+→ Free-Tier ist finanziell risikolos: keine KI-Kosten bis Level 11
+
+---
+
+## 3. TECH
+
+- FE: React, TypeScript, Vite, Redux Toolkit, Tailwind, Swiper
+- BE: CakePHP 5, MySQL
+- Hosting: webgo Shared Hosting (kein Vercel)
+- API-Base: locotino.com/api
+- Auth: react-auth-kit, JWT-Cookie
+- State: Redux Slices (session, data, game, gameActions, avatar, inventory, tools, uiOverlay)
+- Avatar: SVG-Layer-System (kein Three.js, kein Ready Player Me)
+
+---
+
+## 4. ARCHITEKTUR
+
+- Feature-Module: src/features/ (aktuell: auth, feelingExercise)
+- Wiederverwendbare Komponenten: src/components/
+- Intervention-Templates: src/components/interventions/
+- Spiel-Engine: src/components/Game/GamePlay.tsx
+- Level-Inhalte: api/webroot/levels/ (JSON-Dateien)
+- API-Wrapper: src/api/request.ts (GET-Caching, Deduplication, Error-Handling)
+- Neue Templates immer in componentMap in GamePlay.tsx registrieren
+
+---
+
+## 5. PSYCHOLOGIE
+
+### People-Pleasing Subtypen (intern, steuern Personalisierung)
+1. Angst vor Reaktion (fear_reaction)
+2. Pflicht
+3. Schuld
+4. Harmonie / Konfliktvermeidung (avoid_conflict)
+5. Anerkennungsbedürfnis (need_love)
+6. Kontrolle
+7. Katastrophisierung
+
+### Interventionstypen
+BeliefWork, TheWork, FeelProcess, ShadowWork, BoundaryTraining,
+SubjugationOrigins, GuiltDutyReframing, EmotionExpression, TraumaAwareBoundary,
+Grounding, OrganAwareness, BreathIntervention, ChatSimulation, HypothesisReveal
+
+---
+
+## 6. LEVEL SYSTEM
+
+### Level 1–11: statisch (JSON)
+
+| Level | Thema | Status |
+|-------|-------|--------|
+| 1 | Onboarding, Avatar, erste Erfahrung | ✅ fertig |
+| 2 | Name, Trigger-Person, Tier-Symbol, Atem | ✅ fertig |
+| 3 | Das Warum (Screening, Hypothese, Ursprung) | ✅ fertig |
+| 4 | Körper, Organ-Achtsamkeit, Grounding | ✅ fertig |
+| 5 | Gefühle zulassen (Feeling Exercise) | ✅ fertig |
+| 6 | Opponent-Profil, Chat-Simulation | ✅ fertig |
+| 7 | Wahrnehmung, Achtsamkeitsübungen | ✅ fertig |
+| 8 | Glaubenssätze + The Work (Tool-Unlock) | 🔧 in Arbeit |
+| 9 | Dankbarkeit (Erholung) | ⚠ offen |
+| 10 | Enttäuschung & Befürchtungen transformieren | ⚠ offen |
+| 11 | Bridge: "Du bist bereit" + Premium-CTA | ⚠ offen |
+
+### Level 12+: Agentenmodus (dynamisch, KI-generiert)
+
+---
+
+## 7. AGENTENMODUS (ab Level 12)
+
+### Input
+- Subtyp-Gewichtung (aus Level 3 Screening)
+- Opponent-Profil (aus Level 6)
+- Glaubenssatz + The Work Antworten (aus Level 8)
+- Alle meta.*-Felder aus Level 1–11
+- XP, Fortschritt, Abbruchverhalten
+
+### Entscheidungslogik
+1. Thema wählen: höchster Subtyp, keine Wiederholung der letzten 3 Level, offene Muster priorisieren
+2. Themenpool: Gefühle, Körper, Glaubenssätze, Erwartungen, Befürchtungen, Grenzen, Selbstwert
+3. Progression: steigende Intensität, mehr Konfrontation, mehr Eigenverantwortung
+
+### Level-Aufbau (fix)
+Jedes KI-Level enthält: Thema, Ziel, 1–3 Interventionen, erwartete Wirkung
+
+---
+
+## 8. GESAMMELTE NUTZERDATEN (meta.*)
+
+Bis Level 11 gesammelt:
+- name
+- meta.trigger_person_role, meta.trigger_person_text
+- meta.opponent_animal (Tier-Symbol)
+- meta.primary_reason (fear_reaction / need_love / avoid_conflict)
+- meta.screening_scores
+- meta.origin_text
+- meta.grounding_mode, meta.grounding_reflection
+- meta.feeling_reflection
+- meta.opponent_gender, meta.opponent_age_group, meta.opponent_traits
+- meta.opponent_typical_behaviors, meta.opponent_typical_phrases
+- meta.chat_l6_emotion_1/2, meta.chat_l6_thought_1, meta.chat_l6_impulse_1
+- meta.chat_reflection_l6
+- meta.core_belief, meta.core_belief_label
+- meta.belief_origin_text, meta.belief_reframe_text
+- meta.the_work_belief, meta.the_work_q1–q4, meta.the_work_turnaround
+
+---
+
+## 9. TOOLS (freischaltbar)
+
+| Tool | Freigeschaltet in | Komponente |
+|------|------------------|------------|
+| Grounding | Level 4 | Grounding |
+| Gefühle zulassen | Level 5 | FeelingExercise |
+| The Work | Level 8 | TheWorkTool |
+
+---
+
+## 10. CODE RULES
+
+### Pflicht
+- erst relevante Dateien lesen (src/, Controller, JSON) bevor Code geschrieben wird
+- bestehende Architektur respektieren
+- TypeScript strikt, keine any-Types
+- minimal ändern – kein Rewrite bestehender Funktionen
+- neue Templates immer in GamePlay.tsx componentMap registrieren
+
+### Verboten
+- Annahmen über Dateistruktur ohne Prüfung
+- Breaking Changes an API oder Store
+- neue Patterns ohne expliziten Grund
+- Umlaute in JSON-Strings (ä→ae, ö→oe etc. vermeiden – direkt UTF-8 nutzen)
+
+---
+
+## 11. API RULES
+
+- JSON-Struktur stabil halten
+- keine stillen Änderungen an Endpunkten
+- vor jeder Änderung prüfen: Request, Response, Nutzung im FE
+- Endpunkt-Base: VITE_API_URL aus .env
+
+---
+
+## 12. DESIGN RULES (Mobile-First, Pflicht)
+
+### Nicht-skippbare Interventionen
+- Inhaltsbereich intern scrollbar
+- Scrollen nur im Inhaltsbereich, nicht auf der gesamten Seite
+- Scrollbar visuell versteckt (no-scrollbar)
+- Header, Progress, Avatar, Footer, Buttons bleiben fix
+- Flexbox-Layouts: min-h-0 auf richtigen Containern setzen
+- Scrollbarer Bereich: flex-1 + min-h-0 + overflow-y-auto + no-scrollbar
+
+### Skippbare / swipebare Interventionen
+- gesamter Inhalt ohne internes Scrollen vollständig sichtbar
+- Inhalte kompakt halten (weniger Text, weniger Optionen)
+- keine Inhalte unterhalb des sichtbaren Bereichs
+
+### Entscheidungspflicht vor jeder neuen Komponente
+a) Skippbar → Inhalt vollständig sichtbar (kein Scroll)
+b) Nicht-skippbar → Inhaltsbereich intern scrollbar
+
+---
+
+## 13. UX REGEL
+
+- klar, schnell, ohne Reibung
+- Nutzer soll weitermachen wollen
+- wichtigste Frage: Wo steigt der Nutzer aus?
+
+---
+
+## 14. KI-REGEL (für Cline)
+
+- nicht raten
+- bei Unklarheit fragen, nicht annehmen
+- erst verstehen, dann ändern
+- Plan zeigen bevor Code geschrieben wird
+
+---
+
+## 15. ERFOLG
+
+App funktioniert, wenn:
+- Nutzer dranbleibt bis Level 11
+- Emotion entsteht
+- Fortschritt spürbar ist
+- Conversion zu Level 12 (Abo) passiert
+
+---
+
+## DATABASE SCHEMA Reference (MySQL)
+Always ensure that SQL commands, migrations, or data manipulations precisely match the following schema fields and constraints:
+
+### Core Tables
+* **users**: `id` (int, PK), `email` (varchar), `password` (varchar), `name` (varchar), `provider` (enum: 'local','google','facebook','apple'), `provider_id` (varchar), `user_avatar_id` (int), `role` (varchar), `is_verified` (tinyint), `created` (datetime), `modified` (datetime)
+* **user_profiles**: Associated data mirroring user metrics and references.
+* **assets**: `id` (int, PK), `external_id` (varchar), `name` (varchar), `description` (varchar), `type` (varchar), `gender` (enum: 'male','female','neutral'), `icon_url` (text), `active` (tinyint), `required_level` (int), `price_dias` (int), `meta` (longtext/JSON), `created` (datetime), `modified` (datetime)
+* **tools**: `id` (int, PK), `tool_key` (varchar, Unique key like 'breath_tool'), `name` (varchar), `description` (text), `icon` (varchar, Emoji), `preview_image` (varchar), `price_dias` (int), `required_level` (int), `active` (tinyint), `created` (datetime), `modified` (datetime)
+
+### Intervention & Progress System
+* **interventions**: `id` (int, PK), `user_id` (int), `level` (int), `title` (varchar), `template` (varchar), `type` (varchar), `xp` (int), `skippable` (tinyint), `ai_relevance` (tinyint), `ai_topic` (varchar), `props` (longtext/JSON), `slides` (longtext/JSON), `completed` (tinyint), `xp_earned` (int), `created_at` (datetime), `updated_at` (datetime)
+* **user_answers**: Stores answers submitted during the steps/levels.
+* **feedback_responses**: `id` (int, PK), `user_id` (int), `intervention_id` (int), `answers_json` (text/JSON), `created` (datetime)
+
+### AI Hypothesis System
+* **ai_hypotheses**: `id` (int, PK), `user_id` (int, FK), `intervention_id` (int, FK), `topic` (varchar), `hypotheses` (longtext/JSON, checked with json_valid), `created_at` (datetime)
+* **ai_interventions**: `id` (int, PK), `user_id` (int, FK), `hypothesis_id` (int, FK), `title` (varchar), `instructions` (text), `props` (longtext/JSON), `created_at` (datetime)
+
+### Relationships & Tokens
+* **user_assets**: Links `user_id` and `asset_id` (On Delete Cascade).
+* **user_avatars**: Tracks custom avatars per user.
+* **user_logins**: Connection history logs.
+* **password_resets**: `id`, `user_id`, `token` (char(64)), `expires` (datetime), `created` (datetime)
+* **refresh_tokens**: `id`, `user_id`, `token` (char(64)), `expires` (datetime), `created` (datetime)
+
+### Database Rules & JSON Handlings:
+1. Always utilize `current_timestamp()` defaults on date fields appropriately.
+2. `props`, `meta`, `hypotheses`, and `answers_json` must be stringified or managed as valid JSON payloads.
+3. Every foreign key constraint relies heavily on cascading deletes targeting `users(id)` or specific core entity entities. Ensure records don't orphan.
+
+
+## 16. VOLLSTÄNDIGE DOKUMENTATION
+
+→ Siehe APP_OVERVIEW.md im Root-Verzeichnis
+

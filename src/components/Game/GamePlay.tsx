@@ -53,10 +53,53 @@ const LazySlide = memo(function LazySlide({ index, activeIndex, children }: Lazy
   return <>{children}</>
 })
 
+// ---------------------------------------------------------------------------
+// CONDITION EVALUATION
+// ---------------------------------------------------------------------------
+// Hilfsfunktion: Condition evaluieren
+function evaluateCondition(condition: any, userProfile: any): boolean {
+  if (!condition) return true
+  
+  const { field, equals, not_equals } = condition
+  if (!field) return true
+  
+  // Nested field access (z.B. "meta.l12_check_1")
+  const getValue = (obj: any, path: string): any => {
+    return path.split('.').reduce((acc, part) => acc?.[part], obj)
+  }
+  
+  const value = getValue(userProfile, field)
+  
+  // Debug logging
+  if (import.meta.env.DEV && field.includes('l12')) {
+    console.log('[Condition Debug]', {
+      field,
+      value,
+      valueType: typeof value,
+      equals,
+      equalsType: typeof equals,
+      not_equals,
+      userProfile: (userProfile as any)?.meta,
+      result: equals !== undefined ? value === equals : (not_equals !== undefined ? value !== not_equals : true)
+    })
+  }
+  
+  if (equals !== undefined) {
+    return value === equals
+  }
+  
+  if (not_equals !== undefined) {
+    return value !== not_equals
+  }
+  
+  return true
+}
+
 export default function Gameplay() {
   const { setSwiper, setInterventions } = useSlideManager()
   const { interventions, isLoading } = useAppSelector(selectData)
   const { currentInterventionId } = useAppSelector(selectGame)
+  const userProfile = useAppSelector((state) => state.session.user)
   
   const swiperRef = useRef<any>(null)
   const [activeSkippable, setActiveSkippable] = useState(false)
@@ -75,6 +118,7 @@ export default function Gameplay() {
 
   return interventions.map((raw: any) => {
     const props = typeof raw.props === "string" ? JSON.parse(raw.props || "{}") : raw.props || {}
+    const condition = typeof raw.condition === "string" ? JSON.parse(raw.condition || "null") : raw.condition || null
     return {
       id: raw.id,
       slug: props.slug ?? null,        // ← aus props, nicht raw
@@ -89,15 +133,34 @@ export default function Gameplay() {
           : [],
       skippable: raw.skippable ?? false,
       xp: raw.xp ?? 0,
+      condition,
     }
   })
 }, [interventions])
 //console.log(interventions[0])
 
+  // 1b. Filtern nach Conditions
+  const filteredInterventions = useMemo(() => {
+    const filtered = parsedInterventions.filter(intervention => 
+      evaluateCondition(intervention.condition, userProfile)
+    )
+    
+    if (import.meta.env.DEV) {
+      console.log('[Filtered Interventions]', {
+        total: parsedInterventions.length,
+        filtered: filtered.length,
+        removed: parsedInterventions.length - filtered.length,
+        userProfile: (userProfile as any)?.meta
+      })
+    }
+    
+    return filtered
+  }, [parsedInterventions, userProfile])
+
   // 2. SlideManager synchronisieren + Lade-Zähler erhöhen
 useEffect(() => {
-  if (parsedInterventions.length) {
-    setInterventions(parsedInterventions)
+  if (filteredInterventions.length) {
+    setInterventions(filteredInterventions)
     const prevCount = interventionLoadCountRef.current
     interventionLoadCountRef.current += 1
     // Beim Reload (2. Laden+) → Jump-State setzen, damit Effect 3b einmalig springt
@@ -105,17 +168,17 @@ useEffect(() => {
       setPendingLevelUpJump(true)
     }
   }
-}, [parsedInterventions])
+}, [filteredInterventions])
 
   // 3. Swiper-Logik (Event Handler)
   useEffect(() => {
-    if (!swiperRef.current?.swiper || !parsedInterventions.length) return
+    if (!swiperRef.current?.swiper || !filteredInterventions.length) return
 
     const swiper = swiperRef.current.swiper
     window.gameSwiper = swiper
 
     const handleSlideChange = () => {
-      const current = parsedInterventions[swiper.activeIndex]
+      const current = filteredInterventions[swiper.activeIndex]
       setActiveSkippable(current?.skippable ?? false)
       // LazySlide-Windowing: aktiven Index tracken damit Nachbar-Slides gerendert werden
       setActiveIndex(swiper.activeIndex)
@@ -124,14 +187,14 @@ useEffect(() => {
     swiper.on("slideChange", handleSlideChange)
     
     // Initial-Check
-    const start = parsedInterventions[swiper.activeIndex]
+    const start = filteredInterventions[swiper.activeIndex]
     setActiveSkippable(start?.skippable ?? false)
     setActiveIndex(swiper.activeIndex)
 
     return () => {
       swiper.off("slideChange", handleSlideChange)
     }
-  }, [parsedInterventions])
+  }, [filteredInterventions])
 
   // 3b. Nach LevelUp: Swiper EINMALIG auf den richtigen Slide springen.
   // Feuert nur wenn pendingLevelUpJump === true (gesetzt in Effect 2 beim Reload).
@@ -139,7 +202,7 @@ useEffect(() => {
   // State statt Ref garantiert dass dieser Effect NACH Effect 2 läuft (React State-Batching).
   useEffect(() => {
     if (!pendingLevelUpJump) return
-    if (!swiperRef.current?.swiper || !parsedInterventions.length) return
+    if (!swiperRef.current?.swiper || !filteredInterventions.length) return
 
     // State sofort zurücksetzen → weitere Änderungen lösen keinen Jump aus
     setPendingLevelUpJump(false)
@@ -148,11 +211,11 @@ useEffect(() => {
 
     // Index der nächsten Intervention nach der zuletzt abgeschlossenen
     const completedIdx = currentInterventionId != null
-      ? parsedInterventions.findIndex((i) => i.id === currentInterventionId)
+      ? filteredInterventions.findIndex((i) => i.id === currentInterventionId)
       : -1
     // Nächste Slide = completedIdx + 1, oder 0 wenn nicht gefunden
     const targetIdx = completedIdx >= 0 ? completedIdx + 1 : 0
-    const clampedIdx = Math.min(targetIdx, parsedInterventions.length - 1)
+    const clampedIdx = Math.min(targetIdx, filteredInterventions.length - 1)
 
     if (swiper.activeIndex !== clampedIdx) {
       swiper.slideTo(clampedIdx, 0) // 0ms = kein Animations-Delay
@@ -160,13 +223,13 @@ useEffect(() => {
 
     // slideChange-Event feuert bei slideTo() nicht automatisch →
     // skippable + allowTouchMove direkt setzen
-    const targetIntervention = parsedInterventions[clampedIdx]
+    const targetIntervention = filteredInterventions[clampedIdx]
     const isSkippable = targetIntervention?.skippable ?? false
     setActiveSkippable(isSkippable)
     swiper.allowTouchMove = isSkippable
     // LazySlide-Windowing: activeIndex aktualisieren damit neue Nachbar-Slides gerendert werden
     setActiveIndex(clampedIdx)
-  }, [pendingLevelUpJump, parsedInterventions, currentInterventionId])
+  }, [pendingLevelUpJump, filteredInterventions, currentInterventionId])
 
   // 4. Touch-Sperre basierend auf skippable
   useEffect(() => {
@@ -179,16 +242,16 @@ useEffect(() => {
   if (isLoading)
     return <div className="p-6 text-zinc-400">Lade…</div>
 
-  if (!parsedInterventions.length)
+  if (!filteredInterventions.length)
     return <div className="p-6 text-zinc-400">Keine Daten vorhanden.</div>
 
   // currentInterventionId = zuletzt abgeschlossene Intervention
   // → initialSlide soll auf die NÄCHSTE Intervention zeigen (completedIdx + 1)
-  const completedIdx = parsedInterventions.findIndex(
+  const completedIdx = filteredInterventions.findIndex(
     (i) => i.id === currentInterventionId
   )
   const initialSlideIndex = completedIdx >= 0
-    ? Math.min(completedIdx + 1, parsedInterventions.length - 1)
+    ? Math.min(completedIdx + 1, filteredInterventions.length - 1)
     : 0
 
   return (
@@ -213,7 +276,7 @@ useEffect(() => {
         setActiveIndex(swiper.activeIndex)
       }}
     >
-      {parsedInterventions.map((intervention, index) => {
+      {filteredInterventions.map((intervention, index) => {
         const { id, type, template, props, slides } = intervention
         const Template = componentMap[template]
 

@@ -5,6 +5,15 @@ import tailwindcss from "@tailwindcss/vite"
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+   server: {
+    proxy: {
+      '/api': {
+        target: 'https://www.locotino.com',
+        changeOrigin: true,
+        secure: true,
+      }
+    }
+  },
   resolve: {
     alias: {
       "@": "/src",

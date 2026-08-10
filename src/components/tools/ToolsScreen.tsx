@@ -6,10 +6,18 @@ import { syncToolsByLevel, markToolSeen, selectTools } from "@store/slices/tools
 import { closeTool } from "@store/slices/uiOverlaySlice"
 import ToolCard from "./ToolCard"
 import BreathToolStandalone from "@tools/BreathToolStandalone"
+import GroundingToolStandalone from "@tools/GroundingToolStandalone"
+import FeelingToolStandalone from "@tools/FeelingToolStandalone"
+import TheWorkToolStandalone from "@tools/TheWorkToolStandalone"
+import GratitudeToolStandalone from "@tools/GratitudeToolStandalone"
 
 /** Mapping: toolKey → Standalone-Komponente */
 const TOOL_COMPONENTS: Record<string, React.ReactNode> = {
   breath_tool: <BreathToolStandalone />,
+  grounding_tool: <GroundingToolStandalone />,
+  feeling_tool: <FeelingToolStandalone />,
+  the_work_tool: <TheWorkToolStandalone />,
+  gratitude_tool: <GratitudeToolStandalone onClose={() => {}} />,
 }
 
 export default function ToolsScreen() {

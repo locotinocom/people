@@ -44,7 +44,7 @@ export default function AdminCreateTestUsers() {
       })
       const json = await res.json()
       // nur role=user anzeigen (keine superadmins/admins)
-      const list: AppUser[] = (json.data ?? []).filter((u: AppUser) => u.role === "user")
+      const list: AppUser[] = (json.data ?? []).filter((u: AppUser) => u.role === "user" || u.role === "superadmin")
       setUsers(list)
     } catch {
       // still

@@ -19,6 +19,7 @@ import {
 import { useAnimation } from "@context/AnimationContext"
 import { useSlideManager } from "@context/SlideManagerContext"
 import type { UserProfilePatch } from "@api/types"
+import { useContentPool } from "@helpers/useContentPool"
 
 /* =======================
    Types
@@ -64,11 +65,18 @@ type TextElement = BaseElement & {
   maxLength?: number
 }
 
+type TextareaElement = BaseElement & {
+  type: "textarea"
+  placeholder?: string
+  maxLength?: number
+}
+
 type FormElement =
   | ScaleElement
   | BooleanElement
   | SingleSelectElement
   | TextElement
+  | TextareaElement
 
 /* =======================
    Hilfsfunktion: assignPatchValue
@@ -124,7 +132,8 @@ type FormData = {
   id: number
   title: string
   elements: FormElement[]
-  xp?: number
+  xp?: number,
+  contentPoolId?: string
 }
 
 /* =======================
@@ -145,6 +154,7 @@ function isElementValid(element: FormElement, value: any): boolean {
       return typeof value === "string" && value.length > 0
 
     case "text":
+    case "textarea":
       if (typeof value !== "string") return false
       if (element.maxLength && value.length > element.maxLength) return false
       return value.trim().length > 0
@@ -268,11 +278,29 @@ const FormElementRenderer = memo(function FormElementRenderer({
 
         {/* TEXT */}
         {element.type === "text" && (
+          <input
+            type="text"
+            value={value ?? ""}
+            placeholder={element.placeholder}
+            maxLength={element.maxLength}
+            onChange={(e) => onChange(e.target.value)}
+            className={clsx(
+              "w-full p-3 rounded-lg bg-gray-800 border transition",
+              valid
+                ? "border-gray-700"
+                : "border-red-500"
+            )}
+          />
+        )}
+
+        {/* TEXTAREA */}
+        {element.type === "textarea" && (
           <textarea
             value={value ?? ""}
             placeholder={element.placeholder}
             maxLength={element.maxLength}
             onChange={(e) => onChange(e.target.value)}
+            rows={4}
             className={clsx(
               "w-full p-3 rounded-lg bg-gray-800 border resize-none transition",
               valid
@@ -292,13 +320,14 @@ const FormElementRenderer = memo(function FormElementRenderer({
 ======================= */
 
 function Form({ data }: { data: FormData }) {
-  const { id, title, elements, xp = 0 } = data
+  const { id, title, contentPoolId, elements, xp = 0 } = data
 
+  
   const dispatch = useAppDispatch()
   const api = useReduxApi()
   const slideManager = useSlideManager()
   const { start: startAnimation } = useAnimation()
-
+  const resolvedTitle = useContentPool(contentPoolId, title) ?? title
   // E1: Profil aus Redux-Store für Vorausfüllen
   const { profile } = useAppSelector(selectSession)
 
@@ -422,7 +451,8 @@ function Form({ data }: { data: FormData }) {
             element={el}
             value={values[el.id]}
             onChange={(v) => updateValue(el.id, v)}
-            title={title} 
+            title={resolvedTitle} 
+            
           />
         ))}
       </div>

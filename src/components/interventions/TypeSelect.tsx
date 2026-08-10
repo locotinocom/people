@@ -34,6 +34,7 @@ type TypeSelectData = {
   xp?: number
   title: string
   saveTo: string
+  saveLabelTo?: string
   nextCardId?: string
   types: TypeOption[]
 }
@@ -65,7 +66,7 @@ function assignPatchValue(
 ======================= */
 
 function TypeSelect({ data }: { data: TypeSelectData }) {
-  const { id, xp = 0, title, saveTo, nextCardId, types } = data
+  const { id, xp = 0, title, saveTo, saveLabelTo, nextCardId, types } = data
 
   const dispatch = useAppDispatch()
   const api = useReduxApi()
@@ -83,6 +84,11 @@ function TypeSelect({ data }: { data: TypeSelectData }) {
     const profilePatch: Record<string, unknown> = {}
     assignPatchValue(profilePatch, saveTo, selectedTypeId)
 
+    // Wenn saveLabelTo angegeben ist, speichere auch das Label
+    if (saveLabelTo) {
+      assignPatchValue(profilePatch, saveLabelTo, selectedType?.label ?? selectedTypeId)
+    }
+
     if (import.meta.env.DEV) {
       console.log("[TypeSelect] Gewählter Typ:", selectedTypeId)
       console.log("[TypeSelect] Patch:", JSON.stringify(profilePatch, null, 2))
@@ -97,7 +103,6 @@ function TypeSelect({ data }: { data: TypeSelectData }) {
       return
     }
 
-    // XP-Animation + API-Call + Level-Reload passieren im Thunk
     await dispatch(
       completeInterventionThunk({ interventionId: id, xp, playAnimation: startAnimation, api })
     ).unwrap()
@@ -118,64 +123,64 @@ function TypeSelect({ data }: { data: TypeSelectData }) {
   }, [api, selectedTypeId, saveTo, nextCardId, xp, id, dispatch, startAnimation, slideManager])
 
   return (
-    <div className="flex flex-col h-full p-6 text-white">
-
-      {/* Avatar spricht */}
-      <AvatarBubble title={title} />
-
-      {/* Typ-Optionen */}
-      <div className="flex flex-col gap-3 mt-6 flex-1">
-        {types.map((type) => (
-          <motion.button
-            key={type.id}
-            onClick={() => setSelectedTypeId(type.id)}
-            whileTap={{ scale: 0.98 }}
-            className={clsx(
-              "flex items-start gap-4 px-4 py-4 rounded-xl border text-left transition-all duration-200",
-              selectedTypeId === type.id
-                ? "bg-green-900/30 border-green-500"
-                : "border-gray-700 hover:border-gray-500"
-            )}
-          >
-            {/* Emoji */}
-            <span className="text-2xl mt-0.5 shrink-0">{type.emoji}</span>
-
-            {/* Text */}
-            <div className="flex flex-col gap-1">
-              <span
-                className={clsx(
-                  "font-semibold transition-colors",
-                  selectedTypeId === type.id ? "text-green-300" : "text-white"
-                )}
-              >
-                {type.label}
-              </span>
-              <span className="text-sm text-gray-400 leading-snug">
-                {type.description}
-              </span>
-            </div>
-
-            {/* Auswahlindikator */}
-            <div
-              className={clsx(
-                "ml-auto mt-1 w-4 h-4 rounded-full border-2 shrink-0 transition-all",
-                selectedTypeId === type.id
-                  ? "border-green-500 bg-green-500"
-                  : "border-gray-600"
-              )}
-            />
-          </motion.button>
-        ))}
+    <div className="flex flex-col h-full min-h-0 p-6 text-white">
+      {/* Avatar oben fix */}
+      <div className="shrink-0">
+        <AvatarBubble title={title} />
       </div>
 
-      {/* Weiter-Button */}
+      {/* Scrollbarer Mittelbereich */}
+      <div className="mt-6 flex-1 min-h-0 overflow-y-auto no-scrollbar pr-1">
+        <div className="flex flex-col gap-3 pb-2">
+          {types.map((type) => (
+            <motion.button
+              key={type.id}
+              onClick={() => setSelectedTypeId(type.id)}
+              whileTap={{ scale: 0.98 }}
+              className={clsx(
+                "flex items-start gap-4 px-4 py-4 rounded-xl border text-left transition-all duration-200",
+                selectedTypeId === type.id
+                  ? "bg-green-900/30 border-green-500"
+                  : "border-gray-700 hover:border-gray-500"
+              )}
+            >
+              <span className="text-2xl mt-0.5 shrink-0">{type.emoji}</span>
+
+              <div className="flex flex-col gap-1 min-w-0">
+                <span
+                  className={clsx(
+                    "font-semibold transition-colors",
+                    selectedTypeId === type.id ? "text-green-300" : "text-white"
+                  )}
+                >
+                  {type.label}
+                </span>
+                <span className="text-sm text-gray-400 leading-snug">
+                  {type.description}
+                </span>
+              </div>
+
+              <div
+                className={clsx(
+                  "ml-auto mt-1 w-4 h-4 rounded-full border-2 shrink-0 transition-all",
+                  selectedTypeId === type.id
+                    ? "border-green-500 bg-green-500"
+                    : "border-gray-600"
+                )}
+              />
+            </motion.button>
+          ))}
+        </div>
+      </div>
+
+      {/* Weiter-Button unten fix */}
       <motion.button
         ref={btnRef}
         onClick={handleComplete}
         disabled={!selectedTypeId}
         animate={{ opacity: selectedTypeId ? 1 : 0.5 }}
         className={clsx(
-          "mt-6 px-6 py-3 rounded-lg font-bold transition",
+          "mt-6 shrink-0 px-6 py-3 rounded-lg font-bold transition",
           selectedTypeId
             ? "bg-green-600 hover:bg-green-500"
             : "bg-gray-700 cursor-not-allowed"
@@ -185,7 +190,7 @@ function TypeSelect({ data }: { data: TypeSelectData }) {
       </motion.button>
 
       {xp > 0 && (
-        <p className="mt-2 text-sm text-gray-400">+{xp} XP</p>
+        <p className="mt-2 shrink-0 text-sm text-gray-400">+{xp} XP</p>
       )}
     </div>
   )
