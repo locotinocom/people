@@ -55,6 +55,15 @@ export const TOOL_DEFINITIONS: Omit<ToolItem, "unlocked" | "owned" | "is_new">[]
     required_level: 9,
   },
   {
+    key: "safety_net_tool",
+    name: "Sicherheitsnetz",
+    description: "Soforthilfe für Überforderung, Panik oder Scham – mit Klarheit, Akut-Hinweisen und schnellen Regulierungs-Optionen.",
+    icon: "🆘",
+    previewImage: undefined,
+    price_dias: 0,
+    required_level: 1,
+  },
+  {
     key: "burn_ritual",
     name: "Verbrennen",
     description: "Lass los, was dich belastet – rituell und bewusst. Schreib es auf, verbrenne es symbolisch und spüre die Erleichterung.",
@@ -62,6 +71,15 @@ export const TOOL_DEFINITIONS: Omit<ToolItem, "unlocked" | "owned" | "is_new">[]
     previewImage: undefined,
     price_dias: 0,
     required_level: 10,
+  },
+  {
+    key: "relapse_tool",
+    name: "Rückfall",
+    description: "Für Momente, in denen du merkst, dass du wieder in ein altes Muster zurückgefallen bist. Eine ruhige, unterstützende Übung.",
+    icon: "🔁",
+    previewImage: undefined,
+    price_dias: 0,
+    required_level: 1,
   },
 ]
 
@@ -97,7 +115,7 @@ export interface ToolsState {
 const buildInitialItems = (): ToolItem[] =>
   TOOL_DEFINITIONS.map((def) => ({
     ...def,
-    unlocked: false,
+    unlocked: def.required_level === 1 && def.price_dias === 0,
     owned: false,
     is_new: false,
   }))

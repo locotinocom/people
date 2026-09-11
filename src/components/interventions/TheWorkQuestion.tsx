@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-15.json, level-18.json, level-8.json
+ * @orphan-check-end */
 import { useRef, useState, useCallback, memo } from "react"
 import { motion } from "framer-motion"
 import clsx from "clsx"
@@ -155,6 +161,7 @@ function TheWorkQuestion({ data }: { data: TheWorkQuestionData }) {
           {inputType === "yesno" && (
             <div className="flex gap-4">
               <button
+                type="button"
                 onClick={() => setYesNoAnswer(true)}
                 className={clsx(
                   "flex-1 px-6 py-4 rounded-2xl border text-center font-semibold transition-all duration-200",
@@ -166,6 +173,7 @@ function TheWorkQuestion({ data }: { data: TheWorkQuestionData }) {
                 Ja
               </button>
               <button
+                type="button"
                 onClick={() => setYesNoAnswer(false)}
                 className={clsx(
                   "flex-1 px-6 py-4 rounded-2xl border text-center font-semibold transition-all duration-200",

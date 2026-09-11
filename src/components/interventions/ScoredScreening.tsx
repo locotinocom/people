@@ -1,3 +1,10 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-3.json
+ * Hinweis: ACHTUNG: mehrere Dateien mit demselben Komponentennamen vorhanden — Duplikat prüfen.
+ * @orphan-check-end */
 import {
   useRef,
   useState,
@@ -310,6 +317,7 @@ function ScoredScreening({ data }: { data: ScoredScreeningData }) {
       <div className="flex gap-3 mt-6">
         {currentIndex > 0 && (
           <button
+            type="button"
             onClick={handleBack}
             className="px-4 py-3 rounded-lg border border-gray-600 text-gray-300 hover:border-gray-400 transition"
           >
@@ -319,6 +327,7 @@ function ScoredScreening({ data }: { data: ScoredScreeningData }) {
 
         {isLastQuestion && (
           <motion.button
+            type="button"
             ref={btnRef}
             onClick={handleComplete}
             disabled={!allAnswered}

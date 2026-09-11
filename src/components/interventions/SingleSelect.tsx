@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: UNREFERENZIERT — in keinem Level 1-21 als template genutzt
+ * Hinweis: Vor dem Löschen prüfen: evtl. Tool-Menü, künftige Level oder bewusst reserviert.
+ * @orphan-check-end */
 import {
   useRef,
   useState,
@@ -163,6 +169,7 @@ function SingleSelect({ data }: { data: SingleSelectData }) {
 
       {/* Weiter-Button unten fix */}
       <motion.button
+        type="button"
         ref={btnRef}
         onClick={handleComplete}
         disabled={!selectedId}

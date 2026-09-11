@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-20.json
+ * @orphan-check-end */
 import { useState, useCallback, useRef, useEffect, memo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import clsx from "clsx"
@@ -346,6 +352,7 @@ function ShadowDialogueAI({ data }: { data: ShadowDialogueAIData }) {
                 className="flex-1 rounded-2xl bg-white/5 border border-white/10 px-4 py-2.5 text-sm resize-none focus:border-green-500 focus:outline-none"
               />
               <motion.button
+                  type="button"
                 onClick={handleCustomSend}
                 disabled={!customText.trim()}
                 whileTap={{ scale: 0.95 }}
@@ -364,6 +371,7 @@ function ShadowDialogueAI({ data }: { data: ShadowDialogueAIData }) {
       {isDone && !isTyping && (
         <div className="shrink-0 px-5 pb-5 pt-2">
           <button
+            type="button"
             onClick={handleComplete}
             disabled={hasCompleted}
             className={clsx(

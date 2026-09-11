@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-16.json, level-9.json
+ * @orphan-check-end */
 // src/components/interventions/GratitudeExercise.tsx
 // Template: "GratitudeExercise" – Dankbarkeitsübung für Level 9
 // Wird von GamePlay.tsx via import.meta.glob automatisch als Template erkannt.
@@ -209,6 +215,7 @@ function GratitudeExercise({ data }: { data: GratitudeExerciseData }) {
               {/* Eigener Text */}
               <div className="flex flex-col gap-2 mt-2">
                 <button
+                  type="button"
                   onClick={handleSelectCustom}
                   className={clsx(
                     "px-4 py-2 rounded-xl border text-sm font-medium text-left transition-all duration-200",

@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: UNREFERENZIERT — in keinem Level 1-21 als template genutzt
+ * Hinweis: Vor dem Löschen prüfen: evtl. Tool-Menü, künftige Level oder bewusst reserviert.
+ * @orphan-check-end */
 import { useEffect, useState } from "react"
 
 // API
@@ -68,6 +74,7 @@ export default function CircleTimer({ data }: { data: CircleTimerData }) {
 
       {!running && !finished && (
         <button
+          type="button"
           onClick={handleStart}
           className="px-4 py-2 bg-blue-600 rounded hover:bg-blue-500"
         >
@@ -103,6 +110,7 @@ export default function CircleTimer({ data }: { data: CircleTimerData }) {
 
       {finished && (
         <button
+          type="button"
           onClick={handleFinish}
           className="px-4 py-2 bg-green-600 rounded hover:bg-green-500"
         >

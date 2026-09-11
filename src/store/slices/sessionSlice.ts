@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
 import type { RootState } from "../store"
-import type { ApiInterface, User, UserProfile, UserProfilePatch } from "@api/types"
+import type { ApiInterface, User, UserProfile, UserProfilePatch, PraxisItem } from "@api/types"
 import { setLevelUp, saveLevelUpToStorage, clearAllLevelUpStorage } from "./gameSlice"
+import { setPraxisItems } from "./praxisSlice"
 import type { LevelUpReward } from "./gameSlice"
 
 interface SessionState {
@@ -27,6 +28,7 @@ export type SessionBundlePayload = {
   profile: UserProfile | null
   interventions?: any[]
   avatar_items?: any[]
+  praxis_items?: PraxisItem[]
 }
 
 export const fetchSessionState = createAsyncThunk<
@@ -60,11 +62,23 @@ export const fetchSessionState = createAsyncThunk<
       saveLevelUpToStorage(null, userId)
     }
 
+     // Praxis-Items laden und in praxisSlice speichern
+     const praxisItems = bundle.praxis_items ?? []
+     if (praxisItems.length > 0) {
+       if (import.meta.env.DEV) {
+         console.log("🎯 fetchSessionState: Praxis-Items gefunden →", praxisItems)
+       }
+       dispatch(setPraxisItems(praxisItems))
+     }
+
+
     return {
       user,
       avatar: bundle.avatar ?? null,
       profile: bundle.profile ?? null,
       interventions: bundle.interventions,
+       praxis_items: praxisItems,
+
       avatar_items: bundle.avatar_items,
     }
   } catch (err) {

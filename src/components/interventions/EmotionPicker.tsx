@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: UNREFERENZIERT — in keinem Level 1-21 als template genutzt
+ * Hinweis: Vor dem Löschen prüfen: evtl. Tool-Menü, künftige Level oder bewusst reserviert.
+ * @orphan-check-end */
 type Props = {
   title: string
   xp?: number
@@ -22,6 +28,7 @@ export default function EmotionPicker({
         {emotions.map((emo) => (
           <button
             key={emo}
+            type="button"
             onClick={handleSelect}
             className="text-3xl hover:scale-110 transition-transform"
           >

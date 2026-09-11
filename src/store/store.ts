@@ -7,6 +7,7 @@ import inventoryReducer from "./slices/inventorySlice"
 import uiOverlayReducer from "./slices/uiOverlaySlice"
 import sessionReducer from "./slices/sessionSlice"
 import toolsReducer from "./slices/toolsSlice"
+import praxisReducer from "./slices/praxisSlice"
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     uiOverlay: uiOverlayReducer,
     session: sessionReducer,
     tools: toolsReducer,
+    praxis: praxisReducer,
   },
   // keine extraArgument-API mehr
 })

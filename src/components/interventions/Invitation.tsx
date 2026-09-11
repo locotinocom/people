@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: UNREFERENZIERT — in keinem Level 1-21 als template genutzt
+ * Hinweis: Vor dem Löschen prüfen: evtl. Tool-Menü, künftige Level oder bewusst reserviert.
+ * @orphan-check-end */
 import { useEffect } from "react"
 import { useSlideManager } from "@context/SlideManagerContext"
 // API
@@ -66,6 +72,7 @@ const slideManager = useSlideManager()
       )}
 
       <button
+        type="button"
         onClick={handleContinue}
         className="px-6 py-3 bg-green-600 rounded-lg text-white font-bold hover:bg-green-500"
       >

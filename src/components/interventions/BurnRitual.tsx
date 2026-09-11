@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-10.json
+ * @orphan-check-end */
 import { useRef, useState, useCallback, memo, useEffect } from "react"
 import { motion, AnimatePresence, type Variants } from "framer-motion"
 import clsx from "clsx"
@@ -417,6 +423,7 @@ function BurnRitualNew({ data }: { data: BurnRitualData }) {
               className="w-full flex flex-col items-center"
             >
               <button
+                type="button"
                 onClick={handleComplete}
                 disabled={hasCompleted}
                 className={clsx(

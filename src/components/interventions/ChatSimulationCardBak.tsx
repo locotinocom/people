@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: UNREFERENZIERT — in keinem Level 1-21 als template genutzt
+ * Hinweis: Vor dem Löschen prüfen: evtl. Tool-Menü, künftige Level oder bewusst reserviert.
+ * @orphan-check-end */
 // src/components/interventions/ChatSimulationCard.tsx
 // Template: "ChatSimulation" – WhatsApp-ähnliche Chat-Simulation mit Gefühls-Checks (Level 6)
 // Wird von GamePlay.tsx via import.meta.glob automatisch als Template erkannt.

@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-10.json, level-15.json, level-17.json, level-18.json, level-19.json, level-2.json, level-20.json, level-3.json, level-4.json, level-5.json, level-6.json, level-7.json, level-8.json, level-9.json
+ * @orphan-check-end */
 import {
   useRef,
   useState,
@@ -132,8 +138,9 @@ type FormData = {
   id: number
   title: string
   elements: FormElement[]
-  xp?: number,
+  xp?: number
   contentPoolId?: string
+  showAvatarBubble?: boolean
 }
 
 /* =======================
@@ -172,12 +179,14 @@ const FormElementRenderer = memo(function FormElementRenderer({
   element,
   value,
   onChange,
-  title
+  title,
+  showGlobalBubble
 }: {
   element: FormElement
   value: any
   onChange: (v: any) => void
   title: string
+  showGlobalBubble: boolean
 }) {
   const valid = isElementValid(element, value)
 
@@ -189,19 +198,17 @@ const FormElementRenderer = memo(function FormElementRenderer({
       transition={{ duration: 0.2 }}
       className="flex flex-col gap-4"
     >
-      {/* Avatar spricht */}
-    
-   <AvatarBubble
-  title={
-    element.required
-      ? `${title}`
-      : title
-  }
-/>
+      {/* Avatar spricht - nur wenn keine globale Bubble */}
+      {!showGlobalBubble && (
+        <AvatarBubble
+          title={
+            element.required
+              ? `${title}`
+              : title
+          }
+        />
+      )}
 
-{/*  {element.required && (
-            <span className="ml-1 text-red-400">*</span>
-          )} */}
       {/* User antwortet */}
       <motion.div
         animate={{
@@ -232,6 +239,7 @@ const FormElementRenderer = memo(function FormElementRenderer({
         {element.type === "boolean" && (
           <div className="flex gap-4">
             <button
+              type="button"
               onClick={() => onChange(true)}
               className={clsx(
                 "px-4 py-2 rounded-lg border transition",
@@ -243,6 +251,7 @@ const FormElementRenderer = memo(function FormElementRenderer({
               {element.yesText ?? "Ja"}
             </button>
             <button
+              type="button"
               onClick={() => onChange(false)}
               className={clsx(
                 "px-4 py-2 rounded-lg border transition",
@@ -262,6 +271,7 @@ const FormElementRenderer = memo(function FormElementRenderer({
             {element.options.map((o) => (
               <button
                 key={o.value}
+                type="button"
                 onClick={() => onChange(o.value)}
                 className={clsx(
                   "px-4 py-2 rounded-lg border text-left transition",
@@ -320,7 +330,7 @@ const FormElementRenderer = memo(function FormElementRenderer({
 ======================= */
 
 function Form({ data }: { data: FormData }) {
-  const { id, title, contentPoolId, elements, xp = 0 } = data
+  const { id, title, contentPoolId, elements, xp = 0, showAvatarBubble = false } = data
 
   
   const dispatch = useAppDispatch()
@@ -333,6 +343,8 @@ function Form({ data }: { data: FormData }) {
 
   const btnRef = useRef<HTMLButtonElement | null>(null)
   const [values, setValues] = useState<Record<string, unknown>>({})
+  const [isCompleting, setIsCompleting] = useState(false)
+  const [completionError, setCompletionError] = useState<string | null>(null)
 
   // E1: Beim Laden der Slide Werte aus session.profile vorausfüllen
   useEffect(() => {
@@ -376,8 +388,11 @@ function Form({ data }: { data: FormData }) {
 
   // D3 + D4: Generisches Patch-Objekt aus saveTo-Feldern bauen
   const handleComplete = useCallback(async () => {
-    if (!api || !isFormValid) return
+    if (!api || !isFormValid || isCompleting) return
+    setIsCompleting(true)
+    setCompletionError(null)
 
+    try {
     // Patch-Objekt dynamisch aus allen Elementen mit saveTo aufbauen
     const profilePatch: Record<string, unknown> = {}
 
@@ -413,6 +428,7 @@ function Form({ data }: { data: FormData }) {
         if (import.meta.env.DEV) {
           console.error("[Form] patchUserProfile fehlgeschlagen:", err)
         }
+        setCompletionError("Deine Antwort konnte nicht gespeichert werden. Bitte versuche es erneut.")
         return
       }
     }
@@ -437,12 +453,22 @@ function Form({ data }: { data: FormData }) {
         api,
       })
     ).unwrap()
-  }, [api, isFormValid, values, elements, xp, id, dispatch, startAnimation, slideManager])
+    } catch (error) {
+      if (import.meta.env.DEV) console.error("[Form] Completion fehlgeschlagen:", error)
+      setCompletionError("Die Karte konnte nicht abgeschlossen werden. Bitte versuche es erneut.")
+    } finally {
+      setIsCompleting(false)
+    }
+  }, [api, isFormValid, isCompleting, values, elements, xp, id, dispatch, startAnimation, slideManager])
 
 
   return (
     <div className="flex flex-col h-full p-6 text-white">
-    
+      {showAvatarBubble && (
+        <div className="shrink-0 mb-4">
+          <AvatarBubble title={resolvedTitle} />
+        </div>
+      )}
 
       <div className="flex flex-col gap-6 flex-1">
         {elements.map((el) => (
@@ -451,16 +477,17 @@ function Form({ data }: { data: FormData }) {
             element={el}
             value={values[el.id]}
             onChange={(v) => updateValue(el.id, v)}
-            title={resolvedTitle} 
-            
+            title={resolvedTitle}
+            showGlobalBubble={showAvatarBubble}
           />
         ))}
       </div>
 
       <motion.button
         ref={btnRef}
+        type="button"
         onClick={handleComplete}
-        disabled={!isFormValid}
+        disabled={!isFormValid || isCompleting}
         animate={{ opacity: isFormValid ? 1 : 0.5 }}
         className={clsx(
           "mt-6 px-6 py-3 rounded-lg font-bold transition",
@@ -471,6 +498,8 @@ function Form({ data }: { data: FormData }) {
       >
         Weiter
       </motion.button>
+
+      {completionError && <p className="mt-2 text-sm text-red-400">{completionError}</p>}
 
       {xp > 0 && (
         <p className="mt-2 text-sm text-gray-400">+{xp} XP</p>

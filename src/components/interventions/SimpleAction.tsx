@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-1.json, level-2.json, level-7.json
+ * @orphan-check-end */
 import AvatarRender from "../AvatarRender"
 import { useRef, useState, useEffect } from "react"
 import { useAppSelector, useAppDispatch } from "@store/hooks"
@@ -133,6 +139,7 @@ export default function SimpleAction({ data }: { data: SimpleActionData }) {
 
         {(!timerSeconds || (isTimerActive && timeRemaining === 0)) && (
           <button
+            type="button"
             ref={btnRef}
             onClick={handleComplete}
             className="mt-2 px-6 py-3 bg-green-600 hover:bg-green-500 rounded-lg font-bold text-white shrink-0"

@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-10.json, level-3.json, level-4.json, level-8.json
+ * @orphan-check-end */
 import {
   useRef,
   useState,
@@ -135,6 +141,7 @@ function TypeSelect({ data }: { data: TypeSelectData }) {
           {types.map((type) => (
             <motion.button
               key={type.id}
+              type="button"
               onClick={() => setSelectedTypeId(type.id)}
               whileTap={{ scale: 0.98 }}
               className={clsx(
@@ -175,6 +182,7 @@ function TypeSelect({ data }: { data: TypeSelectData }) {
 
       {/* Weiter-Button unten fix */}
       <motion.button
+        type="button"
         ref={btnRef}
         onClick={handleComplete}
         disabled={!selectedTypeId}

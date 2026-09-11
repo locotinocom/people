@@ -7,6 +7,7 @@ import { closeOverlay } from "@store/slices/uiOverlaySlice"
 import { useReduxApi } from "@api/reduxApi"
 import type { UserProfilePatch } from "@api/types"
 import type { ReactNode } from "react"
+import { useChangePassword } from "../../features/auth/usePassword"
 
 // ---------------------------------------------------------------------------
 // Tab-Typen
@@ -92,6 +93,12 @@ function TabInfo({ onLogout }: { onLogout: () => void }) {
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const { changePassword } = useChangePassword()
+  const [currentPassword, setCurrentPassword] = useState("")
+  const [newPassword, setNewPassword] = useState("")
+  const [passwordRepeat, setPasswordRepeat] = useState("")
+  const [passwordSaving, setPasswordSaving] = useState(false)
+  const [passwordMessage, setPasswordMessage] = useState<string | null>(null)
 
   const [name, setName] = useState(profile?.name ?? user?.name ?? "")
   const [age, setAge] = useState<string>(profile?.age != null ? String(profile.age) : "")
@@ -132,6 +139,31 @@ function TabInfo({ onLogout }: { onLogout: () => void }) {
     }
   }
 
+  const handlePasswordSave = async () => {
+    setPasswordMessage(null)
+    if (newPassword.length < 8) {
+      setPasswordMessage("Das neue Passwort muss mindestens 8 Zeichen enthalten.")
+      return
+    }
+    if (newPassword !== passwordRepeat) {
+      setPasswordMessage("Die Passwörter stimmen nicht überein.")
+      return
+    }
+    setPasswordSaving(true)
+    try {
+      await changePassword(newPassword, user?.has_password ? currentPassword : undefined)
+      setCurrentPassword("")
+      setNewPassword("")
+      setPasswordRepeat("")
+      setPasswordMessage("Passwort gespeichert.")
+    } catch (requestError) {
+      const code = (requestError as { code?: string }).code
+      setPasswordMessage(code === "wrong_password" ? "Das aktuelle Passwort ist nicht richtig." : "Das Passwort konnte nicht gespeichert werden.")
+    } finally {
+      setPasswordSaving(false)
+    }
+  }
+
   return (
     <div className="px-5 py-5 space-y-5">
       <section>
@@ -153,6 +185,17 @@ function TabInfo({ onLogout }: { onLogout: () => void }) {
             }
           />
         </div>
+      </section>
+
+      <section>
+        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500">{user?.has_password ? "Passwort ändern" : "Passwort setzen"}</h3>
+        <div className="space-y-3">
+          {user?.has_password && <FormField label="Aktuelles Passwort"><input type="password" value={currentPassword} onChange={(event) => setCurrentPassword(event.target.value)} autoComplete="current-password" className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none" /></FormField>}
+          <FormField label="Neues Passwort"><input type="password" value={newPassword} onChange={(event) => setNewPassword(event.target.value)} autoComplete="new-password" className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none" /></FormField>
+          <FormField label="Neues Passwort wiederholen"><input type="password" value={passwordRepeat} onChange={(event) => setPasswordRepeat(event.target.value)} autoComplete="new-password" className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none" /></FormField>
+        </div>
+        {passwordMessage && <p className="mt-2 text-sm text-gray-300">{passwordMessage}</p>}
+        <button onClick={handlePasswordSave} disabled={passwordSaving} className="mt-4 w-full rounded-xl bg-purple-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-purple-500 disabled:cursor-not-allowed disabled:bg-gray-700">{passwordSaving ? "Speichern..." : "Passwort speichern"}</button>
       </section>
 
       <section>

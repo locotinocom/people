@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: UNREFERENZIERT — in keinem Level 1-21 als template genutzt
+ * Hinweis: Vor dem Löschen prüfen: evtl. Tool-Menü, künftige Level oder bewusst reserviert.
+ * @orphan-check-end */
 import { useEffect, useState, useRef } from "react"
 import { Howl } from "howler"
 import { motion, useAnimation } from "framer-motion"
@@ -204,6 +210,7 @@ export default function Meditation({ data }: { data: Props }) {
 
         {!playing && (
           <button
+            type="button"
             onClick={startMeditation}
             className="absolute inset-0 m-auto w-24 h-24 rounded-full bg-white text-black font-bold text-xl"
           >
@@ -213,6 +220,7 @@ export default function Meditation({ data }: { data: Props }) {
 
         {playing && !paused && (
           <button
+            type="button"
             onClick={pauseMeditation}
             className="absolute inset-0 m-auto w-24 h-24 rounded-full bg-yellow-400 text-black font-bold text-xl"
           >
@@ -222,6 +230,7 @@ export default function Meditation({ data }: { data: Props }) {
 
         {paused && (
           <button
+            type="button"
             onClick={startMeditation}
             className="absolute inset-0 m-auto w-24 h-24 rounded-full bg-green-400 text-black font-bold text-xl"
           >
@@ -232,6 +241,7 @@ export default function Meditation({ data }: { data: Props }) {
 
       {playing && (
         <button
+          type="button"
           onClick={restartMeditation}
           className="mt-4 px-4 py-2 bg-gray-700 rounded-lg text-white"
         >

@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-11.json, level-4.json
+ * @orphan-check-end */
 // src/components/interventions/OrganAwareness.tsx
 // Level 4 – Teil 1: Organ-Wahrnehmung
 // Ablauf: Organ wählen → Info → 60s Timer → Feedback
@@ -395,6 +401,7 @@ function OrganAwareness({ data }: { data: OrganAwarenessData }) {
           </div>
 
           <motion.button
+            type="button"
             onClick={handleComplete}
             disabled={!selectedFeedback}
             animate={{ opacity: selectedFeedback ? 1 : 0.4 }}

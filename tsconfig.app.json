@@ -38,7 +38,7 @@
       "@store/*": ["store/*"],
      "@/*": ["./src/*"],
       "@utils/*": ["utils/*"] ,
-      "@ui/*": ["src/ui/*"],
+      "@ui/*": ["ui/*"],
       "@game/*": ["components/Game/*"],
       "@types/*": ["src/types/*"],
       "@tools/*": ["tools/*"]

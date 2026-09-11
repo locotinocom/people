@@ -48,7 +48,7 @@ export default function FeelingBubbles({ emotion, accentColor = "#7FB3D3" }: Pro
   }, [emotion])
 
   return (
-    <div className="flex items-center justify-center min-h-[80px] px-6">
+    <div className="flex items-center justify-center min-h-[52px] px-2">
       <AnimatePresence mode="wait">
         {visible && (
           <motion.p
@@ -57,7 +57,7 @@ export default function FeelingBubbles({ emotion, accentColor = "#7FB3D3" }: Pro
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="text-center text-lg font-light leading-relaxed max-w-xs"
+            className="text-center text-base font-light leading-relaxed max-w-sm"
             style={{ color: accentColor }}
           >
             {texts[currentIndex]}

@@ -67,6 +67,7 @@ import type {
   ProgressResponse,
   LevelStatsResponse,
   DiamondState,
+  AdvanceBlockedCode,
 } from "@api/types"
 
 /* =====================================================================================
@@ -79,6 +80,24 @@ export interface LevelUpReward {
   level: number
   asset_ids: string | string[] | null
   tool_ids: string | string[] | null
+}
+
+/**
+ * Freigabe-Ergebnis der zuletzt abgeschlossenen Intervention (Phase B,
+ * Schritt 5/6). Wird von completeInterventionThunk nach jeder Completion
+ * gesetzt und von SlideManagerContext.goNext() konsultiert, BEVOR eine
+ * Levelgrenze überschritten wird - niemals aus dem lokalen Card-Index
+ * abgeleitet.
+ */
+export interface AdvanceGate {
+  can_advance: boolean
+  next_intervention_id: number | null
+  next_level: number | null
+  code?: AdvanceBlockedCode
+  current_xp?: number
+  required_xp?: number
+  missing_xp?: number
+  open_intervention_id?: number | null
 }
 
 interface GameState {
@@ -103,10 +122,11 @@ interface GameState {
   levelUpData: null | {
     level: number
     reward: LevelUpReward
-    
+
   }
 
-  
+  // Freigabe-Ergebnis der zuletzt abgeschlossenen Intervention (siehe AdvanceGate)
+  advanceGate: AdvanceGate | null
 }
 
 /* =====================================================================================
@@ -132,6 +152,8 @@ const initialState: GameState = {
 
   levelUpPending: false,
   levelUpData: null,
+
+  advanceGate: null,
 }
 
 /* const initialState: GameState = {
@@ -311,6 +333,11 @@ const gameSlice = createSlice({
       // Storage wird in handleClose() via clearAllLevelUpStorage() oder
       // in sessionSlice.clearSession() geleert
     },
+
+    // Freigabe-Ergebnis der zuletzt abgeschlossenen Intervention setzen/leeren
+    setAdvanceGate(state, action: PayloadAction<AdvanceGate | null>) {
+      state.advanceGate = action.payload
+    },
   },
 
   extraReducers: (builder) => {
@@ -389,7 +416,7 @@ const gameSlice = createSlice({
    EXPORTS
 ===================================================================================== */
 
-export const { addCompletedIntervention, setLevelUp, clearLevelUp } =
+export const { addCompletedIntervention, setLevelUp, clearLevelUp, setAdvanceGate } =
   gameSlice.actions
 
 export const selectGame = (state: RootState) => state.game

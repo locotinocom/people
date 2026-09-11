@@ -16,6 +16,7 @@ import type {
   UserProfilePatch,
   GetToolsResponse,
   BuyToolResponse,
+  CompleteInterventionResponse,
 } from "./types"
 
 export function createBaseApi(getAuthHeader: () => string | undefined): ApiInterface {
@@ -148,7 +149,7 @@ getEquippedAssets() {
     },
 
     completeIntervention(interventionId: number) {
-      return request(
+      return request<CompleteInterventionResponse>(
         "/game/completeIntervention",
         {
           method: "POST",
@@ -273,6 +274,64 @@ getUserAvatar() {
         {
           method: "POST",
           body: JSON.stringify({ tool_key: toolKey }),
+        },
+        getAuthHeader()
+      )
+    },
+
+    // -------------------------------------------------------------------------
+    // PRAXIS (Sidequests)
+    // -------------------------------------------------------------------------
+    getPraxisContent() {
+      return request<{ praxis_content: any[] }>(
+        "/game/praxis/content",
+        { method: "GET" },
+        getAuthHeader()
+      )
+    },
+
+    acceptPraxisItem(praxisItemId: string) {
+      return request<{ praxis_item_id: string; accepted_at: string; available_at: string }>(
+        "/game/praxis/accept",
+        {
+          method: "POST",
+          body: JSON.stringify({ praxis_item_id: praxisItemId }),
+        },
+        getAuthHeader()
+      )
+    },
+
+    dismissPraxisItem(praxisItemId: string) {
+      return request<{ praxis_item_id: string }>(
+        "/game/praxis/dismiss",
+        {
+          method: "POST",
+          body: JSON.stringify({ praxis_item_id: praxisItemId }),
+        },
+        getAuthHeader()
+      )
+    },
+
+    completePraxisItem(praxisItemId: string, responseData?: Record<string, unknown>) {
+      return request(
+        "/game/praxis/complete",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            praxis_item_id: praxisItemId,
+            responseData: responseData ?? null,
+          }),
+        },
+        getAuthHeader()
+      )
+    },
+
+    claimPraxisDiamonds(transactionId: number) {
+      return request<{ already_claimed: boolean; balance: number; transaction?: unknown }>(
+        "/game/praxis/claimDiamonds",
+        {
+          method: "POST",
+          body: JSON.stringify({ transaction_id: transactionId }),
         },
         getAuthHeader()
       )

@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: UNREFERENZIERT — in keinem Level 1-21 als template genutzt
+ * Hinweis: Vor dem Löschen prüfen: evtl. Tool-Menü, künftige Level oder bewusst reserviert.
+ * @orphan-check-end */
 import { useState, useMemo } from "react"
 
 type ChoiceOption = { id: string; label: string } | string
@@ -30,6 +36,7 @@ export default function Choice({ title, xp, options, onComplete }: Props) {
         {normalized.map((opt) => (
           <button
             key={opt.id}
+            type="button"
             onClick={() => handleSelect(opt.id)}
             className={`px-4 py-2 rounded-lg border transition-all duration-300 ${
               selected === opt.id

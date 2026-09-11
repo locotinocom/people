@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-6.json
+ * @orphan-check-end */
 // src/components/interventions/ChatSimulationCard.tsx
 import {
   memo,
@@ -743,7 +749,7 @@ function ChatSimulationCard({ data }: { data: ChatSimulationData }) {
       {/* Footer Completion Button */}
       {phase === "done" && !waitingForInterrupt && (
         <div className="shrink-0 px-5 pb-5 pt-2">
-          <button onClick={handleComplete} disabled={completing} className={clsx("w-full py-3.5 rounded-2xl font-semibold text-sm transition-all", completing ? "bg-green-600/50 text-white/50 cursor-not-allowed" : "bg-green-600 text-white shadow-lg")}>
+          <button type="button" onClick={handleComplete} disabled={completing} className={clsx("w-full py-3.5 rounded-2xl font-semibold text-sm transition-all", completing ? "bg-green-600/50 text-white/50 cursor-not-allowed" : "bg-green-600 text-white shadow-lg")}>
             {completing ? "Wird gespeichert..." : "Weiter →"}
           </button>
         </div>

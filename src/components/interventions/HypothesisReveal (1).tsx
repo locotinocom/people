@@ -1,3 +1,10 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-3.json
+ * Hinweis: ACHTUNG: mehrere Dateien mit demselben Komponentennamen vorhanden — Duplikat prüfen.
+ * @orphan-check-end */
 import {
   useRef,
   useCallback,

@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-10.json, level-12.json, level-15.json, level-18.json
+ * @orphan-check-end */
 // src/components/interventions/EmotionCheck.tsx
 // Mini-Emotions-Phase für Level 10 BurnRitual mit Feeling-Loop (max. 3 Runden)
 
@@ -7,7 +13,9 @@ import clsx from "clsx"
 import AvatarBubble from "../../ui/AvatarBubble"
 import AvatarEmotionPicker from "../../features/feelingExercise/components/AvatarEmotionPicker"
 import IntensitySlider from "../../features/feelingExercise/components/IntensitySlider"
+import EmotionEntity from "../../features/feelingExercise/components/EmotionEntity"
 import FeelingBubbles from "../../features/feelingExercise/components/FeelingBubbles"
+import { EMOTION_CONFIG_MAP } from "../../features/feelingExercise/constants/emotionConfig"
 import { useReduxApi } from "@api/reduxApi"
 import { useAppDispatch } from "@store/hooks"
 import { patchUserProfile } from "@store/slices/sessionSlice"
@@ -23,6 +31,15 @@ import type { UserProfilePatch } from "@api/types"
 import type { EmotionType } from "../../features/feelingExercise/types"
 
 /* =======================
+   Konfiguration
+======================= */
+
+// Schnell zum Testen änderbar: Sekunden, bis der "Ich hab's gefühlt"-Button
+// erscheint, falls im Level-JSON kein minFeelSeconds gesetzt ist.
+// Für Tests z.B. auf 1 setzen, für Produktion wieder auf 30 zurückstellen.
+const DEFAULT_MIN_FEEL_SECONDS = 1
+
+/* =======================
    Types
 ======================= */
 
@@ -36,6 +53,7 @@ type EmotionCheckData = {
   saveTo: string
   maxIntensity?: number // Default: 3
   maxLoops?: number // Default: 3
+  minFeelSeconds?: number // Default: 30 — Sekunden, bis "Ich hab's gefühlt" erscheint
 }
 
 type Phase = 
@@ -67,6 +85,21 @@ function assignPatchValue(
   }
 }
 
+const FEELING_INSTRUCTIONS: Record<EmotionType, string> = {
+  stressed:
+    "Das hier ist gerade dein Stress. Spür nach: wo im Körper würde er sitzen, wenn er so aussehen würde?",
+  angry:
+    "Das hier ist gerade deine Wut. Spür nach: wo im Körper würde sie sitzen, wenn sie so aussehen würde?",
+  guilty_ashamed:
+    "Das hier ist gerade deine Schuld oder Scham. Spür nach: wo im Körper würde sie sitzen, wenn sie so aussehen würde?",
+  fear:
+    "Das hier ist gerade deine Angst. Spür nach: wo im Körper würde sie sitzen, wenn sie so aussehen würde?",
+  sad_disappointed:
+    "Das hier ist gerade deine Traurigkeit. Spür nach: wo im Körper würde sie sitzen, wenn sie so aussehen würde?",
+  neutral:
+    "Das hier ist gerade dein neutraler Zustand. Spür nach: was im Körper still und klar bleibt, wenn du einfach nur wahrnimmst?",
+}
+
 /* =======================
    EmotionCheck
 ======================= */
@@ -82,6 +115,7 @@ function EmotionCheck({ data }: { data: EmotionCheckData }) {
     saveTo,
     maxIntensity = 3,
     maxLoops = 3,
+    minFeelSeconds = DEFAULT_MIN_FEEL_SECONDS,
   } = data
 
   const dispatch = useAppDispatch()
@@ -101,6 +135,9 @@ function EmotionCheck({ data }: { data: EmotionCheckData }) {
   const [intensityAfter, setIntensityAfter] = useState<number>(5)
   const [loopCount, setLoopCount] = useState<number>(0)
   const [hasCompleted, setHasCompleted] = useState(false)
+
+  const visibleBubbleTitle =
+    phase === "feeling" && selectedEmotion ? FEELING_INSTRUCTIONS[selectedEmotion] : renderedTitle
 
   // ─── Phase 1: Emotion auswählen ──────────────────────────────────────────
   const handleEmotionSelect = useCallback((emotion: EmotionType) => {
@@ -200,7 +237,7 @@ function EmotionCheck({ data }: { data: EmotionCheckData }) {
       <div className="flex-1 min-h-0 overflow-y-auto no-scrollbar pr-1">
         <div className="flex flex-col gap-6">
           {/* Titel mit aufgelöstem Template */}
-          <AvatarBubble title={renderedTitle} />
+          <AvatarBubble title={visibleBubbleTitle} />
 
           <AnimatePresence mode="wait">
             {/* ─── Phase: Emotion auswählen ────────────────────────────── */}
@@ -258,24 +295,27 @@ function EmotionCheck({ data }: { data: EmotionCheckData }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="flex flex-col gap-6"
+                className="flex flex-col gap-2"
               >
-                <p className="text-gray-300 leading-relaxed text-center">
-                  Spüre das Gefühl. Lass es zu.
-                </p>
+                <EmotionEntity
+                  emotion={selectedEmotion}
+                  intensity={intensityBefore}
+                />
 
-                <FeelingBubbles emotion={selectedEmotion} />
+                <FeelingBubbles
+                  emotion={selectedEmotion}
+                  accentColor={EMOTION_CONFIG_MAP[selectedEmotion].color}
+                />
 
-                {/* Weiter-Button nach 10s */}
                 <motion.button
                   onClick={handleFeelingComplete}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 10 }}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: minFeelSeconds, duration: 0.35, ease: "easeOut" }}
                   whileTap={{ scale: 0.97 }}
-                  className="mx-auto px-8 py-3 rounded-lg font-bold bg-purple-600 hover:bg-purple-500 transition text-white"
+                  className="mx-auto mt-1 px-8 py-3 rounded-lg font-bold bg-purple-600 hover:bg-purple-500 transition text-white"
                 >
-                  Weiter
+                  Ich hab's gefühlt
                 </motion.button>
               </motion.div>
             )}

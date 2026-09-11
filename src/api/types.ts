@@ -8,6 +8,7 @@ export interface ApiResponse<T = any> {
   data: T | null
   message?: string
   error?: string | null
+  httpStatus?: number
 }
 
 // ------------------------------------------------------------
@@ -40,6 +41,7 @@ export interface User {
   avatar_id: string | null
   role: string
   is_verified: boolean
+  has_password: boolean
   created: string | null
   modified: string | null
 }
@@ -114,6 +116,46 @@ export interface LevelStatsResponse {
   progress_percent: number
   level_completed: boolean
    avatarId?: string | null
+}
+
+// ------------------------------------------------------------
+// COMPLETE INTERVENTION (Freigabe-Contract, Phase B Schritt 5)
+// ------------------------------------------------------------
+
+/** code-Werte, die completeIntervention() liefert, wenn can_advance=false ist. */
+export type AdvanceBlockedCode = "mandatory_card_open" | "level_threshold_not_met"
+
+export interface CompleteInterventionResponse {
+  old_level: number
+  new_level: number
+  leveled_up: boolean
+  reward: {
+    dias: number
+    transaction_id: number
+    level: number
+    asset_ids: string | string[] | null
+    tool_ids: string | string[] | null
+  } | null
+  levelStats: {
+    level: number
+    xp_in_level: number
+    xp_needed: number
+    xp_remaining: number
+    progress_percent: number
+  }
+  /** Darf der User über diese Card hinaus weitermachen? Siehe GameController::buildAdvanceStatus(). */
+  can_advance: boolean
+  /** Nächste Card desselben Levels, wenn can_advance=true und kein Levelwechsel ansteht. */
+  next_intervention_id: number | null
+  /** Neues Level, wenn can_advance=true UND diese Completion die Levelgrenze überschreitet. */
+  next_level: number | null
+  /** Nur vorhanden wenn can_advance=false. */
+  code?: AdvanceBlockedCode
+  current_xp?: number
+  required_xp?: number
+  missing_xp?: number
+  /** Erste offene Pflicht-Card, wenn code="mandatory_card_open". */
+  open_intervention_id?: number | null
 }
 
 // checkAndRender response
@@ -195,6 +237,46 @@ export interface UserAssetWithMeta {
     required_level: number
     external_id: string | null
   }
+}
+
+// ------------------------------------------------------------
+// PRAXIS ITEMS (Sidequest-System)
+// ------------------------------------------------------------
+export type PraxisItemType = "micro_commitment" | "situation_reflection" | "challenge"
+export type PraxisItemStatus = "pending" | "active" | "completed" | "dismissed" | "expired"
+export type PraxisItemSource = "pool" | "ai_generated"
+
+export interface PraxisItem {
+  id: string                    // eindeutige Instanz-ID für diesen User
+  contentKey: string            // Referenz auf den Inhalt (siehe Content-Pool)
+  type: PraxisItemType
+  difficulty: 1 | 2 | 3         // dieselbe Skala wie Agentenmodus
+  diamondReward: number
+  triggeredAt: string           // ISO-Timestamp
+  expiresAt: string | null      // ISO-Timestamp, null = läuft nicht ab
+  status: PraxisItemStatus
+  acceptedAt?: string | null    // gesetzt bei praxisAccept()
+  availableAt?: string | null   // ab wann completePraxisItem erlaubt ist (acceptedAt + Wartezeit)
+  completedAt: string | null
+  dismissedAt?: string | null
+  responseData: Record<string, unknown> | null  // z.B. Freitext-Antwort
+  source: PraxisItemSource
+}
+
+/** Content-Definition eines Praxis-Items (aus praxis-content.json) */
+export interface PraxisContentItem {
+  contentKey: string
+  type: PraxisItemType
+  title: string
+  description: string
+  difficulty: 1 | 2 | 3
+  unlocksAfterLevel: number
+  diamondReward: number
+  
+  // Abhängig vom Type:
+  followUpAfterHours?: number        // für micro_commitment
+  followUpQuestion?: string           // für micro_commitment, reflection
+  durationDays?: number               // für challenge
 }
 
 // ------------------------------------------------------------
@@ -416,7 +498,7 @@ export interface ApiInterface {
 
   completeIntervention(
     interventionId: number
-  ): Promise<ApiResponse<any>>
+  ): Promise<ApiResponse<CompleteInterventionResponse>>
 
   addDiamonds(
     amount: number,
@@ -469,4 +551,28 @@ getEquippedAssets(): Promise<ApiResponse<EquippedMapResponse>>
   checkAndRender(): Promise<ApiResponse<{ changed: boolean }>>
   patchProfile: (patch: UserProfilePatch) => Promise<ApiResponse<{ user_id: number; profile: UserProfile }>>
 
+  // Praxis-System (Sidequests)
+  getPraxisContent(): Promise<ApiResponse<{ praxis_content: PraxisContentItem[] }>>
+  acceptPraxisItem(praxisItemId: string): Promise<ApiResponse<{
+    praxis_item_id: string
+    accepted_at: string
+    available_at: string
+  }>>
+  dismissPraxisItem(praxisItemId: string): Promise<ApiResponse<{
+    praxis_item_id: string
+  }>>
+  completePraxisItem(
+    praxisItemId: string,
+    responseData?: Record<string, unknown>
+  ): Promise<ApiResponse<{
+    transaction_id: number
+    diamond_amount: number
+    next_item_eligible_at: string
+    completed_at: string
+  }>>
+  claimPraxisDiamonds(transactionId: number): Promise<ApiResponse<{
+    already_claimed: boolean
+    balance: number
+    transaction?: unknown
+  }>>
 }

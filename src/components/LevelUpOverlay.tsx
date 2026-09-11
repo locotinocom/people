@@ -232,9 +232,12 @@ export default function LevelUpOverlay() {
 
         {hasDiamondReward && (
           <div ref={fromRef} className="mt-3">
-            <p className="text-gray-700 text-md">
-              Belohnung:{" "}
-              <span className="text-cyan-500 font-bold">{reward.dias} 💎</span>
+            <p className="text-gray-700 text-md inline-flex items-center gap-1">
+              <span>Belohnung:</span>
+              <span className="text-cyan-500 font-bold inline-flex items-center gap-1">
+                {reward.dias}
+                <span className="inline-block leading-none">💎</span>
+              </span>
             </p>
           </div>
         )}
@@ -289,11 +292,19 @@ export default function LevelUpOverlay() {
               ref={toRef}
               onClick={handleClaim}
               disabled={claiming}
-              className={`px-5 py-2 rounded-lg text-white font-semibold shadow-md ${
+              className={`px-5 py-2 rounded-lg text-white font-semibold shadow-md inline-flex items-center justify-center gap-1 ${
                 claiming ? "bg-gray-400" : "bg-purple-600 hover:bg-purple-700"
               }`}
             >
-              {claiming ? "..." : <>{reward.dias} × 💎 Einfordern</>}
+              {claiming ? (
+                "..."
+              ) : (
+                <>
+                  <span>{reward.dias} ×</span>
+                  <span className="inline-block leading-none">💎</span>
+                  <span>Einfordern</span>
+                </>
+              )}
             </button>
           )}
 

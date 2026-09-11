@@ -5,6 +5,7 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import LevelUpOverlay from "@components/LevelUpOverlay"
 import GlobalOverlay from "@components/GlobalOverlay"
+import PraxisRewardOverlay from "@components/praxis/PraxisRewardOverlay"
 
 import { useReduxApi } from "@api/reduxApi"
 import { useAppDispatch, useAppSelector } from "@store/hooks"
@@ -12,6 +13,7 @@ import { fetchSessionState, clearSession } from "@store/slices/sessionSlice"
 import { fetchProgress, fetchLevelStats, fetchDiamonds } from "@store/slices/gameSlice"
 import { fetchUserAvatar } from "@store/slices/avatarSlice"
 import { fetchTools } from "@store/slices/toolsSlice"
+import { fetchPraxisItems } from "@store/slices/praxisSlice"
 
 type Props = { children: ReactNode }
 
@@ -41,6 +43,7 @@ export default function GameLayout({ children }: Props) {
     dispatch(fetchDiamonds(api))
     dispatch(fetchUserAvatar(api))
     dispatch(fetchTools(api))
+    dispatch(fetchPraxisItems(api))
   }, [api, sessionStatus, dispatch])
 
   // Sobald Session einmal "ready" war, merken wir uns das
@@ -99,6 +102,7 @@ export default function GameLayout({ children }: Props) {
         <Footer />
 
         <LevelUpOverlay />
+        <PraxisRewardOverlay />
         <GlobalOverlay />
       </div>
     </div>

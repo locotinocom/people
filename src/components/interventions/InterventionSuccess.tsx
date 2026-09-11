@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-1.json
+ * @orphan-check-end */
 // src/components/interventions/InterventionSuccess.tsx
 import { useRef } from "react"
 import { useAppDispatch } from "@store/hooks"
@@ -5,15 +11,17 @@ import { completeInterventionThunk, handleActionThunk } from "@store/slices/game
 import { useReduxApi } from "@api/reduxApi"
 import { useAnimation } from "@context/AnimationContext"
 import { useSlideManager } from "@context/SlideManagerContext"
+import { applyTemplate } from "@helpers/template.tsx"
+import { useTemplateContext } from "@helpers/useTemplateContext"
 
+// GamePlay.tsx reicht die Card-Props FLACH durch (<Template data={{ ...props, id, type, template, xp }} />),
+// nicht verschachtelt unter einem "props"-Key - deshalb hier direkt auf data, wie bei allen anderen Interventionen.
 type Props = {
   id: number
   xp: number
-  props?: {
-    title?: string
-    message?: string
-    button?: string
-  }
+  title?: string
+  message?: string
+  button?: string
 }
 
 export default function InterventionSuccess({ data }: { data: Props }) {
@@ -22,16 +30,20 @@ export default function InterventionSuccess({ data }: { data: Props }) {
   const { start: animate } = useAnimation()
   const slides = useSlideManager()
   const btnRef = useRef<HTMLButtonElement | null>(null)
+  const ctx = useTemplateContext()
 
-  // 🔥 props sicher machen – niemals crashen lassen
-  const { id, xp, props: rawProps } = data
-  const p = rawProps ?? {}
-
+  // 🔥 Werte sicher machen – niemals crashen lassen
   const {
+    id,
+    xp,
     title = "Erfolg",
     message = "Cool du hast die Intervention erfolgreich abgeschlossen!",
     button = "Weiter",
-  } = p
+  } = data
+
+  // {{opponent_icon_small}}, {{user_name}} etc. ersetzen - wie in Info.tsx
+  const renderedTitle = applyTemplate(title, ctx)
+  const renderedMessage = applyTemplate(message, ctx)
 
   const handleContinue = async () => {
     if (!api) return
@@ -68,11 +80,11 @@ export default function InterventionSuccess({ data }: { data: Props }) {
 
   return (
     <div className="flex flex-col items-center justify-center h-full text-center px-6 text-white">
-      <h2 className="text-2xl font-bold mb-3">{title}</h2>
+      <h2 className="text-2xl font-bold mb-3">{renderedTitle}</h2>
 
-      {message && (
+      {renderedMessage && (
         <p className="text-white/80 mb-6 max-w-md">
-          {message}
+          {renderedMessage}
         </p>
       )}
 
@@ -83,6 +95,7 @@ export default function InterventionSuccess({ data }: { data: Props }) {
       )}
 
       <button
+        type="button"
         ref={btnRef}
         onClick={handleContinue}
         className="px-6 py-3 bg-green-600 rounded-lg font-bold shadow-lg active:scale-95 transition-transform"

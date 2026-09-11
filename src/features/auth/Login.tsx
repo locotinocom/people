@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useLogin } from './useLogin'
+import GoogleSignInButton from './GoogleSignInButton'
+import { useGoogleLogin } from './useGoogleLogin'
 
 export default function Login() {
   const { login } = useLogin()
+  const { loginWithGoogle } = useGoogleLogin()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [remember, setRemember] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
@@ -29,7 +33,7 @@ export default function Login() {
     }
 
     try {
-      await login(email, password)
+      await login(email, password, remember)
       // Nach dem Login nochmal hart auf 0 setzen, damit GameApp sauber lädt
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     } catch (err: any) {
@@ -54,16 +58,7 @@ export default function Login() {
           </p>
 
           {/* Google Button - Altes Design Look */}
-          <button
-            type="button"
-            className="w-full mt-8 bg-gray-700/40 flex items-center justify-center h-12 border border-gray-600 hover:bg-gray-700 transition-colors rounded-lg active:scale-[0.98]"
-          >
-            <img
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/login/googleLogo.svg"
-              alt="Google"
-              className="h-5"
-            />
-          </button>
+          <GoogleSignInButton onCode={(code) => void loginWithGoogle(code).catch((err: unknown) => setError(err instanceof Error ? err.message : 'Anmeldung fehlgeschlagen.'))} />
 
           {/* Trenner */}
           <div className="flex items-center gap-4 w-full my-6">
@@ -119,6 +114,8 @@ export default function Login() {
               <input
                 type="checkbox"
                 id="remember"
+                checked={remember}
+                onChange={(e) => setRemember(e.target.checked)}
                 className="w-4 h-4 rounded border-gray-700 bg-gray-800 text-indigo-600 focus:ring-offset-gray-900 group-hover:border-indigo-500/50"
               />
               <span className="text-sm group-hover:text-gray-200 transition-colors">Angemeldet bleiben</span>

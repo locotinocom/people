@@ -4,9 +4,13 @@ import MultiSlide from "./MultiSlide"
 import { useSlideManager } from "@context/SlideManagerContext"
 import { useRef, useEffect, useState, useMemo, memo } from "react"
 // Redux
-import { useAppSelector } from "@store/hooks"
+import { useAppSelector, useAppDispatch } from "@store/hooks"
 import { selectData } from "@store/slices/dataSlice"
-import { selectGame } from "@store/slices/gameSlice"
+import { selectGame, fetchProgress } from "@store/slices/gameSlice"
+import { getCompletionDebugState } from "@store/slices/gameActionsSlice"
+import { useReduxApi } from "@api/reduxApi"
+
+const DEBUG_SLIDES = import.meta.env.DEV && import.meta.env.VITE_DEBUG_SLIDES === "true"
 
 // Templates dynamisch importieren
 const modules = import.meta.glob("../interventions/*.tsx", { eager: true })
@@ -96,11 +100,13 @@ function evaluateCondition(condition: any, userProfile: any): boolean {
 }
 
 export default function Gameplay() {
-  const { setSwiper, setInterventions } = useSlideManager()
+  const { setSwiper, setInterventions, setNavigationSource, getNavigationSource } = useSlideManager()
   const { interventions, isLoading } = useAppSelector(selectData)
   const { currentInterventionId } = useAppSelector(selectGame)
   const userProfile = useAppSelector((state) => state.session.user)
-  
+  const dispatch = useAppDispatch()
+  const api = useReduxApi()
+
   const swiperRef = useRef<any>(null)
   const [activeSkippable, setActiveSkippable] = useState(false)
   // Aktiver Slide-Index für LazySlide-Windowing.
@@ -122,6 +128,7 @@ export default function Gameplay() {
     return {
       id: raw.id,
       slug: props.slug ?? null,        // ← aus props, nicht raw
+      level: raw.level,
       type: raw.type ?? "single",
       template: raw.template ?? "Info",
       props,
@@ -157,6 +164,60 @@ export default function Gameplay() {
     return filtered
   }, [parsedInterventions, userProfile])
 
+  const completedIdxForStart = filteredInterventions.findIndex(
+    (i) => i.id === currentInterventionId
+  )
+  const initialSlideIndex = completedIdxForStart >= 0
+    ? Math.min(completedIdxForStart + 1, Math.max(0, filteredInterventions.length - 1))
+    : 0
+
+  // 1c. Stale currentInterventionId erkennen (nicht mehr stumm auf Index 0 fallen).
+  // currentInterventionId kommt aus Redux/localStorage und kann veraltet sein
+  // (z.B. nach einem Levelwechsel, der die geladenen Interventionen ersetzt hat).
+  // currentInterventionId === null ist dagegen legitim (User hat schlicht noch
+  // keinen Fortschritt) und wird NICHT als "stale" behandelt.
+  const staleIdWarnedRef = useRef<number | null>(null)
+  useEffect(() => {
+    if (!filteredInterventions.length) return
+    if (currentInterventionId == null) return
+    if (completedIdxForStart !== -1) return
+    if (staleIdWarnedRef.current === currentInterventionId) return
+    staleIdWarnedRef.current = currentInterventionId
+
+    if (import.meta.env.DEV) {
+      console.warn(
+        "[GamePlay] Stale currentInterventionId:",
+        currentInterventionId,
+        "nicht unter den geladenen Interventionen gefunden - lade Serverstand neu statt auf Index 0 zu fallen.",
+        { loaded: filteredInterventions.map((i) => i.id) }
+      )
+    }
+
+    if (!api) return
+    let cancelled = false
+    ;(async () => {
+      await dispatch(fetchProgress(api))
+      // Nach dem Reload: Effect 3b (unten) per pendingLevelUpJump auf den
+      // dann aktuellen currentInterventionId springen lassen. Bleibt er
+      // weiterhin unauffindbar, springt Effect 3b bewusst (und diesmal
+      // begründet gewarnt) auf Index 0.
+      if (!cancelled) setPendingLevelUpJump(true)
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [filteredInterventions, currentInterventionId, completedIdxForStart, api, dispatch])
+
+  useEffect(() => {
+    if (!DEBUG_SLIDES) return
+    console.log("[slides:mount]", {
+      startIndex: initialSlideIndex,
+      currentInterventionId,
+      length: filteredInterventions.length,
+      order: filteredInterventions.map((intervention) => intervention.id),
+    })
+  }, [currentInterventionId, filteredInterventions, initialSlideIndex])
+
   // 2. SlideManager synchronisieren + Lade-Zähler erhöhen
 useEffect(() => {
   if (filteredInterventions.length) {
@@ -177,22 +238,53 @@ useEffect(() => {
     const swiper = swiperRef.current.swiper
     window.gameSwiper = swiper
 
+    const focusActiveSlide = () => {
+      const activeSlide = swiper.slides[swiper.activeIndex] as HTMLElement | undefined
+      if (!activeSlide) return
+      activeSlide.tabIndex = -1
+      activeSlide.focus({ preventScroll: true })
+    }
+
     const handleSlideChange = () => {
+      const previousIndex = swiper.previousIndex
       const current = filteredInterventions[swiper.activeIndex]
+      const completion = previousIndex >= 0
+        ? getCompletionDebugState(filteredInterventions[previousIndex]?.id)
+        : undefined
+      if (DEBUG_SLIDES) {
+        console.log("[slides:change]", {
+          previousIndex,
+          newIndex: swiper.activeIndex,
+          interventionId: current?.id,
+          trigger: getNavigationSource(),
+          leftCardCompletion: completion ?? { called: false },
+        })
+      }
       setActiveSkippable(current?.skippable ?? false)
       // LazySlide-Windowing: aktiven Index tracken damit Nachbar-Slides gerendert werden
       setActiveIndex(swiper.activeIndex)
+      focusActiveSlide()
     }
+    const handleTouchStart = () => setNavigationSource("touch/swipe")
+    const handleMousewheel = () => setNavigationSource("mousewheel")
+    const handleKeyPress = () => setNavigationSource("keyboard")
 
     swiper.on("slideChange", handleSlideChange)
+    swiper.on("touchStart", handleTouchStart)
+    swiper.on("mousewheel", handleMousewheel)
+    swiper.on("keyPress", handleKeyPress)
     
     // Initial-Check
     const start = filteredInterventions[swiper.activeIndex]
     setActiveSkippable(start?.skippable ?? false)
     setActiveIndex(swiper.activeIndex)
+    focusActiveSlide()
 
     return () => {
       swiper.off("slideChange", handleSlideChange)
+      swiper.off("touchStart", handleTouchStart)
+      swiper.off("mousewheel", handleMousewheel)
+      swiper.off("keyPress", handleKeyPress)
     }
   }, [filteredInterventions])
 
@@ -238,6 +330,33 @@ useEffect(() => {
     swiper.allowTouchMove = activeSkippable
   }, [activeSkippable])
 
+  // 5. Harte Levelgrenze: slideNext() (Touch, Mousewheel, Keyboard, oder ein
+  // programmatischer .slideNext()-Aufruf) darf eine Levelgrenze NIE
+  // überschreiten - unabhängig davon, ob die aktuelle Card skippable ist.
+  // Das schließt genau die Lücke, die allowTouchMove (oben, nur nach
+  // skippable gestaffelt) für eine skippable letzte Card eines Levels offen
+  // lässt. Der einzige erlaubte Weg über die Grenze ist ein slideTo() (via
+  // goToCard()) nach bestätigter Serverfreigabe, siehe
+  // SlideManagerContext.goNext() - slideTo() ignoriert allowSlideNext bewusst.
+  useEffect(() => {
+    const swiper = swiperRef.current?.swiper
+    if (!swiper) return
+
+    const current = filteredInterventions[activeIndex]
+    const next = filteredInterventions[activeIndex + 1]
+    const atLevelBoundary = Boolean(current && next && current.level !== next.level)
+
+    swiper.allowSlideNext = !atLevelBoundary
+
+    if (DEBUG_SLIDES && atLevelBoundary) {
+      console.log("[slides:boundary]", {
+        activeIndex,
+        currentLevel: current?.level,
+        nextLevel: next?.level,
+      })
+    }
+  }, [activeIndex, filteredInterventions])
+
   // --- Bedingte Returns erst NACH allen Hooks ---
   if (isLoading)
     return <div className="p-6 text-zinc-400">Lade…</div>
@@ -247,13 +366,6 @@ useEffect(() => {
 
   // currentInterventionId = zuletzt abgeschlossene Intervention
   // → initialSlide soll auf die NÄCHSTE Intervention zeigen (completedIdx + 1)
-  const completedIdx = filteredInterventions.findIndex(
-    (i) => i.id === currentInterventionId
-  )
-  const initialSlideIndex = completedIdx >= 0
-    ? Math.min(completedIdx + 1, filteredInterventions.length - 1)
-    : 0
-
   return (
     <Swiper
       ref={swiperRef}

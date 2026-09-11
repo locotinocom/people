@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-1.json
+ * @orphan-check-end */
 import { useCallback, useMemo, useState } from "react"
 import clsx from "clsx"
 import { motion } from "framer-motion"

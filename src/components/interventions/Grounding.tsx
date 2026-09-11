@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-4.json
+ * @orphan-check-end */
 // src/components/interventions/Grounding.tsx
 // Level 4 – Teil 2: Verankerungsübung
 // Modus A: Body Scan (konservativ)
@@ -333,6 +339,7 @@ function BodyScanMode({ onComplete }: { onComplete: () => void }) {
         </p>
 
         <button
+          type="button"
           onClick={() => {
             if (timerRef.current) clearInterval(timerRef.current)
             const next = stepIndex + 1

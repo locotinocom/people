@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom"
 import { useAppDispatch } from "@store/hooks"
 import { clearSession } from "@store/slices/sessionSlice"
 import { clearLevelUp } from "@store/slices/gameSlice"
+import { clearAuthCookies, getRefreshToken } from "@api/refreshTokenCookie"
+import { clearAccessTokenOverride } from "@api/request"
+
+const API = import.meta.env.VITE_API_URL
 
 export default function Logout() {
   const signOut = useSignOut()
@@ -11,15 +15,26 @@ export default function Logout() {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    signOut()                          // Token + UserSession löschen
-    localStorage.removeItem("token")   // falls du zusätzlich speicherst
+    const logout = async () => {
+      const refreshToken = getRefreshToken()
+      try {
+        await fetch(`${API}/users/logout`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ refreshToken }),
+        })
+      } finally {
+        signOut()
+        clearAuthCookies()
+        clearAccessTokenOverride()
+        localStorage.removeItem("token")
+        dispatch(clearSession())
+        dispatch(clearLevelUp())
+        navigate("/logout-success")
+      }
+    }
 
-    // Redux-State und LevelUp-Storage vollständig zurücksetzen
-    // clearSession() ruft intern clearAllLevelUpStorage() auf
-    dispatch(clearSession())
-    dispatch(clearLevelUp())
-
-    navigate("/logout-success")        // sofort weiterleiten
+    void logout()
   }, [signOut, navigate, dispatch])
 
   return null // nichts anzeigen – der Redirect geschieht sofort

@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-19.json
+ * @orphan-check-end */
 import { useState, useCallback, useRef, useEffect, memo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import AvatarBubble from "../../ui/AvatarBubble"

@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom"
 import useSignIn from "react-auth-kit/hooks/useSignIn"
+import { clearRefreshToken, setRefreshToken } from "@api/refreshTokenCookie"
 //import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated"
+
+export type AuthRequestError = Error & { code?: string }
 
 export function useLogin() {
   const signIn = useSignIn()
@@ -8,31 +11,34 @@ export function useLogin() {
   const navigate = useNavigate()
   const API = import.meta.env.VITE_API_URL
 
-  const login = async (email: string, password: string) => {
+  const login = async (email: string, password: string, remember = false) => {
     let res
     try {
       res = await fetch(`${API}/users/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, remember }),
       })
     } catch {
       throw new Error("Verbindung zur API fehlgeschlagen.")
     }
 
-    const data = await res.json()
-    if (!res.ok || !data.token) {
-      throw new Error(data.message || "Login fehlgeschlagen.")
+    const data = await res.json() as {
+      token?: string
+      refreshToken?: string
+      user?: { email?: string; role?: string; user_avatar_id?: number; name?: string | null; id?: number }
+      message?: string
+      code?: string
     }
-
-    // 🔥 Token, User usw. hier direkt verfügbar
-    console.log("🔑 Login erfolgreich → Token:", data.token)
-    console.log("👤 User:", data.user)
+    if (!res.ok || !data.token || !data.user) {
+      const error = new Error(data.message || "Login fehlgeschlagen.") as AuthRequestError
+      error.code = data.code
+      throw error
+    }
 
     // JWT speichern
     const ok = signIn({
       auth: { token: data.token, type: "Bearer" },
-      refresh: data.refreshToken,
       userState: {
         email,
         role: data.user.role,
@@ -42,9 +48,9 @@ export function useLogin() {
       },
     })
 
-    console.log("🔐 useLogin -> signIn result:", ok)
-
     if (!ok) throw new Error("Session konnte nicht gespeichert werden.")
+    if (remember && data.refreshToken) setRefreshToken(data.refreshToken)
+    else clearRefreshToken()
 window.scrollTo(0, 0)
     // 🔥 nach dem Login direkt weiter
     navigate("/", { replace: true })

@@ -3,6 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import AuthOutlet from "@auth-kit/react-router/AuthOutlet"
 import GameApp from "../GameApp"
 import Login from "../features/auth/Login"
+import Register from "../features/auth/Register"
+import VerifyEmail from "../features/auth/VerifyEmail"
+import ForgotPassword from "../features/auth/ForgotPassword"
+import ResetPassword from "../features/auth/ResetPassword"
 import Logout from "../features/auth/Logout"
 import LogoutSuccess from "../features/auth/LogoutSuccess"
 import AdminRoute from "./AdminRoute"
@@ -15,6 +19,10 @@ export default function AppRoutes() {
       <Routes>
         {/* öffentlich */}
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/logout-success" element={<LogoutSuccess />} />
 

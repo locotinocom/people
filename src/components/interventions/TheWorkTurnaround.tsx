@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-15.json, level-18.json, level-8.json
+ * @orphan-check-end */
 // src/components/interventions/TheWorkTurnaround.tsx
 
 import { useRef, useState, useCallback, memo } from "react"
@@ -170,6 +176,7 @@ function TheWorkTurnaround({ data }: { data: TheWorkTurnaroundData }) {
       </div>
 
       <motion.button
+        type="button"
         ref={btnRef}
         onClick={handleComplete}
         className="mt-6 shrink-0 px-6 py-3 rounded-lg bg-green-600 hover:bg-green-500 font-bold text-white transition"

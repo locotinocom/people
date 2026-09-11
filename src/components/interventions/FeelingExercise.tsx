@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-5.json
+ * @orphan-check-end */
 // src/components/interventions/FeelingExercise.tsx
 // Intervention-Wrapper für Level 5 – "Erstes Gefühl zulassen"
 // Wird von GamePlay.tsx via import.meta.glob automatisch als Template erkannt.
@@ -45,11 +51,17 @@ function FeelingExercise({ data }: { data: FeelingExerciseData }) {
     async (result: FeelingExerciseResult) => {
       if (!api) return
 
+      // DEBUG: kurzzeitig, um zu sehen was result tatsächlich enthält und
+      // ob patchProfile wirklich erfolgreich durchläuft. Nach dem Debuggen wieder raus.
+      if (import.meta.env.DEV) {
+        console.log("[FeelingExercise] result vor dem Speichern:", result)
+      }
+
       // 1. Alle User-Eingaben als meta.* speichern – damit höhere Level
       //    die Daten für KI-personalisierte Interventionen nutzen können.
       //    patchProfile mergt meta serverseitig (bestehende Keys bleiben erhalten).
       try {
-        await api.patchProfile({
+        const patchResult = await api.patchProfile({
           meta: {
             feeling_situation_text: result.situationText,
             feeling_situation_timeframe: result.situationTimeframe,
@@ -61,8 +73,16 @@ function FeelingExercise({ data }: { data: FeelingExerciseData }) {
             feeling_completed_at: result.completedAt,
           },
         })
-      } catch {
-        // Meta-Saving ist nicht kritisch – Fehler still ignorieren
+        if (import.meta.env.DEV) {
+          console.log("[FeelingExercise] patchProfile Antwort:", patchResult)
+        }
+        if (!patchResult?.success) {
+          console.error("[FeelingExercise] patchProfile fehlgeschlagen:", patchResult)
+        }
+      } catch (err) {
+        // War vorher komplett stumm - jetzt wenigstens sichtbar, damit wir
+        // beim nächsten Fehler nicht wieder blind suchen müssen.
+        console.error("[FeelingExercise] patchProfile Exception:", err)
       }
 
       // 2. Intervention abschließen + XP vergeben

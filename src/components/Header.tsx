@@ -5,6 +5,7 @@ import { useEffect, useState, type RefObject, useMemo } from "react"
 import DiamondCounter from "./DiamondsCounter"
 import { useAppSelector } from "@store/hooks"
 import { selectGame } from "@store/slices/gameSlice"
+import { getChapterForLevel } from "@data/chapters"
 
 type HeaderProps = {
   xpTargetRef?: RefObject<HTMLDivElement | null>
@@ -44,6 +45,8 @@ export default function Header({ xpTargetRef, diaTargetRef }: HeaderProps) {
       progress: pct,
     }
   }, [levelStats])
+
+  const chapter = useMemo(() => getChapterForLevel(level), [level])
 
   // -----------------------------
   // DIAMONDS
@@ -89,9 +92,15 @@ export default function Header({ xpTargetRef, diaTargetRef }: HeaderProps) {
         {/* LEVEL + XP */}
         <div className="flex flex-col flex-1 items-center">
           <div className="text-center">
+           {chapter && (
+              <p className="text-[10px] opacity-80 leading-tight">
+                Kapitel {chapter.id} · {chapter.title}
+              </p>
+            )}
             <p className="font-bold text-base leading-tight">
               Level {level}
             </p>
+           
             <p className="text-[10px] opacity-80">
               {xpDisplay} / {xpNeeded} XP
             </p>

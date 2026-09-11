@@ -9,6 +9,7 @@ import {
   addCompletedIntervention,
   setLevelUp,
   saveLevelUpToStorage,
+  setAdvanceGate,
 } from "./gameSlice"
 
 import { fetchSessionState } from "./sessionSlice"
@@ -16,6 +17,13 @@ import { fetchSessionState } from "./sessionSlice"
 import type { AnimationType, FlyConfig } from "@context/AnimationContext"
 import type { ApiInterface } from "@api/types"
 import { invalidateCacheFor } from "@api/request"
+
+const DEBUG_SLIDES = import.meta.env.DEV && import.meta.env.VITE_DEBUG_SLIDES === "true"
+const completionDebugState = new Map<number, { called: boolean; httpStatus?: number; success: boolean; xp: number }>()
+
+export function getCompletionDebugState(interventionId: number) {
+  return completionDebugState.get(interventionId)
+}
 
 // ---------------------------------------------------------------------------
 // Types
@@ -118,6 +126,7 @@ export const handleActionThunk = createAsyncThunk(
 
     // schon abgeschlossen?
     if (game.completedInterventions.includes(interventionId)) {
+      completionDebugState.set(interventionId, { called: false, success: true, xp })
       console.log(`ℹ️ Intervention ${interventionId} war bereits abgeschlossen`)
       return
     }
@@ -170,13 +179,20 @@ export const completeInterventionThunk = createAsyncThunk(
     // 1) Backend: Intervention abschließen + XP speichern
     const res = await api.completeIntervention(interventionId)
 
-    if (import.meta.env.DEV) {
+    completionDebugState.set(interventionId, {
+      called: true,
+      httpStatus: res.httpStatus,
+      success: Boolean(res.success && res.data),
+      xp,
+    })
+
+    if (DEBUG_SLIDES) {
       console.log("✅ completeIntervention response:", res)
     }
 
     if (!res.success || !res.data) {
       console.error("completeIntervention ERROR:", res)
-      return
+      throw new Error(res.error || res.message || "Intervention konnte nicht abgeschlossen werden")
     }
 
     const data = res.data
@@ -201,8 +217,23 @@ export const completeInterventionThunk = createAsyncThunk(
     await dispatch(fetchLevelStats(api))
     await dispatch(fetchDiamonds(api))
 
-    // 6) LevelUp?
-    if (data.leveled_up) {
+    // 6) Freigabe-Ergebnis merken (Schritt 5/6-Contract) - SlideManagerContext.goNext()
+    // entscheidet anhand dieses Werts, ob und wohin eine Levelgrenze überschritten werden darf.
+    dispatch(
+      setAdvanceGate({
+        can_advance: data.can_advance,
+        next_intervention_id: data.next_intervention_id,
+        next_level: data.next_level,
+        code: data.code,
+        current_xp: data.current_xp,
+        required_xp: data.required_xp,
+        missing_xp: data.missing_xp,
+        open_intervention_id: data.open_intervention_id,
+      })
+    )
+
+    // 7) LevelUp?
+    if (data.leveled_up && data.reward) {
       const levelUpPayload = {
         level: data.new_level,
         reward: data.reward,

@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-6.json
+ * @orphan-check-end */
 // src/components/interventions/OpponentProfileCard.tsx
 // Template: "OpponentProfile" – Schrittweise Erfassung des Opponents (Level 6)
 // Wird von GamePlay.tsx via import.meta.glob automatisch als Template erkannt.

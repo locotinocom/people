@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-15.json, level-18.json, level-8.json
+ * @orphan-check-end */
 import { useRef, useState, useCallback, memo } from "react"
 import { motion } from "framer-motion"
 import clsx from "clsx"
@@ -181,6 +187,7 @@ function TheWorkSelect({ data }: { data: TheWorkSelectData }) {
               return (
                 <motion.button
                   key={belief.id}
+                  type="button"
                   onClick={() => handleSelect(belief.id)}
                   whileTap={{ scale: 0.98 }}
                   className={clsx(
@@ -241,6 +248,7 @@ function TheWorkSelect({ data }: { data: TheWorkSelectData }) {
       </div>
 
       <motion.button
+        type="button"
         ref={btnRef}
         onClick={handleComplete}
         disabled={!canComplete}

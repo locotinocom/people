@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-1.json, level-7.json
+ * @orphan-check-end */
 import { useRef } from "react"
 
 // API
@@ -75,6 +81,7 @@ console.log("🚦 YesNo Intervention geladen:", data)
 
       <div className="flex gap-4 mt-4">
         <button
+          type="button"
           ref={btnRef}
           onClick={handleComplete}
           className="px-6 py-3 bg-green-600 rounded-lg text-white font-bold"
@@ -83,6 +90,7 @@ console.log("🚦 YesNo Intervention geladen:", data)
         </button>
 
         <button
+          type="button"
           onClick={handleComplete}
           className="px-6 py-3 bg-red-600 rounded-lg text-white font-bold"
         >

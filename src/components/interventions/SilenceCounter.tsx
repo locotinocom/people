@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: UNREFERENZIERT — in keinem Level 1-21 als template genutzt
+ * Hinweis: Vor dem Löschen prüfen: evtl. Tool-Menü, künftige Level oder bewusst reserviert.
+ * @orphan-check-end */
 import { useEffect, useRef, useState } from "react"
 
 type Props = {
@@ -44,6 +50,7 @@ export default function SilenceCounter({
 
       {!started ? (
         <button
+          type="button"
           onClick={handleStart}
           className="px-5 py-2 rounded bg-zinc-700 hover:bg-zinc-600"
         >

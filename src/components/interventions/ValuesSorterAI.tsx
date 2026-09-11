@@ -1,3 +1,9 @@
+/** @orphan-check-start
+ * Auto-generated von check-orphaned-templates.js — bitte nicht von Hand editieren.
+ * Zuletzt geprüft: 2026-08-10
+ * Status: aktiv — wird von mindestens einem Level referenziert
+ * Referenziert in: level-17.json
+ * @orphan-check-end */
 import {
   useState,
   useCallback,
@@ -332,6 +338,7 @@ function ValuesSorterAI({ data }: { data: ValuesSorterAIData }) {
 
           {ranked.length > 0 && (
             <button
+              type="button"
               onClick={handleRankUndo}
               className="mt-4 shrink-0 text-xs text-gray-500 hover:text-gray-300 transition self-center"
             >
@@ -358,6 +365,7 @@ function ValuesSorterAI({ data }: { data: ValuesSorterAIData }) {
           </div>
 
           <motion.button
+            type="button"
             onClick={handleFinalSubmit}
             whileTap={{ scale: 0.98 }}
             className="mt-6 shrink-0 px-6 py-3 rounded-lg font-bold bg-green-600 hover:bg-green-500 transition"

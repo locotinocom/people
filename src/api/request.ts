@@ -1,5 +1,11 @@
 import type { ApiResponse } from "./types"
 import { toast } from "react-hot-toast"
+import {
+  clearAuthCookies,
+  getRefreshToken,
+  setAccessToken,
+  setRefreshToken,
+} from "./refreshTokenCookie"
 //import { getRandomErrorIcon } from "@utils/errorIcons"
 
 const BASE_URL = import.meta.env.VITE_API_URL
@@ -24,6 +30,8 @@ export function invalidateCacheFor(...urlParts: string[]): void {
 
 // NEU: Globaler Stopper bei schweren Serverfehlern (Status 500)
 let GLOBAL_ERROR_LOCKOUT = 0;
+let currentAccessToken: string | null = null
+let refreshInFlight: Promise<string | null> | null = null
 
 const GET_CACHE_TTL = 5_000 
 const ERROR_COOLDOWN = 4_000 // Einzelsperre für eine URL
@@ -35,10 +43,52 @@ function makeKey(url: string, options: RequestInit, authHeader?: string) {
   return `${method}|${authHeader ?? ""}|${url}|${body}`
 }
 
+async function refreshAccessToken(): Promise<string | null> {
+  const refreshToken = getRefreshToken()
+  if (!refreshToken) return null
+  if (refreshInFlight) return refreshInFlight
+
+  refreshInFlight = (async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/users/refresh-token`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ refreshToken }),
+      })
+      const data = await response.json() as {
+        token?: string
+        refreshToken?: string
+      }
+      if (!response.ok || !data.token || !data.refreshToken) {
+        throw new Error("Refresh token rejected")
+      }
+
+      currentAccessToken = data.token
+      setAccessToken(data.token)
+      setRefreshToken(data.refreshToken)
+      return data.token
+    } catch {
+      currentAccessToken = null
+      clearAuthCookies()
+      window.location.assign("/login")
+      return null
+    } finally {
+      refreshInFlight = null
+    }
+  })()
+
+  return refreshInFlight
+}
+
+export function clearAccessTokenOverride(): void {
+  currentAccessToken = null
+}
+
 export async function request<T>(
   url: string,
   options: RequestInit = {},
-  authHeader?: string
+  authHeader?: string,
+  retry = false
 ): Promise<ApiResponse<T>> {
   // 1. GLOBALER LOCKOUT CHECK
   // Wenn der Server vor kurzem gecrasht ist, blockieren wir sofort alles.
@@ -69,9 +119,10 @@ export async function request<T>(
     return existing as Promise<ApiResponse<T>>
   }
 
+  const effectiveAuthHeader = currentAccessToken ? `Bearer ${currentAccessToken}` : authHeader
   const headers: HeadersInit = {
     "Content-Type": "application/json",
-    ...(authHeader ? { Authorization: authHeader } : {}),
+    ...(effectiveAuthHeader ? { Authorization: effectiveAuthHeader } : {}),
     ...options.headers,
   }
 
@@ -81,6 +132,14 @@ export async function request<T>(
         ...options,
         headers,
       })
+
+      if (response.status === 401 && !retry && !url.endsWith("/users/refresh-token")) {
+        const token = await refreshAccessToken()
+        if (token) {
+          return request<T>(url, options, `Bearer ${token}`, true)
+        }
+        throw new Error("AUTH_EXPIRED")
+      }
 
       // --- SCHWERER SERVERFEHLER (Status 500) ---
       if (response.status >= 500) {
@@ -101,6 +160,8 @@ export async function request<T>(
         toast.error("Serverfehler: Ungültiges Datenformat.");
         throw new Error("INVALID_JSON");
       }
+
+      json.httpStatus = response.status
 
       // API meldet success: false
      if (json.success === false || (!json.success && json.message)) {
