@@ -148,8 +148,6 @@ function InnerChildAI({ data }: { data: InnerChildAIData }) {
   const {
     id,
     xp = 0,
-    slug,
-    mode,
     step,
     saveTo,
     // identify

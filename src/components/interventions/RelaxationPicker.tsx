@@ -5,7 +5,7 @@
  * Referenziert in: level-19.json
  * @orphan-check-end */
 import { useState, useCallback, useRef, useEffect, memo } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import AvatarBubble from "../../ui/AvatarBubble"
 import { useReduxApi } from "@api/reduxApi"
 import { useAppDispatch } from "@store/hooks"
@@ -286,7 +286,6 @@ function SwipeToConfirm({ onConfirm }: { onConfirm: () => void }) {
 
 function RelaxationPicker({ data }: { data: RelaxationPickerData }) {
   const {
-    id,
     saveTo,
     checkInPoolId = "relaxation_checkin_questions",
     transitionPoolId = "relaxation_transition_texts",

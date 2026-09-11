@@ -111,7 +111,7 @@ export default function ToolsScreen() {
                     : "border-transparent text-white/60 hover:text-white"
                 }`}
               >
-                📋 Aufgaben ({praxisItems.filter((i) => !i.completed).length})
+                📋 Aufgaben ({praxisItems.filter((i) => !i.completedAt).length})
               </button>
             )}
           </div>

@@ -108,7 +108,6 @@ function EmotionCheck({ data }: { data: EmotionCheckData }) {
   const {
     id,
     xp = 0,
-    slug,
     title,
     question,
     instructionAfter,

@@ -5,9 +5,7 @@
  * Referenziert in: level-12.json
  * @orphan-check-end */
 import {
-  useRef,
   useState,
-  useCallback,
   memo,
 } from "react"
 import { motion } from "framer-motion"

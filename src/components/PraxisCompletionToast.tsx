@@ -1,11 +1,6 @@
 // src/components/PraxisCompletionToast.tsx
 import toast from "react-hot-toast"
 
-type Props = {
-  diamondAmount: number
-  itemTitle: string
-}
-
 export function showPraxisCompletionToast(diamondAmount: number, itemTitle: string) {
   toast.custom(
     () => (

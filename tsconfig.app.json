@@ -22,7 +22,7 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "ignoreDeprecations": "6.0",
+    "ignoreDeprecations": "5.0",
     
 
     /* ✅ Aliases */
@@ -44,5 +44,15 @@
       "@tools/*": ["tools/*"]
     }
   },
-  "include": ["src", "src/global.d.ts"]
+  "include": ["src", "src/global.d.ts"],
+  // Verwaiste Kopien/Backup-Dateien (z.B. FooBak.tsx, Foo_bak.tsx,
+  // "Foo (1).tsx") sind kein aktiver Code - werden nicht importiert, nur
+  // vom GamePlay.tsx-Wildcard-Glob mitgebündelt. Vom Type-Check ausschließen
+  // statt einzeln zu fixen.
+  "exclude": [
+    "src/**/*Bak.tsx",
+    "src/**/*_bak.tsx",
+    "src/**/*-bak*.tsx",
+    "src/**/* (*).tsx"
+  ]
 }

@@ -1,7 +1,7 @@
 // Standalone-Version des Burn-Rituals – für den Tools-Screen
 // Kein Intervention-Kontext, kein XP, kein SlideManager – nur die Übung selbst.
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import clsx from "clsx"
 import { useBurnAnimation } from "@hooks/useBurnAnimation"
@@ -103,19 +103,17 @@ export default function BurnRitualToolStandalone() {
     startBurn()
   }, [startBurn])
 
-  // Wenn Burn-Animation complete → automatisch zu Schritt 5
-  const handleBurnComplete = useCallback(() => {
+  // Wenn Burn-Animation complete → automatisch zu Schritt 5.
+  // War vorher fälschlich useState(() => {...}) statt useEffect(): der
+  // Initializer eines useState läuft nur einmal beim ersten Mount, nie bei
+  // Änderungen von isComplete/step - der Auto-Übergang hat dadurch nie
+  // gefeuert.
+  useEffect(() => {
     if (isComplete && step === "burn") {
-      setStep("burden_after")
+      const timer = setTimeout(() => setStep("burden_after"), 1000)
+      return () => clearTimeout(timer)
     }
   }, [isComplete, step])
-
-  // Effect für automatischen Übergang nach Burn
-  useState(() => {
-    if (isComplete && step === "burn") {
-      setTimeout(() => setStep("burden_after"), 1000)
-    }
-  })
 
   // ─── Schritt 5: Belastung nachher ──────────────────────────────────────────
 

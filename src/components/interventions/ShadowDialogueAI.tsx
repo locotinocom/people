@@ -13,7 +13,7 @@ import { patchUserProfile } from "@store/slices/sessionSlice"
 import { completeInterventionThunk, handleActionThunk } from "@store/slices/gameActionsSlice"
 import { useAnimation } from "@context/AnimationContext"
 import { useSlideManager } from "@context/SlideManagerContext"
-import { applyTemplate, applyTemplateText } from "@helpers/template.tsx"
+import { applyTemplateText } from "@helpers/template.tsx"
 import { useTemplateContext } from "@helpers/useTemplateContext"
 import type { UserProfilePatch } from "@api/types"
 

@@ -1,5 +1,4 @@
 // src/features/feelingExercise/constants/feelingBubbleTexts.ts
-import type { EmotionType } from "../types"
 
 export const FEELING_BUBBLE_TEXTS: Record<string, string[]> = {
   stressed: [

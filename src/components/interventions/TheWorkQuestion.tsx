@@ -57,7 +57,6 @@ function TheWorkQuestion({ data }: { data: TheWorkQuestionData }) {
   const {
     id,
     xp = 0,
-    title,
     belief,
     question,
     hint,

@@ -11,7 +11,6 @@ import {
   memo,
 } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import clsx from "clsx"
 import AvatarBubble from "../../ui/AvatarBubble"
 import { useReduxApi } from "@api/reduxApi"
 import { useAppDispatch } from "@store/hooks"
@@ -100,7 +99,6 @@ function ValuesSorterAI({ data }: { data: ValuesSorterAIData }) {
   const isLastValue = swipeIndex === values.length - 1
   const swipeProgress = ((swipeIndex + 1) / values.length) * 100
 
-  const rankTargetReached = ranked.length >= Math.min(topN, kept.length)
   const rankRemaining = kept.filter((v) => !ranked.some((r) => r.id === v.id))
 
   /* ─── Phase 1: Swipe-Handler ─────────────────────────────────────────── */

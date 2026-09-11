@@ -735,7 +735,7 @@ function ChatSimulationCard({ data }: { data: ChatSimulationData }) {
                         <p className="text-green-300 text-sm">✓ Notiert</p>
                       </div>
                     ) : (
-                      <InterruptCard point={item.point} ctx={ctx} onAnswer={(saveTo, val) => handleInterruptAnswer(item.interruptIndex, item.point.id, val)} />
+                      <InterruptCard point={item.point} ctx={ctx} onAnswer={(_saveTo, val) => handleInterruptAnswer(item.interruptIndex, item.point.id, val)} />
                     )}
                   </div>
                 )

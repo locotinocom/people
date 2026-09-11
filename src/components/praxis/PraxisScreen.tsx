@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "@store/hooks"
 import { useReduxApi } from "@api/reduxApi"
 import { fetchPraxisContentPool, selectPraxisItems, selectPraxisContentPool } from "@store/slices/praxisSlice"
-import type { PraxisItem, PraxisContentItem } from "@api/types"
+import type { PraxisContentItem } from "@api/types"
 import PraxisItemCard from "./PraxisItemCard"
 
 export default function PraxisScreen() {

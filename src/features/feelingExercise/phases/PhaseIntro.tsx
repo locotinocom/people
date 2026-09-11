@@ -8,7 +8,7 @@ interface Props {
   onComplete: () => void
 }
 
-export default function PhaseIntro({ levelNumber, onComplete }: Props) {
+export default function PhaseIntro({ onComplete }: Props) {
   return (
     <div className="flex flex-col h-full text-white">
       {/* Header mit Avatar */}
